@@ -11,18 +11,7 @@ const codeExtractor = (requirements: string) => {
 
     if(match !== null){
         const courseCodesString: string = match[0];
-
-        if (courseCodesString.length === 8){
-            courseCodes.push(courseCodesString);
-        }
-        // let a = "(CISC 204 and CISC 223 and [CISC 360 or CISC 260])"
-        // I want to get the course codes from the string above but I can't just separate by spaces bc CISC 204, CISC 223 and CISC 360 have a whitespace instead of a space but CISC 260 has a space
-        // so I need to find the first opening bracket, then find the closing bracket, then find the first opening bracket after that, then find the closing bracket after that, etc.
-        // then I can split the string by spaces and get the course codes
-
-        else{
-          // console.log(courseCodesString)
-          let splitString: string[] = courseCodesString.split(' ');
+          const splitString = courseCodesString.split(/(\s+|\(|\)|\[|\])/g).filter((e) => e.trim().length > 0);
           // go through the array and check if there's a four character string, if there is concatenate it with the next element
           for (let i = 0; i < splitString.length; i++){
             if (splitString[i].length === 4){
@@ -30,71 +19,49 @@ const codeExtractor = (requirements: string) => {
               splitString.splice(i + 1, 1);
             }
           }
-            
-            // [ '(CISC 121', 'and', '[CISC 102', 'or', 'MATH 110])' ]
+          // get rid of empty strings
+          splitString.filter((e) => e.trim().length > 0);
 
-            console.log("before parsing: " + splitString);
-            
-            function parseCourses(arr) {
-              let output = [];
-              let buffer = [];
-              let inOr = false;
-              for (let i = 0; i < arr.length; i++) {
-                let elem = arr[i].trim().replace(/[\(\[\)\]]/g, '');
-                if (elem === 'and') {
-                  if (inOr) {
-                    output.push(buffer);
-                    buffer = [];
-                    inOr = false;
-                  } else {
-                    output.push(buffer.join(" "));
-                    buffer = [];
-                  }
-                } else if (elem === 'or') {
-                  inOr = true;
-                } else {
-                  buffer.push(elem);
+
+        // console.log("\nbefore parsing: ") 
+        // console.log(splitString);
+
+        function parseCourses(array) {
+            const stack = [];
+            let courses = [];
+            let i = 0;
+            while (i < array.length) {
+              if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)) {
+                courses.push(array[i]);
+                if (array[i + 1] === 'or') {
+                  i++;
+                  continue;
                 }
+              } else if (array[i] === '[' || array[i] === '(') {
+                stack.push(courses);
+                courses.push([]);
+                courses = courses[courses.length - 1];
+              } else if (array[i] === ']' || array[i] === ')') {
+                courses = stack.pop();
               }
-              if (buffer.length > 0) {
-                if (inOr) {
-                  output.push(buffer);
-                } else {
-                  output.push(buffer.join(" "));
-                }
-              }
-              return output;
+              i++;
             }
-            
-            const parsedCourses = parseCourses(splitString);
-            console.log("after parsing: ");
-            console.log(parsedCourses)
-            // // first check if the first element is a square bracket, then get all course codes until the next square bracket
-            // if (splitString[0].charAt(0) === '['){
-            //     let closingBracket = 1;
-            //     let optionsArray: string[] = [];
-            //     // find the index of the closing bracket
-            //     while (splitString[closingBracket].charAt(splitString[closingBracket].length - 1) !== ']'){
-            //         closingBracket++;
-            //     }
-            //     const regexCourseCodes = /([A-Z]{4}\s\d{3})/g
-            //     for (let i = 0; i <= closingBracket; i++){
-            //         const match = splitString[i].match(regexCourseCodes);
-            //         if (match !== null){
-            //             optionsArray.push(match[0]);
-            //         }
-            //     }
-            //     console.log(optionsArray);
-            // }
-// [CISC 226, [CISC 322, CISC 326], CISC 324, [MATH 110, MATH 111, MATH 112]]
+            return courses;
+          }
+          
+
+
+        const parsedCourses = parseCourses(splitString);
+        // console.log("after parsing: ");
+        // console.log(parsedCourses)
+        // // first check if the first element is a square bracket, then get all course codes until the next square bracket
+        return parsedCourses
         }
 
         // console.log(courseCodes)
-        return courseCodes
-      } else {
-        // console.log("No match found");
-      }
-}
+        // return courseCodes
+      } 
+
 
 
 
@@ -116,6 +83,20 @@ const crawler = new CheerioCrawler({
             // stringPrerequisites = stringPrerequisites.replace('Prerequisite', '').trim()
             // console.log(stringPrerequisites)
             let codeCleaned = codeExtractor(stringPrerequisites);
+            
+            let objectPrerequisites = []
+            if( codeCleaned !== undefined){
+
+
+
+
+            } else {
+                objectPrerequisites = ["None"]
+                // for (let i = 0; i < codeCleaned.length; i++){
+                //     objectPrerequisites.push(codeCleaned[i])
+                }
+            console.log(objectPrerequisites)
+            // console.log(objectPrerequisites)
             // log.info($(el).find('span.text.col-2.detail-code').text() + ": " + codeCleaned);
 
             // log.info($(el).find('span.text.col-2.detail-code').text() + ': ' + cleanedCourses);
