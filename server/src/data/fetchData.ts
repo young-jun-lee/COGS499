@@ -1,5 +1,5 @@
 
-import { CheerioCrawler, Dataset, enqueueLinks, log } from 'crawlee';
+import { CheerioCrawler, Dataset, enqueueLinks, KeyValueStore } from 'crawlee';
 
 const STAT_OPTIONS = [
   'BIOL 243',
@@ -77,8 +77,7 @@ const codeExtractor = (requirements: string) => {
             splitString[i] = splitString[i] + " " + splitString[i + 1];
             splitString.splice(i + 1, 1);
           }
-          // if you encounter an element that has "OPTIONS" in it, replace it with the elements in the options array
-          console.log(splitString[i])
+
           if (splitString[i].includes("Options")){
             if (splitString[i].includes("STAT")){
               splitString.splice(i, 1, ...STAT_OPTIONS);
@@ -95,9 +94,9 @@ const codeExtractor = (requirements: string) => {
         splitString.filter((e) => e.trim().length > 0);
 
         
-        console.log(requirements)
-        console.log("before parsing: ") 
-        console.log(splitString);
+        // console.log(requirements)
+        // console.log("before parsing: ") 
+        // console.log(splitString);
 
         function parseCourses(array) {
           const stack = [];
@@ -141,9 +140,9 @@ const codeExtractor = (requirements: string) => {
         }
 
         let courseCodes: string[] = parseCourses(splitString);
-        console.log("after parsing: ");
-        console.log(courseCodes)
-        console.log("\n")
+        // console.log("after parsing: ");
+        // console.log(courseCodes)
+        // console.log("\n")
         // // first check if the first element is a square bracket, then get all course codes until the next square bracket
         return courseCodes
         }
@@ -153,37 +152,24 @@ const codeExtractor = (requirements: string) => {
 
 
 const crawler = new CheerioCrawler({
-    async requestHandler({ request, response, body, contentType, $, log }) {
-
+    async requestHandler({ request, $ }) {
+        // Add all links from page to RequestQueue
         const data = [];
 
         $('div.courseblock').each((index, el) => {
             const requirements = ($(el).find('span.text.detail-requirements.margin--default').text())
             
-            let prerequisites: RegExpMatchArray = requirements.match(/Prerequisite(.*?\.)(?!\d)/);
-            let stringPrerequisites: string = prerequisites != null ? prerequisites[0] : "None";
+
+            const extract = (str, pattern) => {
+              let result = str.match(pattern);
+              let stringResult = result != null ? result[0] : "None";
+              let parsedResult = codeExtractor(stringResult);
+              return parsedResult !== undefined ? parsedResult : ["None"];
+            }
             
-            let corequisites: RegExpMatchArray = requirements.match(/Corequisite(.*?)\./g);
-            let stringCorequisites: string = corequisites != null ? corequisites[0] : "None";
-
-            let exclusions: RegExpMatchArray = requirements.match(/Exclusion(.*?)\./g);
-            let stringExclusions: string = exclusions != null ? exclusions[0] : "None";
-
-
-            let parsedPrerequisites: string[] = codeExtractor(stringPrerequisites);
-            if (parsedPrerequisites === undefined){
-              parsedPrerequisites = ["None"]
-            }
-
-            let parsedCorequisites: string[] = codeExtractor(stringCorequisites);
-            if (parsedCorequisites === undefined){
-              parsedCorequisites = ["None"]
-            }
-
-            let parsedExclusions: string[] = codeExtractor(stringExclusions);
-            if (parsedExclusions === undefined){
-              parsedExclusions = ["None"]
-            }
+            let prerequisites = extract(requirements, /Prerequisite(.*?\.)(?!\d)/);
+            let corequisites = extract(requirements, /Corequisite(.*?)\./g);
+            let exclusions = extract(requirements, /Exclusion(.*?)\./g);
             
 
             data.push({
@@ -192,19 +178,110 @@ const crawler = new CheerioCrawler({
                 units: Number($(el).find('span.text.detail-hours_html').text().split(' ')[1]),
                 description: $(el).find('p.courseblockextra').text(),
                 hours: $(el).find('span.text.detail-learning_hours').text().split(': ')[1],
-                prerequisites: parsedPrerequisites,
-                corequisites: parsedCorequisites,
-                exclusions: parsedExclusions,
+                prerequisites: prerequisites,
+                corequisites: corequisites,
+                exclusions: exclusions,
             });
         });
 
-        // // Save the data to dataset.
         await Dataset.pushData({
             url: request.url,
             data,
         })
+
     },
 });
 
+
+const COIs = [
+  'anat',
+  'anim',
+  'ansh',
+  'arab',
+  'arth',
+  'ascx',
+  'astr',
+  'bchm',
+  'biom',
+  'biol',
+  'badr',
+  'blck',
+  'canc',
+  'crss',
+  'chem',
+  'chin',
+  'clst',
+  'cogs',
+  'epid',
+  'coca',
+  'comp',
+  'cisc',
+  'cwri',
+  'dram',
+  'ddht',
+  'econ',
+  'empr',
+  'engl',
+  'enin',
+  'ensc',
+  'film',
+  'artf',
+  'fren',
+  'frst',
+  'gnds',
+  'gphy',
+  'geol',
+  'grmn',
+  'devs',
+  'grek',
+  'hlth',
+  'hebr',
+  'hist',
+  'indg',
+  'idis',
+  'ints',
+  'inuk',
+  'itln',
+  'japn',
+  'jwst',
+  'knpe',
+  'lang',
+  'llcu',
+  'latn',
+  'libs',
+  'lisc',
+  'ling',
+  'math',
+  'mapp',
+  'micr',
+  'mohk',
+  'musc',
+  'muth',
+  'nsci',
+  'path',
+  'phar',
+  'phil',
+  'phys',
+  'phgy',
+  'pols',
+  'ppec',
+  'port',
+  'pact',
+  'intn',
+  'psyc',
+  'qgsp',
+  'rels',
+  'repd',
+  'socy',
+  'span',
+  'stat',
+  'stam',
+  'writ',
+]
+
+
 // Start the crawler with the provided URLs
-await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/cisc/']);
+await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/cisc']);
+// for (const COI of COIs){
+//   await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/' + COI]);
+// }
