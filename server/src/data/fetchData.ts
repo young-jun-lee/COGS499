@@ -159,23 +159,30 @@ const crawler = new CheerioCrawler({
 
         $('div.courseblock').each((index, el) => {
             const requirements = ($(el).find('span.text.detail-requirements.margin--default').text())
-
-
-
-            // let prerequisites: RegExpMatchArray = requirements.match(/Prerequisite(.*?)\./);
+            
             let prerequisites: RegExpMatchArray = requirements.match(/Prerequisite(.*?\.)(?!\d)/);
-
-            // convert prerequisites into a string
             let stringPrerequisites: string = prerequisites != null ? prerequisites[0] : "None";
             
             let corequisites: RegExpMatchArray = requirements.match(/Corequisite(.*?)\./g);
             let stringCorequisites: string = corequisites != null ? corequisites[0] : "None";
 
-            // let corequisitesCleaned = codeExtractor(stringCorequisites);
+            let exclusions: RegExpMatchArray = requirements.match(/Exclusion(.*?)\./g);
+            let stringExclusions: string = exclusions != null ? exclusions[0] : "None";
 
-            let codeCleaned = codeExtractor(stringPrerequisites);
-            if (codeCleaned === undefined){
-              codeCleaned = ["None"]
+
+            let parsedPrerequisites: string[] = codeExtractor(stringPrerequisites);
+            if (parsedPrerequisites === undefined){
+              parsedPrerequisites = ["None"]
+            }
+
+            let parsedCorequisites: string[] = codeExtractor(stringCorequisites);
+            if (parsedCorequisites === undefined){
+              parsedCorequisites = ["None"]
+            }
+
+            let parsedExclusions: string[] = codeExtractor(stringExclusions);
+            if (parsedExclusions === undefined){
+              parsedExclusions = ["None"]
             }
             
 
@@ -185,9 +192,9 @@ const crawler = new CheerioCrawler({
                 units: Number($(el).find('span.text.detail-hours_html').text().split(' ')[1]),
                 description: $(el).find('p.courseblockextra').text(),
                 hours: $(el).find('span.text.detail-learning_hours').text().split(': ')[1],
-                prerequisites: codeCleaned,
-                // corequisites: corequisites,
-                // exclusions: exclusions
+                prerequisites: parsedPrerequisites,
+                corequisites: parsedCorequisites,
+                exclusions: parsedExclusions,
             });
         });
 
