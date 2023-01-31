@@ -23,39 +23,44 @@ const codeExtractor = (requirements: string) => {
           splitString.filter((e) => e.trim().length > 0);
 
 
-        // console.log("\nbefore parsing: ") 
-        // console.log(splitString);
+        console.log("\nbefore parsing: ") 
+        console.log(splitString);
 
         function parseCourses(array) {
-            const stack = [];
-            let courses = [];
-            let i = 0;
-            while (i < array.length) {
-              if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)) {
-                courses.push(array[i]);
-                if (array[i + 1] === 'or') {
-                  i++;
-                  continue;
-                }
-              } else if (array[i] === '[' || array[i] === '(') {
-                stack.push(courses);
-                courses.push([]);
-                courses = courses[courses.length - 1];
-              } else if (array[i] === ']' || array[i] === ')') {
-                courses = stack.pop();
-              }
-              i++;
-            }
-            return courses;
+          const stack = [];
+          let courses = [];
+          let i = 0;
+          if (array[0] ==="(" && array[array.length - 1] === ")") {
+            // remove the first and last element
+            array.shift();
+            array.pop();
           }
+          while (i < array.length) {
+            if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)) {
+              courses.push(array[i]);
+              if (array[i + 1] === 'or') {
+                i++;
+                continue;
+              }
+            } else if (array[i] === '[' || array[i] === '(') {
+              stack.push(courses);
+              courses.push([]);
+              courses = courses[courses.length - 1];
+            } else if (array[i] === ']' || array[i] === ')') {
+              courses = stack.pop();
+            }
+            i++;
+          }
+          return courses;
+        }
           
 
 
-        const parsedCourses = parseCourses(splitString);
-        // console.log("after parsing: ");
-        // console.log(parsedCourses)
+        let courseCodes: string[] = parseCourses(splitString);
+        console.log("after parsing: ");
+        console.log(courseCodes)
         // // first check if the first element is a square bracket, then get all course codes until the next square bracket
-        return parsedCourses
+        return courseCodes
         }
 
         // console.log(courseCodes)
@@ -83,23 +88,10 @@ const crawler = new CheerioCrawler({
             // stringPrerequisites = stringPrerequisites.replace('Prerequisite', '').trim()
             // console.log(stringPrerequisites)
             let codeCleaned = codeExtractor(stringPrerequisites);
+            if (codeCleaned === undefined){
+              codeCleaned = ["None"]
+            }
             
-            let objectPrerequisites = []
-            if( codeCleaned !== undefined){
-
-
-
-
-            } else {
-                objectPrerequisites = ["None"]
-                // for (let i = 0; i < codeCleaned.length; i++){
-                //     objectPrerequisites.push(codeCleaned[i])
-                }
-            console.log(objectPrerequisites)
-            // console.log(objectPrerequisites)
-            // log.info($(el).find('span.text.col-2.detail-code').text() + ": " + codeCleaned);
-
-            // log.info($(el).find('span.text.col-2.detail-code').text() + ': ' + cleanedCourses);
 
             data.push({
                 code: $(el).find('span.text.col-2.detail-code').text(),
@@ -107,7 +99,7 @@ const crawler = new CheerioCrawler({
                 units: Number($(el).find('span.text.detail-hours_html').text().split(' ')[1]),
                 description: $(el).find('p.courseblockextra').text(),
                 hours: $(el).find('span.text.detail-learning_hours').text().split(': ')[1],
-                prerequisites: stringPrerequisites,
+                prerequisites: codeCleaned,
                 // corequisites: corequisites,
                 // exclusions: exclusions
             });
