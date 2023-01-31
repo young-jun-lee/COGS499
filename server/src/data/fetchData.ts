@@ -23,80 +23,36 @@ const codeExtractor = (requirements: string) => {
         console.log("\nbefore parsing: ") 
         console.log(splitString);
 
-        // function parseCourses(array) {
-        //   const stack = [];
-        //   let courses = [];
-        //   let i = 0;
-        //   if (array[0] ==="(" && array[array.length - 1] === ")") {
-        //     array.shift();
-        //     array.pop();
-        //   }
-        //   while (i < array.length) {
-        //     if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)) {
-        //       courses.push(array[i]);
-        //       if (array[i + 1] === 'or') {
-        //         i++;
-        //         continue;
-        //       }
-        //     } else if (array[i] === '[' || array[i] === '(') {
-        //       stack.push(courses);
-        //       courses.push([]);
-        //       courses = courses[courses.length - 1];
-        //     } else if (array[i] === ']' || array[i] === ')') {
-        //       courses = stack.pop();
-        //     }
-        //     i++;
-        //   }
-        //   return courses;
-        // }
-
-        // the above function works for all cases except for the following:
-        // (CISC 101 or CISC 102)
-        // it returns [ 'CISC 101', 'CISC 102'  ] instead of [ [ 'CISC 101', 'CISC 102' ] ]
-        // so we need to check if the first element is a square bracket, if it is, then we need to wrap the array in another array
-        // the function shoul instea look like this:
         function parseCourses(array) {
           const stack = [];
           let courses = [];
-          let i = 0;
-
-          if (array[0] ==="(" && array[array.length - 1] === ")") {
+        
+          if (array[0] === '(' && array[array.length - 1] === ')') {
             array.shift();
             array.pop();
           }
-          while (i < array.length) {
-            if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)) {
-              courses.push(array[i]);
-              if (array[i + 1] === 'or') {
-                i++;
-                continue;
-              }
-            } else if (array[i] === '[' || array[i] === '(') {
+        
+          for (const item of array) {
+            if (item.match(/\b[A-Z]{4}\s\d{3}\b/)) {
+              courses.push(item);
+            } else if (item === '[' || item === '(') {
               stack.push(courses);
+              courses = [];
               courses.push([]);
               courses = courses[courses.length - 1];
-            } else if (array[i] === ']' || array[i] === ')') {
+            } else if (item === ']' || item === ')') {
               courses = stack.pop();
             }
-            i++;
           }
-          let numCourses = 0
-          let numOr = 0
-          for (let i = 0; i < array.length; i++){
-            if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)){
-              numCourses++;
-            }
-            if (array[i] === "or"){
-              numOr++;
-            }
+        
+          if (array.filter(item => item.match(/\b[A-Z]{4}\s\d{3}\b/)).length === array.filter(item => item === 'or').length + 1 && courses.length !== 1) {
+            courses = [courses];
           }
-          if (numCourses === numOr + 1 && courses.length !== 1){
-            courses = [courses]
-          }
+        
           return courses;
         }
+        
 
-          
 
 
         let courseCodes: string[] = parseCourses(splitString);
