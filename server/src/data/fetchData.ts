@@ -144,7 +144,7 @@ const crawler = new CheerioCrawler({
 
 
 
-// await crawler.run(COIs);
-await crawler.run(['https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/cisc/']);
-const testLink = "https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/pols/"
-await crawler.run([testLink]);
+await crawler.run(COIs);
+// await crawler.run(['https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/cisc/']);
+// const testLink = "https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/pols/"
+// await crawler.run([testLink]);
