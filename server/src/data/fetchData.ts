@@ -4,16 +4,15 @@ import { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs } from './courseConstant
 
 
 const codeExtractor = (requirements: string) => {
-    // const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})))/g
-    
-    // the above regex matches all course codes, including those in parentheses, brackets, and curly braces, should also include options ie. STAT_Options 
-    const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options)))/g
-    
+
+    const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\}))/g 
     const match = requirements.match(courseCodeRegex);
 
     if(match !== null){
-        const courseCodesString: string = match[0];
+        const courseCodesString: string = match.join(" ");
         const splitString = courseCodesString.split(/(\s+|\(|\)|\[|\])/g).filter((e) => e.trim().length > 0);
+
+
         // go through the array and check if there's a four character string, if there is concatenate it with the next element
         for (let i = 0; i < splitString.length; i++){
           if (splitString[i].length === 4){
@@ -32,24 +31,31 @@ const codeExtractor = (requirements: string) => {
               splitString.splice(i, 1, ...COMA_OPTIONS);
             }
           }
+          // edge case for courses where course used to be 6 units but got split into 2 courses
+          // ie. (POLS 250 and POLS 350) or (POLS 250/6.0)
+          if (splitString[i].includes("/")){
+            // remove it and the next element and the one before it
+            splitString.splice(i - 1, 3)
+          }
         }
-        // get rid of empty strings
-        splitString.filter((e) => e.trim().length > 0);
+
 
         
-        // console.log(requirements)
-        // console.log("before parsing: ") 
-        // console.log(splitString);
+        console.log(requirements)
+        console.log("before parsing: ") 
+        console.log(splitString);
 
         function parseCourses(array) {
           const stack = [];
           let courses = [];
           let i = 0;
+          
 
-          if (array[0] ==="(" && array[array.length - 1] === ")") {
+          if (array[0] ==="(" && array[array.length - 1] === ")" || array[0] === "{" && array[array.length - 1] === "}") {
             array.shift();
             array.pop();
           }
+          console.log(array)
           while (i < array.length) {
             if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)) {
               courses.push(array[i]);
@@ -83,10 +89,9 @@ const codeExtractor = (requirements: string) => {
         }
 
         let courseCodes: string[] = parseCourses(splitString);
-        // console.log("after parsing: ");
-        // console.log(courseCodes)
-        // console.log("\n")
-        // // first check if the first element is a square bracket, then get all course codes until the next square bracket
+        console.log("after parsing: ");
+        console.log(courseCodes)
+        console.log("\n")
         return courseCodes
         }
       } 
@@ -139,4 +144,7 @@ const crawler = new CheerioCrawler({
 
 
 
-await crawler.run(COIs);
+// await crawler.run(COIs);
+await crawler.run(['https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/cisc/']);
+const testLink = "https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/pols/"
+await crawler.run([testLink]);
