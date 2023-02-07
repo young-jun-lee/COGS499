@@ -1,6 +1,5 @@
-
-import { CheerioCrawler, Dataset, enqueueLinks, KeyValueStore } from 'crawlee';
-import { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs } from './courseConstants.js';
+import { CheerioCrawler, Dataset } from 'crawlee';
+import { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs, COMP_PROGRAMS } from './courseConstants.js';
 
 
 const codeExtractor = (requirements: string) => {
@@ -96,53 +95,19 @@ const codeExtractor = (requirements: string) => {
         }
       } 
 
-const formatResults = (str: string, regexPattern: RegExp) => {
-    let result = str.match(regexPattern);
-    let stringResult = result != null ? result[0] : "None";
-    let parsedResult = codeExtractor(stringResult);
-    return parsedResult !== undefined ? parsedResult : ["None"];
-}
-
 
 const crawler = new CheerioCrawler({
-    async requestHandler({ request, $ }) {
+    async requestHandler({ request, $, log }) {
         // Add all links from page to RequestQueue
         const data = [];
-
-        $('div.courseblock').each((index, el) => {
-            const requirements = ($(el).find('span.text.detail-requirements.margin--default').text())
-
-            let prerequisites = formatResults(requirements, /Prerequisite(.*?\.)(?!\d)/);
-            let corequisites = formatResults(requirements, /Corequisite(.*?)\./g);
-            let exclusions = formatResults(requirements, /Exclusion(.*?)\./g);
-            
-            data.push({
-                code: $(el).find('span.text.col-2.detail-code').text(),
-                title: $(el).find('span.text.col-7.detail-title').text(),
-                units: Number($(el).find('span.text.detail-hours_html').text().split(' ')[1]),
-                description: $(el).find('p.courseblockextra').text(),
-                hours: $(el).find('span.text.detail-learning_hours').text().split(': ')[1],
-                prerequisites: prerequisites,
-                corequisites: corequisites,
-                exclusions: exclusions,
-            });
-        });
-
-        await Dataset.pushData({
-            url: request.url,
-            data,
+        // get first instance of "tbody" element
+        const tbody = $('tbody').first();
+        // get all "tr" elements
+        const trs = tbody.children('tr');
+        // iterate through each "tr" element
+        trs.each((i, tr) => {
+          console.log(tr)
         })
-    }
-});
-
-
-
-
-
-
-// await crawler.run(COIs);
-await crawler.run(['https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/cisc/']);
-// const testLink = "https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/pols/"
-// await crawler.run([testLink]);
-
-export { crawler, formatResults, codeExtractor}
+    },
+  });
+await crawler.run(COMP_PROGRAMS);

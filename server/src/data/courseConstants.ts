@@ -1,4 +1,4 @@
-export const STAT_OPTIONS = [
+const STAT_OPTIONS = [
 'BIOL 243',
 'CHEE 209',
 'COMM 162',
@@ -14,13 +14,13 @@ export const STAT_OPTIONS = [
 'STAT 367'
 ]
 
-export const NSCI_OPTIONS = [
+const NSCI_OPTIONS = [
 'NSCI 323',
 'NSCI 324	',
 'NSCI 401	'
 ]
 
-export const COMA_OPTIONS = [
+const COMA_OPTIONS = [
 'BIOM 300',
 'CISC 271',
 'CISC 330',
@@ -57,8 +57,7 @@ export const COMA_OPTIONS = [
 'STAT 486'
 ]
 
-
-export const COIs = [
+const COIs = [
     // ARTS AND SCIENCE
     'https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/anat/',
     'https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/anim/',
@@ -172,3 +171,18 @@ export const COIs = [
   
   ]
 
+  export const COMP_PROGRAMS=[
+    'https://www.cs.queensu.ca/undergraduate/programs/options/artificial-intelligence.php',
+    // 'https://www.cs.queensu.ca/undergraduate/programs/options/biomedical-computation.php',
+    // 'https://www.cs.queensu.ca/undergraduate/programs/options/data-analytics.php',
+    // 'https://www.cs.queensu.ca/undergraduate/programs/options/security.php',
+    // 'https://www.cs.queensu.ca/undergraduate/programs/options/game-development.php',
+    // 'https://www.cs.queensu.ca/undergraduate/programs/options/fundamental-computation.php',
+    // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/biomedical-computing.php',
+    // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/cognitive-science.php',
+    // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/software-design.php',
+    // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/computing-mathematics-and-analytics.php',
+    // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/computing-and-the-creative-arts.php'
+  ]
+
+export { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs}
