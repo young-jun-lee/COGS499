@@ -8,6 +8,8 @@ for (let i = 0; i < Object.keys(coursesJSON).length; i++) {
     let requirements = requirementsJSON[course];
     test(`comparing ${course} requirements`, async () => {
         expect(courseJSON["prerequisites"]).toEqual(requirements["prerequisites"]);
+        expect(courseJSON["corequisites"]).toEqual(requirements["corequisites"]);
+        expect(courseJSON["exclusions"]).toEqual(requirements["exclusions"]);
     }
     )
 }

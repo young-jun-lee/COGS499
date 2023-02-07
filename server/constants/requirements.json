@@ -2355,29 +2355,32 @@
     },
     "EPID 301": {
         "prerequisites": [
-            "BIOL 243",
-            "CHEE 209",
-            "COMM 162",
-            "ECON 250",
-            "GPHY 247",
-            "KNPE 251",
-            "NURS 323",
-            "POLS 285",
-            "POLS 385",
-            "PSYC 202",
-            "SOCY 211",
-            "STAM 200",
-            "STAT 263",
-            "STAT 267",
-            "STAT 269",
-            "STAT 367"
+            [
+                "BIOL 243",
+                "CHEE 209",
+                "COMM 162",
+                "ECON 250",
+                "GPHY 247",
+                "KNPE 251",
+                "NURS 323",
+                "POLS 285",
+                "POLS 385",
+                "PSYC 202",
+                "SOCY 211",
+                "STAM 200",
+                "STAT 263",
+                "STAT 267",
+                "STAT 269",
+                "STAT 367"
+            ]
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
             "HSCI 270",
-            "BMED 270"
+            "BMED 270",
+            "HLTH 323"
         ]
     },
     "EPID 401": {
@@ -2802,13 +2805,14 @@
     },
     "CISC 325": {
         "prerequisites": [
-            "None"
+            "CISC 124",
+            "CISC 235"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "None"
+            "SOFT 325"
         ]
     },
     "CISC 326": {
@@ -2832,7 +2836,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "SOFT 327"
         ]
     },
     "CISC 330": {
@@ -2884,20 +2888,22 @@
     },
     "CISC 351": {
         "prerequisites": [
-            "CISC 251",
-            "BIOL 243",
-            "CHEE 209",
-            "COMM 162",
-            "ECON 250",
-            "GPHY 247",
-            "KNPE 251",
-            "NURS 323",
-            "POLS 385",
-            "PSYC 202",
-            "SOCY 211",
-            "STAM 200",
-            "STAT 263",
-            "STAT 367"
+            [
+                "CISC 251",
+                "BIOL 243",
+                "CHEE 209",
+                "COMM 162",
+                "ECON 250",
+                "GPHY 247",
+                "KNPE 251",
+                "NURS 323",
+                "POLS 385",
+                "PSYC 202",
+                "SOCY 211",
+                "STAM 200",
+                "STAT 263",
+                "STAT 367"
+            ]
         ],
         "corequisites": [
             "None"
@@ -3095,8 +3101,10 @@
     },
     "CISC 448": {
         "prerequisites": [
-            "CISC 327",
-            "CMPE 327"
+            [
+                "CISC 327",
+                "CMPE 327"
+            ]
         ],
         "corequisites": [
             "None"
@@ -3292,10 +3300,12 @@
     },
     "CISC 473": {
         "prerequisites": [
-            "CISC 371",
             [
-                "CISC 271",
-                "CISC 352"
+                "CISC 371",
+                [
+                    "CISC 271",
+                    "CISC 352"
+                ]
             ]
         ],
         "corequisites": [
@@ -3613,7 +3623,9 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "LAW 210",
+            "LAW 560",
+            "LAW 567"
         ]
     },
     "EMPR 220": {
@@ -3699,8 +3711,10 @@
     },
     "EMPR 320": {
         "prerequisites": [
-            "EMPR 200",
-            "EMPR 220"
+            [
+                "EMPR 200",
+                "EMPR 220"
+            ]
         ],
         "corequisites": [
             "None"
@@ -3722,9 +3736,11 @@
     },
     "EMPR 331": {
         "prerequisites": [
-            "EMPR 200",
-            "EMPR 210",
-            "EMPR 230"
+            [
+                "EMPR 200",
+                "EMPR 210",
+                "EMPR 230"
+            ]
         ],
         "corequisites": [
             "None"
@@ -3735,8 +3751,10 @@
     },
     "EMPR 335": {
         "prerequisites": [
-            "EMPR 200",
-            "EMPR 230"
+            [
+                "EMPR 200",
+                "EMPR 230"
+            ]
         ],
         "corequisites": [
             "None"
@@ -4415,9 +4433,11 @@
     },
     "DDHT 459": {
         "prerequisites": [
-            "PHAR 270",
-            "PHAR 340",
-            "PHAR 370"
+            [
+                "PHAR 270",
+                "PHAR 340",
+                "PHAR 370"
+            ]
         ],
         "corequisites": [
             "None"
@@ -4428,9 +4448,11 @@
     },
     "DDHT 460": {
         "prerequisites": [
-            "PHAR 270",
-            "PHAR 340",
-            "PHAR 370"
+            [
+                "PHAR 270",
+                "PHAR 340",
+                "PHAR 370"
+            ]
         ],
         "corequisites": [
             "None"
@@ -5738,10 +5760,8 @@
     },
     "ENGL 480": {
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
@@ -5752,10 +5772,8 @@
     },
     "ENGL 481": {
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
@@ -5766,10 +5784,8 @@
     },
     "ENGL 482": {
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
