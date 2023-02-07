@@ -16,7 +16,6 @@ files.forEach((file) => {
 
 data = data.flat();
 
-
 let courses = {}
 data.forEach((course) => {
     courses[course.code] = {
