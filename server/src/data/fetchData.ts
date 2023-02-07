@@ -1,6 +1,6 @@
 
 import { CheerioCrawler, Dataset, enqueueLinks, KeyValueStore } from 'crawlee';
-import { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs } from './courseConstants.js';
+import { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs } from '../../constants/courseConstants.js';
 
 
 const codeExtractor = (requirements: string) => {
@@ -140,8 +140,8 @@ const crawler = new CheerioCrawler({
 
 
 
-// await crawler.run(COIs);
-await crawler.run(['https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/cisc/']);
+await crawler.run(COIs);
+// await crawler.run(['https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/cisc/']);
 // const testLink = "https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/pols/"
 // await crawler.run([testLink]);
 

@@ -1,5 +1,5 @@
 import { CheerioCrawler, Dataset } from 'crawlee';
-import { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs, COMP_PROGRAMS } from './courseConstants.js';
+import { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs, COMP_PROGRAMS } from '../../constants/courseConstants.js';
 
 
 const codeExtractor = (requirements: string) => {
