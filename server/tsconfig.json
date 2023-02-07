@@ -7,5 +7,5 @@
         "outDir": "dist",
         "resolveJsonModule": true,
     },
-    "include": ["src/**/*", "constants/courseConstants.ts"],
+    "include": ["src/**/*", "test", "constants/courseConstants.ts"],
 }

@@ -1,4 +1,3 @@
-
 import * as coursesJSON from "../constants/courses.json";
 import * as requirementsJSON from "../constants/requirements.json";
 
