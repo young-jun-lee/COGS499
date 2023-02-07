@@ -25,8 +25,9 @@ data.forEach((course) => {
         units: course.units,
         prerequisites: course.prerequisites,
         corequisites: course.corequisites,
-        exclusions: course.exclusions
+        exclusions: course.exclusions,
+        one_way_exclusions: course.one_way_exclusions
     }
 })
 
-fs.writeFileSync('../../constants/courses.json', `${JSON.stringify(courses)}`)
+fs.writeFileSync('../../../constants/courses.json', `${JSON.stringify(courses)}`)

@@ -14,6 +14,7 @@ const crawler = new CheerioCrawler({
       let prerequisites = formatResults(requirements, /Prerequisite(.*?\.)(?!\d)/);
       let corequisites = formatResults(requirements, /Corequisite(.*?)\./g);
       let exclusions = formatResults(requirements, /Exclusion(.*?)\./g);
+      let one_way_exclusions = formatResults(requirements, /One-Way Exclusion(.*?)\./g);
 
       data.push({
         code: $(el).find('span.text.col-2.detail-code').text(),
@@ -24,6 +25,7 @@ const crawler = new CheerioCrawler({
         prerequisites: prerequisites,
         corequisites: corequisites,
         exclusions: exclusions,
+        one_way_exclusions: one_way_exclusions,
       });
     });
 
