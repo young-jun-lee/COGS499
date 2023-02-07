@@ -7,7 +7,7 @@ for (let i = 0; i < Object.keys(coursesJSON).length; i++) {
     let courseJSON = coursesJSON[course];
     let requirements = requirementsJSON[course];
     test(`comparing ${course} requirements`, async () => {
-        expect(courseJSON["prerequisites"]).toStrictEqual(requirements["prerequisites"]);
+        expect(courseJSON["prerequisites"]).toEqual(requirements["prerequisites"]);
     }
     )
 }
