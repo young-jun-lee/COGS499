@@ -11,10 +11,11 @@ const crawler = new CheerioCrawler({
     $('div.courseblock').each((index, el) => {
       const requirements = ($(el).find('span.text.detail-requirements.margin--default').text())
 
-      let prerequisites = formatResults(requirements, /Prerequisite(.*?\.)(?!\d)/);
+      let prerequisites = formatResults(requirements, /Prerequisite(.*?\.)(?!\d)|PREREQUISITES:(.*)/);
       let corequisites = formatResults(requirements, /Corequisite(.*?)\./g);
       let exclusions = formatResults(requirements, /Exclusion(.*?)\./g);
-      let one_way_exclusions = formatResults(requirements, /One-Way Exclusion(.*?)\./g);
+      let one_way_exclusions = formatResults(requirements, /One-Way Exclusion(.*?)|One-way Exclusion(.*?)|One-way exclusion(.*?)|One Way Exclusion(.*?)|One Way exclusion(.*?)|One way exclusion(.*?)\./g);
+
 
       data.push({
         code: $(el).find('span.text.col-2.detail-code').text(),
