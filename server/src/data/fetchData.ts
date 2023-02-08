@@ -38,6 +38,7 @@ const crawler = new CheerioCrawler({
 });
 
 
+
 await crawler.run(COIs);
 
 export { crawler, formatResults }

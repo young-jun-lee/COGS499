@@ -2,14 +2,19 @@ import { COMA_OPTIONS, NSCI_OPTIONS, STAT_OPTIONS } from "../../constants/course
 
 export const codeExtractor = (requirements: string) => {
 
-  const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\}))/g
+  // const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\}))/g
+  const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\})|(and))/g
+
+
+  // for the string (MATH 120 or MATH 121 or MATH 124 or MATH 126) and (MATH 110 or MATH 111 or MATH 112)
+
   const match = requirements.match(courseCodeRegex);
 
   if (match !== null) {
     const courseCodesString: string = match.join(" ");
     const splitString = courseCodesString.split(/(\s+|\(|\)|\[|\])/g).filter((e) => e.trim().length > 0);
 
-
+    console.log(match)
     // go through the array and check if there's a four character string, if there is concatenate it with the next element
     for (let i = 0; i < splitString.length; i++) {
       if (splitString[i].length === 4) {
@@ -38,11 +43,10 @@ export const codeExtractor = (requirements: string) => {
 
 
 
-    console.log(requirements)
+    console.log("requirements string: ", requirements)
+
     console.log("before parsing: ")
     console.log(splitString);
-
-
 
     let courseCodes: string[] = parseCourses(splitString);
     console.log("after parsing: ");
@@ -62,7 +66,7 @@ const parseCourses = (array) => {
     array.shift();
     array.pop();
   }
-  console.log(array)
+
   while (i < array.length) {
     if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)) {
       courses.push(array[i]);
@@ -76,6 +80,9 @@ const parseCourses = (array) => {
       courses = courses[courses.length - 1];
     } else if (array[i] === ']' || array[i] === ')') {
       courses = stack.pop();
+      if (!courses) {
+        courses = [];
+      }
     }
     i++;
   }
