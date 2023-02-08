@@ -11,10 +11,10 @@ const crawler = new CheerioCrawler({
     $('div.courseblock').each((index, el) => {
       const requirements = ($(el).find('span.text.detail-requirements.margin--default').text())
 
-      let prerequisites = formatResults(requirements, /Prerequisite(.*?\.)(?!\d)|PREREQUISITES:(.*)/);
-      let corequisites = formatResults(requirements, /Corequisite(.*?)\./g);
-      let exclusions = formatResults(requirements, /Exclusion(.*?)\./g);
-      let one_way_exclusions = formatResults(requirements, /One-Way Exclusion(.*?)|One-way Exclusion(.*?)|One-way exclusion(.*?)|One Way Exclusion(.*?)|One Way exclusion(.*?)|One way exclusion(.*?)\./g);
+      // let prerequisites = formatResults(requirements, /Prerequisite(.*?\.)(?!\d)|PREREQUISITES:(.*)/);
+      // let corequisites = formatResults(requirements, /Corequisite(.*?)\./g);
+      // let exclusions = formatResults(requirements, /Exclusion(.*?)\./g);
+      let one_way_exclusions = formatResults(requirements, /One-Way Exclusion(.*?)\.|One-way Exclusion(.*?)\.|One-way exclusion(.*?)\.|One Way Exclusion(.*?)\.|One Way exclusion(.*?)\.|One way exclusion(.*?)\./g);
 
 
       data.push({
@@ -23,9 +23,9 @@ const crawler = new CheerioCrawler({
         units: Number($(el).find('span.text.detail-hours_html').text().split(' ')[1]),
         description: $(el).find('p.courseblockextra').text(),
         hours: $(el).find('span.text.detail-learning_hours').text().split(': ')[1],
-        prerequisites: prerequisites,
-        corequisites: corequisites,
-        exclusions: exclusions,
+        // prerequisites: prerequisites,
+        // corequisites: corequisites,
+        // exclusions: exclusions,
         one_way_exclusions: one_way_exclusions,
       });
     });
@@ -39,6 +39,7 @@ const crawler = new CheerioCrawler({
 
 
 
-await crawler.run(COIs);
 
+// await crawler.run(COIs);
+await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/cisc/'])
 export { crawler, formatResults }

@@ -1,6 +1,3 @@
-// import * as coursesJSON from "../constants/courses.json";
-// import * as requirementsJSON from "../constants/requirements.json";
-
 const coursesJSON = require("../constants/courses.json");
 const requirementsJSON = require("../constants/requirements.json");
 

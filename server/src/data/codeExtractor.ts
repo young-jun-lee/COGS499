@@ -3,18 +3,30 @@ import { COMA_OPTIONS, NSCI_OPTIONS, STAT_OPTIONS } from "../../constants/course
 export const codeExtractor = (requirements: string) => {
 
   // const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\}))/g
-  const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\})|(and))/g
-
-
-  // for the string (MATH 120 or MATH 121 or MATH 124 or MATH 126) and (MATH 110 or MATH 111 or MATH 112)
+  // const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\})|(and))/g
+  const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\})|(and)|(?:[A-Z]+\/(?:[A-Z]+\/)*[A-Z]+\s+at\s+the\s+\d{3}-level\s+or\s+above))/g
 
   const match = requirements.match(courseCodeRegex);
 
   if (match !== null) {
-    const courseCodesString: string = match.join(" ");
+    let courseCodesString: string = match.join(" ");
+    console.log(courseCodesString)
+    const oneWayExclusionRegex = /([A-Z]+\/(?:[A-Z]+\/)*[A-Z]+)\s+at\s+the\s+(\d{3})-level\s+or\s+above/g;
+    const oneWayExclusionMatch = courseCodesString.match(oneWayExclusionRegex);
+    if (oneWayExclusionMatch) {
+      const oneWayExclusionCourseCodes = oneWayExclusionMatch[0].split(" at the ")[0].split("/");
+      const oneWayExclusionLevel = oneWayExclusionMatch[0].split(" at the ")[1].split("-level")[0][0];
+
+      const oneWayExclusionCourseCodesWithLevel = oneWayExclusionCourseCodes.map(courseCode =>
+        `${courseCode} ${oneWayExclusionLevel}++`
+      );
+
+      const oneWayExclusionCourseCodesWithLevelString = `and [${oneWayExclusionCourseCodesWithLevel.join(" or ")}]`;
+      courseCodesString = courseCodesString.replace(oneWayExclusionMatch[0], oneWayExclusionCourseCodesWithLevelString);
+    }
+
     const splitString = courseCodesString.split(/(\s+|\(|\)|\[|\])/g).filter((e) => e.trim().length > 0);
 
-    console.log(match)
     // go through the array and check if there's a four character string, if there is concatenate it with the next element
     for (let i = 0; i < splitString.length; i++) {
       if (splitString[i].length === 4) {
@@ -33,12 +45,13 @@ export const codeExtractor = (requirements: string) => {
           splitString.splice(i, 1, ...COMA_OPTIONS);
         }
       }
-      // edge case for courses where course used to be 6 units but got split into 2 courses
-      // ie. (POLS 250 and POLS 350) or (POLS 250/6.0)
-      if (splitString[i].includes("/")) {
-        // remove it and the next element and the one before it
-        splitString.splice(i - 1, 3)
-      }
+
+      // // edge case for courses where course used to be 6 units but got split into 2 courses
+      // // ie. (POLS 250 and POLS 350) or (POLS 250/6.0)
+      // if (splitString[i].includes("/")) {
+      //   // remove it and the next element and the one before it
+      //   splitString.splice(i - 1, 3)
+      // }
     }
 
 
@@ -68,7 +81,7 @@ const parseCourses = (array) => {
   }
 
   while (i < array.length) {
-    if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)) {
+    if (array[i].match(/\b[A-Z]{4}\s\d{3}\b|\b[A-Z]{4}\s\d{1}\b/)) {
       courses.push(array[i]);
       if (array[i + 1] === 'or') {
         i++;
