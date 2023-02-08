@@ -1,5 +1,8 @@
-import * as coursesJSON from "../constants/courses.json";
-import * as requirementsJSON from "../constants/requirements.json";
+// import * as coursesJSON from "../constants/courses.json";
+// import * as requirementsJSON from "../constants/requirements.json";
+
+const coursesJSON = require("../constants/courses.json");
+const requirementsJSON = require("../constants/requirements.json");
 
 
 for (let i = 0; i < Object.keys(coursesJSON).length; i++) {
@@ -10,6 +13,5 @@ for (let i = 0; i < Object.keys(coursesJSON).length; i++) {
         expect(courseJSON["prerequisites"]).toEqual(requirements["prerequisites"]);
         expect(courseJSON["corequisites"]).toEqual(requirements["corequisites"]);
         expect(courseJSON["exclusions"]).toEqual(requirements["exclusions"]);
-    }
-    )
+    });
 }

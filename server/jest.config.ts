@@ -1,11 +1,14 @@
 
+import { Config } from '@jest/types';
 
-import type {Config} from '@jest/types';
-// Sync object
 const config: Config.InitialOptions = {
-  verbose: true,
+  preset: 'ts-jest',
+  testEnvironment: 'node',
   transform: {
-  '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.tsx?$': 'ts-jest',
   },
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 };
+
 export default config;
