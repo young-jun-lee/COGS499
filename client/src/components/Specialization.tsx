@@ -5,11 +5,8 @@ import {useSnapshot} from "valtio";
 import { state } from '../State';
 
 
-interface Specialization {
-	title: string;
-}
 
-const Specialization: FC<Specialization> = (props) => {
+const Specialization: FC = () => {
     const snap = useSnapshot(state);
     // const [specialization, setSpecialization] = useState("");
 	return (
