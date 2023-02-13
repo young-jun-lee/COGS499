@@ -1,7 +1,9 @@
 import { ColorScheme, ColorSchemeProvider, Container, MantineProvider } from '@mantine/core';
-import Header from './components/Header';
-import Toggle from './components/DarkMode';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
+import Toggle from './components/DarkMode';
+import Header from './components/Header';
+import Requirements from './components/Requirements';
+import HeaderContent from './content/Header';
 
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -19,7 +21,10 @@ export default function App() {
     <MantineProvider withGlobalStyles withNormalizeCSS theme={{colorScheme}}>
       <Container size="lg" px="lg">
         <Toggle />
-        <Header title="Hitchhiker's Guide to Computing Degree Plans" />
+        <Header title={HeaderContent.title} />
+        <Requirements subheading={HeaderContent.subheading} />
+        
+
       </Container>
       {/* <Text>Welcome to Mantine!</Text> */}
     </MantineProvider>
