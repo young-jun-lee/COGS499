@@ -24,6 +24,7 @@ export default function App() {
         <Header title={HeaderContent.title} />
         <Requirements subheading={HeaderContent.subheading} />
         
+        
 
       </Container>
       {/* <Text>Welcome to Mantine!</Text> */}
