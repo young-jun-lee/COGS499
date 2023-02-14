@@ -1,27 +1,24 @@
+import { Box, Flex } from '@mantine/core';
 import { FC } from "react";
-import { Box, Container, Group } from '@mantine/core';
-import Specialization from "./Specialization";
 import SpecCourses from "./SpecCourses";
+import Specialization from "./Specialization";
 
 interface Requirements {
-	subheading: string;
+    subheading: string;
 }
 
-const Requirements: FC<Requirements> = ({subheading}) => {
-	return (
+const Requirements: FC<Requirements> = () => {
+    return (
 
-		<Box>
-            Requirements: {subheading}
+        <Box style={{ height: "60%" }}>
             <Specialization />
-            {/* the child elements should fill all available space*/}
-            <Group position="center">
-                <SpecCourses title="Program Specific Courses"/>
-                <SpecCourses title="CISC Courses"/>
+            <Flex justify="space-between" style={{ height: "100%" }}>
+                <SpecCourses title="Program Specific Courses" />
+                <SpecCourses title="CISC Courses" />
                 <SpecCourses title="Electives" />
-            </Group>
-
-		</Box>
-	);
+            </Flex>
+        </Box>
+    );
 };
 
 export default Requirements;

@@ -32,7 +32,7 @@ const Specialization: FC = () => {
             </Collapse>
 
             <Box>
-                Specialization: {snap.specialization}
+                {snap.specialization === "" ? <></> : <div className='banner-text'>Specialization: {snap.specialization}</div>}
             </Box>
 
         </>

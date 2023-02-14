@@ -11,24 +11,24 @@ export default function App() {
     defaultValue: 'light',
     getInitialValueInEffect: true,
   });
-  
+
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
-  
+
   useHotkeys([['mod+J', () => toggleColorScheme()]]);
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={{colorScheme}}>
-      <Container size="lg" px="lg">
-        <Toggle />
-        <Header title={HeaderContent.title} />
-        <Requirements subheading={HeaderContent.subheading} />
-        
-        
+      <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }}>
+        <Container size="lg" px="lg">
+          <Container size="lg" style={{ height: "60vh" }}>
+            <Toggle />
+            <Header title={HeaderContent.title} />
+            <Requirements subheading={HeaderContent.subheading} />
+          </Container>
 
-      </Container>
-      {/* <Text>Welcome to Mantine!</Text> */}
-    </MantineProvider>
+        </Container>
+        {/* <Text>Welcome to Mantine!</Text> */}
+      </MantineProvider>
     </ColorSchemeProvider>
 
   );
