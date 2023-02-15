@@ -8,6 +8,7 @@ const Specialization: FC = () => {
     const snap = useSnapshot(state);
     const [opened, setOpened] = useState(false);
 
+
     return (
 
         <>
@@ -16,18 +17,22 @@ const Specialization: FC = () => {
             </Button>
             <Collapse in={opened}>
                 <Box>
-                    {HeaderContent.specializations.map((specialization) => (
-                        <Radio
-                            key={specialization}
-                            label={specialization}
-                            value={specialization}
-                            checked={state.specialization === specialization}
-                            onChange={(e) => {
-                                state.specialization = e.currentTarget.value
-                                setOpened(false)
-                            }}
-                        />
-                    ))}
+                    <Radio.Group
+                        value={state.specialization}
+                    >
+                        {HeaderContent.specializations.map((specialization) => (
+                            <Radio
+                                key={specialization}
+                                label={specialization}
+                                value={specialization}
+                                checked={state.specialization === specialization}
+                                onClick={() => {
+                                    state.specialization = specialization;
+                                    setOpened(false);
+                                }}
+                            />
+                        ))}
+                    </Radio.Group>
                 </Box>
             </Collapse>
 
