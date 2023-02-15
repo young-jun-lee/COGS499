@@ -11,8 +11,8 @@ export default {
         "Biomedical Computing",
         "Cognitive Science",
         "Computer Science",
-        "Computing and the Creative Arts",
-        "Computing, Mathematics, and Analytics",
+        "COCA",
+        "COMA",
         "Software Design",
     ]
 };
