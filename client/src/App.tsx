@@ -1,4 +1,4 @@
-import { ColorScheme, ColorSchemeProvider, Container, Flex, MantineProvider } from '@mantine/core';
+import { Box, ColorScheme, ColorSchemeProvider, Container, Flex, MantineProvider } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import Toggle from './components/DarkMode';
 import Header from './components/Header';
@@ -22,12 +22,14 @@ export default function App() {
       <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }}>
         <Container size="lg" px="lg">
           <Flex style={{ height: "45vh", flexDirection: "column" }}>
-            <Toggle />
+            <Box>
+              <Toggle />
+            </Box>
             <Header title={HeaderContent.title} />
             <Requirements />
           </Flex>
           <Container size="lg" style={{ height: "60vh" }}>
-          <Years />
+            <Years />
           </Container>
         </Container>
         {/* <Text>Welcome to Mantine!</Text> */}

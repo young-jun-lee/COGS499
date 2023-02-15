@@ -1,5 +1,5 @@
 import { ActionIcon, useMantineColorScheme } from '@mantine/core';
-import {  SunIcon, MoonIcon } from '@modulz/radix-icons';
+import { MdLightMode, MdDarkMode } from 'react-icons/md';
 
 function Toggle() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -11,8 +11,10 @@ function Toggle() {
       color={dark ? 'yellow' : 'blue'}
       onClick={() => toggleColorScheme()}
       title="Toggle color scheme"
+      // style
+      style={{ position: 'absolute', top: 0, right: 0, height: 40, width: 40 }}
     >
-      {dark ? <SunIcon /> : <MoonIcon/>}
+      {dark ? <MdLightMode /> : <MdDarkMode />}
     </ActionIcon>
   );
 }
