@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Requirements from './components/Requirements';
 import Years from './components/YearsContainer';
 import HeaderContent from './content/Header';
-import Search from './components/Search';
+import Search from './components/SearchContainer';
 
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -31,7 +31,7 @@ export default function App() {
           </Flex>
           <Flex style={{ height: "60vh" }}>
             <Years />
-            {/* <Search /> */}
+            <Search />
           </Flex>
         </Container>
       </MantineProvider>
