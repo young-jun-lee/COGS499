@@ -11,10 +11,9 @@ import Year from "./Year";
 const Years: FC = () => {
     const snap = useSnapshot(state);
     return (
-        <Flex style={{ flexDirection: "column", width: "50%" }}>
+        <Flex style={{ flexDirection: "column", width: "65%", height: "100%" }}>
 
             {[...Array(snap.numYears)].map((x, i) =>
-                // <div>Year {i + 1}</div>
                 <Year year={i + 1}></Year>
             )}
             {snap.numYears < constants.MAX_YEARS ?

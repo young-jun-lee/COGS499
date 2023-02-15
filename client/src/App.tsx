@@ -22,14 +22,14 @@ export default function App() {
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
       <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }}>
         <Container size="lg" px="lg">
-          <Flex style={{ height: "45vh", flexDirection: "column" }}>
-            {/* <Box> */}
+          <Flex style={{ height: "60%", flexDirection: "column" }}>
+
             <Toggle />
-            {/* </Box> */}
+
             <Header title={HeaderContent.title} />
             <Requirements />
           </Flex>
-          <Flex style={{ height: "60vh" }}>
+          <Flex style={{ height: "60%" }}>
             <Years />
             <Search />
           </Flex>

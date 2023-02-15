@@ -1,4 +1,4 @@
-import { Box, Button, Collapse, Radio } from '@mantine/core';
+import { Box, Button, Collapse, Flex, Radio } from '@mantine/core';
 import { FC, useState } from "react";
 import { useSnapshot } from "valtio";
 import HeaderContent from "../content/Header";
@@ -36,9 +36,17 @@ const Specialization: FC = () => {
                 </Box>
             </Collapse>
 
-            <Box>
-                {snap.specialization === "" ? <></> : <div className='banner-text'>Specialization: {snap.specialization}</div>}
-            </Box>
+
+            {snap.specialization === "" ? <></> : <Box sx={
+                (theme) => ({
+                    backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : theme.colors.gray[1],
+                    width: '35%',
+                    padding: theme.spacing.sm,
+                    marginTop: theme.spacing.md,
+
+                })
+            }>Specialization: {snap.specialization}</Box>}
+
 
         </>
 

@@ -1,7 +1,12 @@
-import { Autocomplete } from '@mantine/core'
-import React from 'react'
+import { Autocomplete, Flex } from '@mantine/core'
+import React, { useState } from 'react'
+import DisplaySearch from './DisplaySearch'
 
 function SearchBar() {
+    const [courses, setCourses] = useState([
+        "CISC 101", "CISC 102", "CISC 103"
+    ])
+
     return (
         <>SearchBar
             <Autocomplete
@@ -14,7 +19,8 @@ function SearchBar() {
                     { value: 'd', group: '2' },
                 ]}
             />
-        </>
+            <DisplaySearch courses={courses}></DisplaySearch>
+        </ >
     )
 }
 
