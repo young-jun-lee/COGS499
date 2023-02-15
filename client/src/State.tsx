@@ -2,8 +2,10 @@ import { proxy } from "valtio";
 
 type Specialization = string
 type Basket = string[]
+type NumYears = number
 
-export const state = proxy<{specialization: Specialization, currentBasket: Basket}>({
+export const state = proxy<{ specialization: Specialization, currentBasket: Basket, numYears: NumYears }>({
     specialization: "",
-    currentBasket: []
+    currentBasket: [],
+    numYears: 1
 });

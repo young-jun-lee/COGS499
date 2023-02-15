@@ -11,8 +11,8 @@ function Toggle() {
       color={dark ? 'yellow' : 'blue'}
       onClick={() => toggleColorScheme()}
       title="Toggle color scheme"
-      // style
-      style={{ position: 'absolute', top: 0, right: 0, height: 40, width: 40 }}
+      
+      // style={{ position: 'absolute', top: 0, right: 0, height: 40, width: 40 }}
     >
       {dark ? <MdLightMode /> : <MdDarkMode />}
     </ActionIcon>

@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Requirements from './components/Requirements';
 import Years from './components/YearsContainer';
 import HeaderContent from './content/Header';
+import Search from './components/Search';
 
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -22,17 +23,17 @@ export default function App() {
       <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }}>
         <Container size="lg" px="lg">
           <Flex style={{ height: "45vh", flexDirection: "column" }}>
-            <Box>
-              <Toggle />
-            </Box>
+            {/* <Box> */}
+            <Toggle />
+            {/* </Box> */}
             <Header title={HeaderContent.title} />
             <Requirements />
           </Flex>
-          <Container size="lg" style={{ height: "60vh" }}>
+          <Flex style={{ height: "60vh" }}>
             <Years />
-          </Container>
+            {/* <Search /> */}
+          </Flex>
         </Container>
-        {/* <Text>Welcome to Mantine!</Text> */}
       </MantineProvider>
     </ColorSchemeProvider>
 
