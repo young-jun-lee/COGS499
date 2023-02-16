@@ -13,14 +13,7 @@ const DisplaySearch: FC<DisplayCoursesProps> = ({ courses }) => {
       (theme) => ({
         backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : "red",
         alignItems: 'center',
-        width: '100%',
-        height: '100%',
-        padding: theme.spacing.sm,
-        marginLeft: "1px",
-        marginRight: "1px",
         marginTop: theme.spacing.md,
-        marginBottom: theme.spacing.md,
-        borderRadius: `${theme.radius.md} ${theme.radius.md} 0 0`,
       })
     }>
       {courses.map((course) => {

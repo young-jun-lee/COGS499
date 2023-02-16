@@ -14,7 +14,7 @@ const Years: FC = () => {
         <Flex style={{ flexDirection: "column", width: "65%", height: "100%" }}>
 
             {[...Array(snap.numYears)].map((x, i) =>
-                <Year year={i + 1}></Year>
+                <Year year={i + 1} key={i}></Year>
             )}
             {snap.numYears < constants.MAX_YEARS ?
                 <Button
