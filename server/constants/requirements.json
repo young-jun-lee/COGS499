@@ -4143,18 +4143,29 @@
         "description": "Elementary principles and applications of wave mechanics with special reference to molecular orbitals and chemical bonding.",
         "units": 3,
         "prerequisites": [
-            "PHYS 104",
-            "PHYS 106",
-            "PHYS 117"
+            [
+                "CHEM 211",
+                "CHEM 222"
+            ],
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ],
+            [
+                "PHYS 104",
+                "PHYS 106",
+                "PHYS 117"
+            ]  
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "PHYS 344"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "PHYS 344"
         ]
     },
     "CHEM 314": {
@@ -4278,10 +4289,8 @@
         "description": "Laboratory course introducing modern experimental methods in chemistry, including synthesis, analytical instrumentation and computational methods. The integration of several methods will be emphasized in the synthesis and characterization of molecules.\nNOTE Lab Coat: estimated cost $27, Goggles: estimated cost $17, Carbon Lab Book: estimated cost $16, Flame Gard Mask (may require more than one): estimated cost $15, Disposable Face Shield (may require more than one): estimated cost $7.50, Disposable Face Mask (may require more than one): estimated cost $1.",
         "units": 6,
         "prerequisites": [
-            [
-                "CHEM 222",
-                "CHEM 223"
-            ]
+            "CHEM 222",
+            "CHEM 223"
         ],
         "corequisites": [
             "None"
@@ -4300,10 +4309,8 @@
         "description": "Laboratory course. In consultation with the course coordinator, and subject to availability, students may select experiments as are relevant to their degree program including synthesis, analytical instrumentation and computational methods. The integration of several methods will be emphasized in the design and characterization of molecules.\nNOTE Lab Coat: estimated cost $27, Goggles: estimated cost $17, Carbon Lab Book: estimated cost $16, Flame Gard Mask (may require more than one): estimated cost $15, Disposable Face Shield (may require more than one): estimated cost $7.50, Disposable Face Mask (may require more than one): estimated cost $1.",
         "units": 3,
         "prerequisites": [
-            [
-                "CHEM 222",
-                "CHEM 223"
-            ]
+            "CHEM 222",
+            "CHEM 223"
         ],
         "corequisites": [
             "None"
@@ -4321,10 +4328,8 @@
         "description": "Laboratory course. In consultation with the course co-coordinator, and subject to availability, students may select experiments as are relevant to their degree program including synthesis, analytical instrumentation and computational methods. The integration of several methods will be emphasized in the design and characterization of molecules.\nNOTE Lab Coat: estimated cost $27, Goggles: estimated cost $17, Carbon Lab Book: estimated cost $16, Flame Gard Mask (may require more than one): estimated cost $15, Disposable Face Shield (may require more than one): estimated cost $7.50, Disposable Face Mask (may require more than one): estimated cost $1.",
         "units": 3,
         "prerequisites": [
-            [
-                "CHEM 222",
-                "CHEM 223"
-            ]
+            "CHEM 222",
+            "CHEM 223"
         ],
         "corequisites": [
             "None"
@@ -4360,8 +4365,18 @@
         "description": "The fundamentals of statistical mechanics with applications to thermodynamic properties of gases, liquids and solids and to chemical equilibrium in dilute gases.",
         "units": 3,
         "prerequisites": [
-            "PHYS 345",
-            "PHYS 372"
+            [
+                [
+                    "CHEM 221",
+                    "CHEM 313"
+                ]
+            ],
+            [
+                [
+                    "PHYS 345",
+                    "PHYS 372"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -4437,8 +4452,10 @@
         "description": "Modern spectroscopic methods for the structural and electronic characterization of molecules will be discussed, including: NMR, X-ray and synchrontron-based spectroscopies, laser spectroscopy, surface spectroscopic methods and scanning probe methods.",
         "units": 3,
         "prerequisites": [
-            "CHEM 313",
-            "PHYS 345"
+            [
+                "CHEM 313",
+                "PHYS 345"
+            ]
         ],
         "corequisites": [
             "CHEM 322"
@@ -4475,7 +4492,7 @@
         "description": "An examination of aspects of modern inorganic and organometallic chemistry. Topics will include metal-ligand bonding in organometallic complexes, applications of organometallics in organic synthesis, metal-metal bonding in dinuclear and polynuclear metal complexes, and may include reaction mechanisms of transition metal complexes, bioinorganic chemistry, and symmetry.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "CHEM 312"
         ],
         "corequisites": [
             "None"
@@ -6297,10 +6314,10 @@
             "None"
         ],
         "exclusions": [
-            "CISC 203"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "CISC 203"
         ]
     },
     "CISC 110": {
@@ -6321,7 +6338,7 @@
             "CISC 151"
         ],
         "one_way_exclusions": [
-            "None"
+            "CISC 121"
         ]
     },
     "CISC 121": {
@@ -6408,7 +6425,7 @@
             "CISC 110"
         ],
         "one_way_exclusions": [
-            "None"
+            "CISC 121"
         ]
     },
     "CISC 181": {
@@ -6519,10 +6536,8 @@
         "description": "Introduction to techniques for specifying the behaviour of software, with applications of these techniques to design, verification and construction of software. Logic-based techniques such as loop invariants and class invariants. Automata and grammar-based techniques, with applications to scanners, parsers, user-interface dialogs and embedded systems. Computability issues in software specifications.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 124",
-                "CISC 204"
-            ]
+            "CISC 124",
+            "CISC 204"
         ],
         "corequisites": [
             "None"
@@ -6558,10 +6573,8 @@
         "description": "Design and implementation of advanced data structures and related algorithms, including correctness and complexity analysis.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 124",
-                "CISC 203"
-            ]
+            "CISC 124",
+            "CISC 203"
         ],
         "corequisites": [
             "None"
@@ -6671,10 +6684,8 @@
         "description": "Abstractions and patterns of interactions and relationships among modules. Design recovery; relationship of architecture to requirements and testing.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 223",
-                "CISC 235"
-            ]
+            "CISC 223",
+            "CISC 235"
         ],
         "corequisites": [
             "None"
@@ -6692,10 +6703,8 @@
         "description": "Layered operating systems for conventional shared memory computers: concurrent processes. Synchronization and communication. Concurrent algorithms. Scheduling. Deadlock. Memory management. Protection. File systems. Device management. Typical layers.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 221",
-                "CISC 235"
-            ]
+            "CISC 221",
+            "CISC 235"
         ],
         "corequisites": [
             "None"
@@ -6712,7 +6721,10 @@
         "title": "Human-Computer Interaction",
         "description": "Developing usable software requires that human factors be considered throughout the design and development process. This course introduces a series of techniques for development and evaluating usable software, and shows how these techniques can be integrated into a process for software development.",
         "units": 3,
-        "prerequisites": [],
+        "prerequisites": [
+            "CISC 124",
+            "CISC 235"
+        ],
         "corequisites": [
             "None"
         ],
@@ -6729,10 +6741,8 @@
         "description": "An introduction to software architectural design through the application domain of game development. Abstractions and patterns of interactions and relationships among modules. Design recovery. Relationship to requirements and testing",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 223",
-                "CISC 235"
-            ]
+            "CISC 223",
+            "CISC 235"
         ],
         "corequisites": [
             "None"
@@ -6750,10 +6760,8 @@
         "description": "Validation of software throughout the life cycle. Comparative effectiveness in defect removal of formal methods (proofs of correctness), inspection (walkthroughs and reviews), and testing (unit, integration, and system testing; white box versus black box).",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 220",
-                "CISC 124"
-            ]
+            "CISC 220",
+            "CISC 124"
         ],
         "corequisites": [
             "None"
@@ -6771,10 +6779,8 @@
         "description": "Concepts of computer-integrated surgery systems and underlying techniques such as medical-image computing, robotics, and virtual reality, learned through real-life applications and problems. Techniques learned in class will be applied in a hands-on surgery session where students perform minimally invasive surgery with virtual-reality navigation tools.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 121",
-                "CISC 271"
-            ]
+            "CISC 121",
+            "CISC 271"
         ],
         "corequisites": [
             "None"
@@ -6793,10 +6799,8 @@
         "description": "Data models: relational, entity-relationship. Relational query languages: relational algebra and SQL. Relational database design. Application interfaces and embedded SQL. Storage and indexing.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 102",
-                "CISC 124"
-            ]
+            "CISC 102",
+            "CISC 124"
         ],
         "corequisites": [
             "None"
@@ -6838,7 +6842,8 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "ELEC 272",
+            "ELEC 373"
         ],
         "one_way_exclusions": [
             "None"
@@ -6851,19 +6856,22 @@
         "units": 3,
         "prerequisites": [
             "CISC 251",
-            "BIOL 243",
-            "CHEE 209",
-            "COMM 162",
-            "ECON 250",
-            "GPHY 247",
-            "KNPE 251",
-            "NURS 323",
-            "POLS 385",
-            "PSYC 202",
-            "SOCY 211",
-            "STAM 200",
-            "STAT 263",
-            "STAT 367"
+            [
+                "CISC 251",
+                "BIOL 243",
+                "CHEE 209",
+                "COMM 162",
+                "ECON 250",
+                "GPHY 247",
+                "KNPE 251",
+                "NURS 323",
+                "POLS 385",
+                "PSYC 202",
+                "SOCY 211",
+                "STAM 200",
+                "STAT 263",
+                "STAT 367"
+            ]
         ],
         "corequisites": [
             "None"
@@ -6900,10 +6908,8 @@
         "description": "Review of imperatives programming features. Introduction to other widely used programming paradigms. Functional programming languages, such as LISP and Haskell. Higher order functions, lazy evaluation, abstract and recursive types, structural induction, symbolic expressions. Logic programming languages, such as PROLOG. Operational interpretation of predicates and terms, proof search, unification, backtracking. Typical applications.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 124",
-                "CISC 204"
-            ]
+            "CISC 124",
+            "CISC 204"
         ],
         "corequisites": [
             "None"
@@ -6921,11 +6927,9 @@
         "description": "Principles of design, analysis and implementation of efficient algorithms. Case studies from a variety of areas illustrate divide and conquer methods, the greedy approach, branch and bound algorithms and dynamic programming.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 203",
-                "CISC 204",
-                "CISC 235"
-            ]
+            "CISC 203",
+            "CISC 204",
+            "CISC 235"
         ],
         "corequisites": [
             "None"
@@ -7032,10 +7036,8 @@
         "description": "An integrated approach to discovering and documenting software requirements. Identification of stakeholders; customer, operator, analyst, and developer perspectives. Requirements elicitation. Transition from initial (informal) requirements to semi-formal and formal representations. Requirements analysis process; analysis patterns. Requirements specification techniques. Relation to architecture and user interface design; traceability of requirements.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 223",
-                "CISC 235"
-            ]
+            "CISC 223",
+            "CISC 235"
         ],
         "corequisites": [
             "CISC 325",
@@ -7075,10 +7077,8 @@
         "description": "Design and implementation of real-time embedded applications. Specifying timing properties: formal and semi-formal methods; soft real-time versus hard real-time. Design notations; language constructs. Real-time operating systems. Abstract device interfaces.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 324",
-                "CISC 327"
-            ]
+            "CISC 324",
+            "CISC 327"
         ],
         "corequisites": [
             "None"
@@ -7096,10 +7096,8 @@
         "description": "Storage and representation of \"big data\", which are large, complex, structured or unstructured data sets. Provenance, curation, integration, indexing and querying of data.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 235",
-                "CISC 332"
-            ]
+            "CISC 235",
+            "CISC 332"
         ],
         "corequisites": [
             "None"
@@ -7135,10 +7133,8 @@
         "description": "Analytic and empirical evaluation of the performance of software systems. Performance modeling. Experimental design and statistical techniques for empirical performance analysis.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 324",
-                "CISC 327"
-            ]
+            "CISC 324",
+            "CISC 327"
         ],
         "corequisites": [
             "None"
@@ -7175,8 +7171,10 @@
         "description": "Software dependability and other related concepts, software process models and methods for reliable software. Software reliability engineering process, software fault tolerance and run-time monitoring. Software security engineering process, secure software design, program security vulnerabilities and software security testing",
         "units": 3,
         "prerequisites": [
-            "CISC 327",
-            "CMPE 327"
+            [
+                "CISC 327",
+                "CMPE 327"
+            ]
         ],
         "corequisites": [
             "None"
@@ -7328,11 +7326,9 @@
         "description": "Introduction to the systematic construction of a compiler: grammars and languages, scanners, top-down and bottom-up parsing, runtime organization, symbol tables, internal representations; Polish notation, syntax trees, semantic routines, storage allocation, code generation, interpreters.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 121",
-                "CISC 221",
-                "CISC 223"
-            ]
+            "CISC 121",
+            "CISC 221",
+            "CISC 223"
         ],
         "corequisites": [
             "None"
@@ -7368,13 +7364,11 @@
         "description": "Specifying syntax and semantics; operational and denotational semantics. Lambda calculi, type systems and logical foundations. Meta-theoretic properties. Semantics of imperative languages.",
         "units": 3,
         "prerequisites": [
+            "CISC 204",
+            "CISC 223",
             [
-                "CISC 204",
-                "CISC 223",
-                [
-                    "CISC 360",
-                    "CISC 260"
-                ]
+                "CISC 360",
+                "CISC 260"
             ]
         ],
         "corequisites": [
@@ -7429,10 +7423,8 @@
         "description": "Fundamentals of cryptographic algorithms: secure pseudorandom number generators, hash functions, symmetric-key cryptography (stream ciphers, block ciphers); public-key cryptography (encryption and decryption, digital signatures, key agreement). Applications of cryptography to secure communication protocols and systems.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 235",
-                "CISC 335"
-            ]
+            "CISC 235",
+            "CISC 335"
         ],
         "corequisites": [
             "None"
@@ -7450,10 +7442,8 @@
         "description": "Advanced computational approaches to the problems in molecular biology. Techniques and algorithms for sequence analysis and alignment; molecular databases; protein structure prediction and molecular data mining.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 352",
-                "CISC 365"
-            ]
+            "CISC 352",
+            "CISC 365"
         ],
         "corequisites": [
             "None"
@@ -7531,18 +7521,16 @@
         "description": "An introduction to 'engines' used in networked 3-dimensional games. Topics include game-engine architecture and components providing 3-dimensional rendering, physics simulation, sound, artificial intelligence and networking services.",
         "units": 3,
         "prerequisites": [
+            "CISC 226",
             [
-                "CISC 226",
-                [
-                    "CISC 322",
-                    "CISC 326"
-                ],
-                "CISC 324",
-                [
-                    "MATH 110",
-                    "MATH 111",
-                    "MATH 112"
-                ]
+                "CISC 322",
+                "CISC 326"
+            ],
+            "CISC 324",
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
             ]
         ],
         "corequisites": [
@@ -29411,10 +29399,8 @@
         "description": "This course examines morpho-syntactic variation across languages. Topics covered include argument structure, derivation versus compounding, case, anaphora, determiners, clause typing and related phenomena. The course assumes the framework of Universal Grammar theory with a focus on how comparative studies in morpho-syntax inform linguistic analysis and theory.",
         "units": 3,
         "prerequisites": [
-            [
-                "LING 330",
-                "LING 340"
-            ]
+            "LING 330",
+            "LING 340"
         ],
         "corequisites": [
             "None"
@@ -29454,10 +29440,8 @@
         "description": "This course explores the forms of reasoning and evidence used in constructing and evaluating scientific arguments in linguistics, through discussion of articles that represent significant innovations and controversies in linguistic theory. Emphasis is on the structure of arguments, rather than on the analysis of individual languages or phenomena.",
         "units": 3,
         "prerequisites": [
-            [
-                "LING 320",
-                "LING 340"
-            ]
+            "LING 320",
+            "LING 340"
         ],
         "corequisites": [
             "None"
@@ -31948,9 +31932,9 @@
         "description": "Integers, polynomials, modular arithmetic, rings, ideals, homomorphisms, quotient rings, division algorithm, greatest common divisors, Euclidean domains, unique factorization, fields, finite fields.",
         "units": 3,
         "prerequisites": [
-            "MATH 110",
-            "MATH 111",
             [
+                "MATH 110",
+                "MATH 111",
                 "MATH 112"
             ]
         ],
@@ -31970,9 +31954,17 @@
         "description": "Algebraic techniques used in applied mathematics, statistics, computer science and other areas. Polynomials, complex numbers; least squares approximations; discrete linear systems; eigenvalue estimation; non-negative matrices - Markov chains; permutation groups; linear Diophantine equations; introduction to algebraic structures.",
         "units": 6,
         "prerequisites": [
-            "MATH 110",
-            "MATH 111",
-            "MATH 112"
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 124",
+                "MATH 126"
+            ],
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ] 
         ],
         "corequisites": [
             "None"
@@ -31990,9 +31982,11 @@
         "description": "Vector spaces, direct sums, linear transformations, eigenvalues, eigenvectors, inner product spaces, self-adjoint operators, positive operators, singular-value decomposition, minimal polynomials, Jordan canonical form, the projection theorem, applications to approximation and optimization problems.",
         "units": 3,
         "prerequisites": [
-            "MATH 111",
-            "MATH 112",
-            "MTHE 217"
+            [
+                "MATH 111",
+                "MATH 112",
+                "MTHE 217"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32010,10 +32004,12 @@
         "description": "Double and triple integrals, including polar and spherical coordinates. Parameterized curves and line integrals. Gradient, divergence, and curl. Green's theorem. Parameterized surfaces and surface integrals. Stokes' and Gauss' Theorems.",
         "units": 3,
         "prerequisites": [
-            "MATH 120",
-            "MATH 121",
-            "MATH 124",
-            "MATH 126"
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 124",
+                "MATH 126"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32031,10 +32027,12 @@
         "description": "An introduction to solving ordinary differential equations. Topics include first order differential equations, linear differential equations with constant coefficients, Laplace transforms, and systems of linear equations.\nNOTE Some knowledge of linear algebra is assumed.",
         "units": 3,
         "prerequisites": [
-            "MATH 120",
-            "MATH 121",
-            "MATH 124",
-            "MATH 126"
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 124",
+                "MATH 126"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32052,9 +32050,16 @@
         "description": "Complex arithmetic, complex plane. Differentiation, analytic functions. Elementary functions. Contour integration, Cauchy's Theorem, and Integral Formula. Taylor and Laurent series, residues with applications to evaluation of integrals.",
         "units": 3,
         "prerequisites": [
-            "MATH 120",
-            "MATH 121",
-            "MATH 124"
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ],
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 124"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32074,9 +32079,16 @@
         "description": "An introduction to ordinary differential equations and their applications. Intended for students concentrating in Mathematics or Statistics.",
         "units": 3,
         "prerequisites": [
-            "MATH 120",
-            "MATH 121",
-            "MATH 124"
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ],
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 124"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32096,7 +32108,15 @@
         "description": "An introductory course on the use of computers in science. Topics include: solving linear and nonlinear equations, interpolation, integration, and numerical solutions of ordinary differential equations. Extensive use is made of MATLAB, a high level interactive numerical package.",
         "units": 3,
         "prerequisites": [
-            "None"
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ],
+            [
+                "CISC 101",
+                "CISC 121"
+            ]
         ],
         "corequisites": [
             [
@@ -32120,9 +32140,16 @@
         "description": "Limits, continuity, C¹ and linear approximations of functions of several variables. Multiple integrals and Jacobians. Line and surface integrals. The theorems of Green, Stokes, and Gauss.",
         "units": 3,
         "prerequisites": [
-            "MATH 120",
-            "MATH 121",
-            "MATH 124"
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ],
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 124"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32140,9 +32167,11 @@
         "description": "Taylor's theorem, optimization, implicit and inverse function theorems. Elementary topology of Euclidean spaces. Sequences and series of numbers and functions. Pointwise and uniform convergence. Power series.",
         "units": 3,
         "prerequisites": [
-            "MATH 120",
-            "MATH 121",
-            "MATH 124"
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 124"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32178,8 +32207,10 @@
         "description": "Congruences; Euler's theorem; continued fractions; prime numbers and their distribution; quadratic forms; Pell's equation; quadratic reciprocity; introduction to elliptic curves.",
         "units": 3,
         "prerequisites": [
-            "MATH 210",
-            "MATH 211"
+            [
+                "MATH 210",
+                "MATH 211"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32197,8 +32228,10 @@
         "description": "The symmetric group consists of all permutations of a finite set or equivalently all the bijections from the set to itself. This course explores how to map the symmetric group into a collection of invertible matrices. To handle, count, and manipulate these objects, appropriate combinatorial tools are introduced.",
         "units": 3,
         "prerequisites": [
-            "MATH 210",
-            "MATH 211"
+            [
+                "MATH 210",
+                "MATH 211"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32300,8 +32333,15 @@
         "description": "Some probability distributions, simulation, Markov chains, queuing theory, dynamic programming, inventory theory.",
         "units": 3,
         "prerequisites": [
-            "MATH 231",
-            "MATH 225"
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 124"
+            ],
+            [
+                "MATH 231",
+                "MATH 225"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32319,8 +32359,19 @@
         "description": "Methods and theory for ordinary and partial differential equations; separation of variables in rectangular and cylindrical coordinate systems; sinusoidal and Bessel orthogonal functions; the wave, diffusion, and Laplace's equation; Sturm-Liouville theory; Fourier transform.",
         "units": 3,
         "prerequisites": [
-            "MATH 110",
-            "MATH 111"
+            [
+                "MATH 221",
+                "MATH 280"
+            ],
+            [
+                "MATH 225",
+                "MATH 231",
+                "MATH 232"
+            ],
+            [
+                "MATH 110",
+                "MATH 111"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32339,9 +32390,16 @@
         "description": "This course highlights the usefulness of game theoretical approaches in solving problems in the natural sciences and economics. Basic ideas of game theory, including Nash equilibrium and mixed strategies; stability using approaches developed for the study of dynamical systems, including evolutionary stability and replicator dynamics; the emergence of co-operative behaviour; limitations of applying the theory to human behaviour.",
         "units": 3,
         "prerequisites": [
-            "MATH 110",
-            "MATH 111",
-            "MATH 112"
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 124"
+            ],
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32378,9 +32436,16 @@
         "description": "A historical perspective on mathematical ideas focusing on a selection of important and accessible theorems. A project is required.",
         "units": 3,
         "prerequisites": [
-            "MATH 120",
-            "MATH 121",
-            "MATH 126"
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ],
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 126"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32398,8 +32463,17 @@
         "description": "Elementary mathematical material will be used to explore different ways of discovering results and mastering concepts. Topics will come from number theory, geometry, analysis, probability theory, and linear algebra. Much class time will be used for problem solving and presentations by students.",
         "units": 3,
         "prerequisites": [
-            "MATH 210",
-            "MATH 211"
+            [
+                "MATH 221",
+                "MATH 225",
+                "MATH 231",
+                "MATH 280",
+                "MATH 232"
+            ],
+            [
+                "MATH 210",
+                "MATH 211"
+            ]
         ],
         "corequisites": [
             "None"
@@ -32600,8 +32674,8 @@
         "description": "Time estimates for arithmetic and elementary number theory algorithms (division algorithm, Euclidean algorithm, congruences), modular arithmetic, finite fields, quadratic residues. Simple cryptographic systems; public key, RSA. Primality and factoring: pseudoprimes, Pollard's rho-method, index calculus. Elliptic curve cryptography.",
         "units": 3,
         "prerequisites": [
-            "MATH 210",
             [
+                "MATH 210",
                 "MATH 211"
             ]
         ],
@@ -35082,8 +35156,10 @@
         "description": "A study of selected topics in ancient philosophy.",
         "units": 3,
         "prerequisites": [
-            "PHIL 250",
-            "PHIL 257"
+            [
+                "PHIL 250",
+                "PHIL 257"
+            ]
         ],
         "corequisites": [
             "None"
@@ -35101,8 +35177,10 @@
         "description": "A study of selected topics in early modern philosophy.",
         "units": 3,
         "prerequisites": [
-            "PHIL 250",
-            "PHIL 257"
+            [
+                "PHIL 250",
+                "PHIL 257"
+            ]
         ],
         "corequisites": [
             "None"
@@ -35120,8 +35198,10 @@
         "description": "An examination of perennial topics and/or important authors and schools of thought within the History of Philosophy. While the course will target material that has proven important to contemporary thinking, the emphasis will be on understanding the topics/authors/movements within their historical milieu.",
         "units": 3,
         "prerequisites": [
-            "PHIL 250",
-            "PHIL 257"
+            [
+                "PHIL 250",
+                "PHIL 257"
+            ]
         ],
         "corequisites": [
             "None"
@@ -35175,7 +35255,10 @@
         "description": "An examination of some of the principles and theories to which appeal is commonly made when social institutions and practices (and the policies associated with their establishment and maintenance) are subjected to critical scrutiny.",
         "units": 3,
         "prerequisites": [
-            "POLS 250"
+            [
+                "PHIL 257",
+                "POLS 250"
+            ]
         ],
         "corequisites": [
             "None"
@@ -35211,8 +35294,10 @@
         "description": "An examination of the concept of freedom of the will, with emphasis on the problems generated by causation and the notion of responsibility.",
         "units": 3,
         "prerequisites": [
-            "PHIL 250",
-            "PHIL 257"
+            [
+                "PHIL 250",
+                "PHIL 257"
+            ]
         ],
         "corequisites": [
             "None"
@@ -35284,9 +35369,11 @@
         "description": "From first-order monadic predicate calculus to polyadic predicate calculus with identity. Symbolization, rules of inference, derivation and refutation of arguments. Introduction to modal logics.",
         "units": 3,
         "prerequisites": [
-            "PHIL 260",
-            "PHIL 361",
-            "ELEC 270"
+            [
+                "PHIL 260",
+                "PHIL 361",
+                "ELEC 270"
+            ]
         ],
         "corequisites": [
             "None"
@@ -35463,7 +35550,10 @@
         "title": "Philosophical Practice",
         "description": "This is a skills course for students considering graduate study in philosophy. The fall term gives intensive training in philosophical writing. Its topic is one of the department's core areas: metaphysics, epistemology, ethics, political philosophy, or history. The winter term is a practicum: students serve as writing tutors for 1st-year Philosophy.\nNOTE This course is capped at 15 students. Admission is by application: a letter of interest, a letter of reference from a Philosophy faculty member, and an informal transcript. Normally, successful applicants will (i) be registered in a Philosophy Major or Medial Plan and (ii) have a GPA of at least 3.0 in each of PHIL 250 and PHIL 257.",
         "units": 6,
-        "prerequisites": [],
+        "prerequisites": [
+            "PHIL 250",
+            "PHIL 257"
+        ],
         "corequisites": [
             "None"
         ],
@@ -35480,10 +35570,8 @@
         "description": "An examination of major issues in contemporary moral philosophy. Topics to be studied may include contractualism, objectivity, practical reason, relativism and value realism.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35501,10 +35589,8 @@
         "description": "An examination of major issues in contemporary social and political philosophy. Possible topics to be studied include communitarianism, liberalism, multi-culturalism, the nation-state, and utopias.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35522,10 +35608,8 @@
         "description": "This is an experiential learning course based on the Walls to Bridges program model, which brings together students from Queen's University ('outside students') with students from a local federal prison ('inside students') to learn and share knowledge based on their lived experience and critical analysis of academic scholarship. Topics may vary.\nNOTE This course will take place off campus at a local federal prison, as part of the Walls to Bridges prison education program - http://wallstobridges.ca/.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35543,10 +35627,8 @@
         "description": "This is an experimental learning course based on the Wall to Bridges model, which brings together students from Queen's University ('outside students') with students from a local federal prison ('inside students') to learn and share knowledge based on their lived experience and critical analysis of academic scholarship. Topics may vary.\nNOTE This course takes place off campus at a local federal prison, as part of the Walls to Bridges prison education program - http://wallsto bridges.ca.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35564,10 +35646,8 @@
         "description": "An examination of major issues in the philosophy of law. Possible topics to be studies include definitional questions, interpretivism, positivism, punishment and the relationship between law and morality.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35585,10 +35665,8 @@
         "description": "This course examines issues and theorists in the History of Philosophy. Possible topics include the nature of substance, explanation, causality, rights and obligations, primary and secondary qualities. Possible theorists include, Descartes, Spinoza, Hegel, Frege.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35606,10 +35684,8 @@
         "description": "An examination of major issues in the philosophy of culture. Possible topics to be studied include: the history of the philosophy of culture;  the relationship between culture and identity or the self; the relationship between culture and progress; and various forms of cultural relativism.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35627,10 +35703,8 @@
         "description": "An examination of major issues in ethics. Possible topics to be considered include political violence, coercion, punishment, immigration, suicide, drug policy, leisure and akrasia.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35648,10 +35722,8 @@
         "description": "An examination of major issues in ancient philosophy. Possible topics to be considered include the appearance/reality distinction, causation, the emotions, happiness (eudaimonia) and substance.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35669,10 +35741,8 @@
         "description": "An examination of major issues in 20th century philosophy. Possible topics to be studied include debates about modality, the development of logic, the natural language movement, pragmatism and verificationism.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35706,10 +35776,8 @@
         "description": "An examination of the key ideas from a major figure in the history of philosophy.  Philosophers studied will vary from offering-to-offering, including Aristotle, Aquinas, Kant, Mill and Rawls.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35727,10 +35795,8 @@
         "description": "An examination of major issues in contemporary epistemology. Possible topics include justification, internalism and externalism, foundationalism and coherentism, and social epistemology.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35748,10 +35814,8 @@
         "description": "An examination of major issues in contemporary metaphysics. Possible topics include causation, properties, time, modal theory, and induction.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35769,10 +35833,8 @@
         "description": "This course examines issues in Feminist Philosophy. Possible topics may include gender and sex; feminist ethics, epistemologies and metaphysics; disputes about essentialism; the intersections of gender, sexuality, racialization, imperialism, and class.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35790,10 +35852,8 @@
         "description": "An examination of major issues in contemporary philosophy of language. Possible topics to be studied include: the nature of meaning; the relationship between language and the mind, as well as language and the world; and the syntax, semantics and pragmatics of natural language.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35811,10 +35871,8 @@
         "description": "An examination of major issues in contemporary philosophy of mind. Possible topics to be considered include:  consciousness;  definitional questions (what is the mind?); mental causation; mental events; mental properties; and various theories about the nature of the mind.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35832,10 +35890,8 @@
         "description": "An examination of major issues in the philosophy of art. Possible topics include: the definition of art, art and the emotions, art and interpretation, art and the aesthetic, and the philosophy of particular artforms (i.e., literature, film).",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35853,10 +35909,8 @@
         "description": "An examination of major issues in hermeneutics or the theory of interpretation. Possible topics to be studied include the history of hermeneutics, objectivity and relativism, critiques of ideology, semiotics, and pragmatism.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35874,10 +35928,8 @@
         "description": "An examination of major issues in the philosophy of science. Possible topics to be considered include explanation, realism versus instrumentalism scientific progress, the social dimensions of science and the unity of the sciences.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35895,10 +35947,8 @@
         "description": "An examination of epistemic issues arising from or pertaining to medicine. Possible topics to be considered include the nature of disease, concepts of scientific discovery as found in medicine, and the relationship between medical research and clinical practice.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35916,10 +35966,8 @@
         "description": "An examination of major issues in the philosophy of logic. Possible topics to be considered include deviant logics, the nature of identity, modal logics and the paradoxes of material implication and strict conditionals.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ],
+            "PHIL 250",
+            "PHIL 257",
             [
                 "PHIL 260",
                 "PHIL 361"
@@ -35941,10 +35989,8 @@
         "description": "This course examines issues in Ethics and the Environment. Possible topics include sustainable development, humans and nature, moral obligations to future generations.\nNOTE Field Trip (Frontenac Park, Ontario): estimated cost $20.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -35962,10 +36008,8 @@
         "description": "This course examines issues in Ethics and Animals. Potential topics include animal rights, human consumption and other uses of non-human animals, the domestication of non-human animals.",
         "units": 3,
         "prerequisites": [
-            [
-                "PHIL 250",
-                "PHIL 257"
-            ]
+            "PHIL 250",
+            "PHIL 257"
         ],
         "corequisites": [
             "None"
@@ -39503,7 +39547,9 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "PSYC 100",
+            "PSYC 102",
+            "PSYC 103"
         ],
         "one_way_exclusions": [
             "None"
@@ -39521,7 +39567,8 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "PSYC 100",
+            "PSYC 101"
         ],
         "one_way_exclusions": [
             "None"
@@ -39539,7 +39586,8 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "PSYC 100",
+            "PSYC 101"
         ],
         "one_way_exclusions": [
             "None"
@@ -39850,11 +39898,17 @@
         "units": 3,
         "prerequisites": [
             [
-                "PSYC 221",
-                "PSYC 203"
+                [
+                    "PSYC 221",
+                    "PSYC 203"
+                ]
             ],
-            "PSYC 221",
-            "PSYC 100"
+            [
+                [
+                    "PSYC 221",
+                    "PSYC 100"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -39873,13 +39927,19 @@
         "units": 3,
         "prerequisites": [
             [
-                "PSYC 203",
                 [
-                    "PSYC 221",
-                    "PSYC 220"
-                ]
+                    "PSYC 203",
+                    [
+                        "PSYC 221",
+                        "PSYC 220"
+                    ]
+                ] 
             ],
-            "COGS 200"
+            [
+                [
+                    "COGS 200"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -39891,13 +39951,34 @@
             "None"
         ]
     },
+    "PSYC 325": {
+        "code": "PSYC 325",
+        "title": "Cognitive Neuroscience",
+        "description": "How does the brain perceive, think, and feel? This course in cognitive neuroscience provides a window into contemporary views of how different features of cognition are implemented by the human brain. The course will cover advances in our understanding of the brain mechanism of human cognition.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "PSYC 221",
+                "PSYC 271"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "PSYC 320"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
     "PSYC 330": {
         "code": "PSYC 330",
         "title": "Selected Topics in Clinical Psychology",
         "description": "Upper year courses related to the discipline of clinical psychology. Offered periodically.\nLEARNING HOURS may vary",
         "units": 3,
         "prerequisites": [
-            "None"
+            "PSYC 236"
         ],
         "corequisites": [
             "None"
@@ -39933,20 +40014,26 @@
         "description": "Key issues in health and health care require approaches embodying psychological, biological, and sociological factors. For every CT scan, injection, or doctor visit, there is a person to be considered. This course explores a variety of health-related topics where psychology has a significant role (e.g., health promotion, stress, psychoneuroimmunology, medical contacts, pain, illness, sport). Canadian statistics used in discussions.",
         "units": 3,
         "prerequisites": [
-            "PSYC 202",
-            "BIOL 243",
-            "CHEE 209",
-            "COMM 162",
-            "ECON 250",
-            "GPHY 247",
-            "KNPE 251",
-            "NURS 323",
-            "POLS 385",
-            "PSYC 202",
-            "SOCY 211",
-            "STAM 200",
-            "STAT 263",
-            "STAT 367"
+            [
+                "PSYC 235",
+                "PSYC 236"
+            ],
+            [
+                "PSYC 202",
+                "BIOL 243",
+                "CHEE 209",
+                "COMM 162",
+                "ECON 250",
+                "GPHY 247",
+                "KNPE 251",
+                "NURS 323",
+                "POLS 385",
+                "PSYC 202",
+                "SOCY 211",
+                "STAM 200",
+                "STAT 263",
+                "STAT 367"
+            ] 
         ],
         "corequisites": [
             "None"
@@ -40026,8 +40113,31 @@
         "description": "The purpose of this course is to provide students with an advanced understanding of theories of the etiology, pathology, and treatment of mental illness in adults. Theory and research will be emphasized that cut across traditional diagnostic categories and focus on domains of social, cognitive-affective, and biological functioning.",
         "units": 3,
         "prerequisites": [
-            "PSYC 235",
-            "PSYC 236"
+            [
+                "PSYC 235",
+                "PSYC 236"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "PSYC 399"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "PSYC 337": {
+        "code": "PSYC 337",
+        "title": "Advanced Child Clinical Psychology",
+        "description": "The purpose of this course to provide students with an advanced understanding of child and adolescent psychopathology with an emphasis on developmental considerations. Students will learn about different theoretical perspectives on the etiology, pathology, and treatment of a variety of child and adolescent mental disorders.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "PSYC 235",
+                "PSYC 236"
+            ]
         ],
         "corequisites": [
             "None"
@@ -40156,10 +40266,16 @@
         "units": 3,
         "prerequisites": [
             [
-                "PSYC 203",
-                "PSYC 251"
+                [
+                    "PSYC 203",
+                    "PSYC 251"
+                ]
             ],
-            "PSYC 100"
+            [
+                [
+                    "PSYC 100"
+                ]
+            ] 
         ],
         "corequisites": [
             "None"
@@ -40177,8 +40293,13 @@
         "description": "This course will begin by defining atypical development and discuss how gaining better understanding of atypical development allows us to understand typical development, and vice versa. We will cover six disorders in greater detail: Language Disorders, Dyslexia, Down Syndrome, Williams Syndrome, Attention-Deficit/Hyperactivity Disorder and Autism.",
         "units": 3,
         "prerequisites": [
-            "HSCI 270",
-            []
+            "PSYC 251",
+            [
+                "HSCI 270",
+                "HLTH 252",
+                "PSYC 203",
+                "SOCY 210"
+            ]
         ],
         "corequisites": [
             "None"
@@ -40388,7 +40509,7 @@
         "description": "Lecture courses on selected topics in psychology offered periodically.\nNOTE Prerequisites vary depending on specific course content; consult instructor or Undergraduate Office in the Psychology Department.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "PSYC 100"
         ],
         "corequisites": [
             "None"
@@ -40423,7 +40544,9 @@
         "title": "Teaching and Learning in Psychology",
         "description": "An introduction to the scholarship and practice of teaching including what it means to be a scholarly teacher, how pedagogy research informs educational practice, and how people learn complex information. In addition to readings, critiques and facilitated discussions, a practicum component will include facilitating weekly tutorials.\nNOTE Students must complete an application and be invited for an interview in the spring to be eligible for this fall term course. During the fall term, students will be responsible for facilitating 2-3 PSYC 100 tutorials per week as part of their teaching practicum.",
         "units": 6,
-        "prerequisites": [],
+        "prerequisites": [
+            "None"
+        ],
         "corequisites": [
             "None"
         ],
@@ -40440,9 +40563,11 @@
         "description": "An examination of selected topics in cognitive psychology which may include: computational modelling; problem-solving; face recognition; gestalt influences on cognitive science; motor control processes; cognitive neuropsychology. Exact topics to vary by year.",
         "units": 3,
         "prerequisites": [
-            "PSYC 220",
-            "PSYC 221",
-            "COGS 200"
+            [
+                "PSYC 220",
+                "PSYC 221",
+                "COGS 200"
+            ]
         ],
         "corequisites": [
             "None"
@@ -40460,9 +40585,11 @@
         "description": "In this course you will gain an in-depth understanding of the literature studying memory from multiple methods and theoretical perspectives. You will learn about research exploring the mechanisms that allow us to learn, store, retrieve and update memories. Along the way, you will gain hands-on skills in experimental design.",
         "units": 3,
         "prerequisites": [
-            "PSYC 221",
-            "PSYC 271",
-            "COGS 200"
+            [
+                "PSYC 221",
+                "PSYC 271",
+                "COGS 200"
+            ]
         ],
         "corequisites": [
             "None"
@@ -40480,9 +40607,11 @@
         "description": "Addresses topics in attentional control including limits in attentional control, cortical mechanisms of attention, spatial and temporal attention, interaction of attention and memory, and influence of videogame playing on attentional control.",
         "units": 3,
         "prerequisites": [
-            "PSYC 220",
-            "PSYC 221",
-            "COGS 200"
+            [
+                "PSYC 220",
+                "PSYC 221",
+                "COGS 200"
+            ]
         ],
         "corequisites": [
             "None"
@@ -40500,9 +40629,11 @@
         "description": "Visual cognition has been studied extensively in the lab, but it's not always clear how theoretical questions apply to the real world. In this course, we will examine both theoretical questions on perception, attention and memory as well as see how these apply to real world situations - examining x-rays, distracted driving and gaming.",
         "units": 3,
         "prerequisites": [
-            "PSYC 220",
-            "PSYC 221",
-            "COGS 200"
+            [
+                "PSYC 220",
+                "PSYC 221",
+                "COGS 200"
+            ]   
         ],
         "corequisites": [
             "None"
@@ -40520,7 +40651,10 @@
         "description": "This seminar will provide students with an in-depth understanding of research in psychotic disorders such as schizophrenia and severe mood disorders. Topics will include neurocognitive dysfunction and its relationship to disability, pharmacological and psychological treatment, and assessment of symptoms across the lifespan.",
         "units": 3,
         "prerequisites": [
-            "None"
+            [
+                "PSYC 235",
+                "PSYC 236"
+            ]
         ],
         "corequisites": [
             "None"
@@ -40599,7 +40733,8 @@
         "description": "Recent developments in the experimental investigation and conceptualization of aspects of mental health such as anxiety, depression, thought and memory disorders, etc.\nNOTE Prerequisites vary depending on specific course content; consult instructor or Undergraduate Office in the Psychology Department.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "PSYC 203",
+            "PSYC 236"
         ],
         "corequisites": [
             "None"
@@ -40652,6 +40787,25 @@
         ],
         "exclusions": [
             "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "PSYC 438": {
+        "code": "PSYC 438",
+        "title": "Self-Injury and Suicide",
+        "description": "Why do people intentionally hurt themselves? In this course, students will develop an advanced scientific understanding of suicide and non-suicidal self-injury. We will focus on: (a) definition, phenomenology, assessment, and epidemiology; (b) modern theories; (c) transdiagnostic risk factors; and (d) intervention, prevention, and postvention.",
+        "units": 3,
+        "prerequisites": [
+            "PSYC 203",
+            "PSYC 236"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "PSYC 480"
         ],
         "one_way_exclusions": [
             "None"
@@ -40762,7 +40916,8 @@
         "description": "Topics vary from year to year and may include prenatal factors in development, infancy, aging, adolescence, cultural deprivation and intervention programs in early childhood, and developmental psychopathology.\nNOTE Prerequisites vary depending on specific course content; consult instructor or Undergraduate Office in the Psychology Department.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "PSYC 203",
+            "PSYC 251"
         ],
         "corequisites": [
             "None"
@@ -40780,7 +40935,8 @@
         "description": "This course is designed to be a relatively broad discussion of brain development, with a particular focus on issues such as development course, measurement, brain functioning, plasticity, and atypicality.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "PSYC 251",
+            "PSYC 271"
         ],
         "corequisites": [
             "None"
@@ -40799,9 +40955,7 @@
         "units": 3,
         "prerequisites": [
             [
-                [
-                    "PSYC 203"
-                ],
+                "PSYC 203",
                 "PSYC 100"
             ]
         ],
@@ -40972,7 +41126,11 @@
         "description": "Seminar courses on advanced topics in psychology offered periodically by visiting professors.\nNOTE Prerequisites vary depending on specific course content; consult instructor or Undergraduate Office in the Psychology Department.\nLEARNING HOURS May vary.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "PSYC 203",
+            [
+                "PSYC 235",
+                "PSYC 236"
+            ]
         ],
         "corequisites": [
             "None"
@@ -40990,7 +41148,8 @@
         "description": "Seminar courses on advanced topics in psychology offered periodically by visiting professors.\nNOTE Prerequisites vary depending on specific course content; consult instructor or Undergraduate Office in the Psychology Department.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "PSYC 202",
+            "PSYC 221"
         ],
         "corequisites": [
             "None"
@@ -44756,10 +44915,12 @@
         "description": "Basics of probability. Counting principle, binomial expansion. Conditional probability and Bayes' Theorem. Random variables, mean and variance. Bernoulli, binomial, geometric, hypergeometric and exponential distributions. Poisson approximation. Distribution, frequency and density functions. Normal distribution and central limit theorem.\nNOTE STAT 252 is a new course for STAT Minors and Medials.",
         "units": 3,
         "prerequisites": [
-            "MATH 120",
-            "MATH 121",
-            "MATH 126",
-            "MATH 124"
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 126",
+                "MATH 124"
+            ]
         ],
         "corequisites": [
             "None"
@@ -44799,7 +44960,7 @@
             "STAT 367"
         ],
         "one_way_exclusions": [
-            "None"
+            "STAT 269"
         ]
     },
     "STAT 268": {
@@ -44835,9 +44996,15 @@
         "description": "Basic techniques of statistical estimation such as best unbiased estimates, moment estimates, maximum likelihood. Bayesian methods. Hypotheses testing. Classical distributions such as the t-distribution, F-distribution, beta distribution. These methods will be illustrated by simple linear regression. Statistical computing.",
         "units": 3,
         "prerequisites": [
-            "STAT 252",
-            "STAT 268",
-            "STAT 351"
+            [
+                "MATH 221",
+                "MATH 280"
+            ],
+            [
+                "STAT 252",
+                "STAT 268",
+                "STAT 351"
+            ]
         ],
         "corequisites": [
             "None"
@@ -44905,8 +45072,20 @@
         "description": "A detailed study of simple and multiple linear regression, residuals and model adequacy. The least squares solution for the general linear regression model. Analysis of variance for regression and simple designed experiments; analysis of categorical data.",
         "units": 3,
         "prerequisites": [
-            "STAT 263",
-            "STAT 269"
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ],
+            [
+                "STAT 252",
+                "STAT 268",
+                "STAT 351"
+            ],
+            [
+                "STAT 263",
+                "STAT 269"
+            ] 
         ],
         "corequisites": [
             "None"
@@ -44924,15 +45103,23 @@
         "description": "Introduction to R, data creation and manipulation, data import and export, scripts and functions, control flow, debugging and profiling, data visualization, statistical inference, Monte Carlo methods, decision trees, support vector machines, neural network, numerical methods.",
         "units": 3,
         "prerequisites": [
-            "MATH 110",
-            "MATH 111",
-            "MATH 120",
-            "MATH 121",
-            "MATH 124",
-            "MATH 126",
             [
-                "MATH 112",
-                "MATH 212"
+                "STAT 252",
+                "STAT 263",
+                "STAT 268",
+                "STAT 351"
+            ],
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 120",
+                "MATH 121",
+                "MATH 124",
+                "MATH 126",
+                [
+                    "MATH 112",
+                    "MATH 212"
+                ]
             ]
         ],
         "corequisites": [
@@ -44987,8 +45174,10 @@
         "description": "Introduction to the theory and application of statistical algorithms. Topics include classification, smoothing, model selection, optimization, sampling, supervised and unsupervised learning. Given jointly with STAT 857.",
         "units": 3,
         "prerequisites": [
-            "STAT 361",
-            "ECON 351"
+            [
+                "STAT 361",
+                "ECON 351"
+            ]
         ],
         "corequisites": [
             "None"
@@ -45046,8 +45235,10 @@
         "description": "Autocorrelation and autocovariance, stationarity; ARIMA models; model identification and forecasting; spectral analysis. Applications to biological, physical and economic data.",
         "units": 3,
         "prerequisites": [
-            "STAT 361",
-            "ECON 351"
+            [
+                "STAT 361",
+                "ECON 351"
+            ]
         ],
         "corequisites": [
             "None"
@@ -46015,13 +46206,17 @@
         "description": "Statistical methods for analyzing and interpreting process data are discussed, . Topics include: role of data in assessing process operation, identifying major problems, graphical and numerical summaries, principles of valid inference, probability distributions for discrete and continuous data, and an introduction to linear regression analysis.\n(Lec: 3, Lab: 0, Tut: 0.5)",
         "units": 3.5,
         "prerequisites": [
-            "None"
+            "APSC171",
+            "APSC 172",
+            "APSC 174"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "None"
+            "STAT 268",
+            "STAT 269",
+            "MTHE 367"
         ],
         "one_way_exclusions": [
             "None"
