@@ -142,10 +142,12 @@
         "description": "This course will introduce general biochemical concepts that will allow for an understanding of the biological and chemical principles underlying human physiology, health and disease. The course will provide self-paced learning and utilize evidence-based teaching principles, small group learning, peer-learning and guided-independent learning methodologies to provide an inclusive learning environment. Students will gain an enhanced appreciation of general applications of biochemistry as applied in day to day healthy life and during the disease states, diagnosis and clinical management of metabolic disorders.\nNOTE Also offered online. Consult the Bachelor of Health Sciences program office.\nNOTE This introductory biochemistry online course is intended for prospective students in Nursing, Environmental Sciences, Engineering, Commerce, and general science programs.\nNOTE May not be taken for credit towards the Plan requirements of the BCHM or LISC Specialization or Major Plans.",
         "units": 3,
         "prerequisites": [
-            "PHGY 170",
             [
-                "BIOL 102",
-                "BIOL 103"
+                "PHGY 170",
+                [
+                    "BIOL 102",
+                    "BIOL 103"
+                ]
             ]
         ],
         "corequisites": [
@@ -167,10 +169,12 @@
         "prerequisites": [
             "BCHM 218",
             [
-                "CHEM 222",
-                "CHEM 223"
-            ],
-            "CHEM 282"
+                [
+                    "CHEM 222",
+                    "CHEM 223"
+                ],
+                "CHEM 282"
+            ]
         ],
         "corequisites": [
             "None"
@@ -456,21 +460,45 @@
             "None"
         ]
     },
+    "BCHM 442": {
+        "code": "BCHM 442",
+        "title": "Seminars in Biochemistry",
+        "description": "Seminars, assignments and demonstrations focused on important subjects in biochemistry, emphasizing the scientific pipeline, from discovery to commercialization. Particular emphasis will be placed on applications of biochemical knowledge and new technologies.\nNOTE    Students in the BCHM Major Plan registered in BCHM 441/3.0 will not be allowed to register in BCHM 442/3.0.",
+        "units": 3,
+        "prerequisites": [
+            "BCHM 218",
+            "BCHM 313",
+            "BCHM 315",
+            "BCHM 316",
+            "BCHM 317"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
     "BCHM 482": {
         "code": "BCHM 482",
         "title": "Proteomics and Metabolomics",
         "description": "This course will focus on the principles of proteomics and metabolomics and their application in the new systems biology `omics approach to scientific discovery. This course will emphasize both the methodologies used in proteomics and metabolomics, as well as their applications in both research, medical diagnostics, and disease management.\nNOTE: Only offered online. Consult the Bachelor of Health Sciences program office.",
         "units": 3,
         "prerequisites": [
-            "BCHM 310",
             [
-                "BCHM 315",
-                "BCHM 316"
-            ],
-            [
-                "BCHM 218",
-                "BCHM 270",
-                "BCHM 370"
+                "BCHM 310",
+                [
+                    "BCHM 315",
+                    "BCHM 316"
+                ],
+                [
+                    "BCHM 218",
+                    "BCHM 270",
+                    "BCHM 370"
+                ]
             ]
         ],
         "corequisites": [
