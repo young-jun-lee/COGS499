@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useSnapshot } from "valtio";
 import { state } from '../State';
 import { Button, Flex, Group, Tooltip } from "@mantine/core";
@@ -62,9 +62,13 @@ const onDragEnd = (result, columns, setColumns) => {
 };
 
 const SelectContainer: FC = () => {
-    const snap = useSnapshot(state);
-    // const [columns, setColumns] = useState(courseSelection);
     state.columns = courseSelection;
+    const snap = useSnapshot(state);
+
+    useEffect(() => {
+        console.log(snap.columns)
+    }, [snap.columns])
+    // const [columns, setColumns] = useState(courseSelection);
     // use valtio to store the columns
     return (
         <Flex style={{ flexDirection: "column", width: "65%", height: "100%" }}>
@@ -76,14 +80,12 @@ const SelectContainer: FC = () => {
                 <Button
                     onClick={() => {
                         state.numYears += 1
-
-                        state.columns = {
-                            ...state.columns,
-                            [`year ${snap.numYears + 1}`]: {
-                                name: `Year ${snap.numYears + 1}`,
-                                items: []
-                            }
+                        state.columns[`year ${state.numYears}`] = {
+                            name: `Year ${state.numYears}`,
+                            items: []
                         }
+
+                        console.log(snap.columns)
                     }}
                 >
                     Add Year
@@ -109,7 +111,6 @@ const SelectContainer: FC = () => {
                         onDragEnd={(result) => onDragEnd(result, snap.columns, setColumns)}
                     >
                         {Object.entries(snap.columns).map(([columnId, column], index) => {
-                            console.log(column)
                             return (
                                 <Year year={index + 1} key={columnId} column={column} columnId={columnId} index={index} />
                             );
