@@ -1,9 +1,25 @@
-import { Autocomplete } from '@mantine/core'
+import { Autocomplete, AutocompleteItem } from '@mantine/core'
 import { useState } from 'react'
 import { DndList } from './DragNDrop'
 
+interface Course {
+    value: string
+    group: string
+    courseid: string
+}
+
+
 function SearchBar() {
-    const [courses, setCourses] = useState([])
+    // const [courses, setCourses] = useState([])
+    const [courses, setCourses] = useState<Course[]>([]);
+    const handleItemSubmit = (item: Course) => {
+        // Check if item is already in courses
+        if (courses.some((course) => course.courseid === item.courseid)) {
+            return;
+        } else {
+            setCourses([...courses, item]);
+        }
+    };
 
     return (
         <>
@@ -17,18 +33,7 @@ function SearchBar() {
                     { value: 'CISC 102', group: 'CISC', courseid: "3" },
                     { value: 'MATH 121', group: 'MATH', courseid: "4" },
                 ]}
-                onItemSubmit={(item) => {
-                    // console.log(item)
-                    // check if item is already in courses
-                    if (courses.some((course) => course.courseid === item.courseid)) {
-                        // console.log("already in courses")
-                        return
-                    }
-                    else {
-                        setCourses([...courses, item])
-                    }
-
-                }}
+                onItemSubmit={handleItemSubmit}
                 sx={{ marginBottom: 20 }}
             />
             {/* <DisplaySearch courses={courses}></DisplaySearch> */}
