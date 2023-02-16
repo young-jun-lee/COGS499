@@ -117,7 +117,14 @@
         "description": "Molecules and macromolecules that participate in the replication and expression of genes. Current methods for exploring the structure, function, and manipulation of genetic material.\nNOTE Also offered online. Consult the Bachelor of Health Sciences program office.\nLEARNING HOURS may vary. 120 (36L;12T;72P)\nEQUIVALENCY MBIO 218/3.0.",
         "units": 3,
         "prerequisites": [
-            "None"
+            [
+                "BIOL 102",
+                "PHGY 170"
+            ],
+            [
+                "CHEM 112",
+                "CHEM 114"
+            ]
         ],
         "corequisites": [
             "None"
@@ -135,7 +142,11 @@
         "description": "This course will introduce general biochemical concepts that will allow for an understanding of the biological and chemical principles underlying human physiology, health and disease. The course will provide self-paced learning and utilize evidence-based teaching principles, small group learning, peer-learning and guided-independent learning methodologies to provide an inclusive learning environment. Students will gain an enhanced appreciation of general applications of biochemistry as applied in day to day healthy life and during the disease states, diagnosis and clinical management of metabolic disorders.\nNOTE Also offered online. Consult the Bachelor of Health Sciences program office.\nNOTE This introductory biochemistry online course is intended for prospective students in Nursing, Environmental Sciences, Engineering, Commerce, and general science programs.\nNOTE May not be taken for credit towards the Plan requirements of the BCHM or LISC Specialization or Major Plans.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "PHGY 170",
+            [
+                "BIOL 102",
+                "BIOL 103"
+            ]
         ],
         "corequisites": [
             "None"
@@ -144,7 +155,8 @@
             "BCHM 102"
         ],
         "one_way_exclusions": [
-            "None"
+            " BCHM 310",
+            " BCHM 315"
         ]
     },
     "BCHM 310": {
@@ -164,7 +176,9 @@
             "None"
         ],
         "exclusions": [
-            "BCHM 102"
+            "BCHM 102",
+            "BCHM 315",
+            "   BCHM 316"
         ],
         "one_way_exclusions": [
             "None"
@@ -218,13 +232,14 @@
         "description": "Metabolism of carbohydrates, amino acids and lipids. Role of coenzymes. Generation and storage of metabolic energy. Principles of regulatory mechanisms, membrane structure and function, hormone action, and cellular signalling.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "BCHM 315"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "None"
+            "BCHM 102",
+            "BCHM 310"
         ],
         "one_way_exclusions": [
             "None"
@@ -238,9 +253,13 @@
         "prerequisites": [
             "None"
         ],
-        "corequisites": [],
+        "corequisites": [
+            "BCHM 315",
+            "BCHM 316"
+        ],
         "exclusions": [
-            "None"
+            "BCHM 317",
+            "BCHM 319"
         ],
         "one_way_exclusions": [
             "None"
@@ -255,7 +274,7 @@
             "None"
         ],
         "corequisites": [
-            "None"
+            "BCHM 315"
         ],
         "exclusions": [
             "None"
@@ -270,7 +289,8 @@
         "description": "An introduction to the field of applied genomics for identifying genes underlying multi-factorial traits, diseases, and drug treatment outcomes. Basic principles of gene mapping studies will be covered in the context of recent advances in the field including statistical methods, and integrative analyses of biological datasets.\nNotes: Also offered online\nLEARNING HOURS may vary: 120(48O;72P)",
         "units": 3,
         "prerequisites": [
-            "None"
+            "BCHM 218",
+            "BCHM 270"
         ],
         "corequisites": [
             "None"
@@ -287,7 +307,13 @@
         "title": "Protein Structure and Function",
         "description": "This course presents an integrated approach to the study of protein function. Topics include proteomic techniques, mass spectrometry, protein purification, imaging, surface plasmon resonance, calorimetry, bioinformatics and protein evolution, protein modifications and processing, interpretation and applications of 3-D structure, and structure-function relationships. \nNOTE    Offered jointly with BMED 810/3.0. Students in a LISC or BMCO Plan should contact the Department regarding prerequisites and permission to register.",
         "units": 3,
-        "prerequisites": [],
+        "prerequisites": [
+            "BCHM 218",
+            "BCHM 313",
+            "BCHM 315",
+            "BCHM 316",
+            "BCHM 317"
+        ],
         "corequisites": [
             "None"
         ],
@@ -303,7 +329,13 @@
         "title": "Advanced Molecular Biology",
         "description": "This course concentrates on the molecular biology of mammalian models particularly mechanisms involved in human diseases. The human genome project, forensic analysis, DNA diagnostics of human diseases, models of transcriptional and growth regulation and cancer, DNA repair, RNA processing and translation are all discussed. Emphasis on recent findings and course materials will be drawn from current reviews. \nNOTE Offered jointly with BMED 811/3.0. Students in a LISC or BMCO Plan should contact the Department regarding prerequisites and permission to register.",
         "units": 3,
-        "prerequisites": [],
+        "prerequisites": [
+            "BCHM 218",
+            "BCHM 313",
+            "BCHM 315",
+            "BCHM 316",
+            "BCHM 317"
+        ],
         "corequisites": [
             "None"
         ],
@@ -320,7 +352,11 @@
         "description": "Biochemical research techniques with emphasis on nucleic acids, protein structure and function, regulation of gene expression and metabolic control processes.\nNOTE 6.0-unit course offered in the Fall Term.",
         "units": 6,
         "prerequisites": [
-            "None"
+            "BCHM 218",
+            "BCHM 313",
+            "BCHM 315",
+            "BCHM 316",
+            "BCHM 317"
         ],
         "corequisites": [
             "None"
@@ -338,7 +374,11 @@
         "description": "An independent research project by each student in one of the departmental research labs. Evaluation is based on oral presentation, lab performance and a thesis.\nNOTE 6.0-unit course offered in the Fall Term.",
         "units": 6,
         "prerequisites": [
-            "None"
+            "BCHM 218",
+            "BCHM 313",
+            "BCHM 315",
+            "BCHM 316",
+            "BCHM 317"
         ],
         "corequisites": [
             "None"
@@ -355,7 +395,13 @@
         "title": "The Molecular Basis of Cellular Function",
         "description": "Principles of regulatory mechanisms; regulation of cellular function and growth by oncogenes, growth factors, isoprenoids and steroid hormones. Receptors, second messengers and protein phosphorylation. Correlation of cell ultrastructure with biochemical function. Description of the components, assembly, metabolism and evolution of cellular structures are described.\nNOTE Offered jointly with BMED 832/3.0. Students in a LISC Plan should contact the Department regarding prerequisites and permission to register.",
         "units": 3,
-        "prerequisites": [],
+        "prerequisites": [
+            "BCHM 218",
+            "BCHM 313",
+            "BCHM 315",
+            "BCHM 316",
+            "BCHM 317"
+        ],
         "corequisites": [
             "None"
         ],
@@ -394,7 +440,11 @@
         "description": "Seminars, assignments and demonstrations focused on important subjects in biochemistry, emphasizing the scientific pipeline, from discovery to commercialization. Particular emphasis will be placed on applications of biochemical knowledge and new technologies.\nNOTE    Students in the BCHM Major Plan registered in BCHM 441/3.0 will not be allowed to register in BCHM 442/3.0.",
         "units": 3,
         "prerequisites": [
-            "BCHM 218"
+            "BCHM 218",
+            "BCHM 313",
+            "BCHM 315",
+            "BCHM 316",
+            "BCHM 317"
         ],
         "corequisites": [
             "None"
@@ -412,7 +462,16 @@
         "description": "This course will focus on the principles of proteomics and metabolomics and their application in the new systems biology `omics approach to scientific discovery. This course will emphasize both the methodologies used in proteomics and metabolomics, as well as their applications in both research, medical diagnostics, and disease management.\nNOTE: Only offered online. Consult the Bachelor of Health Sciences program office.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "BCHM 310",
+            [
+                "BCHM 315",
+                "BCHM 316"
+            ],
+            [
+                "BCHM 218",
+                "BCHM 270",
+                "BCHM 370"
+            ]
         ],
         "corequisites": [
             "None"
