@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
 import { useSnapshot } from "valtio";
-import { state } from '../State';
+import { state } from '../../State';
 import { Button, Flex, Group, Tooltip } from "@mantine/core";
-import { constants } from "../content/Constants";
+import { constants } from "../../content/Constants";
 import Year from "./Year";
 import { DragDropContext, Draggable } from "react-beautiful-dnd";
 import { StrictModeDroppable } from "./StrictModeDroppable";

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useSnapshot } from "valtio";
-import { state } from '../State';
+import { state } from '../../State';
 import { Box, Button, Flex, Group, Tooltip } from "@mantine/core";
 import SearchBar from "./SearchBar";
 import DisplaySearch from "./DisplaySearch";

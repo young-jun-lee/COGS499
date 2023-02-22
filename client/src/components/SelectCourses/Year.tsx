@@ -2,7 +2,7 @@ import { Box, Button } from '@mantine/core';
 import { FC } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { useSnapshot } from 'valtio';
-import { state } from '../State';
+import { removeYear, state } from '../../State';
 import { StrictModeDroppable } from './StrictModeDroppable';
 
 interface RequiredCourses {
@@ -32,8 +32,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
         >
             <Button
                 onClick={() => {
-                    state.numYears -= 1
-                    delete state.columns[`year ${year}`]
+                    removeYear()
                 }}
             >
                 Delete Year

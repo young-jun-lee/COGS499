@@ -1,8 +1,8 @@
 import { Box, Button, Collapse, Flex, Radio } from '@mantine/core';
 import { FC, useState } from "react";
 import { useSnapshot } from "valtio";
-import HeaderContent from "../content/Header";
-import { state } from '../State';
+import HeaderContent from "../../content/Header";
+import { state } from '../../State';
 
 const Specialization: FC = () => {
     const snap = useSnapshot(state);
