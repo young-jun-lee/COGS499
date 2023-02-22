@@ -63,11 +63,14 @@ const SelectContainer: FC = () => {
                             onDragEnd(result, snap.columns);
                         }}
                     >
-                        {Object.entries(snap.columns).map(([columnId, column], index) => {
-                            return (
-                                <Year year={index + 1} key={columnId} column={column} columnId={columnId} index={index} />
-                            );
-                        })}
+                        <Flex style={{ display: "flex", justifyContent: "center", height: "100%", flexDirection: "column" }}>
+
+                            {Object.entries(snap.columns).map(([columnId, column], index) => {
+                                return (
+                                    <Year year={index + 1} key={columnId} column={column} columnId={columnId} index={index} />
+                                );
+                            })}
+                        </Flex>
                     </DragDropContext >
                 </div >
             </div >

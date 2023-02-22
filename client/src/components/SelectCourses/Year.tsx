@@ -20,7 +20,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                 backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : theme.colors.gray[1],
                 // textAlign: 'center',
                 width: '100%',
-                height: '100%',
+                height: '40%',
                 padding: theme.spacing.sm,
                 marginLeft: "1px",
                 marginRight: "1px",
@@ -51,65 +51,66 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                 })}
 
             >
+                <div style={{ margin: 8 }}>
+                    <StrictModeDroppable droppableId={columnId} key={columnId}>
+                        {(provided, snapshot) => {
+                            return (
+                                <div
+                                    {...provided.droppableProps}
+                                    ref={provided.innerRef}
+                                    style={{
+                                        background: snapshot.isDraggingOver
+                                            ? "lightblue"
+                                            : "lightgrey",
+                                        // padding: 4,
+                                        width: 250,
+                                        // minHeight: 500
+                                    }}
+                                >
+                                    {column.items.map((item, index) => {
 
+                                        return (
+                                            <Draggable
+                                                key={item.id}
+                                                draggableId={item.id}
+                                                index={index}
+                                            >
+                                                {(provided, snapshot) => {
+
+                                                    return (
+                                                        <div
+                                                            ref={provided.innerRef}
+                                                            {...provided.draggableProps}
+                                                            {...provided.dragHandleProps}
+                                                            style={{
+                                                                userSelect: "none",
+                                                                textAlign: "center",
+                                                                padding: 16,
+                                                                margin: "0 0 8px 0",
+                                                                borderRadius: "5px",
+                                                                minHeight: "50px",
+                                                                backgroundColor: snapshot.isDragging
+                                                                    ? "#263B4A"
+                                                                    : "#456C86",
+                                                                color: "white",
+                                                                ...provided.draggableProps.style
+                                                            }}
+                                                        >
+                                                            {item.courseCode}
+                                                        </div>
+                                                    );
+                                                }}
+                                            </Draggable>
+                                        );
+                                    })}
+                                    {provided.placeholder}
+                                </div>
+                            );
+                        }}
+                    </StrictModeDroppable>
+                </div>
             </Box>
-            <div style={{ margin: 8 }}>
-                <StrictModeDroppable droppableId={columnId} key={columnId}>
-                    {(provided, snapshot) => {
 
-                        return (
-                            <div
-                                {...provided.droppableProps}
-                                ref={provided.innerRef}
-                                style={{
-                                    background: snapshot.isDraggingOver
-                                        ? "lightblue"
-                                        : "lightgrey",
-                                    padding: 4,
-                                    width: 250,
-                                    minHeight: 500
-                                }}
-                            >
-                                {column.items.map((item, index) => {
-
-                                    return (
-                                        <Draggable
-                                            key={item.id}
-                                            draggableId={item.id}
-                                            index={index}
-                                        >
-                                            {(provided, snapshot) => {
-
-                                                return (
-                                                    <div
-                                                        ref={provided.innerRef}
-                                                        {...provided.draggableProps}
-                                                        {...provided.dragHandleProps}
-                                                        style={{
-                                                            userSelect: "none",
-                                                            padding: 16,
-                                                            margin: "0 0 8px 0",
-                                                            minHeight: "50px",
-                                                            backgroundColor: snapshot.isDragging
-                                                                ? "#263B4A"
-                                                                : "#456C86",
-                                                            color: "white",
-                                                            ...provided.draggableProps.style
-                                                        }}
-                                                    >
-                                                        {item.courseCode}
-                                                    </div>
-                                                );
-                                            }}
-                                        </Draggable>
-                                    );
-                                })}
-                                {provided.placeholder}
-                            </div>
-                        );
-                    }}
-                </StrictModeDroppable>
-            </div>
         </Box>
 
 
