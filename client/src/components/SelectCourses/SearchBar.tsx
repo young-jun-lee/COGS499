@@ -24,7 +24,7 @@ const SearchBar: FC<RequiredCourses> = ({ year, column, columnId }) => {
     const [courses, setCourses] = useState<Course[]>([]);
     const handleItemSubmit = (item: Course) => {
         // Check if item is already in courses
-        if (courses.some((course) => course.id === item.id)) {
+        if (courses.some((course) => course.value === item.value)) {
             return;
         } else {
             setCourses([...courses, item]);
@@ -32,9 +32,9 @@ const SearchBar: FC<RequiredCourses> = ({ year, column, columnId }) => {
             state.columns[columnId].items.push(item);
         }
     };
-    useEffect(() => {
-        console.log("courses", courses)
-    }, [courses])
+    // useEffect(() => {
+    //     console.log("courses", courses)
+    // }, [courses])
 
     return (
         <Box

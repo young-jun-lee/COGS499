@@ -66,7 +66,6 @@ const SelectContainer: FC = () => {
                         }}
                     >
                         <Flex style={{ display: "flex", justifyContent: "center", height: "100%", flexDirection: "column" }}>
-
                             {Object.entries(snap.columns).map(([columnId, column], index) => {
                                 if (column.name !== "search bar") {
                                     return (
