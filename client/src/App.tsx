@@ -31,10 +31,7 @@ export default function App() {
             <Requirements />
           </Flex>
           <Flex style={{ height: "60%" }}>
-            <SelectContainer>
-
-            </SelectContainer>
-            {/* <Years /> */}
+            <SelectContainer />
             <Search />
           </Flex>
         </Container>

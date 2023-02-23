@@ -8,7 +8,8 @@ type NumYears = 1 | 2 | 3 | 4 | 5 | 6
 // type Columns = { [year: string]: { name: string, items: { id: string, courseCode: string }[] } }
 type Courses = {
     id: string
-    courseCode: string
+    value: string
+    group: string
 }
 type Columns = { name: string, items: Courses[] }
 
@@ -21,12 +22,16 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
         {
             name: "Year 1",
             items: [
-                { id: uuidv4(), courseCode: "CISC 101" },
-                { id: uuidv4(), courseCode: "CISC 102" },
-                { id: uuidv4(), courseCode: "CISC 103" },
-                { id: uuidv4(), courseCode: "MATH 121" },
-                { id: uuidv4(), courseCode: "MATH 126" }
+                { id: uuidv4(), value: "CISC 101", group: "CISC" },
+                { id: uuidv4(), value: "CISC 102", group: "CISC" },
+                { id: uuidv4(), value: "CISC 103", group: "CISC" },
+                { id: uuidv4(), value: "MATH 121", group: "MATH" },
+                { id: uuidv4(), value: "MATH 126", group: "MATH" }
             ]
+        },
+        {
+            name: "search bar",
+            items: []
         }
     ]
 
@@ -89,21 +94,12 @@ export function addYear() {
 }
 export function removeYear() {
     state.numYears -= 1;
-    state.columns = state.columns.slice(0, state.numYears)
+
+    const removedState = { ...state.columns };
+    state.columns = Object.keys(removedState).reduce((acc, key) => {
+        return key !== `${state.numYears + 1}` ? { ...acc, [key]: removedState[key] } : acc;
+    }, {});
+
+
 }
-// export function moveInPlace(sourceColumn: string, sourceIndex: number, destIndex: number) {
-//     const column = state.columns[sourceColumn];
-//     console.log(column)
-//     console.log("sourceIndex", sourceIndex)
-//     console.log("destIndex", destIndex)
-//     const copiedItems = [...column.items];
-//     const [removed] = copiedItems.splice(sourceIndex, 1);
-//     copiedItems.splice(destIndex, 0, removed);
-//     state.columns = {
-//         ...state.columns,
-//         [sourceColumn]: {
-//             ...column,
-//             items: copiedItems
-//         }
-//     };
-// }
+

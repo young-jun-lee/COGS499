@@ -5,8 +5,12 @@ import { Box, Button, Flex, Group, Tooltip } from "@mantine/core";
 import SearchBar from "./SearchBar";
 import DisplaySearch from "./DisplaySearch";
 
+type SearchContainerProps = {
+    columnId: string;
+    column: any;
+};
 
-const Search: FC = () => {
+const Search: FC<SearchContainerProps> = ({ columnId, column }) => {
     const snap = useSnapshot(state);
     return (
         <Flex style={{ flexDirection: "column", width: "35%", height: "100%" }} sx={
@@ -25,7 +29,7 @@ const Search: FC = () => {
         }>
 
             <div>Class Search</div>
-            <SearchBar></SearchBar>
+            {/* <SearchBar columnId={columnId} column={column}></SearchBar> */}
         </Flex>
     );
 };

@@ -33,10 +33,12 @@ interface DndListProps {
         value: string;
         courseid: string;
         group: string;
-    }[];
+    }[],
+    columnId: string,
+    column: any,
 }
 
-export const DndList: FC<DndListProps> = ({ data }) => {
+export const DndList: FC<DndListProps> = ({ data, column, columnId }) => {
 
     const { classes, cx } = useStyles();
     const [state, handlers] = useListState(data);
@@ -65,13 +67,12 @@ export const DndList: FC<DndListProps> = ({ data }) => {
     ));
 
     return (
-
         <DragDropContext
             onDragEnd={({ destination, source }) =>
                 handlers.reorder({ from: source.index, to: destination?.index || 0 })
             }
         >
-            <StrictModeDroppable droppableId="dnd-list" direction="vertical">
+            <StrictModeDroppable droppableId={columnId} direction="vertical">
                 {(provided) => (
                     <div {...provided.droppableProps} ref={provided.innerRef}>
                         {items}

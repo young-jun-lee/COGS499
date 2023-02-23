@@ -6,6 +6,8 @@ import { constants } from "../../content/Constants";
 import Year from "./Year";
 import { DragDropContext, Draggable } from "react-beautiful-dnd";
 import { StrictModeDroppable } from "./StrictModeDroppable";
+import Search from "./SearchContainer";
+import SearchBar from "./SearchBar";
 
 
 const onDragEnd = (result, columns) => {
@@ -66,9 +68,16 @@ const SelectContainer: FC = () => {
                         <Flex style={{ display: "flex", justifyContent: "center", height: "100%", flexDirection: "column" }}>
 
                             {Object.entries(snap.columns).map(([columnId, column], index) => {
-                                return (
-                                    <Year year={index + 1} key={columnId} column={column} columnId={columnId} index={index} />
-                                );
+                                if (column.name !== "search bar") {
+                                    return (
+                                        <Year year={index + 1} key={columnId} column={column} columnId={columnId} index={index} />
+                                    );
+                                }
+                                else {
+                                    return (
+                                        <SearchBar year={index + 1} key={columnId} column={column} columnId={columnId} index={index} />
+                                    );
+                                }
                             })}
                         </Flex>
                     </DragDropContext >

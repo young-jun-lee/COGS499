@@ -52,7 +52,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
 
             >
                 <div style={{ margin: 8 }}>
-                    <StrictModeDroppable droppableId={columnId} key={columnId}>
+                    <StrictModeDroppable droppableId={columnId}>
                         {(provided, snapshot) => {
                             return (
                                 <div
@@ -96,7 +96,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                                                                 ...provided.draggableProps.style
                                                             }}
                                                         >
-                                                            {item.courseCode}
+                                                            {item.value}
                                                         </div>
                                                     );
                                                 }}
