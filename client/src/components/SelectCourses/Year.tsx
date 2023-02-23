@@ -32,7 +32,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
         >
             <Button
                 onClick={() => {
-                    removeYear()
+                    removeYear(columnId)
                 }}
             >
                 Delete Year

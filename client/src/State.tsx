@@ -92,14 +92,14 @@ export function addYear() {
         }
     }
 }
-export function removeYear() {
+export function removeYear(columnId: number) {
     state.numYears -= 1;
-
-    const removedState = { ...state.columns };
-    state.columns = Object.keys(removedState).reduce((acc, key) => {
-        return key !== `${state.numYears + 1}` ? { ...acc, [key]: removedState[key] } : acc;
-    }, {});
-
+    const columnKeys = Object.keys(state.columns).filter(key => key.startsWith('Year'));
+    delete state.columns[columnId];
+    state.columns = {
+        ...state.columns,
+        ...columnKeys
+    }
 
 }
 
