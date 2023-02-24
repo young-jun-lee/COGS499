@@ -84,6 +84,7 @@ export function moveCourse(sourceColumn: string, sourceIndex: number, destIndex?
 
 export function addYear() {
     state.numYears += 1;
+
     state.columns = {
         ...state.columns,
         [state.numYears]: {
@@ -91,6 +92,7 @@ export function addYear() {
             items: []
         }
     }
+    console.log("state.columns in addYear: ", state.columns)
 }
 export function removeYear(columnId: number) {
     state.numYears -= 1;
@@ -100,6 +102,5 @@ export function removeYear(columnId: number) {
         ...state.columns,
         ...columnKeys
     }
-
 }
 

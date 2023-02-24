@@ -10,7 +10,7 @@ interface RequiredCourses {
     key: string
     column: any
     index: number
-    columnId: string
+    columnId: number
 }
 
 const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
@@ -37,7 +37,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
             >
                 Delete Year
             </Button>
-            <Box sx={{ fontWeight: 700, marginLeft: "1px", marginTop: -5 }}>{`Year ${year}`}</Box>
+            <Box sx={{ fontWeight: 700, marginLeft: "1px", marginTop: -5 }}>{year}</Box>
             <Box
                 sx={(theme) => ({
                     backgroundColor: '#ede8f3',

@@ -69,7 +69,7 @@ const SelectContainer: FC = () => {
                             {Object.entries(snap.columns).map(([columnId, column], index) => {
                                 if (column.name !== "search bar") {
                                     return (
-                                        <Year year={index + 1} key={columnId} column={column} columnId={columnId} index={index} />
+                                        <Year year={column.name} key={columnId} column={column} columnId={columnId} index={index} />
                                     );
                                 }
                                 else {
