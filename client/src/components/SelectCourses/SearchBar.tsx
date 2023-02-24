@@ -7,10 +7,7 @@ import { StrictModeDroppable } from './StrictModeDroppable';
 import { v4 as uuidv4 } from 'uuid';
 
 interface RequiredCourses {
-    year: number;
-    key: string
     column: any
-    index: number
     columnId: string
 }
 
@@ -20,7 +17,7 @@ interface Course {
     group: string
 }
 
-const SearchBar: FC<RequiredCourses> = ({ year, column, columnId }) => {
+const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
     const [courses, setCourses] = useState<Course[]>([]);
     const handleItemSubmit = (item: Course) => {
         // Check if item is already in courses
@@ -76,6 +73,13 @@ const SearchBar: FC<RequiredCourses> = ({ year, column, columnId }) => {
                         { value: 'CISC 113', group: 'CISC', id: uuidv4() },
                         { value: 'MATH 122', group: 'MATH', id: uuidv4() },
                         { value: 'MATH 101', group: 'MATH', id: uuidv4() },
+                        { value: "MATH 123", group: "MATH", id: uuidv4() },
+                        { value: "MATH 124", group: "MATH", id: uuidv4() },
+                        { value: "MATH 125", group: "MATH", id: uuidv4() },
+                        { value: "MATH 126", group: "MATH", id: uuidv4() },
+                        { value: "MATH 127", group: "MATH", id: uuidv4() },
+                        { value: "MATH 128", group: "MATH", id: uuidv4() },
+                        { value: "MATH 129", group: "MATH", id: uuidv4() },
                     ]}
                     onItemSubmit={handleItemSubmit}
                     sx={{ marginBottom: 20 }}

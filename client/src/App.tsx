@@ -32,7 +32,7 @@ export default function App() {
           </Flex>
           <Flex style={{ height: "60%" }}>
             <SelectContainer />
-            <Search />
+            {/* <Search /> */}
           </Flex>
         </Container>
       </MantineProvider>

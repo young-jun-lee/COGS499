@@ -6,11 +6,11 @@ import { removeYear, state } from '../../State';
 import { StrictModeDroppable } from './StrictModeDroppable';
 
 interface RequiredCourses {
-    year: number;
+    year: string;
     key: string
     column: any
     index: number
-    columnId: number
+    columnId: string
 }
 
 const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {

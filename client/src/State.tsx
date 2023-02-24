@@ -5,7 +5,6 @@ type Specialization = string
 type Basket = string[]
 type NumYears = 1 | 2 | 3 | 4 | 5 | 6
 
-// type Columns = { [year: string]: { name: string, items: { id: string, courseCode: string }[] } }
 type Courses = {
     id: string
     value: string
@@ -30,7 +29,7 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
                 { id: uuidv4(), value: "CISC 102", group: "CISC" },
                 { id: uuidv4(), value: "CISC 103", group: "CISC" },
                 { id: uuidv4(), value: "MATH 121", group: "MATH" },
-                { id: uuidv4(), value: "MATH 126", group: "MATH" }
+
             ]
         },
 

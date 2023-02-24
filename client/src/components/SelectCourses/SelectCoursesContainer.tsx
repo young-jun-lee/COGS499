@@ -4,13 +4,13 @@ import { state, moveCourse, addYear } from '../../State';
 import { Button, Flex, Group, Tooltip } from "@mantine/core";
 import { constants } from "../../content/Constants";
 import Year from "./Year";
-import { DragDropContext, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Draggable, DropResult } from "react-beautiful-dnd";
 import { StrictModeDroppable } from "./StrictModeDroppable";
 import Search from "./SearchContainer";
 import SearchBar from "./SearchBar";
 
 
-const onDragEnd = (result, columns) => {
+const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
     const { source, destination } = result;
 
@@ -22,24 +22,11 @@ const onDragEnd = (result, columns) => {
 };
 
 const SelectContainer: FC = () => {
-    // state.columns = courseSelection;
-    let snap = useSnapshot(state);
-    // const [columns, setColumns] = useState(snap.columns);
 
+    const snap = useSnapshot(state);
 
-    // useEffect(() => {
-    //     console.log(snap.columns)
-    //     if (snap.columns !== columns) {
-    //         setColumns(snap.columns);
-    //     }
-    //     console.log("here")
-    // }, [snap.columns])
-
-
-    // const [columns, setColumns] = useState(courseSelection);
-    // use valtio to store the columns
     return (
-        <Flex style={{ flexDirection: "column", width: "65%", height: "100%" }}>
+        <Flex style={{ flexDirection: "column", width: "100%", height: "100%" }}>
             {snap.numYears < constants.MAX_YEARS ?
                 <Button
                     onClick={() => {
@@ -65,28 +52,31 @@ const SelectContainer: FC = () => {
             <div>
                 <h1 style={{ textAlign: "center" }}>Courses</h1>
                 <div
-                    style={{ display: "flex", justifyContent: "center", height: "100%" }}
+                    style={{
+                        display: "grid", gridTemplateColumns: "1fr auto",
+                    }}
                 >
                     <DragDropContext
-                        onDragEnd={(result) => {
-                            onDragEnd(result, snap.columns);
-                        }}
+                        onDragEnd={result => onDragEnd(result)}
                     >
-                        <Flex style={{ display: "flex", justifyContent: "center", height: "100%", flexDirection: "column" }}>
-
+                        {/* <Flex style={{ display: "flex", justifyContent: "center", height: "100%", flexDirection: "column" }}> */}
+                        <Flex style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                             {Object.entries(snap.columns).map(([columnId, column], index) => {
                                 if (column.name !== "search bar") {
                                     return (
-                                        <Year year={column.name} key={columnId} column={column} columnId={columnId} index={index} />
-                                    );
-                                }
-                                else {
-                                    return (
-                                        <SearchBar year={index + 1} key={columnId} column={column} columnId={columnId} index={index} />
+                                        <Year
+                                            year={column.name}
+                                            key={columnId}
+                                            column={column}
+                                            columnId={columnId}
+                                            index={index}
+                                        />
                                     );
                                 }
                             })}
                         </Flex>
+                        <SearchBar column={snap.columns[0]} columnId="0" />
+                        {/* </Flex> */}
                     </DragDropContext >
                 </div >
             </div >

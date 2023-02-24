@@ -1,5 +1,7 @@
 import { Box } from '@mantine/core';
 import { FC } from 'react';
+import { List, ThemeIcon } from '@mantine/core';
+import { TbCircleCheck, TbCircleDashed } from "react-icons/tb";
 
 interface RequiredCourses {
   title: string;
@@ -36,15 +38,30 @@ const SpecCourses: FC<RequiredCourses> = ({ title }) => {
         })}
 
       >
-        <li>
-          CISC 101
-        </li>
-        <li>
-          CISC 102
-        </li>
-        <li>
-          CISC 103
-        </li>
+        <List
+          spacing="xs"
+          size="sm"
+          center
+          icon={
+            <ThemeIcon color="teal" size={24} radius="xl">
+              <TbCircleCheck size={16} />
+            </ThemeIcon>
+          }
+        >
+          <List.Item>CISC 101</List.Item>
+          <List.Item>CISC 102</List.Item>
+          <List.Item>CISC 103</List.Item>
+          <List.Item>CISC 104</List.Item>
+          <List.Item
+            icon={
+              <ThemeIcon color="blue" size={24} radius="xl">
+                <TbCircleDashed size={16} />
+              </ThemeIcon>
+            }
+          >
+            CISC 105
+          </List.Item>
+        </List>
       </Box>
     </Box>
   )
