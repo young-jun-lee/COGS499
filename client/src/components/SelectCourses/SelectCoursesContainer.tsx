@@ -23,12 +23,19 @@ const onDragEnd = (result, columns) => {
 
 const SelectContainer: FC = () => {
     // state.columns = courseSelection;
-    const snap = useSnapshot(state);
+    let snap = useSnapshot(state);
     // const [columns, setColumns] = useState(snap.columns);
+
 
     // useEffect(() => {
     //     console.log(snap.columns)
+    //     if (snap.columns !== columns) {
+    //         setColumns(snap.columns);
+    //     }
+    //     console.log("here")
     // }, [snap.columns])
+
+
     // const [columns, setColumns] = useState(courseSelection);
     // use valtio to store the columns
     return (
@@ -66,6 +73,7 @@ const SelectContainer: FC = () => {
                         }}
                     >
                         <Flex style={{ display: "flex", justifyContent: "center", height: "100%", flexDirection: "column" }}>
+
                             {Object.entries(snap.columns).map(([columnId, column], index) => {
                                 if (column.name !== "search bar") {
                                     return (

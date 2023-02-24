@@ -20,6 +20,10 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
     numYears: 1,
     columns: [
         {
+            name: "search bar",
+            items: []
+        },
+        {
             name: "Year 1",
             items: [
                 { id: uuidv4(), value: "CISC 101", group: "CISC" },
@@ -29,10 +33,7 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
                 { id: uuidv4(), value: "MATH 126", group: "MATH" }
             ]
         },
-        {
-            name: "search bar",
-            items: []
-        }
+
     ]
 
 });
@@ -44,16 +45,10 @@ export function moveCourse(sourceColumn: string, sourceIndex: number, destIndex?
         const source = state.columns[sourceColumn];
         const dest = state.columns[destColumn];
 
-        console.log("source: ", source)
-        console.log("dest: ", dest)
-
-
         const copiedSource = [...source.items];
         const copiedDest = [...dest.items];
-        console.log("copiedSource: ", copiedSource)
-        console.log("copiedDest: ", copiedDest)
         const [removed] = copiedSource.splice(sourceIndex, 1);
-        console.log("removed: ", removed)
+
         copiedDest.splice(destIndex, 0, removed);
         state.columns = {
             ...state.columns,
@@ -92,15 +87,18 @@ export function addYear() {
             items: []
         }
     }
-    console.log("state.columns in addYear: ", state.columns)
 }
-export function removeYear(columnId: number) {
-    state.numYears -= 1;
-    const columnKeys = Object.keys(state.columns).filter(key => key.startsWith('Year'));
-    delete state.columns[columnId];
-    state.columns = {
-        ...state.columns,
-        ...columnKeys
+export function removeYear(columnId: string) {
+
+    let columnIdConverted = parseInt(columnId)
+
+    console.log("columnIdConverted: ", columnIdConverted)
+    for (let i = columnIdConverted; i < state.numYears; i++) {
+        state.columns[i + 1].name = `Year ${i}`
+        state.columns[i] = state.columns[i + 1]
+
     }
+    delete state.columns[state.numYears]
+    state.numYears -= 1
 }
 
