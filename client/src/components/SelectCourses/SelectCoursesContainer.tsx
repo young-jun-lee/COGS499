@@ -1,13 +1,12 @@
-import { FC, useEffect, useState } from "react";
-import { useSnapshot } from "valtio";
-import { state, moveCourse, addYear } from '../../State';
 import { Button, Flex, Group, Tooltip } from "@mantine/core";
+import { FC } from "react";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import { useSnapshot } from "valtio";
+import { addYear, moveCourse, state } from '../../State';
 import { constants } from "../../content/Constants";
-import Year from "./Year";
-import { DragDropContext, Draggable, DropResult } from "react-beautiful-dnd";
-import { StrictModeDroppable } from "./StrictModeDroppable";
-import Search from "./SearchContainer";
 import SearchBar from "./SearchBar";
+import Year from "./Year";
+import Search from "./SearchContainer";
 
 
 const onDragEnd = (result: DropResult) => {
@@ -22,17 +21,13 @@ const onDragEnd = (result: DropResult) => {
 };
 
 const SelectContainer: FC = () => {
-
     const snap = useSnapshot(state);
-
     return (
         <Flex style={{ flexDirection: "column", width: "100%", height: "100%" }}>
             {snap.numYears < constants.MAX_YEARS ?
                 <Button
                     onClick={() => {
                         addYear()
-
-                        // console.log(snap.columns)
                     }}
                 >
                     Add Year
@@ -75,7 +70,8 @@ const SelectContainer: FC = () => {
                                 }
                             })}
                         </Flex>
-                        <SearchBar column={snap.columns[0]} columnId="0" />
+                        {/* <SearchBar column={snap.columns[0]} columnId="0" /> */}
+                        <Search column={snap.columns[0]} columnId="0" />
                         {/* </Flex> */}
                     </DragDropContext >
                 </div >

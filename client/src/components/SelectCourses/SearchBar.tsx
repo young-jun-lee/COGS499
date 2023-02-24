@@ -29,9 +29,6 @@ const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
             state.columns[columnId].items.push(item);
         }
     };
-    // useEffect(() => {
-    //     console.log("courses", courses)
-    // }, [courses])
 
     return (
         <Box
@@ -53,7 +50,6 @@ const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
             <Box
                 sx={(theme) => ({
                     backgroundColor: '#ede8f3',
-                    height: '90%',
                     padding: theme.spacing.xl,
                     borderRadius: theme.radius.md,
                     '&:hover': {
@@ -116,7 +112,7 @@ const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
                                                             style={{
                                                                 userSelect: "none",
                                                                 textAlign: "center",
-                                                                padding: 16,
+                                                                padding: 10,
                                                                 margin: "0 0 8px 0",
                                                                 borderRadius: "5px",
                                                                 minHeight: "50px",

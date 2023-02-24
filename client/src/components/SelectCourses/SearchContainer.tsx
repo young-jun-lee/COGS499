@@ -13,7 +13,7 @@ type SearchContainerProps = {
 const Search: FC<SearchContainerProps> = ({ columnId, column }) => {
     const snap = useSnapshot(state);
     return (
-        <Flex style={{ flexDirection: "column", width: "35%", height: "100%" }} sx={
+        <Flex style={{ flexDirection: "column" }} sx={
             (theme) => ({
                 backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : theme.colors.gray[1],
                 // textAlign: 'center',
@@ -29,7 +29,7 @@ const Search: FC<SearchContainerProps> = ({ columnId, column }) => {
         }>
 
             <div>Class Search</div>
-            {/* <SearchBar columnId={columnId} column={column}></SearchBar> */}
+            <SearchBar columnId={columnId} column={column}></SearchBar>
         </Flex>
     );
 };
