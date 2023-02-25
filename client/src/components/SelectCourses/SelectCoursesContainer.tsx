@@ -24,26 +24,7 @@ const SelectContainer: FC = () => {
     const snap = useSnapshot(state);
     return (
         <Flex style={{ flexDirection: "column", width: "100%", height: "100%" }}>
-            {snap.numYears < constants.MAX_YEARS ?
-                <Button
-                    onClick={() => {
-                        addYear()
-                    }}
-                >
-                    Add Year
-                </Button>
-                : <Group position="center">
-                    <Tooltip label="Max Academic Years">
-                        <Button
-                            data-disabled
-                            sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
-                            onClick={(event) => event.preventDefault()}
-                        >
-                            Add Year
-                        </Button>
-                    </Tooltip>
-                </Group>
-            }
+
             <div>
                 <h1 style={{ textAlign: "center" }}>Courses</h1>
                 <div
@@ -70,12 +51,34 @@ const SelectContainer: FC = () => {
                                 }
                             })}
                         </Flex>
+
                         {/* <SearchBar column={snap.columns[0]} columnId="0" /> */}
                         <Search column={snap.columns[0]} columnId="0" />
                         {/* </Flex> */}
                     </DragDropContext >
+                    {snap.numYears < constants.MAX_YEARS ?
+                        <Button
+                            onClick={() => {
+                                addYear()
+                            }}
+                        >
+                            Add Year
+                        </Button>
+                        : <Group position="center">
+                            <Tooltip label="Max Academic Years">
+                                <Button
+                                    data-disabled
+                                    sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+                                    onClick={(event) => event.preventDefault()}
+                                >
+                                    Add Year
+                                </Button>
+                            </Tooltip>
+                        </Group>
+                    }
                 </div >
             </div >
+
         </Flex >
     );
 };

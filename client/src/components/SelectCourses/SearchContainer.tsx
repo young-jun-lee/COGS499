@@ -18,17 +18,17 @@ const Search: FC<SearchContainerProps> = ({ columnId, column }) => {
                 backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : theme.colors.gray[1],
                 // textAlign: 'center',
                 width: '100%',
-                height: '100%',
+                // height: '100%',
                 padding: theme.spacing.sm,
-                marginLeft: "1px",
-                marginRight: "1px",
-                marginTop: theme.spacing.md,
-                marginBottom: theme.spacing.md,
+                // marginLeft: "1px",
+                // marginRight: "1px",
+                // marginTop: theme.spacing.md,
+                // marginBottom: theme.spacing.md,
                 borderRadius: `${theme.radius.md} ${theme.radius.md} 0 0`,
             })
         }>
 
-            <div>Class Search</div>
+            <Box sx={{ fontWeight: 700, marginLeft: "1px", marginTop: -5 }}>Class Search</Box>
             <SearchBar columnId={columnId} column={column}></SearchBar>
         </Flex>
     );

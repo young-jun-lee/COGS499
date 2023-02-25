@@ -38,10 +38,10 @@ const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
                 width: '100%',
                 height: '40%',
                 padding: theme.spacing.sm,
-                marginLeft: "1px",
-                marginRight: "1px",
-                marginTop: theme.spacing.md,
-                marginBottom: theme.spacing.md,
+                // marginLeft: "1px",
+                // marginRight: "1px",
+                // marginTop: theme.spacing.md,
+                // marginBottom: theme.spacing.md,
 
                 borderRadius: `${theme.radius.md} ${theme.radius.md} 0 0`,
             })}

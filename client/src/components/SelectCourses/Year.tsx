@@ -1,4 +1,4 @@
-import { Box, Button } from '@mantine/core';
+import { Box, Button, Group, Tooltip } from '@mantine/core';
 import { FC } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { useSnapshot } from 'valtio';
@@ -19,30 +19,40 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
             sx={(theme) => ({
                 backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : theme.colors.gray[1],
                 // textAlign: 'center',
-                width: '100%',
-                height: '40%',
+                // width: '100%',
+                // height: '40%',
                 padding: theme.spacing.sm,
-                marginLeft: "1px",
-                marginRight: "1px",
-                marginTop: theme.spacing.md,
-                marginBottom: theme.spacing.md,
-
                 borderRadius: `${theme.radius.md} ${theme.radius.md} 0 0`,
             })}
         >
-            <Button
-                onClick={() => {
-                    removeYear(columnId)
-                }}
-            >
-                Delete Year
-            </Button>
+
+            <Group position="right">
+                {state.numYears > 3 ?
+                    <Button
+                        onClick={() => {
+                            removeYear(columnId)
+                        }}
+                    >
+                        Delete Year
+                    </Button>
+                    :
+                    <Tooltip label="Minimum 3 Academic Years">
+                        <Button
+                            data-disabled
+                            sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+                            onClick={(event) => event.preventDefault()}
+                        >
+                            Delete Year
+                        </Button>
+                    </Tooltip>
+                }
+            </Group>
             <Box sx={{ fontWeight: 700, marginLeft: "1px", marginTop: -5 }}>{year}</Box>
             <Box
                 sx={(theme) => ({
                     backgroundColor: '#ede8f3',
-                    height: '90%',
-                    padding: theme.spacing.xl,
+                    // height: '90%',
+                    padding: theme.spacing.lg,
                     borderRadius: theme.radius.md,
                     '&:hover': {
                         backgroundColor:
@@ -62,9 +72,13 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                                         background: snapshot.isDraggingOver
                                             ? "lightblue"
                                             : "lightgrey",
-                                        // padding: 4,
-                                        width: 250,
-                                        // minHeight: 500
+                                        // height: "50%",
+                                        maxHeight: 300, // set a maximum height for the div
+                                        display: "flex", // use flexbox to allow for multiple columns
+                                        flexDirection: "column", // set the direction to column
+                                        flexWrap: "wrap", // wrap the items to a new line when there's no space
+                                        columnCount: 2, // set the number of columns to 2
+                                        columnGap: 10, // set a gap between the columns
                                     }}
                                 >
                                     {column.items.map((item, index) => {
@@ -85,10 +99,16 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                                                             style={{
                                                                 userSelect: "none",
                                                                 textAlign: "center",
-                                                                padding: 16,
+                                                                // padding: 16,
                                                                 margin: "0 0 8px 0",
                                                                 borderRadius: "5px",
-                                                                minHeight: "50px",
+                                                                justifyContent: "center",
+                                                                // align the text in the middle
+                                                                // textAlignLast: "center",
+                                                                // alignItems: "center",
+
+                                                                // minHeight: "50px",
+                                                                height: "40px",
                                                                 backgroundColor: snapshot.isDragging
                                                                     ? "#263B4A"
                                                                     : "#456C86",
