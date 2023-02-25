@@ -1,21 +1,20 @@
-import { ActionIcon, useMantineColorScheme } from '@mantine/core';
-import { MdLightMode, MdDarkMode } from 'react-icons/md';
+import { ActionIcon, Group, Switch, useMantineColorScheme } from '@mantine/core';
+import { TbSun, TbMoonStars } from 'react-icons/tb';
 
 function Toggle() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
 
   return (
-    <ActionIcon
-      variant="outline"
-      color={dark ? 'yellow' : 'blue'}
-      onClick={() => toggleColorScheme()}
-      title="Toggle color scheme"
-      
-      // style={{ position: 'absolute', top: 0, right: 0, height: 40, width: 40 }}
-    >
-      {dark ? <MdLightMode /> : <MdDarkMode />}
-    </ActionIcon>
+    <Group position="right" style={{ margin: "10px" }}>
+      <Switch
+        size="md"
+        color={colorScheme === 'dark' ? 'gray' : 'dark'}
+        onChange={() => toggleColorScheme()}
+        onLabel={<TbSun size={20} color={'yellow'} />}
+        offLabel={<TbMoonStars size={20} color={'blue'} />}
+      />
+    </Group>
   );
 }
 export default Toggle;

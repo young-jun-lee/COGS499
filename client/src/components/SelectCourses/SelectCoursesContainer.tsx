@@ -7,6 +7,8 @@ import { constants } from "../../content/Constants";
 import SearchBar from "./SearchBar";
 import Year from "./Year";
 import Search from "./SearchContainer";
+import { HiViewGridAdd } from "react-icons/hi";
+
 
 
 const onDragEnd = (result: DropResult) => {
@@ -56,29 +58,30 @@ const SelectContainer: FC = () => {
                         <Search column={snap.columns[0]} columnId="0" />
                         {/* </Flex> */}
                     </DragDropContext >
-                    {snap.numYears < constants.MAX_YEARS ?
+
+                </div >
+            </div >
+            <Group position="right" style={{ marginTop: "10px" }}>
+                {snap.numYears < constants.MAX_YEARS ?
+                    <Button leftIcon={<HiViewGridAdd size={20} />}
+                        onClick={() => {
+                            addYear()
+                        }}
+                    >
+                        Add Year
+                    </Button>
+                    :
+                    <Tooltip label="Max Academic Years">
                         <Button
-                            onClick={() => {
-                                addYear()
-                            }}
+                            data-disabled
+                            sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+                            onClick={(event) => event.preventDefault()}
                         >
                             Add Year
                         </Button>
-                        : <Group position="center">
-                            <Tooltip label="Max Academic Years">
-                                <Button
-                                    data-disabled
-                                    sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
-                                    onClick={(event) => event.preventDefault()}
-                                >
-                                    Add Year
-                                </Button>
-                            </Tooltip>
-                        </Group>
-                    }
-                </div >
-            </div >
-
+                    </Tooltip>
+                }
+            </Group>
         </Flex >
     );
 };

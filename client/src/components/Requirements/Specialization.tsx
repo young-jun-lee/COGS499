@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 import { useSnapshot } from "valtio";
 import HeaderContent from "../../content/Header";
 import { state } from '../../State';
+import { IoMdOptions } from "react-icons/io";
 
 import { Drawer, Group } from '@mantine/core';
 
@@ -13,7 +14,8 @@ const Specialization: FC = () => {
 
     return (
         <>
-            <Button onClick={() => setOpened((o) => !o)}>
+            <Button leftIcon={<IoMdOptions />} onClick={() => setOpened((o) => !o)} >
+
                 Choose Specialization
             </Button>
 

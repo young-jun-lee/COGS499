@@ -4,7 +4,7 @@ import { Draggable } from 'react-beautiful-dnd';
 import { useSnapshot } from 'valtio';
 import { removeYear, state } from '../../State';
 import { StrictModeDroppable } from './StrictModeDroppable';
-
+import { MdDeleteSweep } from "react-icons/md";
 interface RequiredCourses {
     year: string;
     key: string
@@ -28,7 +28,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
 
             <Group position="right">
                 {state.numYears > 3 ?
-                    <Button
+                    <Button leftIcon={<MdDeleteSweep size={18} />}
                         onClick={() => {
                             removeYear(columnId)
                         }}
@@ -37,7 +37,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                     </Button>
                     :
                     <Tooltip label="Minimum 3 Academic Years">
-                        <Button
+                        <Button leftIcon={<MdDeleteSweep />}
                             data-disabled
                             sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
                             onClick={(event) => event.preventDefault()}

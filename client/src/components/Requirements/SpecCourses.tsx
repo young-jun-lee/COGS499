@@ -49,12 +49,24 @@ const SpecCourses: FC<RequiredCourses> = ({ title }) => {
           }
         >
           <List.Item>CISC 101</List.Item>
-          <List.Item>CISC 102</List.Item>
-          <List.Item>CISC 103</List.Item>
-          <List.Item>CISC 104</List.Item>
+          <List.Item icon={
+            <ThemeIcon size={24} radius="xl">
+              <TbCircleDashed size={16} />
+            </ThemeIcon>
+          }>CISC 102</List.Item>
+          <List.Item icon={
+            <ThemeIcon size={24} radius="xl">
+              <TbCircleDashed size={16} />
+            </ThemeIcon>
+          }>CISC 103</List.Item>
+          <List.Item icon={
+            <ThemeIcon size={24} radius="xl">
+              <TbCircleDashed size={16} />
+            </ThemeIcon>
+          }>CISC 104</List.Item>
           <List.Item
             icon={
-              <ThemeIcon color="blue" size={24} radius="xl">
+              <ThemeIcon size={24} radius="xl">
                 <TbCircleDashed size={16} />
               </ThemeIcon>
             }
