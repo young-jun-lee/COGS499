@@ -1,5 +1,5 @@
-import { Button, Flex, Group, Tooltip } from "@mantine/core";
-import { FC } from "react";
+import { Button, Flex, Group, Tooltip, Notification } from "@mantine/core";
+import { FC, useEffect, useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { useSnapshot } from "valtio";
 import { addYear, moveCourse, state } from '../../State';
@@ -8,22 +8,34 @@ import SearchBar from "./SearchBar";
 import Year from "./Year";
 import Search from "./SearchContainer";
 import { HiViewGridAdd } from "react-icons/hi";
-
-
-
-const onDragEnd = (result: DropResult) => {
-    if (!result.destination) return;
-    const { source, destination } = result;
-
-    if (source.droppableId !== destination.droppableId) {
-        moveCourse(source.droppableId, source.index, destination.index, destination.droppableId, true);
-    } else {
-        moveCourse(source.droppableId, source.index, destination.index);
-    }
-};
+import { showNotification } from '@mantine/notifications';
 
 const SelectContainer: FC = () => {
     const snap = useSnapshot(state);
+
+    const onDragEnd = (result: DropResult) => {
+        if (!result.destination) return;
+        const { source, destination } = result;
+
+        // console.log(snap.columns[destination.index - 1].limitCourses)
+        // const destObject = snap.columns[destination.index - 1]
+        // if (destObject.items.length >= destObject.limitCourses) {
+        //     showNotification({
+        //         title: 'Max Courses Reached',
+        //         message: `You have reached the maximum number of courses for ${destObject.name}`,
+        //         color: 'red',
+        //     });
+        // }
+
+        if (source.droppableId !== destination.droppableId) {
+            (moveCourse(source.droppableId, source.index, destination.index, destination.droppableId, true));
+
+        } else {
+            (moveCourse(source.droppableId, source.index, destination.index))
+
+        }
+    };
+
     return (
         <Flex style={{ flexDirection: "column", width: "100%", height: "100%" }}>
 
@@ -52,8 +64,8 @@ const SelectContainer: FC = () => {
                                     );
                                 }
                             })}
-                        </Flex>
 
+                        </Flex>
                         {/* <SearchBar column={snap.columns[0]} columnId="0" /> */}
                         <Search column={snap.columns[0]} columnId="0" />
                         {/* </Flex> */}

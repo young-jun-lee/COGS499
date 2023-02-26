@@ -1,10 +1,10 @@
-import { Box, Button, Group, Tooltip } from '@mantine/core';
-import { FC } from 'react';
+import { Box, Button, Group, Tooltip, Notification } from '@mantine/core';
+import { FC, useEffect, useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { useSnapshot } from 'valtio';
 import { removeYear, state } from '../../State';
 import { StrictModeDroppable } from './StrictModeDroppable';
-import { MdDeleteSweep } from "react-icons/md";
+import { MdDeleteSweep, MdClear } from "react-icons/md";
 interface RequiredCourses {
     year: string;
     key: string
@@ -14,6 +14,8 @@ interface RequiredCourses {
 }
 
 const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
+
+
     return (
         <Box
             sx={(theme) => ({
@@ -75,7 +77,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
 
                                         display: "flex",
 
-                                        flexWrap: "wrap", 
+                                        flexWrap: "wrap",
                                         // columnCount: 2, // set the number of columns to 2
                                         // columnGap: 10, // set a gap between the columns
                                     }}
@@ -87,7 +89,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                                                 key={item.id}
                                                 draggableId={item.id}
                                                 index={index}
-                                                
+
                                             >
                                                 {(provided, snapshot) => {
 
@@ -129,7 +131,11 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                             );
                         }}
                     </StrictModeDroppable>
+
                 </div>
+
+
+
             </Box>
 
         </Box>

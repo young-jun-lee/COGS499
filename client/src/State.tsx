@@ -1,16 +1,20 @@
 import { proxy } from "valtio";
 import { v4 as uuidv4 } from 'uuid';
+import { showNotification } from "@mantine/notifications";
 
 type Specialization = string
 type Basket = string[]
 type NumYears = 1 | 2 | 3 | 4 | 5 | 6
 
-type Courses = {
+type Course = {
     id: string
     value: string
     group: string
 }
-type Columns = { name: string, items: Courses[] }
+
+
+
+type Columns = { name: string, items: Course[], limitCourses: number }
 
 
 export const state = proxy<{ specialization: Specialization, currentBasket: Basket, numYears: NumYears, columns: Columns[] }>({
@@ -20,17 +24,27 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
     columns: [
         {
             name: "search bar",
-            items: []
+            items: [],
+            limitCourses: 6
         },
         {
             name: "Year 1",
+
             items: [
                 { id: uuidv4(), value: "CISC 101", group: "CISC" },
                 { id: uuidv4(), value: "CISC 102", group: "CISC" },
                 { id: uuidv4(), value: "CISC 103", group: "CISC" },
                 { id: uuidv4(), value: "MATH 121", group: "MATH" },
-
-            ]
+                { id: uuidv4(), value: "CISC 104", group: "CISC" },
+                { id: uuidv4(), value: "CISC 105", group: "CISC" },
+                { id: uuidv4(), value: "CISC 106", group: "CISC" },
+                { id: uuidv4(), value: "CISC 107", group: "CISC" },
+                { id: uuidv4(), value: "CISC 108", group: "CISC" },
+                { id: uuidv4(), value: "CISC 109", group: "CISC" },
+                { id: uuidv4(), value: "CISC 131", group: "CISC" },
+                { id: uuidv4(), value: "CISC 132", group: "CISC" },
+            ],
+            limitCourses: 12
         },
 
     ]
@@ -38,9 +52,19 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
 });
 
 export function moveCourse(sourceColumn: string, sourceIndex: number, destIndex?: number, destColumn?: string, diffColumn = false) {
-    const columnKeys = Object.keys(state.columns).filter(key => key.startsWith('Year'));
-    console.log("state.columns in moveCourse: ", state.columns)
+
+    // TODO: refactor to add check for if destColumn is undefined and use that to determine if it's a move within the same column or not
+    // can then get rid of diffColumn param
+
     if (diffColumn) {
+        if (state.columns[destColumn].items.length == state.columns[destColumn].limitCourses) {
+            showNotification({
+                title: 'Max Courses Reached',
+                message: `You have reached the maximum number of courses for ${state.columns[destColumn].name}`,
+                color: 'red',
+            });
+            return
+        }
         const source = state.columns[sourceColumn];
         const dest = state.columns[destColumn];
 
@@ -73,6 +97,7 @@ export function moveCourse(sourceColumn: string, sourceIndex: number, destIndex?
             }
         };
     }
+
 }
 
 

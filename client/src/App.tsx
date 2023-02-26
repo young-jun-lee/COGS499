@@ -8,6 +8,7 @@ import HeaderContent from './content/Header';
 import Search from './components/SelectCourses/SearchContainer';
 // import { DndList } from './components/DragNDrop';
 import SelectContainer from './components/SelectCourses/SelectCoursesContainer';
+import { NotificationsProvider } from '@mantine/notifications';
 
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -24,17 +25,19 @@ export default function App() {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
       <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }}>
-        <Container size="lg" px="lg">
-          <Flex style={{ height: "60%", flexDirection: "column" }}>
-            <Toggle />
-            <Header title={HeaderContent.title} />
-            <Requirements />
-          </Flex>
-          <Flex style={{ height: "60%" }}>
-            <SelectContainer />
-            {/* <Search /> */}
-          </Flex>
-        </Container>
+        <NotificationsProvider>
+          <Container size="lg" px="lg">
+            <Flex style={{ height: "60%", flexDirection: "column" }}>
+              <Toggle />
+              <Header title={HeaderContent.title} />
+              <Requirements />
+            </Flex>
+            <Flex style={{ height: "60%" }}>
+              <SelectContainer />
+              {/* <Search /> */}
+            </Flex>
+          </Container>
+        </NotificationsProvider>
       </MantineProvider>
     </ColorSchemeProvider>
 

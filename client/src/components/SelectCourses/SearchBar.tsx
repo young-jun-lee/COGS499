@@ -81,6 +81,7 @@ const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
                     ]}
                     onItemSubmit={handleItemSubmit}
                     sx={{ marginBottom: 20 }}
+                    maxDropdownHeight={500}
                 />
                 <div style={{ margin: 8 }}>
                     <StrictModeDroppable droppableId={columnId} key={columnId}>
