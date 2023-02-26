@@ -62,7 +62,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
 
             >
                 <div style={{ margin: 8 }}>
-                    <StrictModeDroppable droppableId={columnId}>
+                    <StrictModeDroppable droppableId={columnId} direction='horizontal'>
                         {(provided, snapshot) => {
                             return (
                                 <div
@@ -72,13 +72,12 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                                         background: snapshot.isDraggingOver
                                             ? "lightblue"
                                             : "lightgrey",
-                                        // height: "50%",
-                                        maxHeight: 300, // set a maximum height for the div
-                                        display: "flex", // use flexbox to allow for multiple columns
-                                        flexDirection: "column", // set the direction to column
-                                        flexWrap: "wrap", // wrap the items to a new line when there's no space
-                                        columnCount: 2, // set the number of columns to 2
-                                        columnGap: 10, // set a gap between the columns
+
+                                        display: "flex",
+
+                                        flexWrap: "wrap", 
+                                        // columnCount: 2, // set the number of columns to 2
+                                        // columnGap: 10, // set a gap between the columns
                                     }}
                                 >
                                     {column.items.map((item, index) => {
@@ -88,6 +87,7 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                                                 key={item.id}
                                                 draggableId={item.id}
                                                 index={index}
+                                                
                                             >
                                                 {(provided, snapshot) => {
 
@@ -98,14 +98,15 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                                                             {...provided.dragHandleProps}
                                                             style={{
                                                                 userSelect: "none",
-                                                                textAlign: "center",
-                                                                // padding: 16,
-                                                                margin: "0 0 8px 0",
+                                                                display: "flex",
+                                                                // textAlign: "center",
+                                                                // justifyContent: "center",
+                                                                alignItems: "center",
+                                                                // to align the text in the center
+
+                                                                padding: 30,
+                                                                margin: 10,
                                                                 borderRadius: "5px",
-                                                                justifyContent: "center",
-                                                                // align the text in the middle
-                                                                // textAlignLast: "center",
-                                                                // alignItems: "center",
 
                                                                 // minHeight: "50px",
                                                                 height: "40px",

@@ -3,7 +3,7 @@ import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import Toggle from './components/DarkMode';
 import Header from './components/Requirements/Header';
 import Requirements from './components/Requirements/Requirements';
-import Years from './components/SelectCourses/YearsContainer';
+
 import HeaderContent from './content/Header';
 import Search from './components/SelectCourses/SearchContainer';
 // import { DndList } from './components/DragNDrop';
