@@ -20,6 +20,8 @@ interface Course {
 const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
     const [courses, setCourses] = useState<Course[]>([]);
     const handleItemSubmit = (item: Course) => {
+        // update courses to match valtio state
+        setCourses(state.columns[columnId].items);
         // Check if item is already in courses
         if (courses.some((course) => course.value === item.value)) {
             return;
