@@ -9,6 +9,7 @@ import Search from './components/SelectCourses/SearchContainer';
 // import { DndList } from './components/DragNDrop';
 import SelectContainer from './components/SelectCourses/SelectCoursesContainer';
 import { NotificationsProvider } from '@mantine/notifications';
+import TreeContainer from './components/Tree/TreeContainer';
 
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -34,6 +35,10 @@ export default function App() {
             </Flex>
             <Flex style={{ height: "60%" }}>
               <SelectContainer />
+              {/* <Search /> */}
+            </Flex>
+            <Flex style={{ height: "60%" }}>
+              <TreeContainer />
               {/* <Search /> */}
             </Flex>
           </Container>
