@@ -1,53 +1,10 @@
-import { FC, useEffect, useState } from "react";
+import { Flex } from "@mantine/core";
+import { FC, useState } from "react";
 import { useSnapshot } from "valtio";
 import { state } from '../../State';
-import { Box, Button, Flex, Group, Tooltip } from "@mantine/core";
-// import Tree from 'react-d3-tree';
-// // import { Tree } from 'react-tree-graph';
 
 
-type SearchContainerProps = {
-    columnId: string;
-    column: any;
-};
-
-const orgChart = {
-    name: 'CEO',
-    children: [
-        {
-            name: 'Manager',
-            attributes: {
-                department: 'Production',
-            },
-            children: [
-                {
-                    name: 'Foreman',
-                    attributes: {
-                        department: 'Fabrication',
-                    },
-                    children: [
-                        {
-                            name: 'Worker',
-                        },
-                    ],
-                },
-                {
-                    name: 'Foreman',
-                    attributes: {
-                        department: 'Assembly',
-                    },
-                    children: [
-                        {
-                            name: 'Worker',
-                        },
-                    ],
-                },
-            ],
-        },
-    ],
-};
-
-const TreeContainer: FC<SearchContainerProps> = ({ columnId, column }) => {
+const TreeContainer: FC = () => {
     const snap = useSnapshot(state);
     return (
         <Flex style={{ flexDirection: "column", width: "100%", height: "100%" }}>
@@ -61,7 +18,7 @@ const TreeContainer: FC<SearchContainerProps> = ({ columnId, column }) => {
             </div> */}
             <div style={{ width: "100%", height: 500 }}>
 
-                <Flow />
+                {/* <Flow /> */}
             </div>
         </Flex>
     );
@@ -72,14 +29,9 @@ export default TreeContainer;
 
 import { useCallback } from 'react';
 import ReactFlow, {
-    MiniMap,
-    Controls,
     Background,
-    useNodesState,
-    useEdgesState,
-    addEdge,
-    applyNodeChanges,
     applyEdgeChanges,
+    applyNodeChanges
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
@@ -118,51 +70,26 @@ const rfStyle = {
 };
 
 
+type CourseNode = {
+    id: string;
+    type: string;
+    data: { label: string | null };
+    position: { x: number; y: number };
+    style: {
+        width: number;
+        height: number;
+        justifyContent?: string;
+        alignItems?: string;
+        marginRight?: number;
+    };
+    parentNode?: string;
+    extent?: string;
+}
+
 const generateCourseNodes = () => {
     const snap = useSnapshot(state);
-    // let nodes = [{
-    //     id: 'A',
-    //     type: 'group',
-    //     data: { label: null },
-    //     position: { x: 0, y: 0 },
-    //     // each child node in the group will have a width of 100px and a height of 35px
-    //     // to accomodate for each node to fit in the group node we need to set the group node width to 100px * number of children
-    //     style: {
-    //         height: 400,
-    //     }, width: 100 * snap.columns.length,
-
-    // }]
-    let nodes = []
-    // snap.columns.forEach((column, index) => {
-    //     // skip the first column
-    //     if (index === 0) return
-
-    //     nodes.push({
-    //         id: column.name,
-    //         type: 'group',
-    //         data: { label: null },
-    //         position: { x: 0, y: index * 100 },
-    //         style: {
-    //             height: 35 + 35, width: 100 * column.items.length + 100,
-
-    //         },
-
-    //     })
-
-    //     for (let i = 0; i < column.items.length; i++) {
-    //         nodes.push({
-    //             id: column.items[i].id,
-    //             type: 'input',
-    //             data: { label: column.items[i].value },
-    //             style: {
-    //                 width: 100, height: 35,
-    //             },
-    //             position: { x: 100 * i, y: 0 },
-    //             parentNode: column.name,
-    //             extent: 'parent',
-    //         })
-    //     }
-    // })
+    let nodes: CourseNode[] = []
+    let edges: any[] = []
     snap.columns.forEach((column, index) => {
         // skip the first column
         if (index === 0) return
@@ -183,6 +110,12 @@ const generateCourseNodes = () => {
                 alignItems: 'center',
             },
         })
+        edges.push({
+            id: column.name,
+            source: column.name,
+            target: snap.columns[index - 1].name,
+        })
+
 
         let nodeX = nodeMargin
         for (let i = 0; i < column.items.length; i++) {
@@ -202,6 +135,8 @@ const generateCourseNodes = () => {
 
             nodeX += nodeWidth + nodeMargin
         }
+
+
     })
     return nodes
 }
@@ -209,7 +144,7 @@ const generateCourseNodes = () => {
 function Flow() {
 
 
-    let courseNodes = generateCourseNodes()
+    let courseNodes: CourseNode[] = generateCourseNodes()
 
     // console.log(courseNodes)
     const [nodes, setNodes] = useState(courseNodes);
@@ -223,10 +158,10 @@ function Flow() {
         (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
         [setEdges]
     );
-    const onConnect = useCallback(
-        (connection) => setEdges((eds) => addEdge(connection, eds)),
-        [setEdges]
-    );
+    // const onConnect = useCallback(
+    //     (connection) => setEdges((eds) => addEdge(connection, eds)),
+    //     [setEdges]
+    // );
 
     return (
         <ReactFlow
@@ -234,7 +169,7 @@ function Flow() {
             edges={edges}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
-            onConnect={onConnect}
+            // onConnect={onConnect}
             fitView
             style={rfStyle}
             attributionPosition="top-right"

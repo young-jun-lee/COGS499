@@ -1,15 +1,12 @@
-import { Box, ColorScheme, ColorSchemeProvider, Container, Flex, MantineProvider } from '@mantine/core';
+import { ColorScheme, ColorSchemeProvider, Container, Flex, MantineProvider } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
+import { NotificationsProvider } from '@mantine/notifications';
 import Toggle from './components/DarkMode';
 import Header from './components/Requirements/Header';
 import Requirements from './components/Requirements/Requirements';
-
-import HeaderContent from './content/Header';
-import Search from './components/SelectCourses/SearchContainer';
-// import { DndList } from './components/DragNDrop';
 import SelectContainer from './components/SelectCourses/SelectCoursesContainer';
-import { NotificationsProvider } from '@mantine/notifications';
 import TreeContainer from './components/Tree/TreeContainer';
+import HeaderContent from './content/Header';
 
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
