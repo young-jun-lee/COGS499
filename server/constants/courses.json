@@ -29432,9 +29432,11 @@
         "description": "This course examines how Indigenous and minority peoples globally are responding to the potential loss of their languages. In addition to the social, political, and economic causes and impacts of language loss, we will examine how diverse groups of people are resisting this loss. Strategies for reclaiming and strengthening languages are analyzed.",
         "units": 3,
         "prerequisites": [
-            "LING 100",
-            "LING 205",
-            "LLCU 110"
+            [
+                "LING 100",
+                "LING 205",
+                "LLCU 110"    
+            ]
         ],
         "corequisites": [
             "None"
