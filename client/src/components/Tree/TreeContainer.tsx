@@ -18,7 +18,7 @@ const TreeContainer: FC = () => {
             </div> */}
             <div style={{ width: "100%", height: 500 }}>
 
-                {/* <Flow /> */}
+                <Flow />
             </div>
         </Flex>
     );
@@ -31,39 +31,13 @@ import { useCallback } from 'react';
 import ReactFlow, {
     Background,
     applyEdgeChanges,
-    applyNodeChanges
+    applyNodeChanges,
+    MiniMap,
+    useNodesState
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-const initialNodes = [
-    {
-        id: 'A',
-        type: 'group',
-        data: { label: null },
-        position: { x: 0, y: 0 },
-        style: {
-            width: 170,
-            height: 140,
-        },
-    },
-    {
-        id: 'B',
-        type: 'input',
-        data: { label: 'child node 1' },
-        position: { x: 10, y: 10 },
-        parentNode: 'A',
-        extent: 'parent',
-    },
-    {
-        id: 'C',
-        data: { label: 'child node 2' },
-        position: { x: 10, y: 90 },
-        parentNode: 'A',
-        extent: 'parent',
-    },
-];
 
-const initialEdges = [{ id: 'b-c', source: 'B', target: 'C' }];
 
 const rfStyle = {
     backgroundColor: '#D0C0F7',
@@ -110,18 +84,12 @@ const generateCourseNodes = () => {
                 alignItems: 'center',
             },
         })
-        edges.push({
-            id: column.name,
-            source: column.name,
-            target: snap.columns[index - 1].name,
-        })
-
 
         let nodeX = nodeMargin
         for (let i = 0; i < column.items.length; i++) {
             nodes.push({
                 id: column.items[i].id,
-                type: 'input',
+                type: 'default',
                 data: { label: column.items[i].value },
                 style: {
                     width: nodeWidth,
@@ -135,46 +103,68 @@ const generateCourseNodes = () => {
 
             nodeX += nodeWidth + nodeMargin
         }
+        if (index > 1) {
+            // console.log(index)
+
+            // get all items contained in the previous column
+            const prevColumnItems = nodes.filter(node => node.parentNode === snap.columns[index - 1].name)
+            console.log("prevColumnItems", prevColumnItems)
+            // get all items contained in the current column
+            const currentColumnItems = nodes.filter(node => node.parentNode === column.name)
+            // console.log("currentColumnItems", currentColumnItems)
+            // for each item in the previous column, create an edge to each item in the current column
+            prevColumnItems.forEach(prevItem => {
+                currentColumnItems.forEach((currentItem, index) => {
+                    console.log(index)
+                    edges.push({
+                        id: `e_${prevItem.id}-${currentItem.id}`,
+                        source: prevItem.id,
+                        target: currentItem.id,
+                    })
+                    // console.log("creating edge", prevItem.id, currentItem.id)
+
+                })
+            }
+            )
+        }
 
 
     })
-    return nodes
+    return { courseNodes: nodes, courseEdges: edges }
 }
 
 function Flow() {
 
 
-    let courseNodes: CourseNode[] = generateCourseNodes()
+    let { courseNodes, courseEdges } = generateCourseNodes()
+    // console.log(courseNodes)
+    console.log(courseEdges)
+
 
     // console.log(courseNodes)
-    const [nodes, setNodes] = useState(courseNodes);
-    const [edges, setEdges] = useState(initialEdges);
+    // const [nodes, setNodes] = useState(courseNodes);
+    const [nodes, setNodes] = useNodesState(courseNodes);
+    // const [edges, setEdges] = useState(courseEdges);
 
     const onNodesChange = useCallback(
         (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
         [setNodes]
     );
-    const onEdgesChange = useCallback(
-        (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
-        [setEdges]
-    );
-    // const onConnect = useCallback(
-    //     (connection) => setEdges((eds) => addEdge(connection, eds)),
-    //     [setEdges]
-    // );
+
 
     return (
         <ReactFlow
             nodes={nodes}
-            edges={edges}
+            edges={courseEdges}
             onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
+            // onEdgesChange={onEdgesChange}
             // onConnect={onConnect}
             fitView
             style={rfStyle}
-            attributionPosition="top-right"
+        // attributionPosition="top-right"
         >
             <Background />
+            <MiniMap />
         </ReactFlow>
     );
 }
