@@ -58,12 +58,14 @@ type CourseNode = {
     };
     parentNode?: string;
     extent?: string;
+    prerequisites?: readonly string[] | undefined
 }
 
 const generateCourseNodes = () => {
     const snap = useSnapshot(state);
     let nodes: CourseNode[] = []
     let edges: any[] = []
+
     snap.columns.forEach((column, index) => {
         // skip the first column
         if (index === 0) return
@@ -99,6 +101,7 @@ const generateCourseNodes = () => {
                 position: { x: nodeX, y: nodeMargin },
                 parentNode: column.name,
                 extent: 'parent',
+                prerequisites: column.items[i].prerequisites
             })
 
             nodeX += nodeWidth + nodeMargin
@@ -113,22 +116,32 @@ const generateCourseNodes = () => {
             const currentColumnItems = nodes.filter(node => node.parentNode === column.name)
             // console.log("currentColumnItems", currentColumnItems)
             // for each item in the previous column, create an edge to each item in the current column
-            prevColumnItems.forEach(prevItem => {
-                currentColumnItems.forEach((currentItem, index) => {
-                    console.log(index)
+            // prevColumnItems.forEach(prevItem => {
+            //     currentColumnItems.forEach((currentItem, index) => {
+            //         console.log(index)
+            //         edges.push({
+            //             id: `e_${prevItem.id}-${currentItem.id}`,
+            //             source: prevItem.id,
+            //             target: currentItem.id,
+            //         })
+            //         // console.log("creating edge", prevItem.id, currentItem.id)
+
+            //     })
+            // }
+            // )
+            currentColumnItems.forEach((currentItem, index) => {
+                currentItem.prerequisites?.forEach(prerequisite => {
                     edges.push({
-                        id: `e_${prevItem.id}-${currentItem.id}`,
-                        source: prevItem.id,
+                        id: `e_${prerequisite}-${currentItem.id}`,
+                        source: prerequisite,
                         target: currentItem.id,
                     })
-                    // console.log("creating edge", prevItem.id, currentItem.id)
-
-                })
+                }
+                )
             }
             )
+
         }
-
-
     })
     return { courseNodes: nodes, courseEdges: edges }
 }
