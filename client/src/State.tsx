@@ -13,7 +13,6 @@ type Course = {
 }
 
 
-
 type Columns = { name: string, items: Course[], limitCourses: number }
 
 
@@ -29,20 +28,32 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
         },
         {
             name: "Year 1",
-
             items: [
                 { id: uuidv4(), value: "CISC 101", group: "CISC" },
                 { id: uuidv4(), value: "CISC 102", group: "CISC" },
                 { id: uuidv4(), value: "CISC 103", group: "CISC" },
                 { id: uuidv4(), value: "MATH 121", group: "MATH" },
-                { id: uuidv4(), value: "CISC 104", group: "CISC" },
-                { id: uuidv4(), value: "CISC 105", group: "CISC" },
-                { id: uuidv4(), value: "CISC 106", group: "CISC" },
-                { id: uuidv4(), value: "CISC 107", group: "CISC" },
-                { id: uuidv4(), value: "CISC 108", group: "CISC" },
-                { id: uuidv4(), value: "CISC 109", group: "CISC" },
-                { id: uuidv4(), value: "CISC 131", group: "CISC" },
-                { id: uuidv4(), value: "CISC 132", group: "CISC" },
+                { id: uuidv4(), value: "CISC 204", group: "CISC" },
+                // { id: uuidv4(), value: "CISC 205", group: "CISC" },
+                // { id: uuidv4(), value: "CISC 206", group: "CISC" },
+                // { id: uuidv4(), value: "CISC 207", group: "CISC" },
+                // { id: uuidv4(), value: "CISC 208", group: "CISC" },
+                // { id: uuidv4(), value: "CISC 209", group: "CISC" },
+                // { id: uuidv4(), value: "CISC 231", group: "CISC" },
+                // { id: uuidv4(), value: "CISC 232", group: "CISC" },
+            ],
+            limitCourses: 12
+        },
+        {
+            name: "Year 2",
+            items: [
+                { id: uuidv4(), value: "CISC 205", group: "CISC" },
+                { id: uuidv4(), value: "CISC 206", group: "CISC" },
+                { id: uuidv4(), value: "CISC 207", group: "CISC" },
+                { id: uuidv4(), value: "CISC 208", group: "CISC" },
+                { id: uuidv4(), value: "CISC 209", group: "CISC" },
+                { id: uuidv4(), value: "CISC 231", group: "CISC" },
+                { id: uuidv4(), value: "CISC 232", group: "CISC" },
             ],
             limitCourses: 12
         },
@@ -108,7 +119,8 @@ export function addYear() {
         ...state.columns,
         [state.numYears]: {
             name: `Year ${state.numYears}`,
-            items: []
+            items: [],
+            limitCourses: 12
         }
     }
 }
