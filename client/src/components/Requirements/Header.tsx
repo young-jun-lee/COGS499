@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Box } from '@mantine/core';
 import { useSnapshot } from "valtio";
-import { state } from '../../State';
+import { state } from '../../Valtio/State';
 
 interface Header {
 	title: string;

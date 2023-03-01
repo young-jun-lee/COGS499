@@ -2,7 +2,8 @@ import { Autocomplete, Box, Button } from '@mantine/core';
 import { FC, useEffect, useState } from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { useSnapshot } from 'valtio';
-import { removeYear, state } from '../../State';
+import { state } from '../../Valtio/State';
+import { removeYear } from "../../Valtio/helperFunctions";
 import { StrictModeDroppable } from './StrictModeDroppable';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -36,14 +37,10 @@ const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
         <Box
             sx={(theme) => ({
                 backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : theme.colors.gray[1],
-                // textAlign: 'center',
                 width: '100%',
                 height: '40%',
                 padding: theme.spacing.sm,
-                // marginLeft: "1px",
-                // marginRight: "1px",
-                // marginTop: theme.spacing.md,
-                // marginBottom: theme.spacing.md,
+
 
                 borderRadius: `${theme.radius.md} ${theme.radius.md} 0 0`,
             })}

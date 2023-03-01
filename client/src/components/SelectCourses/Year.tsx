@@ -2,7 +2,8 @@ import { Box, Button, Group, Tooltip, Notification } from '@mantine/core';
 import { FC, useEffect, useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { useSnapshot } from 'valtio';
-import { removeYear, state } from '../../State';
+import { state } from '../../Valtio/State';
+import { removeYear } from "../../Valtio/helperFunctions";
 import { StrictModeDroppable } from './StrictModeDroppable';
 import { MdDeleteSweep, MdClear } from "react-icons/md";
 interface RequiredCourses {
