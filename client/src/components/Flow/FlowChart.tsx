@@ -15,7 +15,7 @@ export const Flow = () => {
 
     // const columns = Object.keys(snap.columns).map(key => snap.columns[key])
     // console.log(columns)
-    console.log("rendering")
+    // console.log("rendering")
     const columns = []
     // go through snap.columns and create get the name, items, and prerequisites for each column
     // skip the first column

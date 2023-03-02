@@ -1,78 +1,110 @@
-import { Button, Flex, Group, Tooltip, Notification } from "@mantine/core";
+import { Button, Flex, Group, Tooltip } from "@mantine/core";
 import { FC, useEffect, useState } from "react";
-import { DragDropContext, DropResult } from "react-beautiful-dnd";
-import { useSnapshot } from "valtio";
-import { state } from '../../Valtio/State';
-import { addYear, moveCourse } from "../../Valtio/helperFunctions";
-import { constants } from "../../content/Constants";
-import SearchBar from "./SearchBar";
-import Year from "./Year";
-import Search from "./SearchContainer";
+import { GridContextProvider, GridDropZone, GridItem, move, swap } from "react-grid-dnd";
 import { HiViewGridAdd } from "react-icons/hi";
-import { showNotification } from '@mantine/notifications';
+import { useSnapshot } from "valtio";
+import { constants } from "../../content/Constants";
+import { addYear } from "../../Valtio/helperFunctions";
+import { state } from '../../Valtio/State';
+import Search from "./SearchContainer";
+import Year from "./Year";
 
 const SelectContainer: FC = () => {
     const snap = useSnapshot(state);
+    const [localState, setLocalState] = useState(snap.columns);
 
-    const onDragEnd = (result: DropResult) => {
-        if (!result.destination) return;
-        const { source, destination } = result;
+    // function onChange(sourceId: string, sourceIndex: number, targetIndex: number, targetId?: string) {
 
-        // console.log(snap.columns[destination.index - 1].limitCourses)
-        // const destObject = snap.columns[destination.index - 1]
-        // if (destObject.items.length >= destObject.limitCourses) {
-        //     showNotification({
-        //         title: 'Max Courses Reached',
-        //         message: `You have reached the maximum number of courses for ${destObject.name}`,
-        //         color: 'red',
-        //     });
-        // }
+    //     console.log(sourceIndex, targetIndex)
 
-        if (source.droppableId !== destination.droppableId) {
-            (moveCourse(source.droppableId, source.index, destination.index, destination.droppableId, true));
+    //     if (targetId) {
 
+    //         const result = move(
+    //             state.columns[sourceIndex].items,
+    //             state.columns[targetIndex].items,
+    //             sourceIndex,
+    //             targetIndex
+    //         )
+
+    //         state.columns[sourceId].items = result[0];
+    //         state.columns[targetId].items = result[1];
+
+    //     }
+    //     const result = swap(state.columns[sourceId].items, sourceIndex, targetIndex)
+    //     state.columns[sourceId].items = result;
+    //     console.log(result)
+    //     // console.log(state.columns[sourceId].items)
+    // }
+    function onChange(sourceId: string, sourceIndex: number, targetIndex: number, targetId?: string) {
+        if (targetId) {
+            const result = move(
+                state.columns[sourceId].items,
+                state.columns[targetId].items,
+                sourceIndex,
+                targetIndex
+            );
+            setLocalState({
+                ...localState,
+                [sourceId]: { ...localState[sourceId], items: result[0] },
+                [targetId]: { ...localState[targetId], items: result[1] },
+            });
         } else {
-            (moveCourse(source.droppableId, source.index, destination.index))
-
+            const result = swap(state.columns[sourceId].items, sourceIndex, targetIndex);
+            console.log(result)
+            setLocalState({
+                ...localState,
+                [sourceId]: { ...localState[sourceId], items: result },
+            });
         }
-    };
+    }
 
     return (
         <Flex style={{ flexDirection: "column", width: "100%", height: "100%" }}>
-
             <div>
                 <h1 style={{ textAlign: "center" }}>Courses</h1>
-                <div
-                    style={{
-                        display: "grid", gridTemplateColumns: "1fr auto",
-                    }}
-                >
-                    <DragDropContext
-                        onDragEnd={result => onDragEnd(result)}
-                    >
-                        {/* <Flex style={{ display: "flex", justifyContent: "center", height: "100%", flexDirection: "column" }}> */}
-                        <Flex style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-                            {Object.entries(snap.columns).map(([columnId, column], index) => {
-                                if (column.name !== "search bar") {
+                <div>
+                    <GridContextProvider onChange={onChange}>
+                        <div className="container">
+                            {Object.entries(localState).map(([columnId, column], index) => {
+                                if (column.name !== "search bar" && column.items) {
                                     return (
-                                        <Year
-                                            year={column.name}
+                                        <GridDropZone
+                                            className="dropzone"
+                                            id={columnId}
+                                            boxesPerRow={6}
+                                            rowHeight={70}
                                             key={columnId}
-                                            column={column}
-                                            columnId={columnId}
-                                            index={index}
-                                        />
+                                        >
+                                            {column.items.map((item, index) => (
+                                                <GridItem key={index}>
+                                                    <div className="grid-item">
+                                                        <div className="grid-item-content">
+                                                            <div
+                                                                style={{
+                                                                    userSelect: "none",
+                                                                    display: "flex",
+                                                                    alignItems: "center",
+                                                                    borderRadius: "5px",
+                                                                    backgroundColor: "#456C86",
+                                                                    height: "40px",
+                                                                }}
+                                                            >
+                                                                {item.value}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </GridItem>
+                                            ))}
+                                        </GridDropZone>
                                     );
                                 }
+                                return null;
                             })}
-
-                        </Flex>
-                        {/* <SearchBar column={snap.columns[0]} columnId="0" /> */}
+                        </div>
                         <Search column={snap.columns[0]} columnId="0" />
-                        {/* </Flex> */}
-                    </DragDropContext >
-
+                    </GridContextProvider>
                 </div >
+
             </div >
             <Group position="right" style={{ marginTop: "10px" }}>
                 {snap.numYears < constants.MAX_YEARS ?

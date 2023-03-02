@@ -1,11 +1,10 @@
-import { Box, Button, Collapse, Flex, Radio } from '@mantine/core';
+import { Box, Button, Flex, Radio } from '@mantine/core';
 import { FC, useState } from "react";
+import { IoMdOptions } from "react-icons/io";
 import { useSnapshot } from "valtio";
 import HeaderContent from "../../content/Header";
 import { state } from '../../Valtio/State';
-import { IoMdOptions } from "react-icons/io";
-
-import { Drawer, Group } from '@mantine/core';
+import { Drawer } from '@mantine/core';
 
 const Specialization: FC = () => {
     const snap = useSnapshot(state);
@@ -15,7 +14,6 @@ const Specialization: FC = () => {
     return (
         <>
             <Button leftIcon={<IoMdOptions />} onClick={() => setOpened((o) => !o)} >
-
                 Choose Specialization
             </Button>
 
@@ -57,13 +55,16 @@ const Specialization: FC = () => {
             {
                 snap.specialization === "" ? <></> : <Box sx={
                     (theme) => ({
-                        backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : theme.colors.gray[1],
                         width: '35%',
                         padding: theme.spacing.sm,
                         marginTop: theme.spacing.md,
-
+                        border: '3px solid #B90E31',
+                        borderRadius: theme.radius.md,
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : "#002452",
+                        color: "white",
+                        textAlign: 'center',
                     })
-                }>Specialization: {snap.specialization}</Box>
+                }><Box sx={{ fontWeight: 600, fontSize: 18, color: "#F3CA40" }}>Specialization: {snap.specialization}</Box></Box>
             }
 
 

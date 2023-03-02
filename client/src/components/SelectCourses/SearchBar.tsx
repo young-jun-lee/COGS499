@@ -6,6 +6,7 @@ import { state } from '../../Valtio/State';
 import { removeYear } from "../../Valtio/helperFunctions";
 import { StrictModeDroppable } from './StrictModeDroppable';
 import { v4 as uuidv4 } from 'uuid';
+import { GridDropZone, GridItem } from 'react-grid-dnd';
 
 interface RequiredCourses {
     column: any
@@ -81,60 +82,43 @@ const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
                     maxDropdownHeight={500}
                 />
                 <div style={{ margin: 8 }}>
-                    <StrictModeDroppable droppableId={columnId} key={columnId}>
-                        {(provided, snapshot) => {
-                            return (
-                                <div
-                                    {...provided.droppableProps}
-                                    ref={provided.innerRef}
-                                    style={{
-                                        background: snapshot.isDraggingOver
-                                            ? "lightblue"
-                                            : "lightgrey",
-                                        width: 250,
-                                    }}
-                                >
-                                    {column.items.map((item, index) => {
+                    <GridDropZone
+                        className="dropzone"
+                        id={columnId}
+                        boxesPerRow={4}
+                        rowHeight={70}
+                        key={columnId}
+                    >
+                        {column.items.map((item, index) => (
+                            <GridItem key={index}>
+                                <div className="grid-item">
+                                    <div className="grid-item-content">
+                                        <div
+                                            style={{
+                                                userSelect: "none",
+                                                display: "flex",
+                                                // textAlign: "center",
+                                                // justifyContent: "center",
+                                                alignItems: "center",
+                                                // to align the text in the center
 
-                                        return (
-                                            <Draggable
-                                                key={item.id}
-                                                draggableId={item.id}
-                                                index={index}
-                                            >
-                                                {(provided, snapshot) => {
+                                                padding: 30,
+                                                margin: 10,
+                                                borderRadius: "5px",
+                                                backgroundColor: "#456C86",
+                                                // minHeight: "50px",
+                                                height: "40px",
+                                                // color: "white",
 
-                                                    return (
-                                                        <div
-                                                            ref={provided.innerRef}
-                                                            {...provided.draggableProps}
-                                                            {...provided.dragHandleProps}
-                                                            style={{
-                                                                userSelect: "none",
-                                                                textAlign: "center",
-                                                                padding: 10,
-                                                                margin: "0 0 8px 0",
-                                                                borderRadius: "5px",
-                                                                minHeight: "50px",
-                                                                backgroundColor: snapshot.isDragging
-                                                                    ? "#263B4A"
-                                                                    : "#456C86",
-                                                                color: "white",
-                                                                ...provided.draggableProps.style
-                                                            }}
-                                                        >
-                                                            {item.value}
-                                                        </div>
-                                                    );
-                                                }}
-                                            </Draggable>
-                                        );
-                                    })}
-                                    {provided.placeholder}
+                                            }}
+                                        >
+                                            {item.value}
+                                        </div>
+                                    </div>
                                 </div>
-                            );
-                        }}
-                    </StrictModeDroppable>
+                            </GridItem>
+                        ))}
+                    </GridDropZone>
                 </div>
             </Box>
 

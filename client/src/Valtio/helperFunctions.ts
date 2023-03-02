@@ -51,8 +51,24 @@ export function moveCourse(sourceColumn: string, sourceIndex: number, destIndex?
 }
 
 
+export function swapCourses(sourceColumn: string, sourceIndex: number, destIndex: number) {
+    const column = state.columns[sourceColumn];
+    const copiedItems = [...column.items];
+    const temp = copiedItems[sourceIndex];
+    copiedItems[sourceIndex] = copiedItems[destIndex];
+    copiedItems[destIndex] = temp;
+    state.columns = {
+        ...state.columns,
+        [sourceColumn]: {
+            ...column,
+            items: copiedItems
+        }
+    };
+    console.log("state.columns: ", state.columns);
+}
+
 export function addYear() {
-    state.numYears += 1;
+    state.numYears += 1
 
     state.columns = {
         ...state.columns,
@@ -74,5 +90,5 @@ export function removeYear(columnId: string) {
 
     }
     delete state.columns[state.numYears];
-    state.numYears -= 1;
+    state.numYears -= 1
 }

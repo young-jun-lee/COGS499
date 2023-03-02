@@ -1,22 +1,26 @@
-import { Box, Button, Group, Tooltip, Notification } from '@mantine/core';
+import { Box, Button, Group, Tooltip } from '@mantine/core';
 import { FC, useEffect, useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
+import { GridDropZone, GridItem } from 'react-grid-dnd';
+import { MdDeleteSweep } from "react-icons/md";
 import { useSnapshot } from 'valtio';
-import { state } from '../../Valtio/State';
 import { removeYear } from "../../Valtio/helperFunctions";
-import { StrictModeDroppable } from './StrictModeDroppable';
-import { MdDeleteSweep, MdClear } from "react-icons/md";
+import { state } from '../../Valtio/State';
 interface RequiredCourses {
     year: string;
     key: string
     column: any
     index: number
     columnId: string
+    state: any
 }
 
-const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
+const Year: FC<RequiredCourses> = ({ year, column, columnId, state }) => {
 
+    const snap = useSnapshot(column);
+    // rerender when state.columns changes
 
+    // console.log("state.numYears: ", state.numYears)
     return (
         <Box
             sx={(theme) => ({
@@ -57,81 +61,51 @@ const Year: FC<RequiredCourses> = ({ year, column, columnId }) => {
                     // height: '90%',
                     padding: theme.spacing.lg,
                     borderRadius: theme.radius.md,
-                    '&:hover': {
-                        backgroundColor:
-                            theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[5],
-                    },
+                    // '&:hover': {
+                    //     backgroundColor:
+                    //         theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[5],
+                    // },
                 })}
 
             >
                 <div style={{ margin: 8 }}>
-                    <StrictModeDroppable droppableId={columnId} direction='horizontal'>
-                        {(provided, snapshot) => {
-                            return (
-                                <div
-                                    {...provided.droppableProps}
-                                    ref={provided.innerRef}
-                                    style={{
-                                        background: snapshot.isDraggingOver
-                                            ? "lightblue"
-                                            : "lightgrey",
+                    <GridDropZone
+                        className="dropzone"
+                        id={columnId}
+                        boxesPerRow={6}
+                        rowHeight={70}
+                        key={columnId}
+                    >
+                        {state.items.map((item, index) => (
+                            <GridItem key={index}>
+                                <div className="grid-item">
+                                    <div className="grid-item-content">
+                                        <div
+                                            style={{
+                                                userSelect: "none",
+                                                display: "flex",
+                                                // textAlign: "center",
+                                                // justifyContent: "center",
+                                                alignItems: "center",
+                                                // to align the text in the center
 
-                                        display: "flex",
+                                                padding: 30,
+                                                margin: 10,
+                                                borderRadius: "5px",
+                                                backgroundColor: "#456C86",
+                                                // minHeight: "50px",
+                                                height: "40px",
+                                                // color: "white",
 
-                                        flexWrap: "wrap",
-                                        // columnCount: 2, // set the number of columns to 2
-                                        // columnGap: 10, // set a gap between the columns
-                                    }}
-                                >
-                                    {column.items.map((item, index) => {
-
-                                        return (
-                                            <Draggable
-                                                key={item.id}
-                                                draggableId={item.id}
-                                                index={index}
-
-                                            >
-                                                {(provided, snapshot) => {
-
-                                                    return (
-                                                        <div
-                                                            ref={provided.innerRef}
-                                                            {...provided.draggableProps}
-                                                            {...provided.dragHandleProps}
-                                                            style={{
-                                                                userSelect: "none",
-                                                                display: "flex",
-                                                                // textAlign: "center",
-                                                                // justifyContent: "center",
-                                                                alignItems: "center",
-                                                                // to align the text in the center
-
-                                                                padding: 30,
-                                                                margin: 10,
-                                                                borderRadius: "5px",
-
-                                                                // minHeight: "50px",
-                                                                height: "40px",
-                                                                backgroundColor: snapshot.isDragging
-                                                                    ? "#263B4A"
-                                                                    : "#456C86",
-                                                                color: "white",
-                                                                ...provided.draggableProps.style
-                                                            }}
-                                                        >
-                                                            {item.value}
-                                                        </div>
-                                                    );
-                                                }}
-                                            </Draggable>
-                                        );
-                                    })}
-                                    {provided.placeholder}
+                                            }}
+                                        >
+                                            {item.value}
+                                        </div>
+                                    </div>
                                 </div>
-                            );
-                        }}
-                    </StrictModeDroppable>
+                            </GridItem>
+                        ))}
+                    </GridDropZone>
 
                 </div>
 

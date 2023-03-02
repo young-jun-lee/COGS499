@@ -135,8 +135,7 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
             limitCourses: 12
         },
 
-    ]
-
+    ],
 });
 
 
