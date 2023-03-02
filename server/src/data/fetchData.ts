@@ -11,21 +11,21 @@ const crawler = new CheerioCrawler({
     $('div.courseblock').each((index, el) => {
       const requirements = ($(el).find('span.text.detail-requirements.margin--default').text())
 
-      // let prerequisites = formatResults(requirements, /Prerequisite(.*?\.)(?!\d)|PREREQUISITES:(.*)/);
-      // let corequisites = formatResults(requirements, /Corequisite(.*?)\./g);
-      // let exclusions = formatResults(requirements, /Exclusion(.*?)\./g);
+      let prerequisites = formatResults(requirements, /Prerequisite(.*?\.)(?!\d)|PREREQUISITES:(.*)/);
+      let corequisites = formatResults(requirements, /Corequisite(.*?)\./g);
+      let exclusions = formatResults(requirements, /Exclusion(.*?)\./g);
       let one_way_exclusions = formatResults(requirements, /One-Way Exclusion(.*?)\.|One-way Exclusion(.*?)\.|One-way exclusion(.*?)\.|One Way Exclusion(.*?)\.|One Way exclusion(.*?)\.|One way exclusion(.*?)\./g);
-
-
+      if (one_way_exclusions.length > 0 && exclusions.length > 0 && !(one_way_exclusions[0] === "None" && exclusions[0] === "None")) { exclusions = exclusions.filter(exclusion => !one_way_exclusions.includes(exclusion)) }
+      if (exclusions.length === 0) { exclusions.push("None") } if (one_way_exclusions.length === 0) { one_way_exclusions.push("None") }
       data.push({
         code: $(el).find('span.text.col-2.detail-code').text(),
         title: $(el).find('span.text.col-7.detail-title').text(),
         units: Number($(el).find('span.text.detail-hours_html').text().split(' ')[1]),
         description: $(el).find('p.courseblockextra').text(),
         hours: $(el).find('span.text.detail-learning_hours').text().split(': ')[1],
-        // prerequisites: prerequisites,
-        // corequisites: corequisites,
-        // exclusions: exclusions,
+        prerequisites: prerequisites,
+        corequisites: corequisites,
+        exclusions: exclusions,
         one_way_exclusions: one_way_exclusions,
       });
     });
