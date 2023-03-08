@@ -4243,7 +4243,7 @@
                 "PHYS 104",
                 "PHYS 106",
                 "PHYS 117"
-            ]  
+            ]
         ],
         "corequisites": [
             "None"
@@ -6386,7 +6386,14 @@
             "CISC 151"
         ],
         "one_way_exclusions": [
-            "None"
+            "CISC121",
+            [
+                "CISC2++",
+                "CMPE2++",
+                "COCA2++",
+                "COGS2++",
+                "SOFT2++"
+            ]
         ]
     },
     "CISC 102": {
@@ -6425,7 +6432,14 @@
             "CISC 151"
         ],
         "one_way_exclusions": [
-            "CISC 121"
+            "CISC121",
+            [
+                "CISC2++",
+                "CMPE2++",
+                "COCA2++",
+                "COGS2++",
+                "SOFT2++"
+            ]
         ]
     },
     "CISC 121": {
@@ -6512,7 +6526,14 @@
             "CISC 110"
         ],
         "one_way_exclusions": [
-            "CISC 121"
+            "CISC121",
+            [
+                "CISC2++",
+                "CMPE2++",
+                "COCA2++",
+                "COGS2++",
+                "SOFT2++"
+            ]
         ]
     },
     "CISC 181": {
@@ -6539,12 +6560,10 @@
         "description": "Proof methods. Combinatorics: permutations and combinations, discrete probability, recurrence relations. Graphs and trees. Boolean and abstract algebra.",
         "units": 3,
         "prerequisites": [
+            "CISC121",
             [
-                "CISC 121",
-                [
-                    "CISC 102",
-                    "MATH 110"
-                ]
+                "CISC102",
+                "MATH110"
             ]
         ],
         "corequisites": [
@@ -6563,12 +6582,10 @@
         "description": "Elements of mathematical logic with computing applications. Formal proof systems for propositional and predicate logic. Interpretations, validity, and satisfiability. Introduction to soundness, completeness and decidability.",
         "units": 3,
         "prerequisites": [
+            "CISC121",
             [
-                "CISC 121",
-                [
-                    "CISC 102",
-                    "MATH 110"
-                ]
+                "CISC102",
+                "MATH110"
             ]
         ],
         "corequisites": [
@@ -7034,24 +7051,22 @@
         "description": "Methods for nonlinear data analysis, particularly using numerical optimization. Applications may include: unconstrained data optimization; linear equality constraints; constrained data regression; constrained data classification; evaluating the effectiveness of analysis methods.",
         "units": 3,
         "prerequisites": [
+            "CISC271",
             [
-                "CISC 271",
-                [
-                    "STAT 263",
-                    "BIOL 243",
-                    "CHEE 209",
-                    "COMM 162",
-                    "ECON 250",
-                    "GPHY 247",
-                    "KNPE 251",
-                    "NURS 323",
-                    "POLS 385",
-                    "PSYC 202",
-                    "SOCY 211",
-                    "STAM 200",
-                    "STAT 263",
-                    "STAT 367"
-                ]
+                "STAT263",
+                "BIOL243",
+                "CHEE209",
+                "COMM162",
+                "ECON250",
+                "GPHY247",
+                "KNPE251",
+                "NURS323",
+                "POLS385",
+                "PSYC202",
+                "SOCY211",
+                "STAM200",
+                "STAT263",
+                "STAT367"
             ]
         ],
         "corequisites": [
@@ -7070,23 +7085,22 @@
         "description": "Inductive modelling of data, especially counting models; ensemble approaches to modelling; maximum likelihood and density-based approaches to clustering, visualization. Applications to non-numeric datasets such as natural language, social networks, Internet search, recommender systems. Introduction to deep learning. Ethics of data analytics.",
         "units": 3,
         "prerequisites": [
+            "CISC271",
             [
-                "CISC 271",
-                [
-                    "BIOL 243",
-                    "CHEE 209",
-                    "COMM 162",
-                    "ECON 250",
-                    "GPHY 247",
-                    "KNPE 251",
-                    "NURS 323",
-                    "POLS 385",
-                    "PSYC 202",
-                    "SOCY 211",
-                    "STAM 200",
-                    "STAT 263",
-                    "STAT 367"
-                ]
+                "STAT263",
+                "BIOL243",
+                "CHEE209",
+                "COMM162",
+                "ECON250",
+                "GPHY247",
+                "KNPE251",
+                "NURS323",
+                "POLS385",
+                "PSYC202",
+                "SOCY211",
+                "STAM200",
+                "STAT263",
+                "STAT367"
             ]
         ],
         "corequisites": [
@@ -7362,10 +7376,8 @@
         "description": "Building, applying and studying algorithms based on the Darwinian principles of natural evolution. A creative approach to AI able to create novel solutions. Genetic algorithms, evolution strategies, and genetic programming. Application to optimization and learning problems.",
         "units": 3,
         "prerequisites": [
-            [
-                "CISC 365",
-                "STAT 263"
-            ]
+            "CISC365",
+            "STAT263"
         ],
         "corequisites": [
             "None"
@@ -32051,7 +32063,7 @@
                 "MATH 110",
                 "MATH 111",
                 "MATH 112"
-            ] 
+            ]
         ],
         "corequisites": [
             "None"
@@ -40020,7 +40032,7 @@
                         "PSYC 221",
                         "PSYC 220"
                     ]
-                ] 
+                ]
             ],
             [
                 [
@@ -40120,7 +40132,7 @@
                 "STAM 200",
                 "STAT 263",
                 "STAT 367"
-            ] 
+            ]
         ],
         "corequisites": [
             "None"
@@ -40362,7 +40374,7 @@
                 [
                     "PSYC 100"
                 ]
-            ] 
+            ]
         ],
         "corequisites": [
             "None"
@@ -40720,7 +40732,7 @@
                 "PSYC 220",
                 "PSYC 221",
                 "COGS 200"
-            ]   
+            ]
         ],
         "corequisites": [
             "None"
@@ -45172,7 +45184,7 @@
             [
                 "STAT 263",
                 "STAT 269"
-            ] 
+            ]
         ],
         "corequisites": [
             "None"
