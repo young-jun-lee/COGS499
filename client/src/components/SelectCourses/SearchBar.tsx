@@ -21,18 +21,18 @@ interface Course {
 
 const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
     const [courses, setCourses] = useState<Course[]>([]);
-    const handleItemSubmit = (item: Course) => {
-        // update courses to match valtio state
-        setCourses(state.columns[columnId].items);
-        // Check if item is already in courses
-        if (courses.some((course) => course.value === item.value)) {
-            return;
-        } else {
-            setCourses([...courses, item]);
-            // update courses in valtio state
-            state.columns[columnId].items.push(item);
-        }
-    };
+    // const handleItemSubmit = (item: Course) => {
+    //     // update courses to match valtio state
+    //     setCourses(state.columns[columnId].items);
+    //     // Check if item is already in courses
+    //     if (courses.some((course) => course.value === item.value)) {
+    //         return;
+    //     } else {
+    //         setCourses([...courses, item]);
+    //         // update courses in valtio state
+    //         state.columns[columnId].items.push(item);
+    //     }
+    // };
 
     return (
         <Box
@@ -77,19 +77,12 @@ const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
                         { value: "MATH 128", group: "MATH", id: uuidv4() },
                         { value: "MATH 129", group: "MATH", id: uuidv4() },
                     ]}
-                    onItemSubmit={handleItemSubmit}
+                    // onItemSubmit={handleItemSubmit}
                     sx={{ marginBottom: 20 }}
                     maxDropdownHeight={500}
                 />
                 <div style={{ margin: 8 }}>
-                    <GridDropZone
-                        className="dropzone"
-                        id={columnId}
-                        boxesPerRow={4}
-                        rowHeight={70}
-                        key={columnId}
-                    >
-                        {column.items.map((item, index) => (
+                    {/* {column.items.map((item, index) => (
                             <GridItem key={index}>
                                 <div className="grid-item">
                                     <div className="grid-item-content">
@@ -117,8 +110,8 @@ const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
                                     </div>
                                 </div>
                             </GridItem>
-                        ))}
-                    </GridDropZone>
+                        ))} */}
+
                 </div>
             </Box>
 

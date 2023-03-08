@@ -6,18 +6,21 @@ import {
   rectIntersection, TouchSensor,
   UniqueIdentifier, useSensor, useSensors
 } from '@dnd-kit/core';
-import { snapCenterToCursor } from '@dnd-kit/modifiers';
 import {
   arrayMove, horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy
 } from '@dnd-kit/sortable';
+import { Button, Flex, Group, Tooltip } from '@mantine/core';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal, unstable_batchedUpdates } from 'react-dom';
+import { HiViewGridAdd } from 'react-icons/hi';
 import { useSnapshot } from 'valtio';
 
 import { Container, Item } from '..';
+import { constants } from '../../content/Constants';
+import { addYear } from '../../Valtio/helperFunctions';
 
-import { createRange } from '../../utils';
 import { state } from '../../Valtio/State';
+import SearchBar from '../SelectCourses/SearchBar';
 import { DroppableContainer } from './DroppableContainer';
 import { Props } from './Props';
 import { SortableItem } from './SortableItem';
@@ -56,17 +59,9 @@ export default function MultipleContainers({
   vertical = false,
   scrollable,
 }: Props) {
-  // const [items, setItems] = useState<Items>(
-  //   () =>
-  //     initialItems ?? {
-  //       A: createRange(itemCount, (index) => `A${index + 1}`),
-  //       // B: createRange(itemCount, (index) => `B${index + 1}`),
-  //     }
-  // );
-  // get number of columns from state
-  const columnNums = Object.keys(state.columns).length
-  const snap = useSnapshot(state)
 
+  const snap = useSnapshot(state)
+  const empty: UniqueIdentifier[] = [];
   const getItems = () => {
     const items: Items = {}
     snap.columns.map((column, index) => {
@@ -74,6 +69,8 @@ export default function MultipleContainers({
         items[String.fromCharCode(65 + index - 1)] = column.items.map(item => item.id)
       }
     })
+    items['C'] = empty
+    items['D'] = empty
     return items
   }
 
@@ -324,8 +321,9 @@ export default function MultipleContainers({
         style={{
           display: 'inline-grid',
           boxSizing: 'border-box',
-          padding: 20,
+          // padding: 20,
           gridAutoFlow: vertical ? 'row' : 'column',
+          border: '1px solid #ccc',
         }}
       >
         <SortableContext
@@ -336,37 +334,49 @@ export default function MultipleContainers({
               : horizontalListSortingStrategy
           }
         >
-          {containers.map((containerId) => (
-            <DroppableContainer
-              key={containerId}
-              id={containerId}
-              label={minimal ? undefined : `Column ${containerId}`}
-              columns={columns}
-              items={items[containerId]}
-              scrollable={scrollable}
-              style={containerStyle}
-              unstyled={minimal}
-            >
-              <SortableContext items={items[containerId]} strategy={strategy}>
-                {items[containerId].map((value, index) => {
-                  return (
-                    <SortableItem
-                      disabled={isSortingContainer}
-                      key={value}
-                      id={value}
-                      index={index}
-                      handle={handle}
-                      style={getItemStyles}
-                      wrapperStyle={wrapperStyle}
-                      renderItem={renderItem}
-                      containerId={containerId}
-                      getIndex={getIndex}
-                    />
-                  );
-                })}
-              </SortableContext>
-            </DroppableContainer>
-          ))}
+          <Flex>
+            <Flex style={{ flexDirection: "column", width: "75%" }}>
+              {containers.map((containerId) => (
+                <DroppableContainer
+                  key={containerId}
+                  id={containerId}
+                  label={minimal ? undefined : `Column ${containerId}`}
+                  columns={columns}
+                  items={items[containerId]}
+                  scrollable={scrollable}
+                  style={containerStyle}
+                  unstyled={minimal}
+                >
+                  <SortableContext items={items[containerId]} strategy={strategy}>
+                    {items[containerId].map((value, index) => {
+                      return (
+                        <SortableItem
+                          disabled={isSortingContainer}
+                          key={value}
+                          id={value}
+                          index={index}
+                          handle={handle}
+                          style={getItemStyles}
+                          wrapperStyle={wrapperStyle}
+                          renderItem={renderItem}
+                          containerId={containerId}
+                          getIndex={getIndex}
+                        />
+                      );
+                    })}
+                  </SortableContext>
+
+
+
+                </DroppableContainer>
+              ))}
+            </Flex>
+            <Flex style={{ flexDirection: "column", width: "75%" }}>
+              <SearchBar column={0} columnId={"0"}></SearchBar>
+            </Flex>
+          </Flex>
+
+
 
         </SortableContext>
       </div>
@@ -380,7 +390,27 @@ export default function MultipleContainers({
         </DragOverlay>,
         document.body
       )}
-
+      <Group position="right" style={{ marginTop: "10px" }}>
+        {containers.length < constants.MAX_YEARS ?
+          <Button leftIcon={<HiViewGridAdd size={20} />}
+            onClick={() => {
+              handleAddColumn();
+            }}
+          >
+            Add Year
+          </Button>
+          :
+          <Tooltip label="Max Academic Years">
+            <Button
+              data-disabled
+              sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+              onClick={(event) => event.preventDefault()}
+            >
+              Add Year
+            </Button>
+          </Tooltip>
+        }
+      </Group>
     </DndContext>
   );
 
@@ -403,6 +433,18 @@ export default function MultipleContainers({
         dragOverlay
       />
     );
+  }
+
+  function handleAddColumn() {
+    const newContainerId = getNextContainerId();
+
+    unstable_batchedUpdates(() => {
+      setContainers((containers) => [...containers, newContainerId]);
+      setItems((items) => ({
+        ...items,
+        [newContainerId]: []
+      }));
+    });
   }
 
   function renderContainerDragOverlay(containerId: UniqueIdentifier) {

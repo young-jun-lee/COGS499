@@ -6,7 +6,7 @@ import { Container, ContainerProps } from '..';
 
 const animateLayoutChanges: AnimateLayoutChanges = (args) =>
     defaultAnimateLayoutChanges({ ...args, wasDragging: true });
-    
+
 export function DroppableContainer({
     children, columns = 1, disabled, id, items, style, ...props
 }: ContainerProps & {

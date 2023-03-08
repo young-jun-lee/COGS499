@@ -22,35 +22,11 @@ const SelectContainer: FC = () => {
                 // itemCount={10}
                 strategy={rectSortingStrategy}
                 wrapperStyle={() => ({
-                    width: 150,
-                    height: 150,
+                    width: 100,
+                    height: 50,
                 })}
                 vertical
             />
-
-
-
-            <Group position="right" style={{ marginTop: "10px" }}>
-                {snap.numYears < constants.MAX_YEARS ?
-                    <Button leftIcon={<HiViewGridAdd size={20} />}
-                        onClick={() => {
-                            addYear()
-                        }}
-                    >
-                        Add Year
-                    </Button>
-                    :
-                    <Tooltip label="Max Academic Years">
-                        <Button
-                            data-disabled
-                            sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
-                            onClick={(event) => event.preventDefault()}
-                        >
-                            Add Year
-                        </Button>
-                    </Tooltip>
-                }
-            </Group>
         </Flex >
     );
 };

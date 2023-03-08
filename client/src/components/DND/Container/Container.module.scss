@@ -9,8 +9,9 @@
   min-width: 350px;
   margin: 10px;
   border-radius: 5px;
-  min-height: 200px;
+  // min-height: 200px;
   transition: background-color 350ms ease;
+  
   background-color: rgba(246, 246, 246, 1);
   border: 1px solid rgba(0, 0, 0, 0.05);
   font-size: 1em;
@@ -18,10 +19,14 @@
   ul {
     display: grid;
     grid-gap: 10px;
+    background-color: #CEFBEB;
     grid-template-columns: repeat(var(--columns, 1), 1fr);
     list-style: none;
     padding: 20px;
+    min-height: 150px;
     margin: 0;
+    border-radius: 1em;
+    border: 4px solid black;
   }
 
   &.scrollable {

@@ -50,7 +50,8 @@ export const Container = forwardRef<HTMLDivElement, Props>(
         style={
           {
             ...style,
-            "--columns": columns
+            "--columns": columns,
+            
           } as React.CSSProperties
         }
         className={classNames(
