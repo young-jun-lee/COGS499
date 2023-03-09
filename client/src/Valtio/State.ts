@@ -107,6 +107,43 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
                         "None"
                     ]
                 },
+                {
+                    id: "CISC 106", value: "CISC 106", group: "CISC",
+                    prerequisites: [
+                        "CISC 101"
+                    ],
+                    corequisites: [
+                        "None"
+                    ],
+                    "exclusions": [
+                        "APSC 142",
+                        "APSC 143",
+                        "CISC 110",
+                        "CISC 151"
+                    ],
+                    "one_way_exclusions": [
+                        "None"
+                    ]
+                },
+                {
+                    id: "CISC 107", value: "CISC 107", group: "CISC",
+                    prerequisites: [
+                        "CISC 101"
+                    ],
+                    corequisites: [
+                        "None"
+                    ],
+                    "exclusions": [
+                        "APSC 142",
+                        "APSC 143",
+                        "CISC 110",
+                        "CISC 151"
+                    ],
+                    "one_way_exclusions": [
+                        "None"
+                    ]
+                },
+
                 // { id: uuidv4(), value: "CISC 102", group: "CISC", },
                 // { id: uuidv4(), value: "CISC 103", group: "CISC", },
                 // { id: uuidv4(), value: "MATH 121", group: "MATH", },

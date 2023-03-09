@@ -8,7 +8,7 @@ const animateLayoutChanges: AnimateLayoutChanges = (args) =>
     defaultAnimateLayoutChanges({ ...args, wasDragging: true });
 
 export function DroppableContainer({
-    children, columns = 1, disabled, id, items, style, ...props
+    children, columns = 1, disabled, id, items, style, title, ...props
 }: ContainerProps & {
     disabled?: boolean;
     id: UniqueIdentifier;
@@ -47,6 +47,7 @@ export function DroppableContainer({
             columns={columns}
             {...props}
         >
+            {title}
             {children}
         </Container>
     );

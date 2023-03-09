@@ -6,6 +6,8 @@ import type { Transform } from "@dnd-kit/utilities";
 // import { Handle, Remove } from "./components";
 
 import styles from "./Item.module.scss";
+import { Remove } from "./components";
+import { Button } from "@mantine/core";
 
 export interface Props {
   dragOverlay?: boolean;
@@ -24,6 +26,7 @@ export interface Props {
   transition?: string | null;
   wrapperStyle?: React.CSSProperties;
   value: React.ReactNode;
+  containerId: string;
   onRemove?(): void;
   renderItem?(args: {
     dragOverlay: boolean;
@@ -62,6 +65,9 @@ export const Item = React.memo(
         transform,
         value,
         wrapperStyle,
+        items,
+        setItems,
+        containerId,
         ...props
       },
       ref
@@ -141,12 +147,18 @@ export const Item = React.memo(
           >
             {value}
             <span className={styles.Actions}>
-              {/* {onRemove ? ( */}
-              {/* <Remove className={styles.Remove} onClick={onRemove} /> */}
-              {/* ) : null} */}
-              {/* {handle ? <Handle {...handleProps} {...listeners} /> : null} */}
             </span>
           </div>
+          <Button onClick={() => {
+            const newItems = [
+              ...items[containerId].slice(0, index),
+              ...items[containerId].slice(index + 1)
+            ]
+            setItems({
+              ...items,
+              [containerId]: newItems
+            })
+          }}></Button>
         </li>
       );
     }

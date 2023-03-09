@@ -17,6 +17,7 @@ export interface Props {
   shadow?: boolean;
   placeholder?: boolean;
   unstyled?: boolean;
+  title?: string;
   onClick?(): void;
   onRemove?(): void;
 }
@@ -37,6 +38,7 @@ export const Container = forwardRef<HTMLDivElement, Props>(
       scrollable,
       shadow,
       unstyled,
+      title,
       ...props
     }: Props,
     ref
@@ -51,7 +53,7 @@ export const Container = forwardRef<HTMLDivElement, Props>(
           {
             ...style,
             "--columns": columns,
-            
+
           } as React.CSSProperties
         }
         className={classNames(
@@ -71,6 +73,14 @@ export const Container = forwardRef<HTMLDivElement, Props>(
             {label}
           </div>
         ) : null}
+
+        {title ? (
+          <div className={styles.Title}>
+            {title}
+          </div>
+        ) : null}
+
+
         {placeholder ? children : <ul>{children}</ul>}
       </Component>
     );

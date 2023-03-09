@@ -57,7 +57,7 @@ export default function MultipleContainers({
   renderItem,
   strategy = verticalListSortingStrategy,
   vertical = false,
-  scrollable,
+  scrollable = true,
 }: Props) {
 
   const snap = useSnapshot(state)
@@ -66,11 +66,11 @@ export default function MultipleContainers({
     const items: Items = {}
     snap.columns.map((column, index) => {
       if (index !== 0) {
-        items[String.fromCharCode(65 + index - 1)] = column.items.map(item => item.id)
+        items[index] = column.items.map(item => item.id)
       }
     })
-    items['C'] = empty
-    items['D'] = empty
+    items[3] = empty
+    items[4] = empty
     return items
   }
 
@@ -337,6 +337,7 @@ export default function MultipleContainers({
           <Flex>
             <Flex style={{ flexDirection: "column", width: "75%" }}>
               {containers.map((containerId) => (
+
                 <DroppableContainer
                   key={containerId}
                   id={containerId}
@@ -346,9 +347,14 @@ export default function MultipleContainers({
                   scrollable={scrollable}
                   style={containerStyle}
                   unstyled={minimal}
+                  title={"hello"}
                 >
-                  <SortableContext items={items[containerId]} strategy={strategy}>
+                  <SortableContext
+                    items={items[containerId]}
+                    strategy={strategy}
+                  >
                     {items[containerId].map((value, index) => {
+                      const test = "hello"
                       return (
                         <SortableItem
                           disabled={isSortingContainer}
@@ -361,14 +367,16 @@ export default function MultipleContainers({
                           renderItem={renderItem}
                           containerId={containerId}
                           getIndex={getIndex}
+                          items={items}
+                          setItems={setItems}
                         />
                       );
                     })}
                   </SortableContext>
-
-
-
                 </DroppableContainer>
+
+
+
               ))}
             </Flex>
             <Flex style={{ flexDirection: "column", width: "75%" }}>
