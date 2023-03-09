@@ -90,7 +90,7 @@ const parseCourses = (array) => {
   if (brackets.length === 2 && (array[0] === "(" || array[0] === "[") && (array[array.length - 1] === ")" || array[array.length - 1] === "]")) {
     BrCheck = 1;
   }
-  else if (brackets[0] === "(" && brackets[brackets.length - 1] === ")" || brackets[0] === "{" && brackets[brackets.length - 1] === "}" || brackets[0] === "[" && brackets[brackets.length - 1] === "]") {
+  else if (array[0] === "(" && array[array.length - 1] === ")" || array[0] === "{" && array[array.length - 1] === "}" || array[0] === "[" && array[array.length - 1] === "]") {
     brackets.shift();
     brackets.pop();
     if ([")","}","]"].includes(brackets[0]) || ["(","{","["].includes(brackets[brackets.length - 1])){

@@ -45,5 +45,5 @@ const crawler = new CheerioCrawler({
 
 
 // await crawler.run(COIs);
-await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/math/'])
+await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/biol/'])
 export { crawler, formatResults }

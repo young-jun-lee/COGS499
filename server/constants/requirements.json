@@ -182,7 +182,7 @@
         "exclusions": [
             "BCHM 102",
             "BCHM 315",
-            "   BCHM 316"
+            "BCHM 316"
         ],
         "one_way_exclusions": [
             "None"
@@ -2605,10 +2605,8 @@
         "description": "Two weeks of field work plus written assignments in one or two areas of study to be done when specialized modules are available in May, July, August or February. Studies may include ecology of birds, fish, insects, small mammals, plants, tundra and taiga, lakes and caves. The schedule of offerings for each year is available in January.\nNOTE    Field trip: estimated cost of each module and the schedule of offerings for each year is available in January.",
         "units": 3,
         "prerequisites": [
-            [
-                "BIOL 102",
-                "BIOL 103"
-            ]
+            "BIOL 102",
+            "BIOL 103"
         ],
         "corequisites": [
             "None"
@@ -2783,10 +2781,8 @@
         "description": "Two weeks of field work plus written assignments in one or two areas of study to be done when specialized modules are available in May, July, August or February. Studies may include ecology of birds, fish, insects, small mammals, plants, tundra and taiga, lakes and caves. The schedule of offerings for each year is available in January.\nNOTE    Field trip: estimated cost of each module and the schedule of offerings for each year is available in January.",
         "units": 3,
         "prerequisites": [
-            [
-                "BIOL 307",
-                "BIOL 317"
-            ]
+            "BIOL 307",
+            "BIOL 317"
         ],
         "corequisites": [
             "None"
@@ -2804,8 +2800,10 @@
         "description": "An introduction to the cellular basis of biological variation. The course explores the control of cell function exerted by the nucleus, the pathways for building and fuelling cells, and the control of integrative cellular events.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.",
         "units": 3,
         "prerequisites": [
-            "BIOL 205",
-            "BCHM 218"
+            [
+                "BIOL 205",
+                "BCHM 218"
+            ]
         ],
         "corequisites": [
             "None"
@@ -2823,8 +2821,10 @@
         "description": "This course will explore the structure of genomes and the nature and origin of gene families as well as large scale functional genomics methods for analysis of novel gene function.",
         "units": 3,
         "prerequisites": [
-            "BIOL 205",
-            "BCHM 218"
+            [
+                "BIOL 205",
+                "BCHM 218"
+            ]
         ],
         "corequisites": [
             "None"
@@ -2925,8 +2925,10 @@
         "description": "Focus is placed on adaptive physiology and integrative function (nervous and hormonal, movement, excretion, circulation and digestion) with examples selected from various phylogenetic levels as appropriate.",
         "units": 3,
         "prerequisites": [
-            "BIOL 205",
-            "BCHM 218"
+            [
+                "BIOL 205",
+                "BCHM 218"
+            ]
         ],
         "corequisites": [
             "None"
@@ -2944,8 +2946,10 @@
         "description": "The course examines various aspects of plant cell biology, physiology, and biochemistry including carbon and nitrogen metabolism (photosynthesis, respiration, etc.), water relations, mineral nutrition, response to environmental stress, roles of plant hormones, plant biotechnology.",
         "units": 3,
         "prerequisites": [
-            "BIOL 205",
-            "BCHM 218"
+            [
+                "BIOL 205",
+                "BCHM 218"
+            ]
         ],
         "corequisites": [
             "None"
@@ -2963,9 +2967,11 @@
         "description": "Advanced topics in using R for data management, exploratory data analysis, data visualization, and statistical analysis using the general linear model, with particular focus on statistical literacy and biological examples from both laboratory and field research.",
         "units": 3,
         "prerequisites": [
-            "BIOL 243",
-            "PSYC 202",
-            "STAT 269"
+            [
+                "BIOL 243",
+                "PSYC 202",
+                "STAT 269"
+            ]
         ],
         "corequisites": [
             "None"
@@ -3001,8 +3007,10 @@
         "description": "The contributions and effects of biotechnology on humanity will be explored from the perspective of their impacts on society including moral and ethical issues. Biotechnological contributions to society to be explored will include those in medicine, industry, and agriculture.",
         "units": 3,
         "prerequisites": [
-            "BIOL 205",
-            "BCHM 218"
+            [
+                "BIOL 205",
+                "BCHM 218"
+            ]
         ],
         "corequisites": [
             "None"
@@ -3020,12 +3028,16 @@
         "description": "Why sex? The evolutionary origins and consequences of sex and sexual reproduction. Topics include costs and benefits of sexual reproduction, the evolution and coevolution of sexes, gametes and genitalia, mating systems, gender differences and sex determination throughout the biotic world.",
         "units": 3,
         "prerequisites": [
-            "BCHM 218;",
-            "BIOL 200;",
-            "BIOL 201;",
-            "BIOL 202;",
-            "BIOL 205",
-            "BIOL 206"
+            "BIOL 102",
+            "BIOL 103",
+            [
+                "BCHM 218;",
+                "BIOL 200;",
+                "BIOL 201;",
+                "BIOL 202;",
+                "BIOL 205",
+                "BIOL 206"
+            ]
         ],
         "corequisites": [
             "None"
@@ -3187,10 +3199,10 @@
             "None"
         ],
         "exclusions": [
-            "BIOL 510"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "BIOL 510"
         ]
     },
     "BIOL 418": {
@@ -3245,10 +3257,10 @@
             "None"
         ],
         "exclusions": [
-            "BIOL 507"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "BIOL 507"
         ]
     },
     "BIOL 430": {
@@ -3585,10 +3597,10 @@
             "None"
         ],
         "exclusions": [
-            "BIOL 441"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "BIOL 441"
         ]
     },
     "BIOL 508": {
@@ -3750,10 +3762,10 @@
             "None"
         ],
         "exclusions": [
-            "BIOL 537"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "BIOL 537"
         ]
     },
     "BIOL 539": {
@@ -3768,10 +3780,10 @@
             "BIOL 538"
         ],
         "exclusions": [
-            "BIOL 537"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "BIOL 537"
         ]
     },
     "BIOL 540": {
@@ -3804,10 +3816,10 @@
             "None"
         ],
         "exclusions": [
-            "BIOL 537"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "BIOL 537"
         ]
     },
     "BIOL 594": {
@@ -4225,8 +4237,10 @@
         "description": "An introduction to the basic principles of organic chemistry with emphasis on bonding, stereochemistry, reaction intermediates and reaction mechanisms, and structure-reactivity correlations. Intended for students in biological and life sciences. Students in chemistry or biochemistry programs should not enrol in this course.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.\nNOTE Molecular Model Set: estimated cost $25.",
         "units": 3,
         "prerequisites": [
-            "CHEM 112",
-            "CHEM 114"
+            [
+                "CHEM 112",
+                "CHEM 114"
+            ]
         ],
         "corequisites": [
             "None"
@@ -4283,8 +4297,10 @@
         "description": "Fundamental mechanistic concepts of organic reactions, structure-activity relationships, solvent effects and catalysis. Mechanistic aspects of substitution, addition, elimination and pericyclic reactions.",
         "units": 3,
         "prerequisites": [
-            "CHEM 223",
-            "CHEM 282"
+            [
+                "CHEM 223",
+                "CHEM 282"
+            ]
         ],
         "corequisites": [
             "None"
@@ -4330,10 +4346,18 @@
                 "MATH 112"
             ],
             [
+                "MATH 120",
+                "MATH 121",
+                [
+                    "MATH 123",
+                    "MATH 124"
+                ]
+            ],
+            [
                 "PHYS 104",
                 "PHYS 106",
                 "PHYS 117"
-            ]  
+            ]
         ],
         "corequisites": [
             "None"
@@ -4351,8 +4375,10 @@
         "description": "One further step in mastering synthetic organic chemistry. Building on knowledge of introductory organic reactivity, essential principles underlying strategies in synthetic organic chemistry will be covered, with an emphasis on regio- and stereo-controls.",
         "units": 3,
         "prerequisites": [
-            "CHEM 223",
-            "CHEM 282"
+            [
+                "CHEM 223",
+                "CHEM 282"
+            ]
         ],
         "corequisites": [
             "CHEM 311"
@@ -4388,9 +4414,11 @@
         "description": "The application of quantum mechanics to the structures and internal motions of molecules. The foundations of electronic, vibrational, rotational and NMR spectroscopy will be discussed together with their applications.",
         "units": 3,
         "prerequisites": [
-            "CHEM 313",
-            "CHEM 346",
-            "PHYS 344"
+            [
+                "CHEM 313",
+                "CHEM 346",
+                "PHYS 344"
+            ]
         ],
         "corequisites": [
             "None"
@@ -4408,8 +4436,10 @@
         "description": "Introduction to the chemical basis of biological systems and biomolecules, protein structure and synthesis, enzyme catalysis, nucleic acids (DNA, RNA), carbohydrates, membranes, cell signalling, biosynthetic and metabolic pathways.",
         "units": 3,
         "prerequisites": [
-            "CHEM 223",
-            "CHEM 282"
+            [
+                "CHEM 223",
+                "CHEM 282"
+            ]
         ],
         "corequisites": [
             "None"
@@ -4571,9 +4601,11 @@
         "description": "The application of quantum mechanics to chemical structures, energetics, internal motions of molecules, and chemical reactions. An introduction to the use of modern electronic structure software in chemistry.",
         "units": 3,
         "prerequisites": [
-            "CHEM 313",
-            "CHEM 346",
-            "PHYS 345"
+            [
+                "CHEM 313",
+                "CHEM 346",
+                "PHYS 345"
+            ]
         ],
         "corequisites": [
             "None"
