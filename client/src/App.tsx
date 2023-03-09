@@ -24,13 +24,13 @@ export default function App() {
   useHotkeys([['mod+J', () => toggleColorScheme()]]);
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }}>
+      <MantineProvider theme={{ colorScheme, fontFamily: "Inter, sans-serif" }} withGlobalStyles withNormalizeCSS >
         <NotificationsProvider>
           <Container size="lg" px="lg">
             <Flex style={{ height: "60%", flexDirection: "column" }}>
               <Toggle />
               <Header title={HeaderContent.title} />
-              <Requirements subheading={HeaderContent.subheading} />
+              <Requirements subheading1={HeaderContent.subheading1} subheading2={HeaderContent.subheading2} subheading3={HeaderContent.subheading3} />
 
             </Flex>
             <Flex style={{ height: "60%" }}>

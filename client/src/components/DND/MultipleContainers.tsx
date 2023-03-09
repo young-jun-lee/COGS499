@@ -335,7 +335,7 @@ export default function MultipleContainers({
           }
         >
           <Flex>
-            <Flex style={{ flexDirection: "column", width: "75%" }}>
+            <Flex style={{ flexDirection: "column", width: "65%" }}>
               {containers.map((containerId) => (
 
                 <DroppableContainer
@@ -347,14 +347,12 @@ export default function MultipleContainers({
                   scrollable={scrollable}
                   style={containerStyle}
                   unstyled={minimal}
-                  title={"hello"}
                 >
                   <SortableContext
                     items={items[containerId]}
                     strategy={strategy}
                   >
                     {items[containerId].map((value, index) => {
-                      const test = "hello"
                       return (
                         <SortableItem
                           disabled={isSortingContainer}
@@ -379,7 +377,7 @@ export default function MultipleContainers({
 
               ))}
             </Flex>
-            <Flex style={{ flexDirection: "column", width: "75%" }}>
+            <Flex style={{ flexDirection: "column", width: "35%" }}>
               <SearchBar column={0} columnId={"0"}></SearchBar>
             </Flex>
           </Flex>

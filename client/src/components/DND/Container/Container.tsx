@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
-
+import { ScrollArea } from '@mantine/core';
 // import { Handle, Remove } from "../Item";
 
 import styles from "./Container.module.scss";
@@ -81,7 +81,9 @@ export const Container = forwardRef<HTMLDivElement, Props>(
         ) : null}
 
 
-        {placeholder ? children : <ul>{children}</ul>}
+        {/* ... content */}
+        {placeholder ? children : <ScrollArea h={200}><ul>{children}</ul></ScrollArea>}
+
       </Component>
     );
   }

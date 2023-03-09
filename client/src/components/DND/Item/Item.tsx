@@ -7,7 +7,7 @@ import type { Transform } from "@dnd-kit/utilities";
 
 import styles from "./Item.module.scss";
 import { Remove } from "./components";
-import { Button } from "@mantine/core";
+import { Button, CloseButton } from "@mantine/core";
 
 export interface Props {
   dragOverlay?: boolean;
@@ -146,10 +146,9 @@ export const Item = React.memo(
             tabIndex={!handle ? 0 : undefined}
           >
             {value}
-            <span className={styles.Actions}>
-            </span>
+
           </div>
-          <Button onClick={() => {
+          <CloseButton onClick={() => {
             const newItems = [
               ...items[containerId].slice(0, index),
               ...items[containerId].slice(index + 1)
@@ -158,7 +157,16 @@ export const Item = React.memo(
               ...items,
               [containerId]: newItems
             })
-          }}></Button>
+          }}
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              // height: 25,
+              // backgroundColor: "red",
+              // width: 25,
+            }}
+          ></CloseButton>
         </li>
       );
     }

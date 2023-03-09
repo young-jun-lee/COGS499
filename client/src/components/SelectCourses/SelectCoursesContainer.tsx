@@ -18,7 +18,7 @@ const SelectContainer: FC = () => {
             <h1 style={{ textAlign: "center" }}>Courses</h1>
 
             <MultipleContainers
-                columns={4}
+                columns={5}
                 // itemCount={10}
                 strategy={rectSortingStrategy}
                 wrapperStyle={() => ({
@@ -26,6 +26,7 @@ const SelectContainer: FC = () => {
                     height: 50,
                 })}
                 vertical
+                scrollable
             />
         </Flex >
     );
