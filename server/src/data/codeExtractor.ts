@@ -4,9 +4,9 @@ export const codeExtractor = (requirements: string) => {
 
   // const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\}))/g
   // const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\})|(and))/g
-  const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\})|(and)|(?:[A-Z]+\/(?:[A-Z]+\/)*[A-Z]+\s+at\s+the\s+\d{3}-level\s+or\s+above))/g
+  const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\})|(and)|(or)|(?:[A-Z]+\/(?:[A-Z]+\/)*[A-Z]+\s+at\s+the\s+\d{3}-level\s+or\s+above))/g
 
-  const match = requirements.match(courseCodeRegex);
+  const match = requirements.match(courseCodeRegex);  
 
   if (match !== null) {
     let courseCodesString: string = match.join(" ");
@@ -64,21 +64,59 @@ export const codeExtractor = (requirements: string) => {
     let courseCodes: string[] = parseCourses(splitString);
     console.log("after parsing: ");
     console.log(courseCodes)
+    // console.log(courseCodes.length);
     console.log("\n")
     return courseCodes
   }
 }
 
 const parseCourses = (array) => {
+  while (array[0] === 'and' || array[0] === 'or') {array.shift();}
+  while (array[array.length - 1] === 'and' || array[array.length - 1] === 'or') {array.pop();}
   const stack = [];
   let courses = [];
+  let brackets = [];
   let i = 0;
+  let BrCheck = 0;
 
+  while (i < array.length) {
+    if (array[i] === "(" || array[i] === "[" || array[i] === ")" || array[i] === "]") {
+      brackets.push(array[i]);
+    }
+    i++;
+  }
+  i = 0;
+  
+  if (brackets.length === 2 && (array[0] === "(" || array[0] === "[") && (array[array.length - 1] === ")" || array[array.length - 1] === "]")) {
+    BrCheck = 1;
+  }
+  else if (brackets[0] === "(" && brackets[brackets.length - 1] === ")" || brackets[0] === "{" && brackets[brackets.length - 1] === "}" || brackets[0] === "[" && brackets[brackets.length - 1] === "]") {
+    brackets.shift();
+    brackets.pop();
+    if ([")","}","]"].includes(brackets[0]) || ["(","{","["].includes(brackets[brackets.length - 1])){
+      BrCheck = -1;
+    }
+    else if (brackets.length === 0){
+      BrCheck = -1;
+    }
+    else {
+      BrCheck = 1;
+    }
+  }
+  i = 0;
 
-  if (array[0] === "(" && array[array.length - 1] === ")" || array[0] === "{" && array[array.length - 1] === "}") {
+  if (BrCheck === 1) {
+  //if (array[0] === "(" && array[array.length - 1] === ")" || array[0] === "{" && array[array.length - 1] === "}") {
     array.shift();
     array.pop();
   }
+  console.log("Brackets array: ")
+  console.log(brackets);
+  console.log(BrCheck);
+  
+  console.log("before parsing after striping: ")
+  console.log(array);
+ //  console.log(array.length);
 
   while (i < array.length) {
     if (array[i].match(/\b[A-Z]{4}\s\d{3}\b|\b[A-Z]{4}\s\d{1}\b/)) {
@@ -112,5 +150,16 @@ const parseCourses = (array) => {
   if (numCourses === numOr + 1 && courses.length !== 1) {
     courses = [courses]
   }
+
+  if ( (array[1] == "and" || array[array.length - 2] == "and") && courses.length === 1) {
+    courses = courses[0]
+  }
+  else if ( (array[1] == "or" || array[array.length - 2] == "or") && courses.length !== 1) {
+    courses = [courses]
+  }
+
+  if (courses.length === 0) {
+    courses = ["None"]
+  }  
   return courses;
-}
+} 
