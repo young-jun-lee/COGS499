@@ -24,6 +24,7 @@ import SearchBar from '../SelectCourses/SearchBar';
 import { DroppableContainer } from './DroppableContainer';
 import { Props } from './Props';
 import { SortableItem } from './SortableItem';
+import { MdDeleteSweep } from 'react-icons/md';
 
 
 
@@ -77,7 +78,7 @@ export default function MultipleContainers({
   const [items, setItems] = useState<Items>(
     getItems()
   );
-  console.log('items', items)
+
 
   const [containers, setContainers] = useState(
     Object.keys(items) as UniqueIdentifier[]
@@ -164,7 +165,19 @@ export default function MultipleContainers({
 
     return index;
   };
+  const handleRemoveColumn = (containerID: UniqueIdentifier) => {
 
+    for (let i = Number(containerID); i < containers.length; i++) {
+      const newID = String(Number(containers[i]) - 1)
+      containers[i] = newID
+    }
+    console.log(containers)
+    setContainers((containers) =>
+      // remove first instance of containerID 
+      // delete containers[containers.indexOf(containerID)]
+      containers.filter((id) => id !== containerID)
+    );
+  }
   const onDragCancel = () => {
     if (clonedItems) {
       // Reset items to their original state in case items have been
@@ -338,44 +351,73 @@ export default function MultipleContainers({
             <Flex style={{ flexDirection: "column", width: "65%" }}>
 
               {containers.map((containerId) => (
-
-                <DroppableContainer
-                  key={containerId}
-                  id={containerId}
-                  label={minimal ? undefined : `Column ${containerId}`}
-                  columns={columns}
-                  items={items[containerId]}
-                  scrollable={scrollable}
-                  style={containerStyle}
-                  unstyled={minimal}
-                >
-
-                  <SortableContext
+                <>
+                  <h2>Year {containerId}</h2>
+                  <DroppableContainer
+                    key={containerId}
+                    id={containerId}
+                    label={minimal ? undefined : `Column ${containerId}`}
+                    columns={columns}
                     items={items[containerId]}
-                    strategy={strategy}
+                    scrollable={scrollable}
+                    style={containerStyle}
+                    unstyled={minimal}
                   >
+                    <SortableContext
+                      items={items[containerId]}
+                      strategy={strategy}
+                    >
 
-                    {items[containerId].map((value, index) => {
-                      return (
-                        <SortableItem
-                          disabled={isSortingContainer}
-                          key={value}
-                          id={value}
-                          index={index}
-                          handle={handle}
-                          style={getItemStyles}
-                          wrapperStyle={wrapperStyle}
-                          renderItem={renderItem}
-                          containerId={containerId}
-                          getIndex={getIndex}
-                          items={items}
-                          setItems={setItems}
-                        />
+                      {items[containerId].map((value, index) => {
+                        return (
+                          <SortableItem
+                            disabled={isSortingContainer}
+                            key={value}
+                            id={value}
+                            index={index}
+                            handle={handle}
+                            style={getItemStyles}
+                            wrapperStyle={wrapperStyle}
+                            renderItem={renderItem}
+                            containerId={containerId}
+                            getIndex={getIndex}
+                            items={items}
+                            setItems={setItems}
+                          />
+                        );
+                      })}
 
-                      );
-                    })}
-                  </SortableContext>
-                </DroppableContainer>
+                    </SortableContext>
+                  </DroppableContainer>
+                  <Button leftIcon={<MdDeleteSweep size={18} />}
+                    onClick={() => {
+                      handleRemoveColumn(containerId)
+                    }}
+                  >
+                    Delete Year
+                  </Button>
+                  {/* <Group position="right">
+                        {state.numYears > 3 ?
+                          <Button leftIcon={<MdDeleteSweep size={18} />}
+                            onClick={() => {
+                              handleRemoveColumn(containerId)
+                            }}
+                          >
+                            Delete Year
+                          </Button>
+                          :
+                          <Tooltip label="Minimum 3 Academic Years">
+                            <Button leftIcon={<MdDeleteSweep />}
+                              data-disabled
+                              sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+                              onClick={(event) => event.preventDefault()}
+                            >
+                              Delete Year
+                            </Button>
+                          </Tooltip>
+                        }
+                      </Group> */}
+                </>
 
 
               ))}
@@ -447,6 +489,14 @@ export default function MultipleContainers({
     );
   }
 
+  // function handleRemove(containerID: UniqueIdentifier) {
+  //   setContainers((containers) =>
+  //     containers.filter((id) => id !== containerID)
+  //   );
+  // }
+
+
+
   function handleAddColumn() {
     const newContainerId = getNextContainerId();
 
@@ -495,7 +545,7 @@ export default function MultipleContainers({
   function getNextContainerId() {
     const containerIds = Object.keys(items);
     const lastContainerId = containerIds[containerIds.length - 1];
-
+    console.log(lastContainerId)
     return String.fromCharCode(lastContainerId.charCodeAt(0) + 1);
   }
 }
