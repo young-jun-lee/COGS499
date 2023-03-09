@@ -26,7 +26,7 @@ export interface Props {
   transition?: string | null;
   wrapperStyle?: React.CSSProperties;
   value: React.ReactNode;
-  containerId: string;
+  containerId: string | number;
   onRemove?(): void;
   renderItem?(args: {
     dragOverlay: boolean;

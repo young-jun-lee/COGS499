@@ -62,7 +62,6 @@ export default function MultipleContainers({
 
   const snap = useSnapshot(state)
   const empty: UniqueIdentifier[] = [];
-  
   const getItems = () => {
     const items: Items = {}
     snap.columns.map((column, index) => {
@@ -83,7 +82,6 @@ export default function MultipleContainers({
   const [containers, setContainers] = useState(
     Object.keys(items) as UniqueIdentifier[]
   );
-  
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
   const lastOverId = useRef<UniqueIdentifier | null>(null);
   const recentlyMovedToNewContainer = useRef(false);
@@ -183,81 +181,6 @@ export default function MultipleContainers({
       recentlyMovedToNewContainer.current = false;
     });
   }, [items]);
-
-
-  function renderSortableItemDragOverlay(id: UniqueIdentifier) {
-    return (
-      <Item
-        value={id}
-        handle={handle}
-        style={getItemStyles({
-          containerId: findContainer(id) as UniqueIdentifier,
-          overIndex: -1,
-          index: getIndex(id),
-          value: id,
-          isSorting: true,
-          isDragging: true,
-          isDragOverlay: true,
-        })}
-        wrapperStyle={wrapperStyle({ index: 0 })}
-        renderItem={renderItem}
-        dragOverlay
-      />
-    );
-  }
-
-  function handleAddColumn() {
-    const newContainerId = getNextContainerId();
-
-    unstable_batchedUpdates(() => {
-      setContainers((containers) => [...containers, newContainerId]);
-      setItems((items) => ({
-        ...items,
-        [newContainerId]: []
-      }));
-    });
-  }
-
-  function renderContainerDragOverlay(containerId: UniqueIdentifier) {
-    return (
-      <Container
-        label={`Column ${containerId}`}
-        columns={columns}
-        style={{
-          height: '100%',
-        }}
-        shadow
-        unstyled={false}
-      >
-        {items[containerId].map((item, index) => (
-          <Item
-            key={item}
-            value={item}
-            handle={handle}
-            style={getItemStyles({
-              containerId,
-              overIndex: -1,
-              index: getIndex(item),
-              value: item,
-              isDragging: false,
-              isSorting: false,
-              isDragOverlay: false,
-            })}
-            wrapperStyle={wrapperStyle({ index })}
-            renderItem={renderItem}
-          />
-        ))}
-      </Container>
-    );
-  }
-
-  function getNextContainerId() {
-    const containerIds = Object.keys(items);
-    const lastContainerId = containerIds[containerIds.length - 1];
-
-    return String.fromCharCode(lastContainerId.charCodeAt(0) + 1);
-  }
-
 
   return (
     <DndContext
@@ -503,7 +426,78 @@ export default function MultipleContainers({
     </DndContext >
   );
 
+  function renderSortableItemDragOverlay(id: UniqueIdentifier) {
+    return (
+      <Item
+        value={id}
+        handle={handle}
+        style={getItemStyles({
+          containerId: findContainer(id) as UniqueIdentifier,
+          overIndex: -1,
+          index: getIndex(id),
+          value: id,
+          isSorting: true,
+          isDragging: true,
+          isDragOverlay: true,
+        })}
+        wrapperStyle={wrapperStyle({ index: 0 })}
+        renderItem={renderItem}
+        dragOverlay
+        containerId={findContainer(id) as UniqueIdentifier} />
+    );
+  }
 
+  function handleAddColumn() {
+    const newContainerId = getNextContainerId();
+
+    unstable_batchedUpdates(() => {
+      setContainers((containers) => [...containers, newContainerId]);
+      setItems((items) => ({
+        ...items,
+        [newContainerId]: []
+      }));
+    });
+  }
+
+  function renderContainerDragOverlay(containerId: UniqueIdentifier) {
+    return (
+      <Container
+        label={`Column ${containerId}`}
+        columns={columns}
+        style={{
+          height: '100%',
+        }}
+        shadow
+        unstyled={false}
+      >
+        {items[containerId].map((item, index) => (
+          <Item
+            key={item}
+            value={item}
+            handle={handle}
+            style={getItemStyles({
+              containerId,
+              overIndex: -1,
+              index: getIndex(item),
+              value: item,
+              isDragging: false,
+              isSorting: false,
+              isDragOverlay: false,
+            })}
+            wrapperStyle={wrapperStyle({ index })}
+            renderItem={renderItem}
+          />
+        ))}
+      </Container>
+    );
+  }
+
+  function getNextContainerId() {
+    const containerIds = Object.keys(items);
+    const lastContainerId = containerIds[containerIds.length - 1];
+
+    return String.fromCharCode(lastContainerId.charCodeAt(0) + 1);
+  }
 }
 
 
