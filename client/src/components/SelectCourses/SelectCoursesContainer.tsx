@@ -1,5 +1,5 @@
 import { rectSortingStrategy } from "@dnd-kit/sortable";
-import { Button, Flex, Group, Tooltip } from "@mantine/core";
+import { Box, Button, Flex, Group, Tooltip } from "@mantine/core";
 import { FC, useState } from "react";
 import { HiViewGridAdd } from "react-icons/hi";
 import { useSnapshot } from "valtio";
@@ -13,9 +13,12 @@ const SelectContainer: FC = () => {
     const [localState, setLocalState] = useState(snap.columns);
 
     return (
-        <Flex style={{ flexDirection: "column", width: "100%", height: "100%" }}>
+        <Flex style={{ flexDirection: "column", width: "100%", height: "100%", border: "3px solid black", }}>
 
-            <h1 style={{ textAlign: "center" }}>Courses</h1>
+            <Box style={{ width: "45%", border: "5px solid black", borderRadius: "10px", alignSelf: "center", margin: "1em" }}>
+                <h1 style={{ textAlign: "center" }}>Select Your Courses</h1>
+            </Box>
+
 
             <MultipleContainers
                 columns={5}

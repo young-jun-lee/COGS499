@@ -9,7 +9,7 @@ import {
 import {
   arrayMove, horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy
 } from '@dnd-kit/sortable';
-import { Button, Flex, Group, Tooltip } from '@mantine/core';
+import { Button, Flex, Group, ScrollArea, Tooltip } from '@mantine/core';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal, unstable_batchedUpdates } from 'react-dom';
 import { HiViewGridAdd } from 'react-icons/hi';
@@ -323,9 +323,9 @@ export default function MultipleContainers({
           boxSizing: 'border-box',
           // padding: 20,
           gridAutoFlow: vertical ? 'row' : 'column',
-          border: '1px solid #ccc',
         }}
       >
+
         <SortableContext
           items={[...containers, PLACEHOLDER_ID]}
           strategy={
@@ -336,6 +336,7 @@ export default function MultipleContainers({
         >
           <Flex>
             <Flex style={{ flexDirection: "column", width: "65%" }}>
+
               {containers.map((containerId) => (
 
                 <DroppableContainer
@@ -348,10 +349,12 @@ export default function MultipleContainers({
                   style={containerStyle}
                   unstyled={minimal}
                 >
+
                   <SortableContext
                     items={items[containerId]}
                     strategy={strategy}
                   >
+
                     {items[containerId].map((value, index) => {
                       return (
                         <SortableItem
@@ -368,14 +371,15 @@ export default function MultipleContainers({
                           items={items}
                           setItems={setItems}
                         />
+
                       );
                     })}
                   </SortableContext>
                 </DroppableContainer>
 
 
-
               ))}
+
             </Flex>
             <Flex style={{ flexDirection: "column", width: "35%" }}>
               <SearchBar column={0} columnId={"0"}></SearchBar>
@@ -386,16 +390,18 @@ export default function MultipleContainers({
 
         </SortableContext>
       </div>
-      {createPortal(
-        <DragOverlay adjustScale={adjustScale} dropAnimation={dropAnimation}>
-          {activeId
-            ? containers.includes(activeId)
-              ? renderContainerDragOverlay(activeId)
-              : renderSortableItemDragOverlay(activeId)
-            : null}
-        </DragOverlay>,
-        document.body
-      )}
+      {
+        createPortal(
+          <DragOverlay adjustScale={adjustScale} dropAnimation={dropAnimation}>
+            {activeId
+              ? containers.includes(activeId)
+                ? renderContainerDragOverlay(activeId)
+                : renderSortableItemDragOverlay(activeId)
+              : null}
+          </DragOverlay>,
+          document.body
+        )
+      }
       <Group position="right" style={{ marginTop: "10px" }}>
         {containers.length < constants.MAX_YEARS ?
           <Button leftIcon={<HiViewGridAdd size={20} />}
@@ -417,7 +423,7 @@ export default function MultipleContainers({
           </Tooltip>
         }
       </Group>
-    </DndContext>
+    </DndContext >
   );
 
   function renderSortableItemDragOverlay(id: UniqueIdentifier) {

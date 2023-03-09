@@ -44,8 +44,9 @@ export const Container = forwardRef<HTMLDivElement, Props>(
     ref
   ) => {
     const Component = onClick ? "button" : "div";
-
+    console.log("children", children)
     return (
+
       <Component
         {...props}
         ref={ref}
@@ -82,9 +83,10 @@ export const Container = forwardRef<HTMLDivElement, Props>(
 
 
         {/* ... content */}
-        {placeholder ? children : <ScrollArea h={200}><ul>{children}</ul></ScrollArea>}
+        {placeholder ? children : <ul>{children}</ul>}
 
       </Component>
+
     );
   }
 );
