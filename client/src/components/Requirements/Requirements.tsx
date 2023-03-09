@@ -38,7 +38,7 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                     background: "linear-gradient(to right, #002452 0, #002452 33%, #fabd0f 33%, #fabd0f 66%, #b90e31 66%, #b90e31 100%)"
                 }}></div>
             </Flex>
-            <Flex style={{ border: "3px solid #002452", flexDirection: "column" }}>
+            <Flex style={{ border: "3px solid #002452", flexDirection: "column", }}>
                 <Specialization />
                 <Flex justify="space-between" style={{ height: "100%" }} >
                     <SpecCourses title="Program Specific Courses" />

@@ -55,18 +55,18 @@ const Specialization: FC = () => {
             {
                 snap.specialization === "" ? <></> : <Box sx={
                     (theme) => ({
-                        width: '35%',
-                        padding: theme.spacing.sm,
+                        width: '70%',
                         marginTop: theme.spacing.md,
                         border: '3px solid #B90E31',
                         borderRadius: theme.radius.md,
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : "#002452",
                         color: "white",
                         textAlign: 'center',
+                        alignSelf: "center"
                     })
-                }><Box sx={{ fontWeight: 600, fontSize: 18, color: "#F3CA40" }}>Specialization: {snap.specialization}</Box></Box>
+                }><h1 style={{ textAlign: "center" }}>Specialization: {snap.specialization}</h1>
+                </Box>
             }
-
 
         </>
 
