@@ -487,25 +487,22 @@ export const MultipleContainers = ({
             </Flex>
             <Flex style={{ flexDirection: "column", width: "35%" }}>
 
-              {/* <SearchBar
+              <SearchBar
                 containerId={"0"}
-                id={"0"}
-                label={minimal ? undefined : `Column ${"0"}`}
                 columns={columns}
-                items={items["0"]}
+                items={items}
                 scrollable={scrollable}
-                style={containerStyle}
-                unstyled={minimal}
+                getItemStyles={getItemStyles}
                 strategy={strategy}
-                disabled={isSortingContainer}
+                isSortingContainer={isSortingContainer}
                 handle={handle}
-                itemStyle={getItemStyles}
+                containerStyle={containerStyle}
                 wrapperStyle={wrapperStyle}
                 renderItem={renderItem}
                 getIndex={getIndex}
                 setItems={setItems}
                 minimal={minimal}
-              ></SearchBar> */}
+              ></SearchBar>
             </Flex>
           </Flex>
 

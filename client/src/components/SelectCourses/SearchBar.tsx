@@ -1,34 +1,33 @@
-import { Autocomplete, Box, Button } from '@mantine/core';
-import { FC, useEffect, useState } from 'react';
-import { Draggable, Droppable } from 'react-beautiful-dnd';
-import { useSnapshot } from 'valtio';
-import { state } from '../../Valtio/State';
-import { removeYear } from "../../Valtio/helperFunctions";
-import { StrictModeDroppable } from './StrictModeDroppable';
-import { v4 as uuidv4 } from 'uuid';
-import { GridDropZone, GridItem } from 'react-grid-dnd';
-import { DroppableContainer } from '../DND/DroppableContainer';
 import { SortableContext } from '@dnd-kit/sortable';
+import { Autocomplete, Box } from '@mantine/core';
+import { FC, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { DroppableContainer } from '../DND/DroppableContainer';
 import { SortableItem } from '../DND/SortableItem';
 
-interface RequiredCourses {
-    containerId: string | number,
-    id: string,
-    label: string,
-    columns: number,
-    items: string[],
-    scrollable: boolean,
-    style: object,
-    unstyled: boolean,
-    strategy: string,
-    disabled: boolean,
-    handle: boolean,
-    itemStyle: object,
-    wrapperStyle: object,
-    renderItem: (item: Course) => JSX.Element,
-    getIndex: (item: Course) => number,
-    setItems: (items: Course[]) => void,
-}
+// interface RequiredCourses {
+//     containerId: string | number,
+//     id: string,
+//     label: string,
+//     columns: number,
+//     items: string[],
+//     scrollable: boolean,
+//     style: object,
+//     unstyled: boolean,
+//     strategy: string,
+//     disabled: boolean,
+//     handle: boolean,
+//     itemStyle: object,
+//     wrapperStyle: object,
+//     renderItem: (item: Course) => JSX.Element,
+//     getIndex: (item: Course) => number,
+//     setItems: (items: Course[]) => void,
+//     minimal: boolean,
+//     getItemStyles: any
+//     isSortingContainer: any
+//     containerStyle: any
+
+// }
 
 interface Course {
     value: string
@@ -38,17 +37,14 @@ interface Course {
 
 const SearchBar: FC<RequiredCourses> = ({
     containerId,
-    id,
-    label,
     columns,
     items,
     scrollable,
-    style,
-    unstyled,
+    getItemStyles,
     strategy,
-    disabled,
+    isSortingContainer,
     handle,
-    itemStyle,
+    containerStyle,
     wrapperStyle,
     renderItem,
     getIndex,
@@ -56,20 +52,20 @@ const SearchBar: FC<RequiredCourses> = ({
     minimal
 
 }) => {
-    const [courses, setCourses] = useState<Course[]>([]);
-    // const handleItemSubmit = (item: Course) => {
-    //     // update courses to match valtio state
-    //     setCourses(state.columns[columnId].items);
-    //     // Check if item is already in courses
-    //     if (courses.some((course) => course.value === item.value)) {
-    //         return;
-    //     } else {
-    //         setCourses([...courses, item]);
-    //         // update courses in valtio state
-    //         state.columns[columnId].items.push(item);
-    //     }
-    // };
-
+    const [courses, setCourses] = useState<Course[]>(items[containerId]);
+    const handleItemSubmit = (item: Course) => {
+        // update courses to match valtio state
+        setCourses(state.columns[columnId].items);
+        // Check if item is already in courses
+        if (courses.some((course) => course.value === item.value)) {
+            return;
+        } else {
+            setCourses([...courses, item]);
+            // update courses in valtio state
+            state.columns[columnId].items.push(item);
+        }
+    };
+    console.log(items)
     return (
         <Box
             sx={(theme) => ({
@@ -113,27 +109,25 @@ const SearchBar: FC<RequiredCourses> = ({
                         { value: "MATH 128", group: "MATH", id: uuidv4() },
                         { value: "MATH 129", group: "MATH", id: uuidv4() },
                     ]}
-                    // onItemSubmit={handleItemSubmit}
+                    onItemSubmit={handleItemSubmit}
                     sx={{ marginBottom: 20 }}
                     maxDropdownHeight={500}
                 />
                 <div style={{ margin: 8 }}>
                     <DroppableContainer
-                        key={containerId}
                         id={containerId}
                         label={minimal ? undefined : `Column ${containerId}`}
                         columns={columns}
                         items={items[containerId]}
                         scrollable={scrollable}
-                        style={containerStyle}
-                        unstyled={minimal}
                     >
                         <SortableContext
                             items={items[containerId]}
                             strategy={strategy}
                         >
 
-                            {items[containerId].map((value, index) => {
+
+                            {courses.map((value, index) => {
                                 return (
                                     <SortableItem
                                         disabled={isSortingContainer}
