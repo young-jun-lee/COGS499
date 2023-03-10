@@ -7,10 +7,27 @@ import { removeYear } from "../../Valtio/helperFunctions";
 import { StrictModeDroppable } from './StrictModeDroppable';
 import { v4 as uuidv4 } from 'uuid';
 import { GridDropZone, GridItem } from 'react-grid-dnd';
+import { DroppableContainer } from '../DND/DroppableContainer';
+import { SortableContext } from '@dnd-kit/sortable';
+import { SortableItem } from '../DND/SortableItem';
 
 interface RequiredCourses {
-    column: any
-    columnId: string
+    containerId: string | number,
+    id: string,
+    label: string,
+    columns: number,
+    items: string[],
+    scrollable: boolean,
+    style: object,
+    unstyled: boolean,
+    strategy: string,
+    disabled: boolean,
+    handle: boolean,
+    itemStyle: object,
+    wrapperStyle: object,
+    renderItem: (item: Course) => JSX.Element,
+    getIndex: (item: Course) => number,
+    setItems: (items: Course[]) => void,
 }
 
 interface Course {
@@ -19,7 +36,26 @@ interface Course {
     group: string
 }
 
-const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
+const SearchBar: FC<RequiredCourses> = ({
+    containerId,
+    id,
+    label,
+    columns,
+    items,
+    scrollable,
+    style,
+    unstyled,
+    strategy,
+    disabled,
+    handle,
+    itemStyle,
+    wrapperStyle,
+    renderItem,
+    getIndex,
+    setItems,
+    minimal
+
+}) => {
     const [courses, setCourses] = useState<Course[]>([]);
     // const handleItemSubmit = (item: Course) => {
     //     // update courses to match valtio state
@@ -82,6 +118,42 @@ const SearchBar: FC<RequiredCourses> = ({ column, columnId }) => {
                     maxDropdownHeight={500}
                 />
                 <div style={{ margin: 8 }}>
+                    <DroppableContainer
+                        key={containerId}
+                        id={containerId}
+                        label={minimal ? undefined : `Column ${containerId}`}
+                        columns={columns}
+                        items={items[containerId]}
+                        scrollable={scrollable}
+                        style={containerStyle}
+                        unstyled={minimal}
+                    >
+                        <SortableContext
+                            items={items[containerId]}
+                            strategy={strategy}
+                        >
+
+                            {items[containerId].map((value, index) => {
+                                return (
+                                    <SortableItem
+                                        disabled={isSortingContainer}
+                                        key={value}
+                                        id={value}
+                                        index={index}
+                                        handle={handle}
+                                        style={getItemStyles}
+                                        wrapperStyle={wrapperStyle}
+                                        renderItem={renderItem}
+                                        containerId={containerId}
+                                        getIndex={getIndex}
+                                        items={items}
+                                        setItems={setItems}
+                                    />
+                                );
+                            })}
+
+                        </SortableContext>
+                    </DroppableContainer>
                     {/* {column.items.map((item, index) => (
                             <GridItem key={index}>
                                 <div className="grid-item">

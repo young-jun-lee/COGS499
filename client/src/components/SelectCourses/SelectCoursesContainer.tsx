@@ -6,7 +6,7 @@ import { useSnapshot } from "valtio";
 import { constants } from "../../content/Constants";
 import { addYear } from "../../Valtio/helperFunctions";
 import { state } from '../../Valtio/State';
-import MultipleContainers from "../DND/MultipleContainers"
+import { MultipleContainers } from "../DND/MultipleContainers"
 
 const SelectContainer: FC = () => {
     const snap = useSnapshot(state);

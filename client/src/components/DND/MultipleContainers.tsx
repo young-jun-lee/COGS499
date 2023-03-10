@@ -9,7 +9,7 @@ import {
 import {
   arrayMove, horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy
 } from '@dnd-kit/sortable';
-import { Button, Flex, Group, ScrollArea, Tooltip } from '@mantine/core';
+import { Box, Button, Flex, Group, ScrollArea, Tooltip } from '@mantine/core';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal, unstable_batchedUpdates } from 'react-dom';
 import { HiViewGridAdd } from 'react-icons/hi';
@@ -25,6 +25,7 @@ import { DroppableContainer } from './DroppableContainer';
 import { Props } from './Props';
 import { SortableItem } from './SortableItem';
 import { MdDeleteSweep } from 'react-icons/md';
+import { Items } from '../../types/stateTypes';
 
 
 
@@ -38,12 +39,8 @@ const dropAnimation: DropAnimation = {
   }),
 };
 
-export type Items = Record<UniqueIdentifier, UniqueIdentifier[]>;
 
-const PLACEHOLDER_ID = 'placeholder';
-
-
-export default function MultipleContainers({
+export const MultipleContainers = ({
   adjustScale = false,
   itemCount = 3,
   cancelDrop,
@@ -59,16 +56,17 @@ export default function MultipleContainers({
   strategy = verticalListSortingStrategy,
   vertical = false,
   scrollable = true,
-}: Props) {
+}: Props) => {
 
   const snap = useSnapshot(state)
   const empty: UniqueIdentifier[] = [];
+
   const getItems = () => {
     const items: Items = {}
     snap.columns.map((column, index) => {
-      if (index !== 0) {
-        items[index] = column.items.map(item => item.id)
-      }
+      // if (index !== 0) {
+      items[index] = column.items.map(item => item.id)
+      // }
     })
     items[3] = empty
     items[4] = empty
@@ -78,7 +76,6 @@ export default function MultipleContainers({
   const [items, setItems] = useState<Items>(
     getItems()
   );
-
 
   const [containers, setContainers] = useState(
     Object.keys(items) as UniqueIdentifier[]
@@ -165,19 +162,30 @@ export default function MultipleContainers({
 
     return index;
   };
-  const handleRemoveColumn = (containerID: UniqueIdentifier) => {
-
-    for (let i = Number(containerID); i < containers.length; i++) {
-      const newID = String(Number(containers[i]) - 1)
-      containers[i] = newID
-    }
+  const handleRemoveColumn = (containerId: UniqueIdentifier) => {
     console.log(containers)
-    setContainers((containers) =>
-      // remove first instance of containerID 
-      // delete containers[containers.indexOf(containerID)]
-      containers.filter((id) => id !== containerID)
-    );
+    console.log(containerId)
+    for (let i = Number(containerId) + 1; i < containers.length; i++) {
+      const newId = String(Number(containers[i]) - 1)
+      containers[i] = newId
+    }
+    containers.splice(containers.indexOf(containerId), 1)
+    console.log(containers)
+    setContainers((containers) => [...containers])
   }
+
+  const handleAddColumn = () => {
+    const newContainerId = getNextContainerId();
+    console.log("newContainerId", newContainerId)
+    unstable_batchedUpdates(() => {
+      setContainers((containers) => [...containers, newContainerId.toString()]);
+      setItems((items) => ({
+        ...items,
+        [newContainerId]: []
+      }));
+    });
+  }
+
   const onDragCancel = () => {
     if (clonedItems) {
       // Reset items to their original state in case items have been
@@ -188,6 +196,66 @@ export default function MultipleContainers({
     setActiveId(null);
     setClonedItems(null);
   };
+
+  const renderSortableItemDragOverlay = (id: UniqueIdentifier) => {
+    return (
+      <Item
+        value={id}
+        handle={handle}
+        style={getItemStyles({
+          containerId: findContainer(id) as UniqueIdentifier,
+          overIndex: -1,
+          index: getIndex(id),
+          value: id,
+          isSorting: true,
+          isDragging: true,
+          isDragOverlay: true,
+        })}
+        wrapperStyle={wrapperStyle({ index: 0 })}
+        renderItem={renderItem}
+        dragOverlay
+        containerId={findContainer(id) as UniqueIdentifier} />
+    );
+  }
+
+  const getNextContainerId = () => {
+    const lastContainerId = containers[containers.length - 1];
+    return Number(lastContainerId) + 1;
+  }
+
+  const renderContainerDragOverlay = (containerId: UniqueIdentifier) => {
+    return (
+      <Container
+        label={`Column ${containerId}`}
+        columns={columns}
+        style={{
+          height: '100%',
+        }}
+        shadow
+        unstyled={false}
+      >
+        {items[containerId].map((item, index) => (
+          <Item
+            key={item}
+            value={item}
+            handle={handle}
+            style={getItemStyles({
+              containerId,
+              overIndex: -1,
+              index: getIndex(item),
+              value: item,
+              isDragging: false,
+              isSorting: false,
+              isDragOverlay: false,
+            })}
+            wrapperStyle={wrapperStyle({ index })}
+            renderItem={renderItem}
+          />
+        ))}
+      </Container>
+    );
+  }
+
 
   useEffect(() => {
     requestAnimationFrame(() => {
@@ -289,7 +357,7 @@ export default function MultipleContainers({
           return;
         }
 
-        if (overId === PLACEHOLDER_ID) {
+        if (overId === constants.PLACEHOLDER_ID) {
           const newContainerId = getNextContainerId();
 
           unstable_batchedUpdates(() => {
@@ -340,7 +408,7 @@ export default function MultipleContainers({
       >
 
         <SortableContext
-          items={[...containers, PLACEHOLDER_ID]}
+          items={[...containers, constants.PLACEHOLDER_ID]}
           strategy={
             vertical
               ? verticalListSortingStrategy
@@ -350,54 +418,48 @@ export default function MultipleContainers({
           <Flex>
             <Flex style={{ flexDirection: "column", width: "65%" }}>
 
-              {containers.map((containerId) => (
-                <>
-                  <h2>Year {containerId}</h2>
-                  <DroppableContainer
-                    key={containerId}
-                    id={containerId}
-                    label={minimal ? undefined : `Column ${containerId}`}
-                    columns={columns}
-                    items={items[containerId]}
-                    scrollable={scrollable}
-                    style={containerStyle}
-                    unstyled={minimal}
-                  >
-                    <SortableContext
-                      items={items[containerId]}
-                      strategy={strategy}
-                    >
+              {containers.map((containerId, index) => (
+                <Box key={index}>
+                  {index !== 0 &&
+                    <>
+                      <h2 key={index}>Year {containerId}</h2>
+                      <DroppableContainer
+                        id={containerId}
+                        label={minimal ? undefined : `Column ${containerId}`}
+                        columns={columns}
+                        items={items[containerId]}
+                        scrollable={scrollable}
+                        style={containerStyle}
+                        unstyled={minimal}
+                      >
+                        <SortableContext
+                          items={items[containerId]}
+                          strategy={strategy}
+                        >
 
-                      {items[containerId].map((value, index) => {
-                        return (
-                          <SortableItem
-                            disabled={isSortingContainer}
-                            key={value}
-                            id={value}
-                            index={index}
-                            handle={handle}
-                            style={getItemStyles}
-                            wrapperStyle={wrapperStyle}
-                            renderItem={renderItem}
-                            containerId={containerId}
-                            getIndex={getIndex}
-                            items={items}
-                            setItems={setItems}
-                          />
-                        );
-                      })}
+                          {items[containerId].map((value, index) => {
+                            return (
+                              <SortableItem
+                                disabled={isSortingContainer}
+                                key={value}
+                                id={value}
+                                index={index}
+                                handle={handle}
+                                style={getItemStyles}
+                                wrapperStyle={wrapperStyle}
+                                renderItem={renderItem}
+                                containerId={containerId}
+                                getIndex={getIndex}
+                                items={items}
+                                setItems={setItems}
+                              />
+                            );
+                          })}
 
-                    </SortableContext>
-                  </DroppableContainer>
-                  <Button leftIcon={<MdDeleteSweep size={18} />}
-                    onClick={() => {
-                      handleRemoveColumn(containerId)
-                    }}
-                  >
-                    Delete Year
-                  </Button>
-                  {/* <Group position="right">
-                        {state.numYears > 3 ?
+                        </SortableContext>
+                      </DroppableContainer>
+                      <Group position="right" key={index + "group"}>
+                        {containers.length > constants.MIN_YEARS ?
                           <Button leftIcon={<MdDeleteSweep size={18} />}
                             onClick={() => {
                               handleRemoveColumn(containerId)
@@ -416,15 +478,34 @@ export default function MultipleContainers({
                             </Button>
                           </Tooltip>
                         }
-                      </Group> */}
-                </>
-
+                      </Group>
+                    </>}
+                </Box>
 
               ))}
 
             </Flex>
             <Flex style={{ flexDirection: "column", width: "35%" }}>
-              <SearchBar column={0} columnId={"0"}></SearchBar>
+
+              {/* <SearchBar
+                containerId={"0"}
+                id={"0"}
+                label={minimal ? undefined : `Column ${"0"}`}
+                columns={columns}
+                items={items["0"]}
+                scrollable={scrollable}
+                style={containerStyle}
+                unstyled={minimal}
+                strategy={strategy}
+                disabled={isSortingContainer}
+                handle={handle}
+                itemStyle={getItemStyles}
+                wrapperStyle={wrapperStyle}
+                renderItem={renderItem}
+                getIndex={getIndex}
+                setItems={setItems}
+                minimal={minimal}
+              ></SearchBar> */}
             </Flex>
           </Flex>
 
@@ -467,87 +548,6 @@ export default function MultipleContainers({
       </Group>
     </DndContext >
   );
-
-  function renderSortableItemDragOverlay(id: UniqueIdentifier) {
-    return (
-      <Item
-        value={id}
-        handle={handle}
-        style={getItemStyles({
-          containerId: findContainer(id) as UniqueIdentifier,
-          overIndex: -1,
-          index: getIndex(id),
-          value: id,
-          isSorting: true,
-          isDragging: true,
-          isDragOverlay: true,
-        })}
-        wrapperStyle={wrapperStyle({ index: 0 })}
-        renderItem={renderItem}
-        dragOverlay
-        containerId={findContainer(id) as UniqueIdentifier} />
-    );
-  }
-
-  // function handleRemove(containerID: UniqueIdentifier) {
-  //   setContainers((containers) =>
-  //     containers.filter((id) => id !== containerID)
-  //   );
-  // }
-
-
-
-  function handleAddColumn() {
-    const newContainerId = getNextContainerId();
-
-    unstable_batchedUpdates(() => {
-      setContainers((containers) => [...containers, newContainerId]);
-      setItems((items) => ({
-        ...items,
-        [newContainerId]: []
-      }));
-    });
-  }
-
-  function renderContainerDragOverlay(containerId: UniqueIdentifier) {
-    return (
-      <Container
-        label={`Column ${containerId}`}
-        columns={columns}
-        style={{
-          height: '100%',
-        }}
-        shadow
-        unstyled={false}
-      >
-        {items[containerId].map((item, index) => (
-          <Item
-            key={item}
-            value={item}
-            handle={handle}
-            style={getItemStyles({
-              containerId,
-              overIndex: -1,
-              index: getIndex(item),
-              value: item,
-              isDragging: false,
-              isSorting: false,
-              isDragOverlay: false,
-            })}
-            wrapperStyle={wrapperStyle({ index })}
-            renderItem={renderItem}
-          />
-        ))}
-      </Container>
-    );
-  }
-
-  function getNextContainerId() {
-    const containerIds = Object.keys(items);
-    const lastContainerId = containerIds[containerIds.length - 1];
-    console.log(lastContainerId)
-    return String.fromCharCode(lastContainerId.charCodeAt(0) + 1);
-  }
 }
 
 
