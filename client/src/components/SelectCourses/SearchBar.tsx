@@ -53,7 +53,7 @@ const SearchBar: FC<RequiredCourses> = ({
 
 }) => {
     // const [courses, setCourses] = useState<Course[]>(items[containerId]);
-    const [courses, setCourses] = useState(items[containerId]);
+
     const handleItemSubmit = (item: Course) => {
         // update courses to match valtio state
         // setCourses(state.columns[columnId].items);
@@ -61,14 +61,19 @@ const SearchBar: FC<RequiredCourses> = ({
         // if (courses.some((course) => course === item.value)) {
         //     return;
         // } 
+        console.log(Object.values(items))
         if (items[containerId].some((course) => course === item.value)) {
             return;
+        }
+        // check if item is already in items, which is an object of arrays
+        if (Object.values(items).some((container) => container.includes(item.value))) {
+            return
         }
         else {
             console.log(item)
             // add item to courses
             // setCourses([...courses, item.value]);
-            setItems({ ...items, [containerId]: [...courses, item.value] })
+            setItems({ ...items, [containerId]: [...items[containerId], item.value] })
             // setItems({ ...items, [containerId]: [...courses] })
             // setCourses([...courses, item.value]);
             // setItems({ ...items, [containerId]: [...courses, item] })
