@@ -26,6 +26,7 @@ import { Props } from './Props';
 import { SortableItem } from './SortableItem';
 import { MdDeleteSweep } from 'react-icons/md';
 import { Items } from '../../types/stateTypes';
+import { showNotification } from '@mantine/notifications';
 
 
 
@@ -296,9 +297,19 @@ export const MultipleContainers = ({
 
         if (!overContainer || !activeContainer) {
           return;
+        } 
+        if (items[overContainer].length >= constants.MAX_COURSES) {
+          showNotification({
+            title: 'Max Courses Reached',
+            message: `You have reached the maximum number of courses for Year ${[overContainer]}`,
+            color: 'red',
+          });
+          return;
         }
 
         if (activeContainer !== overContainer) {
+          // return if max items in container
+
           setItems((items) => {
             const activeItems = items[activeContainer];
             const overItems = items[overContainer];
@@ -362,23 +373,6 @@ export const MultipleContainers = ({
 
         if (overId == null) {
           setActiveId(null);
-          return;
-        }
-
-        if (overId === constants.PLACEHOLDER_ID) {
-          const newContainerId = getNextContainerId();
-
-          unstable_batchedUpdates(() => {
-            setContainers((containers) => [...containers, newContainerId]);
-            setItems((items) => ({
-              ...items,
-              [activeContainer]: items[activeContainer].filter(
-                (id) => id !== activeId
-              ),
-              [newContainerId]: [active.id],
-            }));
-            setActiveId(null);
-          });
           return;
         }
 
