@@ -61,7 +61,6 @@ const SearchBar: FC<RequiredCourses> = ({
         // if (courses.some((course) => course === item.value)) {
         //     return;
         // } 
-        console.log(Object.values(items))
         if (items[containerId].some((course) => course === item.value)) {
             return;
         }
@@ -70,7 +69,6 @@ const SearchBar: FC<RequiredCourses> = ({
             return
         }
         else {
-            console.log(item)
             // add item to courses
             // setCourses([...courses, item.value]);
             setItems({ ...items, [containerId]: [...items[containerId], item.value] })

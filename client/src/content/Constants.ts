@@ -1,5 +1,5 @@
 export const constants = {
-    MAX_YEARS: 6,
-    MIN_YEARS: 3,
+    MAX_YEARS: 7,
+    MIN_YEARS: 4,
     PLACEHOLDER_ID: 'placeholder'
 } as const;

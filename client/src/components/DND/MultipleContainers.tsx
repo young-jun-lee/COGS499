@@ -163,15 +163,23 @@ export const MultipleContainers = ({
     return index;
   };
   const handleRemoveColumn = (containerId: UniqueIdentifier) => {
-    console.log(containers)
-    console.log(containerId)
+
     for (let i = Number(containerId) + 1; i < containers.length; i++) {
       const newId = String(Number(containers[i]) - 1)
       containers[i] = newId
     }
     containers.splice(containers.indexOf(containerId), 1)
-    console.log(containers)
     setContainers((containers) => [...containers])
+
+
+
+    for (let i = Number(containerId) + 1; i < Object.keys(items).length; i++) {
+      const newId = String(Number(Object.keys(items)[i]) - 1)
+      items[newId] = items[Object.keys(items)[i]]
+    }
+    console.log(items)
+    setItems((items) => ({ ...items }))
+
   }
 
   const handleAddColumn = () => {
