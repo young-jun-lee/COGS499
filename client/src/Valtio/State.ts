@@ -11,25 +11,7 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
     columns: [
         {
             name: "search bar",
-            items: [
-                {
-                    id: "CISC 491", value: "CISC 491", group: "CISC",
-                    prerequisites: [
-                        "None"
-                    ],
-                    corequisites: [
-                        "None"
-                    ],
-                    "exclusions": [
-                        "APSC 142",
-                        "APSC 143",
-                        "CISC 110",
-                        "CISC 151"
-                    ],
-                    "one_way_exclusions": [
-                        "None"
-                    ]
-                }],
+            items: [],
             limitCourses: 6
         },
         {

@@ -52,17 +52,28 @@ const SearchBar: FC<RequiredCourses> = ({
     minimal
 
 }) => {
-    const [courses, setCourses] = useState<Course[]>(items[containerId]);
+    // const [courses, setCourses] = useState<Course[]>(items[containerId]);
+    const [courses, setCourses] = useState(items[containerId]);
     const handleItemSubmit = (item: Course) => {
         // update courses to match valtio state
-        setCourses(state.columns[columnId].items);
+        // setCourses(state.columns[columnId].items);
         // Check if item is already in courses
-        if (courses.some((course) => course.value === item.value)) {
+        // if (courses.some((course) => course === item.value)) {
+        //     return;
+        // } 
+        if (items[containerId].some((course) => course === item.value)) {
             return;
-        } else {
-            setCourses([...courses, item]);
+        }
+        else {
+            console.log(item)
+            // add item to courses
+            // setCourses([...courses, item.value]);
+            setItems({ ...items, [containerId]: [...courses, item.value] })
+            // setItems({ ...items, [containerId]: [...courses] })
+            // setCourses([...courses, item.value]);
+            // setItems({ ...items, [containerId]: [...courses, item] })
             // update courses in valtio state
-            state.columns[columnId].items.push(item);
+            // state.columns[columnId].items.push(item);
         }
     };
     console.log(items)
@@ -73,8 +84,6 @@ const SearchBar: FC<RequiredCourses> = ({
                 width: '100%',
                 height: '40%',
                 padding: theme.spacing.sm,
-
-
                 borderRadius: `${theme.radius.md} ${theme.radius.md} 0 0`,
             })}
         >
@@ -127,12 +136,12 @@ const SearchBar: FC<RequiredCourses> = ({
                         >
 
 
-                            {courses.map((value, index) => {
+                            {items[containerId].map((course, index) => {
                                 return (
                                     <SortableItem
                                         disabled={isSortingContainer}
-                                        key={value}
-                                        id={value}
+                                        key={course}
+                                        id={course}
                                         index={index}
                                         handle={handle}
                                         style={getItemStyles}
