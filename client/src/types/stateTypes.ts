@@ -23,7 +23,15 @@ export type CourseColumns = {
 }[]
 
 
-export type Specialization = string
+export type Specialization = {
+    name?: string
+    colours?: {
+        primary: string
+        secondary: string
+        tertiary: string
+    }
+}
+
 export type Basket = string[]
 export type NumYears = 1 | 2 | 3 | 4 | 5 | 6
 

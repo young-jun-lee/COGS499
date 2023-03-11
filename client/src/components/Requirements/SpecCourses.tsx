@@ -1,4 +1,4 @@
-import { Box } from '@mantine/core';
+import { Box, Card, Image, Text, Group, Badge, Button } from '@mantine/core';
 import { FC } from 'react';
 import { List, ThemeIcon } from '@mantine/core';
 import { TbCircleCheck, TbCircleDashed } from "react-icons/tb";
@@ -76,6 +76,25 @@ const SpecCourses: FC<RequiredCourses> = ({ title }) => {
         </List>
       </Box>
     </Box>
+    // <Card shadow="sm" padding="lg" radius="md" withBorder>
+
+
+    //   <Group position="apart" mt="md" mb="xs">
+    //     <Text weight={500}>Norway Fjord Adventures</Text>
+    //     <Badge color="pink" variant="light">
+    //       On Sale
+    //     </Badge>
+    //   </Group>
+
+    //   <Text size="sm" color="dimmed">
+    //     With Fjord Tours you can explore more of the magical fjord landscapes with tours and
+    //     activities on and around the fjords of Norway
+    //   </Text>
+
+    //   <Button variant="light" color="blue" fullWidth mt="md" radius="md">
+    //     Book classic tour now
+    //   </Button>
+    // </Card>
   )
 }
 

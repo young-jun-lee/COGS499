@@ -297,8 +297,8 @@ export const MultipleContainers = ({
 
         if (!overContainer || !activeContainer) {
           return;
-        } 
-        if (items[overContainer].length >= constants.MAX_COURSES) {
+        }
+        if (items[overContainer].length > constants.MAX_COURSES) {
           showNotification({
             title: 'Max Courses Reached',
             message: `You have reached the maximum number of courses for Year ${[overContainer]}`,
@@ -404,7 +404,7 @@ export const MultipleContainers = ({
         style={{
           display: 'inline-grid',
           boxSizing: 'border-box',
-          // padding: 20,
+          padding: 20,
           gridAutoFlow: vertical ? 'row' : 'column',
         }}
       >

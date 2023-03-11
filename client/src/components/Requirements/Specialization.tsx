@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Radio } from '@mantine/core';
+import { Box, Button, Flex, Radio, Text, Title } from '@mantine/core';
 import { FC, useState } from "react";
 import { IoMdOptions } from "react-icons/io";
 import { useSnapshot } from "valtio";
@@ -10,7 +10,7 @@ const Specialization: FC = () => {
     const snap = useSnapshot(state);
     const [opened, setOpened] = useState(false);
 
-
+    console.log(snap.specialization.name)
     return (
         <>
             <Button leftIcon={<IoMdOptions />} onClick={() => setOpened((o) => !o)} >
@@ -26,19 +26,19 @@ const Specialization: FC = () => {
                 style={{ fontSize: "20px" }}
             >
                 <Radio.Group
-                    value={state.specialization}
+                    value={state.specialization.name}
                 >
                     <Flex style={{ flexDirection: "column", }}>
                         {
-                            HeaderContent.specializations.map((specialization) => (
-
+                            Object.entries(HeaderContent.specializations).map(([specialization, colours]) => (
                                 <Radio
                                     key={specialization}
                                     label={specialization}
                                     value={specialization}
-                                    checked={state.specialization === specialization}
+                                    checked={state.specialization.name === specialization}
                                     onClick={() => {
-                                        state.specialization = specialization;
+                                        state.specialization.name = specialization;
+                                        state.specialization.colours = colours
                                         setOpened(false);
                                     }}
                                     size="md"
@@ -53,18 +53,21 @@ const Specialization: FC = () => {
 
 
             {
-                snap.specialization === "" ? <></> : <Box sx={
+
+                snap.specialization.name === undefined ? <></> : <Box sx={
                     (theme) => ({
                         width: '70%',
                         marginTop: theme.spacing.md,
-                        border: '3px solid #B90E31',
+                        border: `5px solid ${snap.specialization.colours?.primary}`,
                         borderRadius: theme.radius.md,
-                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : "#002452",
-                        color: "white",
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization,
+                        color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.tertiary,
+                        marginBottom: theme.spacing.md,
                         textAlign: 'center',
                         alignSelf: "center"
                     })
-                }><h1 style={{ textAlign: "center" }}>Specialization: {snap.specialization}</h1>
+                }>
+                    <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>Specialization: {snap.specialization.name}</div>
                 </Box>
             }
 

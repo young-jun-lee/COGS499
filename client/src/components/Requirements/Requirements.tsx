@@ -1,4 +1,4 @@
-import { Box, Flex } from '@mantine/core';
+import { Box, Flex, Stack } from '@mantine/core';
 import { FC } from "react";
 import SpecCourses from "./SpecCourses";
 import Specialization from "./Specialization";
@@ -38,14 +38,16 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                     background: "linear-gradient(to right, #002452 0, #002452 33%, #fabd0f 33%, #fabd0f 66%, #b90e31 66%, #b90e31 100%)"
                 }}></div>
             </Flex>
-            <Flex style={{ border: "3px solid #002452", flexDirection: "column", }}>
+
+            <Stack style={{ border: "4px solid #005F73", borderRadius: "1em" }}>
                 <Specialization />
                 <Flex justify="space-between" style={{ height: "100%" }} >
                     <SpecCourses title="Program Specific Courses" />
                     <SpecCourses title="CISC Courses" />
                     <SpecCourses title="Electives" />
                 </Flex>
-            </Flex>
+            </Stack>
+
 
         </Box>
     );
