@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import classNames from "classnames";
 import type { DraggableSyntheticListeners } from "@dnd-kit/core";
 import type { Transform } from "@dnd-kit/utilities";
-
+import { AiOutlineCloseCircle } from "react-icons/ai";
 // import { Handle, Remove } from "./components";
 
 import styles from "./Item.module.scss";
 import { Remove } from "./components";
-import { Button, CloseButton } from "@mantine/core";
+import { Button, CloseButton, ActionIcon, UnstyledButton } from "@mantine/core";
 import { snapCenterToCursor } from "@dnd-kit/modifiers";
 import { useSnapshot } from "valtio";
 import { state } from "../../../Valtio/State";
@@ -104,58 +104,87 @@ export const Item = React.memo(
           value
         })
       ) : (
-        <li
-          className={classNames(
-            styles.Wrapper,
-            fadeIn && styles.fadeIn,
-            sorting && styles.sorting,
-            dragOverlay && styles.dragOverlay
-          )}
-          style={
-            {
-              ...wrapperStyle,
-              transition: [transition, wrapperStyle?.transition]
-                .filter(Boolean)
-                .join(", "),
-              "--translate-x": transform
-                ? `${Math.round(transform.x)}px`
-                : undefined,
-              "--translate-y": transform
-                ? `${Math.round(transform.y)}px`
-                : undefined,
-              "--scale-x": transform?.scaleX
-                ? `${transform.scaleX}`
-                : undefined,
-              "--scale-y": transform?.scaleY
-                ? `${transform.scaleY}`
-                : undefined,
-              "--index": index,
-              "--color": color,
-              "--courseColour": snap.specialization.colours?.secondary,
-              "--courseTitle": snap.specialization.colours?.tertiary,
-            } as React.CSSProperties
-          }
-          ref={ref}
-        >
-          <div
-            className={classNames(
-              styles.Item,
-              dragging && styles.dragging,
-              handle && styles.withHandle,
-              dragOverlay && styles.dragOverlay,
-              disabled && styles.disabled,
-              color && styles.color
-            )}
-            style={style}
-            data-cypress="draggable-item"
-            {...(!handle ? listeners : undefined)}
-            {...props}
-            tabIndex={!handle ? 0 : undefined}
-          >
-            {value}
 
-          </div>
-          <CloseButton size="xs" onClick={() => {
+        <>
+          <li
+            className={classNames(
+              styles.Wrapper,
+              fadeIn && styles.fadeIn,
+              sorting && styles.sorting,
+              dragOverlay && styles.dragOverlay
+            )}
+            style={
+              {
+                ...wrapperStyle,
+                transition: [transition, wrapperStyle?.transition]
+                  .filter(Boolean)
+                  .join(", "),
+                "--translate-x": transform
+                  ? `${Math.round(transform.x)}px`
+                  : undefined,
+                "--translate-y": transform
+                  ? `${Math.round(transform.y)}px`
+                  : undefined,
+                "--scale-x": transform?.scaleX
+                  ? `${transform.scaleX}`
+                  : undefined,
+                "--scale-y": transform?.scaleY
+                  ? `${transform.scaleY}`
+                  : undefined,
+                "--index": index,
+                "--color": color,
+                "--courseColour": snap.specialization.colours?.secondary,
+                "--courseTitle": snap.specialization.colours?.tertiary,
+              } as React.CSSProperties
+            }
+            ref={ref}
+          >
+            <div
+              className={classNames(
+                styles.Item,
+                dragging && styles.dragging,
+                handle && styles.withHandle,
+                dragOverlay && styles.dragOverlay,
+                disabled && styles.disabled,
+                color && styles.color
+              )}
+              style={style}
+              data-cypress="draggable-item"
+              {...(!handle ? listeners : undefined)}
+              {...props}
+              tabIndex={!handle ? 0 : undefined}
+            >
+              {value}
+
+            </div>
+            <UnstyledButton style={{
+              position: "absolute",
+              display: "flex",
+              width: "20px",
+              height: "20px",
+              alignItems: "center",
+              justifyContent: "center",
+              top: -7,
+              right: -7,
+              color: "#9C090E",
+              backgroundColor: "white",
+              borderRadius: "50%",
+              fontSize: "25px",
+              border: "2px solid #333"
+            }} onClick={() => {
+              const newItems = [
+                ...items[containerId].slice(0, index),
+                ...items[containerId].slice(index + 1)
+              ]
+              setItems({
+                ...items,
+                [containerId]: newItems
+              })
+            }}>
+
+              <span>&times;</span>
+            </UnstyledButton>
+            {/* <CloseButton size="xs" onClick={() => {
             const newItems = [
               ...items[containerId].slice(0, index),
               ...items[containerId].slice(index + 1)
@@ -170,12 +199,12 @@ export const Item = React.memo(
               top: 0,
               right: 0,
               color: "black"
-              // height: 25,
-              // backgroundColor: "red",
-              // width: 25,
             }}
-          ></CloseButton>
-        </li>
+          ></CloseButton> */}
+
+          </li>
+
+        </>
       );
     }
   )

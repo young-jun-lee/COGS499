@@ -28,7 +28,6 @@ const SelectContainer: FC = () => {
                 })
             }>
                 <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>Select Your Courses</div>
-
             </Box>
 
 

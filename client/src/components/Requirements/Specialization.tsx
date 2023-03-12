@@ -49,7 +49,7 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                                                 backgroundColor: `${colours?.tertiary}`,
                                                 // color: `${colours?.primary}`,
                                             },
-                                            
+
                                         }
                                     )}
                                 />
@@ -59,37 +59,48 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                 </Radio.Group>
             </Drawer >
 
-            <Box sx={
-                (theme) => ({
-                    width: '70%',
-                    margin: "1em",
-                    padding: "0.5em",
-                    border: `5px solid ${snap.specialization.colours?.primary}`,
-                    borderRadius: theme.radius.md,
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization.colours?.tertiary,
-                    color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.primary,
-                    alignSelf: "center"
-                })
-            }>
-                <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>
-                    {specChosen ? `Specialization: ${snap.specialization.name}` : "Choose Your Specialization"}
-                </div>
-            </Box>
-            <Button leftIcon={<IoMdOptions />} onClick={() => setOpened((o) => !o)} styles={(theme) => (
-                specChosen ?
-                    {
-                        root: {
-                            backgroundColor: `${snap.specialization.colours?.primary}`,
-                            color: `${snap.specialization.colours?.tertiary}`,
-                            ':hover': {
-                                backgroundColor: `${snap.specialization.colours?.secondary}`,
-                                color: `${snap.specialization.colours?.tertiary}`,
-                            },
-                        }
-                    } : {})}
-            >
-                Choose Specialization
-            </Button>
+            <Flex direction={"column"} >
+                <Box sx={
+                    (theme) => ({
+                        width: 'fit-content',
+                        margin: "1em",
+                        padding: "0.5em",
+                        border: `5px solid ${snap.specialization.colours?.primary}`,
+                        borderRadius: theme.radius.md,
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization.colours?.tertiary,
+                        color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.primary,
+                        alignSelf: "center"
+                    })
+                }>
+                    <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>
+                        {specChosen ? `Specialization: ${snap.specialization.name}` : "Choose Your Specialization"}
+                    </div>
+                </Box>
+                <Button
+                    leftIcon={<IoMdOptions />}
+                    onClick={() => setOpened((o) => !o)}
+                    styles={(theme) => (
+                        specChosen ?
+                            {
+                                root: {
+                                    backgroundColor: `${snap.specialization.colours?.primary}`,
+                                    color: `${snap.specialization.colours?.tertiary}`,
+                                    ':hover': {
+                                        backgroundColor: `${snap.specialization.colours?.secondary}`,
+                                        color: `${snap.specialization.colours?.tertiary}`,
+                                    },
+                                    width: "fit-content",
+                                    alignSelf: "end",
+                                },
+                            } : {}
+                    )}
+                >
+                    Choose Specialization
+                </Button>
+
+            </Flex>
+
+
 
 
         </Flex >
