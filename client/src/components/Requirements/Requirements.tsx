@@ -26,7 +26,7 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
             }}>
                 <Flex sx={{
                     height: "80%",
-                    width: "70%",
+                    width: "80%",
                     // backgroundColor: "#e6e7e8",
                     backgroundColor: `${snap.specialization.colours?.tertiary}`,
                     alignItems: "center",
@@ -47,15 +47,13 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                     },
                     position: "relative"
                 }}>
-                    <div>{subheading1}</div>
-                    <div style={{ width: "70%" }}>{subheading2}</div>
-                    <div style={{ fontWeight: "bold", marginBottom: "5px" }}>{subheading3}</div>
+                    <div style={{ fontSize: "25px" }}>{subheading1}</div>
+                    <div style={{ fontSize: "22px", width: "65%" }}>{subheading2}</div>
+                    <div style={{ fontSize: "25px", fontWeight: "bold", marginBottom: "5px" }}>{subheading3}</div>
                 </Flex>
                 <div style={{
-                    // position: "absolute",
-                    // bottom: 0,
-                    // left: 0,
-                    width: "70%",
+
+                    width: "80%",
                     height: "10px",
                     borderRadius: "0 0 10px 10px",
                     borderLeft: "3px solid #002452",

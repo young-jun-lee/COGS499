@@ -51,13 +51,14 @@ const Specialization: FC = () => {
                 snap.specialization.name === undefined ? <></> : <Box sx={
                     (theme) => ({
                         width: '70%',
-                        marginTop: theme.spacing.md,
+                        // marginTop: theme.spacing.md,
+                        // marginBottom: theme.spacing.md,
+                        margin: "1em",
+                        padding: "0.5em",
                         border: `5px solid ${snap.specialization.colours?.primary}`,
                         borderRadius: theme.radius.md,
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization.colours?.tertiary,
                         color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.primary,
-                        marginBottom: theme.spacing.md,
-                        textAlign: 'center',
                         alignSelf: "center"
                     })
                 }>
@@ -65,10 +66,14 @@ const Specialization: FC = () => {
 
                 </Box>
             }
-            <Button variant="light" leftIcon={<IoMdOptions />} onClick={() => setOpened((o) => !o)} styles={(theme) => ({
+            <Button leftIcon={<IoMdOptions />} onClick={() => setOpened((o) => !o)} styles={(theme) => ({
                 root: {
-                    backgroundColor: `${snap.specialization.colours?.tertiary}`,
-                    color: `${snap.specialization.colours?.primary}`,
+                    backgroundColor: `${snap.specialization.colours?.primary}`,
+                    color: `${snap.specialization.colours?.tertiary}`,
+                    ':hover': {
+                        backgroundColor: `${snap.specialization.colours?.secondary}`,
+                        color: `${snap.specialization.colours?.tertiary}`,
+                    },
                 }
             })}
             >

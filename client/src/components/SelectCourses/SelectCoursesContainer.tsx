@@ -19,6 +19,22 @@ const SelectContainer: FC = () => {
                 <h1 style={{ textAlign: "center" }}>Select Your Courses</h1>
             </Box>
 
+            <Box sx={
+                (theme) => ({
+                    width: '45%',
+                    margin: "1em",
+                    border: `5px solid ${snap.specialization.colours?.primary}`,
+                    borderRadius: theme.radius.md,
+                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization.colours?.tertiary,
+                    color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.primary,
+                    alignSelf: "center",
+                    padding: "0.5em"
+                })
+            }>
+                <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>Select Your Courses</div>
+
+            </Box>
+
 
             <MultipleContainers
                 columns={5}

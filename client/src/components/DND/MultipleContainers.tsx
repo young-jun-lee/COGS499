@@ -465,7 +465,16 @@ export const MultipleContainers = ({
                           <Button leftIcon={<MdDeleteSweep size={18} />}
                             onClick={() => {
                               handleRemoveColumn(containerId)
-                            }}
+                            }} styles={(theme) => ({
+                              root: {
+                                backgroundColor: `${snap.specialization.colours?.primary}`,
+                                color: `${snap.specialization.colours?.tertiary}`,
+                                ':hover': {
+                                  backgroundColor: `${snap.specialization.colours?.secondary}`,
+                                  color: `${snap.specialization.colours?.tertiary}`,
+                                },
+                              }
+                            })}
                           >
                             Delete Year
                           </Button>
@@ -475,6 +484,7 @@ export const MultipleContainers = ({
                               data-disabled
                               sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
                               onClick={(event) => event.preventDefault()}
+
                             >
                               Delete Year
                             </Button>
