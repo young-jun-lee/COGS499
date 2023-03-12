@@ -5,7 +5,13 @@ import { Basket, Columns, NumYears, Specialization } from "../types/stateTypes";
 
 
 export const state = proxy<{ specialization: Specialization, currentBasket: Basket, numYears: NumYears, columns: Columns[] }>({
-    specialization: {},
+    specialization: {
+        colours: {
+            primary: "black",
+            secondary: "#e6e7e8",
+            tertiary: "#e6e7e8"
+        }
+    },
     currentBasket: [],
     numYears: 1,
     columns: [

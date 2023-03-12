@@ -1,5 +1,6 @@
-$font-weight: 400;
+$font-weight: 500;
 $background-color: #0eb997 ;
+// $background-color: var(--testVar);
 $border-color: black;
 $text-color: white;
 $handle-color: rgba(0, 0, 0, 0.25);
@@ -58,7 +59,8 @@ $focused-outline-color: #4c9ffe;
   justify-content: center;
   // text-align: center;
   // padding: 18px 20px;
-  background-color: $background-color;
+  // background-color: $background-color;
+  background-color: var(--courseColour);
   // box-shadow: $box-shadow;
   // outline: none;
   border-radius: calc(4px / var(--scale-x, 1));

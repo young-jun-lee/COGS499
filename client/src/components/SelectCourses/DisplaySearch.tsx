@@ -1,5 +1,7 @@
 import { Box, Flex } from '@mantine/core';
 import React, { FC } from 'react'
+import { useSnapshot } from 'valtio';
+import { state } from '../../Valtio/State';
 
 interface DisplayCoursesProps {
   courses: string[]
@@ -7,6 +9,8 @@ interface DisplayCoursesProps {
 
 
 const DisplaySearch: FC<DisplayCoursesProps> = ({ courses }) => {
+
+  const snap = useSnapshot(state)
 
   return (
     <Flex style={{ flexDirection: "column", width: "90%", height: "100%" }} sx={
@@ -20,7 +24,8 @@ const DisplaySearch: FC<DisplayCoursesProps> = ({ courses }) => {
         return (
           <Box
             sx={(theme) => ({
-              backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : theme.colors.gray[1],
+              // backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : theme.colors.gray[1],
+              backgroundColor: `${snap.specialization.colours?.tertiary}`,
               textAlign: 'center',
               width: '50%',
               padding: theme.spacing.xs,

@@ -4,6 +4,8 @@ import { ScrollArea } from '@mantine/core';
 // import { Handle, Remove } from "../Item";
 
 import styles from "./Container.module.scss";
+import { useSnapshot } from "valtio";
+import { state } from "../../../Valtio/State";
 
 export interface Props {
   children: React.ReactNode;
@@ -44,6 +46,7 @@ export const Container = forwardRef<HTMLDivElement, Props>(
     ref
   ) => {
     const Component = onClick ? "button" : "div";
+    const snap = useSnapshot(state)
     return (
 
       <Component
@@ -53,7 +56,9 @@ export const Container = forwardRef<HTMLDivElement, Props>(
           {
             ...style,
             "--columns": columns,
-
+            "--containerColour": snap.specialization.colours?.tertiary,
+            "--scrollBarColour": snap.specialization.colours?.primary,
+            "--scrollBarBackground": snap.specialization.colours?.tertiary,
           } as React.CSSProperties
         }
         className={classNames(

@@ -8,6 +8,9 @@ import type { Transform } from "@dnd-kit/utilities";
 import styles from "./Item.module.scss";
 import { Remove } from "./components";
 import { Button, CloseButton } from "@mantine/core";
+import { snapCenterToCursor } from "@dnd-kit/modifiers";
+import { useSnapshot } from "valtio";
+import { state } from "../../../Valtio/State";
 
 export interface Props {
   dragOverlay?: boolean;
@@ -27,6 +30,7 @@ export interface Props {
   wrapperStyle?: React.CSSProperties;
   value: React.ReactNode;
   containerId: string | number;
+
   onRemove?(): void;
   renderItem?(args: {
     dragOverlay: boolean;
@@ -72,6 +76,7 @@ export const Item = React.memo(
       },
       ref
     ) => {
+      const snap = useSnapshot(state)
       useEffect(() => {
         if (!dragOverlay) {
           return;
@@ -125,7 +130,8 @@ export const Item = React.memo(
                 ? `${transform.scaleY}`
                 : undefined,
               "--index": index,
-              "--color": color
+              "--color": color,
+              "--courseColour": snap.specialization.colours?.secondary,
             } as React.CSSProperties
           }
           ref={ref}

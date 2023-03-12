@@ -1,5 +1,7 @@
 import { Box, Flex, Stack } from '@mantine/core';
 import { FC } from "react";
+import { useSnapshot } from 'valtio';
+import { state } from '../../Valtio/State';
 import SpecCourses from "./SpecCourses";
 import Specialization from "./Specialization";
 
@@ -10,12 +12,34 @@ interface Requirements {
 }
 
 const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 }) => {
+    const snap = useSnapshot(state)
     return (
         <Box>
-            <Flex sx={{ marginTop: "10px", marginBottom: "5px", fontSize: "20px", height: "275px", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+            <Flex sx={{
+                marginTop: "10px",
+                marginBottom: "5px",
+                fontSize: "20px",
+                height: "275px",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+            }}>
                 <Flex sx={{
-                    height: "80%", width: "70%", backgroundColor: "#e6e7e8", alignItems:
-                        "center", justifyContent: "space-around", flexDirection: "column", borderTopLeftRadius: "10px", borderTopRightRadius: "10px", textAlign: "center", borderTop: "5px solid #a7a9ac", borderRight: "5px solid #a7a9ac", borderLeft: "5px solid #a7a9ac", color: "#212121",
+                    height: "80%",
+                    width: "70%",
+                    // backgroundColor: "#e6e7e8",
+                    backgroundColor: `${snap.specialization.colours?.tertiary}`,
+                    alignItems: "center",
+                    justifyContent: "space-around",
+                    flexDirection: "column",
+                    borderTopLeftRadius: "10px",
+                    borderTopRightRadius: "10px",
+                    textAlign: "center",
+                    borderTop: `5px solid ${snap.specialization.colours?.primary}`,
+                    borderRight: `5px solid ${snap.specialization.colours?.primary}`,
+                    borderLeft: `5px solid ${snap.specialization.colours?.primary}`,
+                    // color: "#212121",
+                    color: `${snap.specialization.colours?.primary}`,
                     '&:hover': {
                         backgroundColor: "#808285",
                         color: "white",
@@ -39,7 +63,7 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                 }}></div>
             </Flex>
 
-            <Stack style={{ border: "4px solid #005F73", borderRadius: "1em" }}>
+            <Stack style={{ border: `5px solid ${snap.specialization.colours?.primary}`, borderRadius: "1em" }}>
                 <Specialization />
                 <Flex justify="space-between" style={{ height: "100%" }} >
                     <SpecCourses title="Program Specific Courses" />

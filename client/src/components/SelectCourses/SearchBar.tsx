@@ -2,6 +2,8 @@ import { SortableContext } from '@dnd-kit/sortable';
 import { Autocomplete, Box } from '@mantine/core';
 import { FC, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { useSnapshot } from 'valtio';
+import { state } from '../../Valtio/State';
 import { DroppableContainer } from '../DND/DroppableContainer';
 import { SortableItem } from '../DND/SortableItem';
 
@@ -53,7 +55,7 @@ const SearchBar: FC<RequiredCourses> = ({
 
 }) => {
     // const [courses, setCourses] = useState<Course[]>(items[containerId]);
-
+    const snap = useSnapshot(state)
     const handleItemSubmit = (item: Course) => {
         // update courses to match valtio state
         // setCourses(state.columns[columnId].items);
@@ -93,13 +95,14 @@ const SearchBar: FC<RequiredCourses> = ({
 
             <Box
                 sx={(theme) => ({
-                    backgroundColor: '#ede8f3',
+                    // backgroundColor: '#ede8f3',
+                    backgroundColor: `${snap.specialization.colours?.tertiary}`,
                     padding: theme.spacing.xl,
                     borderRadius: theme.radius.md,
-                    '&:hover': {
-                        backgroundColor:
-                            theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[5],
-                    },
+                    // '&:hover': {
+                    //     backgroundColor:
+                    //         theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[5],
+                    // },
                 })}
 
             >

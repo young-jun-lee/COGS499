@@ -10,13 +10,8 @@ const Specialization: FC = () => {
     const snap = useSnapshot(state);
     const [opened, setOpened] = useState(false);
 
-    console.log(snap.specialization.name)
     return (
-        <>
-            <Button leftIcon={<IoMdOptions />} onClick={() => setOpened((o) => !o)} >
-                Choose Specialization
-            </Button>
-
+        <Flex style={{ flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
             <Drawer
                 opened={opened}
                 onClose={() => setOpened(false)}
@@ -53,25 +48,35 @@ const Specialization: FC = () => {
 
 
             {
-
                 snap.specialization.name === undefined ? <></> : <Box sx={
                     (theme) => ({
                         width: '70%',
                         marginTop: theme.spacing.md,
                         border: `5px solid ${snap.specialization.colours?.primary}`,
                         borderRadius: theme.radius.md,
-                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization,
-                        color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.tertiary,
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization.colours?.tertiary,
+                        color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.primary,
                         marginBottom: theme.spacing.md,
                         textAlign: 'center',
                         alignSelf: "center"
                     })
                 }>
                     <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>Specialization: {snap.specialization.name}</div>
+
                 </Box>
             }
+            <Button variant="light" leftIcon={<IoMdOptions />} onClick={() => setOpened((o) => !o)} styles={(theme) => ({
+                root: {
+                    backgroundColor: `${snap.specialization.colours?.tertiary}`,
+                    color: `${snap.specialization.colours?.primary}`,
+                }
+            })}
+            >
+                Choose Specialization
+            </Button>
 
-        </>
+
+        </Flex >
 
     );
 };
