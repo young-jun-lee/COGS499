@@ -132,6 +132,7 @@ export const Item = React.memo(
               "--index": index,
               "--color": color,
               "--courseColour": snap.specialization.colours?.secondary,
+              "--courseTitle": snap.specialization.colours?.tertiary,
             } as React.CSSProperties
           }
           ref={ref}
@@ -154,7 +155,7 @@ export const Item = React.memo(
             {value}
 
           </div>
-          <CloseButton onClick={() => {
+          <CloseButton size="xs" onClick={() => {
             const newItems = [
               ...items[containerId].slice(0, index),
               ...items[containerId].slice(index + 1)
@@ -168,6 +169,7 @@ export const Item = React.memo(
               position: "absolute",
               top: 0,
               right: 0,
+              color: "black"
               // height: 25,
               // backgroundColor: "red",
               // width: 25,

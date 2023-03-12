@@ -61,7 +61,7 @@ export const MultipleContainers = ({
 
   const snap = useSnapshot(state)
   const empty: UniqueIdentifier[] = [];
-
+  const specChosen = snap.specialization.name !== undefined
   const getItems = () => {
     const items: Items = {}
     snap.columns.map((column, index) => {
@@ -424,7 +424,7 @@ export const MultipleContainers = ({
                 <Box key={index}>
                   {index !== 0 &&
                     <>
-                      <h2 key={index}>Year {containerId}</h2>
+                      <div key={index} style={{ fontSize: 25, fontWeight: 600 }}>Year {containerId}</div>
                       <DroppableContainer
                         id={containerId}
                         label={minimal ? undefined : `Column ${containerId}`}
@@ -465,16 +465,20 @@ export const MultipleContainers = ({
                           <Button leftIcon={<MdDeleteSweep size={18} />}
                             onClick={() => {
                               handleRemoveColumn(containerId)
-                            }} styles={(theme) => ({
-                              root: {
-                                backgroundColor: `${snap.specialization.colours?.primary}`,
-                                color: `${snap.specialization.colours?.tertiary}`,
-                                ':hover': {
-                                  backgroundColor: `${snap.specialization.colours?.secondary}`,
-                                  color: `${snap.specialization.colours?.tertiary}`,
-                                },
-                              }
-                            })}
+                            }}
+                            styles={(theme) => (
+                              specChosen ?
+                                {
+                                  root: {
+                                    backgroundColor: `${snap.specialization.colours?.primary}`,
+                                    color: `${snap.specialization.colours?.tertiary}`,
+                                    ':hover': {
+                                      backgroundColor: `${snap.specialization.colours?.secondary}`,
+                                      color: `${snap.specialization.colours?.tertiary}`,
+                                    },
+                                  }
+                                } : {})}
+
                           >
                             Delete Year
                           </Button>
@@ -540,6 +544,18 @@ export const MultipleContainers = ({
             onClick={() => {
               handleAddColumn();
             }}
+            styles={(theme) => (
+              specChosen ?
+                {
+                  root: {
+                    backgroundColor: `${snap.specialization.colours?.primary}`,
+                    color: `${snap.specialization.colours?.tertiary}`,
+                    ':hover': {
+                      backgroundColor: `${snap.specialization.colours?.secondary}`,
+                      color: `${snap.specialization.colours?.tertiary}`,
+                    },
+                  }
+                } : {})}
           >
             Add Year
           </Button>

@@ -7,95 +7,96 @@ import { state } from '../../Valtio/State';
 
 interface RequiredCourses {
   title: string;
+  specChosen: boolean;
 }
 
-
-
-const SpecCourses: FC<RequiredCourses> = ({ title }) => {
+const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
   const snap = useSnapshot(state)
-  return (
-    <Box
-      sx={(theme) => ({
-        color: `${snap.specialization.colours?.primary}`,
-        width: '60%',
-        height: '100%',
-        padding: theme.spacing.sm,
-        marginLeft: "1px",
-        marginRight: "1px",
-        marginTop: theme.spacing.md,
-        marginBottom: theme.spacing.md,
-        border: `5px solid ${snap.specialization.colours?.primary}`,
-        borderRadius: theme.radius.md,
-      })}
-    >
-      <Box sx={{ fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 18 }}>{title}</Box>
+  if (specChosen)
+    return (
       <Box
         sx={(theme) => ({
-          backgroundColor: `${snap.specialization.colours?.tertiary}`,
-          height: '90%',
-          padding: theme.spacing.xl,
+          color: `${snap.specialization.colours?.primary}`,
+          width: '60%',
+          height: '100%',
+          padding: theme.spacing.sm,
+          marginLeft: "1px",
+          marginRight: "1px",
+          marginTop: theme.spacing.md,
+          marginBottom: theme.spacing.md,
+          border: `5px solid ${snap.specialization.colours?.primary}`,
           borderRadius: theme.radius.md,
         })}
-
       >
-        <List
-          spacing="xs"
-          size="sm"
-          center
-          icon={
-            <ThemeIcon color="teal" size={24} radius="xl">
-              <TbCircleCheck size={16} />
-            </ThemeIcon>
-          }
+        <Box sx={{ fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 18 }}>{title}</Box>
+        <Box
+          sx={(theme) => ({
+            backgroundColor: `${snap.specialization.colours?.tertiary}`,
+            height: '90%',
+            padding: theme.spacing.xl,
+            borderRadius: theme.radius.md,
+          })}
+
         >
-          <List.Item>CISC 101</List.Item>
-          <List.Item icon={
-            <ThemeIcon size={24} radius="xl">
-              <TbCircleDashed size={16} />
-            </ThemeIcon>
-          }>CISC 102</List.Item>
-          <List.Item icon={
-            <ThemeIcon size={24} radius="xl">
-              <TbCircleDashed size={16} />
-            </ThemeIcon>
-          }>CISC 103</List.Item>
-          <List.Item icon={
-            <ThemeIcon size={24} radius="xl">
-              <TbCircleDashed size={16} />
-            </ThemeIcon>
-          }>CISC 104</List.Item>
-          <List.Item
+          <List
+            spacing="xs"
+            size="sm"
+            center
             icon={
-              <ThemeIcon size={24} radius="xl">
-                <TbCircleDashed size={16} />
+              <ThemeIcon color="teal" size={24} radius="xl">
+                <TbCircleCheck size={16} />
               </ThemeIcon>
             }
           >
-            CISC 105
-          </List.Item>
-        </List>
+            <List.Item>CISC 101</List.Item>
+            <List.Item icon={
+              <ThemeIcon size={24} radius="xl">
+                <TbCircleDashed size={16} />
+              </ThemeIcon>
+            }>CISC 102</List.Item>
+            <List.Item icon={
+              <ThemeIcon size={24} radius="xl">
+                <TbCircleDashed size={16} />
+              </ThemeIcon>
+            }>CISC 103</List.Item>
+            <List.Item icon={
+              <ThemeIcon size={24} radius="xl">
+                <TbCircleDashed size={16} />
+              </ThemeIcon>
+            }>CISC 104</List.Item>
+            <List.Item
+              icon={
+                <ThemeIcon size={24} radius="xl">
+                  <TbCircleDashed size={16} />
+                </ThemeIcon>
+              }
+            >
+              CISC 105
+            </List.Item>
+          </List>
+        </Box>
       </Box>
-    </Box>
-    // <Card shadow="sm" padding="lg" radius="md" withBorder>
+      // <Card shadow="sm" padding="lg" radius="md" withBorder>
 
 
-    //   <Group position="apart" mt="md" mb="xs">
-    //     <Text weight={500}>Norway Fjord Adventures</Text>
-    //     <Badge color="pink" variant="light">
-    //       On Sale
-    //     </Badge>
-    //   </Group>
+      //   <Group position="apart" mt="md" mb="xs">
+      //     <Text weight={500}>Norway Fjord Adventures</Text>
+      //     <Badge color="pink" variant="light">
+      //       On Sale
+      //     </Badge>
+      //   </Group>
 
-    //   <Text size="sm" color="dimmed">
-    //     With Fjord Tours you can explore more of the magical fjord landscapes with tours and
-    //     activities on and around the fjords of Norway
-    //   </Text>
+      //   <Text size="sm" color="dimmed">
+      //     With Fjord Tours you can explore more of the magical fjord landscapes with tours and
+      //     activities on and around the fjords of Norway
+      //   </Text>
 
-    //   <Button variant="light" color="blue" fullWidth mt="md" radius="md">
-    //     Book classic tour now
-    //   </Button>
-    // </Card>
-  )
+      //   <Button variant="light" color="blue" fullWidth mt="md" radius="md">
+      //     Book classic tour now
+      //   </Button>
+      // </Card>
+    )
+  return <></>
 }
 
 export default SpecCourses

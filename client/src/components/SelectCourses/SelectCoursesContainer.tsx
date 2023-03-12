@@ -15,10 +15,6 @@ const SelectContainer: FC = () => {
     return (
         <Flex style={{ flexDirection: "column", width: "100%", height: "100%", border: "3px solid black", }}>
 
-            <Box style={{ width: "45%", border: "5px solid black", borderRadius: "10px", alignSelf: "center", margin: "1em" }}>
-                <h1 style={{ textAlign: "center" }}>Select Your Courses</h1>
-            </Box>
-
             <Box sx={
                 (theme) => ({
                     width: '45%',

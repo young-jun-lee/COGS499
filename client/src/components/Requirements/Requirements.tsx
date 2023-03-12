@@ -13,6 +13,7 @@ interface Requirements {
 
 const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 }) => {
     const snap = useSnapshot(state)
+    const specChosen = snap.specialization.name !== undefined;
     return (
         <Box>
             <Flex sx={{
@@ -62,11 +63,11 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
             </Flex>
 
             <Stack style={{ border: `5px solid ${snap.specialization.colours?.primary}`, borderRadius: "1em" }}>
-                <Specialization />
+                <Specialization specChosen={specChosen} />
                 <Flex justify="space-between" style={{ height: "100%" }} >
-                    <SpecCourses title="Program Specific Courses" />
-                    <SpecCourses title="CISC Courses" />
-                    <SpecCourses title="Electives" />
+                    <SpecCourses title="Program Specific Courses" specChosen={specChosen} />
+                    <SpecCourses title="CISC Courses" specChosen={specChosen} />
+                    <SpecCourses title="Electives" specChosen={specChosen} />
                 </Flex>
             </Stack>
 
