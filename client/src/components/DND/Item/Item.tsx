@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
-import classNames from "classnames";
 import type { DraggableSyntheticListeners } from "@dnd-kit/core";
 import type { Transform } from "@dnd-kit/utilities";
-import { AiOutlineCloseCircle } from "react-icons/ai";
-// import { Handle, Remove } from "./components";
-
-import styles from "./Item.module.scss";
-import { Remove } from "./components";
-import { Button, CloseButton, ActionIcon, UnstyledButton } from "@mantine/core";
-import { snapCenterToCursor } from "@dnd-kit/modifiers";
+import classNames from "classnames";
+import React, { useEffect } from "react";
+import { UnstyledButton } from "@mantine/core";
 import { useSnapshot } from "valtio";
+import { Items } from "../../../types/stateTypes";
 import { state } from "../../../Valtio/State";
+import styles from "./Item.module.scss";
 
 export interface Props {
   dragOverlay?: boolean;
@@ -30,7 +26,8 @@ export interface Props {
   wrapperStyle?: React.CSSProperties;
   value: React.ReactNode;
   containerId: string | number;
-
+  items: Items;
+  setItems: React.Dispatch<React.SetStateAction<{}>>;
   onRemove?(): void;
   renderItem?(args: {
     dragOverlay: boolean;
@@ -131,8 +128,8 @@ export const Item = React.memo(
                 : undefined,
               "--index": index,
               "--color": color,
-              "--courseColour": snap.specialization.colours?.secondary,
               "--courseOutline": snap.specialization.colours?.primary,
+              "--courseColour": snap.specialization.colours?.secondary,
               "--courseTitle": snap.specialization.colours?.tertiary,
             } as React.CSSProperties
           }

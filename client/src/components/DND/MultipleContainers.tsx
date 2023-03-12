@@ -298,10 +298,10 @@ export const MultipleContainers = ({
         if (!overContainer || !activeContainer) {
           return;
         }
-        if (items[overContainer].length > constants.MAX_COURSES) {
+        if (items[overContainer].length >= constants.MAX_COURSES) {
           showNotification({
             title: 'Max Courses Reached',
-            message: `You have reached the maximum number of courses for Year ${[overContainer]}`,
+            message: `You have reached the max number of courses for Year ${[overContainer]}`,
             color: 'red',
           });
           return;

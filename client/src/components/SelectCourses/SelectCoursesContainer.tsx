@@ -32,12 +32,12 @@ const SelectContainer: FC = () => {
 
 
             <MultipleContainers
-                columns={5}
+                columns={4}
                 // itemCount={10}
                 strategy={rectSortingStrategy}
                 wrapperStyle={() => ({
-                    width: 100,
-                    height: 50,
+                    width: 120,
+                    height: 40,
                 })}
                 vertical
                 scrollable
