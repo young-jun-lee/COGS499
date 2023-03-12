@@ -104,87 +104,73 @@ export const Item = React.memo(
           value
         })
       ) : (
-
-        <>
-          <li
+        <li
+          className={classNames(
+            styles.Wrapper,
+            fadeIn && styles.fadeIn,
+            sorting && styles.sorting,
+            dragOverlay && styles.dragOverlay
+          )}
+          style={
+            {
+              ...wrapperStyle,
+              transition: [transition, wrapperStyle?.transition]
+                .filter(Boolean)
+                .join(", "),
+              "--translate-x": transform
+                ? `${Math.round(transform.x)}px`
+                : undefined,
+              "--translate-y": transform
+                ? `${Math.round(transform.y)}px`
+                : undefined,
+              "--scale-x": transform?.scaleX
+                ? `${transform.scaleX}`
+                : undefined,
+              "--scale-y": transform?.scaleY
+                ? `${transform.scaleY}`
+                : undefined,
+              "--index": index,
+              "--color": color,
+              "--courseColour": snap.specialization.colours?.secondary,
+              "--courseOutline": snap.specialization.colours?.primary,
+              "--courseTitle": snap.specialization.colours?.tertiary,
+            } as React.CSSProperties
+          }
+          ref={ref}
+        >
+          <div
             className={classNames(
-              styles.Wrapper,
-              fadeIn && styles.fadeIn,
-              sorting && styles.sorting,
-              dragOverlay && styles.dragOverlay
+              styles.Item,
+              dragging && styles.dragging,
+              handle && styles.withHandle,
+              dragOverlay && styles.dragOverlay,
+              disabled && styles.disabled,
+              color && styles.color
             )}
-            style={
-              {
-                ...wrapperStyle,
-                transition: [transition, wrapperStyle?.transition]
-                  .filter(Boolean)
-                  .join(", "),
-                "--translate-x": transform
-                  ? `${Math.round(transform.x)}px`
-                  : undefined,
-                "--translate-y": transform
-                  ? `${Math.round(transform.y)}px`
-                  : undefined,
-                "--scale-x": transform?.scaleX
-                  ? `${transform.scaleX}`
-                  : undefined,
-                "--scale-y": transform?.scaleY
-                  ? `${transform.scaleY}`
-                  : undefined,
-                "--index": index,
-                "--color": color,
-                "--courseColour": snap.specialization.colours?.secondary,
-                "--courseTitle": snap.specialization.colours?.tertiary,
-              } as React.CSSProperties
-            }
-            ref={ref}
+            style={style}
+            data-cypress="draggable-item"
+            {...(!handle ? listeners : undefined)}
+            {...props}
+            tabIndex={!handle ? 0 : undefined}
           >
-            <div
-              className={classNames(
-                styles.Item,
-                dragging && styles.dragging,
-                handle && styles.withHandle,
-                dragOverlay && styles.dragOverlay,
-                disabled && styles.disabled,
-                color && styles.color
-              )}
-              style={style}
-              data-cypress="draggable-item"
-              {...(!handle ? listeners : undefined)}
-              {...props}
-              tabIndex={!handle ? 0 : undefined}
-            >
-              {value}
+            {value}
 
-            </div>
-            <UnstyledButton style={{
-              position: "absolute",
-              display: "flex",
-              width: "20px",
-              height: "20px",
-              alignItems: "center",
-              justifyContent: "center",
-              top: -7,
-              right: -7,
-              color: "#9C090E",
-              backgroundColor: "white",
-              borderRadius: "50%",
-              fontSize: "25px",
-              border: "2px solid #333"
-            }} onClick={() => {
-              const newItems = [
-                ...items[containerId].slice(0, index),
-                ...items[containerId].slice(index + 1)
-              ]
-              setItems({
-                ...items,
-                [containerId]: newItems
-              })
-            }}>
-
-              <span>&times;</span>
-            </UnstyledButton>
-            {/* <CloseButton size="xs" onClick={() => {
+          </div>
+          <UnstyledButton style={{
+            position: "absolute",
+            display: "flex",
+            width: "20px",
+            height: "20px",
+            alignItems: "center",
+            justifyContent: "center",
+            top: -7,
+            right: -7,
+            color: "#9C090E",
+            backgroundColor: "white",
+            borderRadius: "50%",
+            fontSize: "25px",
+            border: `2px solid ${snap.specialization.colours?.primary}`
+          }} onClick={() => {
             const newItems = [
               ...items[containerId].slice(0, index),
               ...items[containerId].slice(index + 1)
@@ -193,18 +179,12 @@ export const Item = React.memo(
               ...items,
               [containerId]: newItems
             })
-          }}
-            style={{
-              position: "absolute",
-              top: 0,
-              right: 0,
-              color: "black"
-            }}
-          ></CloseButton> */}
+          }}>
 
-          </li>
+            <span>&times;</span>
+          </UnstyledButton>
+        </li>
 
-        </>
       );
     }
   )
