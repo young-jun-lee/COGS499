@@ -13,6 +13,7 @@ import { Box, Button, Flex, Group, ScrollArea, Tooltip } from '@mantine/core';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal, unstable_batchedUpdates } from 'react-dom';
 import { HiViewGridAdd } from 'react-icons/hi';
+import { VscClearAll } from 'react-icons/vsc';
 import { useSnapshot } from 'valtio';
 
 import { Container, Item } from '..';
@@ -469,7 +470,7 @@ export const MultipleContainers = ({
                       </DroppableContainer>
                       <Group position="right" key={index + "group"}>
                         {items[containerId].length > 0 ?
-                          <Button leftIcon={<MdDeleteSweep size={18} />}
+                          <Button leftIcon={<VscClearAll size={18} />}
                             onClick={() => {
                               clearCourses(containerId);
                             }}
@@ -491,7 +492,7 @@ export const MultipleContainers = ({
                           </Button>
                           :
                           <Tooltip label="No Courses in Container">
-                            <Button leftIcon={<MdDeleteSweep />}
+                            <Button leftIcon={<VscClearAll />}
                               data-disabled
                               sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
                               onClick={(event) => event.preventDefault()}
