@@ -5,7 +5,7 @@ import { useMountStatus } from "./useMountStatus";
 import { SortableItemProps } from "./SortableItemProps";
 
 export function SortableItem({
-    disabled, id, index, handle, renderItem, style, containerId, getIndex, wrapperStyle, items, setItems,
+    disabled, id, index, renderItem, style, containerId, getIndex, wrapperStyle, items, setItems,
 }: SortableItemProps) {
     const {
         setNodeRef, setActivatorNodeRef, listeners, isDragging, isSorting, over, overIndex, transform, transition,
@@ -21,8 +21,6 @@ export function SortableItem({
             value={id}
             dragging={isDragging}
             sorting={isSorting}
-            handle={handle}
-            handleProps={handle ? { ref: setActivatorNodeRef } : undefined}
             index={index}
             wrapperStyle={wrapperStyle({ index })}
             style={style({

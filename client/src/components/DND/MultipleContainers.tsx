@@ -163,6 +163,13 @@ export const MultipleContainers = ({
 
     return index;
   };
+
+  const clearCourses = (containerId: UniqueIdentifier) => {
+    const newItems = { ...items }
+    newItems[containerId] = []
+    setItems(newItems)
+  }
+
   const handleRemoveColumn = (containerId: UniqueIdentifier) => {
 
     for (let i = Number(containerId) + 1; i < containers.length; i++) {
@@ -461,6 +468,39 @@ export const MultipleContainers = ({
                         </SortableContext>
                       </DroppableContainer>
                       <Group position="right" key={index + "group"}>
+                        {items[containerId].length > 0 ?
+                          <Button leftIcon={<MdDeleteSweep size={18} />}
+                            onClick={() => {
+                              clearCourses(containerId);
+                            }}
+                            styles={(theme) => (
+                              specChosen ?
+                                {
+                                  root: {
+                                    backgroundColor: `${snap.specialization.colours?.primary}`,
+                                    color: `${snap.specialization.colours?.tertiary}`,
+                                    ':hover': {
+                                      backgroundColor: `${snap.specialization.colours?.secondary}`,
+                                      color: `${snap.specialization.colours?.tertiary}`,
+                                    },
+                                  }
+                                } : {})}
+
+                          >
+                            Clear Courses
+                          </Button>
+                          :
+                          <Tooltip label="No Courses in Container">
+                            <Button leftIcon={<MdDeleteSweep />}
+                              data-disabled
+                              sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+                              onClick={(event) => event.preventDefault()}
+                            >
+                              Clear Courses
+                            </Button>
+                          </Tooltip>
+                        }
+
                         {containers.length > constants.MIN_YEARS ?
                           <Button leftIcon={<MdDeleteSweep size={18} />}
                             onClick={() => {

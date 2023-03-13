@@ -1,7 +1,7 @@
 export default {
-    // title: 'Hitchhiker\'s Guide to Computing Degree Plans',
-    title: 'HITCHHIKER\'S GUIDE TO COMPUTING DEGREE PLANS',
-    subheading1: 'WELCOME!',
+    title: 'Hitchhiker\'s Guide to Computing Degree Plans',
+    // title: 'HITCHHIKER\'S GUIDE TO COMPUTING DEGREE PLANS',
+    subheading1: 'Welcome!',
     subheading2: 'As you fill in the courses you have already taken, you will be informed what courses you still need to graduate.',
     subheading3: 'HAPPY PLANNING!',
     specializations: {

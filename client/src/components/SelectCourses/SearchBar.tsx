@@ -1,5 +1,5 @@
 import { SortableContext } from '@dnd-kit/sortable';
-import { Autocomplete, Box } from '@mantine/core';
+import { Autocomplete, Box, Button } from '@mantine/core';
 import { FC, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useSnapshot } from 'valtio';
@@ -7,29 +7,28 @@ import { state } from '../../Valtio/State';
 import { DroppableContainer } from '../DND/DroppableContainer';
 import { SortableItem } from '../DND/SortableItem';
 
-// interface RequiredCourses {
-//     containerId: string | number,
-//     id: string,
-//     label: string,
-//     columns: number,
-//     items: string[],
-//     scrollable: boolean,
-//     style: object,
-//     unstyled: boolean,
-//     strategy: string,
-//     disabled: boolean,
-//     handle: boolean,
-//     itemStyle: object,
-//     wrapperStyle: object,
-//     renderItem: (item: Course) => JSX.Element,
-//     getIndex: (item: Course) => number,
-//     setItems: (items: Course[]) => void,
-//     minimal: boolean,
-//     getItemStyles: any
-//     isSortingContainer: any
-//     containerStyle: any
-
-// }
+interface RequiredCourses {
+    containerId: string | number,
+    id: string,
+    label: string,
+    columns: number,
+    items: string[],
+    scrollable: boolean,
+    style: object,
+    unstyled: boolean,
+    strategy: string,
+    disabled: boolean,
+    handle: boolean,
+    itemStyle: object,
+    wrapperStyle: object,
+    renderItem: (item: Course) => JSX.Element,
+    getIndex: (item: Course) => number,
+    setItems: (items: Course[]) => void,
+    minimal: boolean,
+    getItemStyles: any
+    isSortingContainer: any
+    containerStyle: any
+}
 
 interface Course {
     value: string
@@ -39,14 +38,11 @@ interface Course {
 
 const SearchBar: FC<RequiredCourses> = ({
     containerId,
-    columns,
     items,
     scrollable,
     getItemStyles,
     strategy,
     isSortingContainer,
-    handle,
-    containerStyle,
     wrapperStyle,
     renderItem,
     getIndex,
@@ -57,12 +53,7 @@ const SearchBar: FC<RequiredCourses> = ({
     // const [courses, setCourses] = useState<Course[]>(items[containerId]);
     const snap = useSnapshot(state)
     const handleItemSubmit = (item: Course) => {
-        // update courses to match valtio state
-        // setCourses(state.columns[columnId].items);
-        // Check if item is already in courses
-        // if (courses.some((course) => course === item.value)) {
-        //     return;
-        // } 
+
         if (items[containerId].some((course) => course === item.value)) {
             return;
         }
@@ -71,45 +62,37 @@ const SearchBar: FC<RequiredCourses> = ({
             return
         }
         else {
-            // add item to courses
-            // setCourses([...courses, item.value]);
             setItems({ ...items, [containerId]: [...items[containerId], item.value] })
-            // setItems({ ...items, [containerId]: [...courses] })
-            // setCourses([...courses, item.value]);
-            // setItems({ ...items, [containerId]: [...courses, item] })
-            // update courses in valtio state
-            // state.columns[columnId].items.push(item);
         }
     };
-    console.log(items)
+
+    const clearCourses = () => {
+        setItems({ ...items, [containerId]: [] })
+    }
     return (
         <Box
             sx={(theme) => ({
-                backgroundColor: theme.colorScheme === 'dark' ? "#e5deed" : theme.colors.gray[1],
                 width: '100%',
-                height: '40%',
+                height: '100%',
                 padding: theme.spacing.sm,
-                borderRadius: `${theme.radius.md} ${theme.radius.md} 0 0`,
             })}
         >
 
             <Box
                 sx={(theme) => ({
-                    // backgroundColor: '#ede8f3',
                     backgroundColor: `${snap.specialization.colours?.tertiary}`,
                     padding: theme.spacing.xl,
                     borderRadius: theme.radius.md,
-                    // '&:hover': {
-                    //     backgroundColor:
-                    //         theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[5],
-                    // },
+                    border: `4px solid ${snap.specialization.colours?.primary}`,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
                 })}
 
             >
-                SearchBar
+                <div style={{ alignSelf: "start", fontSize: 25, fontWeight: 600 }}>Search</div>
                 <Autocomplete
-                    label="select your courses"
-                    placeholder="Pick one"
+                    placeholder="Search for a course"
                     data={[
                         { value: 'CISC 111', group: 'CISC', id: uuidv4() },
                         { value: 'CISC 112', group: 'CISC', id: uuidv4() },
@@ -125,75 +108,41 @@ const SearchBar: FC<RequiredCourses> = ({
                         { value: "MATH 129", group: "MATH", id: uuidv4() },
                     ]}
                     onItemSubmit={handleItemSubmit}
-                    sx={{ marginBottom: 20 }}
+                    sx={{ alignSelf: "start", marginBottom: 20 }}
                     maxDropdownHeight={500}
                 />
-                <div style={{ margin: 8 }}>
-                    <DroppableContainer
-                        id={containerId}
-                        label={minimal ? undefined : `Column ${containerId}`}
-                        columns={columns}
+                <DroppableContainer
+                    id={containerId}
+                    label={minimal ? undefined : `Column ${containerId}`}
+                    columns={1}
+                    items={items[containerId]}
+                    scrollable={scrollable}
+                    style={{ width: "100%", height: "100%" }}
+                >
+                    <SortableContext
                         items={items[containerId]}
-                        scrollable={scrollable}
+                        strategy={strategy}
                     >
-                        <SortableContext
-                            items={items[containerId]}
-                            strategy={strategy}
-                        >
-
-
-                            {items[containerId].map((course, index) => {
-                                return (
-                                    <SortableItem
-                                        disabled={isSortingContainer}
-                                        key={course}
-                                        id={course}
-                                        index={index}
-                                        handle={handle}
-                                        style={getItemStyles}
-                                        wrapperStyle={wrapperStyle}
-                                        renderItem={renderItem}
-                                        containerId={containerId}
-                                        getIndex={getIndex}
-                                        items={items}
-                                        setItems={setItems}
-                                    />
-                                );
-                            })}
-
-                        </SortableContext>
-                    </DroppableContainer>
-                    {/* {column.items.map((item, index) => (
-                            <GridItem key={index}>
-                                <div className="grid-item">
-                                    <div className="grid-item-content">
-                                        <div
-                                            style={{
-                                                userSelect: "none",
-                                                display: "flex",
-                                                // textAlign: "center",
-                                                // justifyContent: "center",
-                                                alignItems: "center",
-                                                // to align the text in the center
-
-                                                padding: 30,
-                                                margin: 10,
-                                                borderRadius: "5px",
-                                                backgroundColor: "#456C86",
-                                                // minHeight: "50px",
-                                                height: "40px",
-                                                // color: "white",
-
-                                            }}
-                                        >
-                                            {item.value}
-                                        </div>
-                                    </div>
-                                </div>
-                            </GridItem>
-                        ))} */}
-
-                </div>
+                        {items[containerId].map((course, index) => {
+                            return (
+                                <SortableItem
+                                    disabled={isSortingContainer}
+                                    key={course}
+                                    id={course}
+                                    index={index}
+                                    style={getItemStyles}
+                                    wrapperStyle={wrapperStyle}
+                                    renderItem={renderItem}
+                                    containerId={containerId}
+                                    getIndex={getIndex}
+                                    items={items}
+                                    setItems={setItems}
+                                />
+                            );
+                        })}
+                    </SortableContext>
+                </DroppableContainer>
+                <Button onClick={clearCourses}>Clear Courses</Button>
             </Box>
 
         </Box>

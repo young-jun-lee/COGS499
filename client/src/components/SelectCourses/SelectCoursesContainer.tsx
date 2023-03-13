@@ -13,7 +13,7 @@ const SelectContainer: FC = () => {
     const [localState, setLocalState] = useState(snap.columns);
 
     return (
-        <Flex style={{ flexDirection: "column", width: "100%", height: "100%", border: "3px solid black", }}>
+        <Flex style={{ flexDirection: "column", width: "100%", height: "100%", borderRadius: "1em", border: `5px solid ${snap.specialization.colours?.primary}`, }}>
 
             <Box sx={
                 (theme) => ({
