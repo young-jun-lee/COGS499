@@ -39,7 +39,6 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                     borderTop: `5px solid ${snap.specialization.colours?.primary}`,
                     borderRight: `5px solid ${snap.specialization.colours?.primary}`,
                     borderLeft: `5px solid ${snap.specialization.colours?.primary}`,
-                    // color: "#212121",
                     color: `${snap.specialization.colours?.primary}`,
                     '&:hover': {
                         backgroundColor: "#808285",
@@ -49,7 +48,7 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                     position: "relative"
                 }}>
                     <div style={{ fontSize: "25px" }}>{subheading1}</div>
-                    <div style={{ fontSize: "22px", width: "65%" }}>{subheading2}</div>
+                    <div style={{ fontSize: "22px", maxWidth: "55ch" }}>{subheading2}</div>
                     <div style={{ fontSize: "25px", fontWeight: "bold", marginBottom: "5px" }}>{subheading3}</div>
                 </Flex>
                 <div style={{
@@ -58,13 +57,16 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                     height: "10px",
                     borderRadius: "0 0 10px 10px",
                     borderLeft: "3px solid #002452",
-                    background: "linear-gradient(to right, #002452 0, #002452 33%, #fabd0f 33%, #fabd0f 66%, #b90e31 66%, #b90e31 100%)"
+                    background: "linear-gradient(to right, #002452 0, #002452 33%, #fabd0f 33%, #fabd0f 66%, #b90e31 66%, #b90e31 100%)",
+                    boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
                 }}></div>
             </Flex>
 
-            <Stack style={{ border: `5px solid ${snap.specialization.colours?.primary}`, borderRadius: "1em" }}>
+            <Stack style={{
+                border: `5px solid ${snap.specialization.colours?.primary}`, borderRadius: "1em", boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
+            }}>
                 <Specialization specChosen={specChosen} />
-                <Flex justify="space-between" style={{ height: "100%" }} >
+                <Flex justify="space-around" style={{ height: "100%" }} >
                     <SpecCourses title="Program Specific Courses" specChosen={specChosen} />
                     <SpecCourses title="CISC Courses" specChosen={specChosen} />
                     <SpecCourses title="Electives" specChosen={specChosen} />

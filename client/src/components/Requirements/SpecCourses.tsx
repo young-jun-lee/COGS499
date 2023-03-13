@@ -17,7 +17,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
       <Box
         sx={(theme) => ({
           color: `${snap.specialization.colours?.primary}`,
-          width: '60%',
+          width: '30%',
           height: '100%',
           padding: theme.spacing.sm,
           marginLeft: "1px",
@@ -26,6 +26,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
           marginBottom: theme.spacing.md,
           border: `5px solid ${snap.specialization.colours?.primary}`,
           borderRadius: theme.radius.md,
+          boxShadow: "0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1), 0 16px 16px rgba(0,0,0,0.1)"
         })}
       >
         <Box sx={{ fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 18 }}>{title}</Box>
@@ -76,25 +77,6 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
           </List>
         </Box>
       </Box>
-      // <Card shadow="sm" padding="lg" radius="md" withBorder>
-
-
-      //   <Group position="apart" mt="md" mb="xs">
-      //     <Text weight={500}>Norway Fjord Adventures</Text>
-      //     <Badge color="pink" variant="light">
-      //       On Sale
-      //     </Badge>
-      //   </Group>
-
-      //   <Text size="sm" color="dimmed">
-      //     With Fjord Tours you can explore more of the magical fjord landscapes with tours and
-      //     activities on and around the fjords of Norway
-      //   </Text>
-
-      //   <Button variant="light" color="blue" fullWidth mt="md" radius="md">
-      //     Book classic tour now
-      //   </Button>
-      // </Card>
     )
   return <></>
 }

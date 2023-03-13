@@ -1,6 +1,7 @@
 import { SortableContext } from '@dnd-kit/sortable';
-import { Autocomplete, Box, Button } from '@mantine/core';
+import { Autocomplete, Box, Button, Tooltip } from '@mantine/core';
 import { FC, useState } from 'react';
+import { VscClearAll } from 'react-icons/vsc';
 import { v4 as uuidv4 } from 'uuid';
 import { useSnapshot } from 'valtio';
 import { state } from '../../Valtio/State';
@@ -27,7 +28,8 @@ interface RequiredCourses {
     minimal: boolean,
     getItemStyles: any
     isSortingContainer: any
-    containerStyle: any
+    containerStyle: any,
+    specChosen: boolean
 }
 
 interface Course {
@@ -47,7 +49,8 @@ const SearchBar: FC<RequiredCourses> = ({
     renderItem,
     getIndex,
     setItems,
-    minimal
+    minimal,
+    specChosen,
 
 }) => {
     // const [courses, setCourses] = useState<Course[]>(items[containerId]);
@@ -86,7 +89,7 @@ const SearchBar: FC<RequiredCourses> = ({
                     border: `4px solid ${snap.specialization.colours?.primary}`,
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
+                    marginTop: "28px",
                 })}
 
             >
@@ -117,7 +120,7 @@ const SearchBar: FC<RequiredCourses> = ({
                     columns={1}
                     items={items[containerId]}
                     scrollable={scrollable}
-                    style={{ width: "100%", height: "100%" }}
+                    style={{ width: "100%", height: "100%", maxHeight: '680px !important' }}
                 >
                     <SortableContext
                         items={items[containerId]}
@@ -131,6 +134,7 @@ const SearchBar: FC<RequiredCourses> = ({
                                     id={course}
                                     index={index}
                                     style={getItemStyles}
+                                    // style={{ width: "100%", height: "100%" }}
                                     wrapperStyle={wrapperStyle}
                                     renderItem={renderItem}
                                     containerId={containerId}
@@ -142,7 +146,43 @@ const SearchBar: FC<RequiredCourses> = ({
                         })}
                     </SortableContext>
                 </DroppableContainer>
-                <Button onClick={clearCourses}>Clear Courses</Button>
+                {items[containerId].length > 0 ?
+                    <Button leftIcon={<VscClearAll size={18} />}
+                        onClick={() => {
+                            clearCourses();
+                        }}
+                        styles={(theme) => (
+                            specChosen ?
+                                {
+                                    root: {
+                                        backgroundColor: `${snap.specialization.colours?.primary}`,
+                                        color: `${snap.specialization.colours?.tertiary}`,
+                                        ':hover': {
+                                            backgroundColor: `${snap.specialization.colours?.secondary}`,
+                                            color: `${snap.specialization.colours?.tertiary}`,
+                                        },
+                                        alignSelf: "end"
+                                    }
+                                } : {
+                                    root: {
+                                        alignSelf: "end"
+                                    }
+                                })}
+
+                    >
+                        Clear Courses
+                    </Button>
+                    :
+                    <Tooltip label="No Courses in Container">
+                        <Button leftIcon={<VscClearAll />}
+                            data-disabled
+                            sx={{ '&[data-disabled]': { pointerEvents: 'all' }, alignSelf: "end" }}
+                            onClick={(event) => event.preventDefault()}
+                        >
+                            Clear Courses
+                        </Button>
+                    </Tooltip>
+                }
             </Box>
 
         </Box>

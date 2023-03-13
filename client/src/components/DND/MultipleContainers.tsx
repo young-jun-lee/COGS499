@@ -439,7 +439,8 @@ export const MultipleContainers = ({
                         columns={columns}
                         items={items[containerId]}
                         scrollable={scrollable}
-                        style={containerStyle}
+                        // style={containerStyle}
+                        style={{ maxHeight: "190px", containerStyle }}
                         unstyled={minimal}
                       >
                         <SortableContext
@@ -559,6 +560,7 @@ export const MultipleContainers = ({
                 getIndex={getIndex}
                 setItems={setItems}
                 minimal={minimal}
+                specChosen={specChosen}
               ></SearchBar>
             </Flex>
           </Flex>

@@ -62,18 +62,19 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
             <Flex direction={"column"} >
                 <Box sx={
                     (theme) => ({
-                        width: 'fit-content',
                         margin: "1em",
                         padding: "0.5em",
                         border: `5px solid ${snap.specialization.colours?.primary}`,
                         borderRadius: theme.radius.md,
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization.colours?.tertiary,
                         color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.primary,
-                        alignSelf: "center"
+                        alignSelf: "center",
+                        width: "100%",
+                        boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
                     })
                 }>
                     <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>
-                        {specChosen ? `Specialization: ${snap.specialization.name}` : "Choose Your Specialization"}
+                        {specChosen ? `${snap.specialization.name}` : "Choose Your Specialization"}
                     </div>
                 </Box>
                 <Button
@@ -91,6 +92,7 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                                     },
                                     width: "fit-content",
                                     alignSelf: "end",
+                                    
                                 },
                             } : {}
                     )}
