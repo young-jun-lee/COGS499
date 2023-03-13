@@ -49,15 +49,12 @@ export default function App() {
               <Toggle />
               <Header title={HeaderContent.title} />
               <Requirements subheading1={HeaderContent.subheading1} subheading2={HeaderContent.subheading2} subheading3={HeaderContent.subheading3} />
-
             </Flex>
             <Flex style={{ height: "60%", marginTop: "50px" }}>
               <SelectContainer />
- 
             </Flex>
-            <Flex style={{ height: "60%" }}>
+            <Flex style={{ height: "60%", marginTop: "50px", marginBottom: "50px" }}>
               <FlowContainer />
-
             </Flex>
           </Container>
         </NotificationsProvider>

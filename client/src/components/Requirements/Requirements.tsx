@@ -4,6 +4,7 @@ import { useSnapshot } from 'valtio';
 import { state } from '../../Valtio/State';
 import SpecCourses from "./SpecCourses";
 import Specialization from "./Specialization";
+import "../../styles/styles.css"
 
 interface Requirements {
     subheading1: string;
@@ -30,8 +31,8 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                     width: "80%",
                     // backgroundColor: "#e6e7e8",
                     backgroundColor: `${snap.specialization.colours?.tertiary}`,
-                    alignItems: "center",
-                    justifyContent: "space-around",
+                    // alignItems: "center",
+                    // justifyContent: "space-around",
                     flexDirection: "column",
                     borderTopLeftRadius: "10px",
                     borderTopRightRadius: "10px",
@@ -45,8 +46,10 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                         color: "white",
                         borderTop: "5px solid #58595b", borderRight: "5px solid #58595b", borderLeft: "5px solid #58595b"
                     },
-                    position: "relative"
-                }}>
+                    // position: "relative",
+                    "--fillColor": `${snap.specialization.colours?.secondary}`,
+                    "--bgColor": `${snap.specialization.colours?.tertiary}`
+                }} className="title">
                     <div style={{ fontSize: "25px" }}>{subheading1}</div>
                     <div style={{ fontSize: "22px", maxWidth: "55ch" }}>{subheading2}</div>
                     <div style={{ fontSize: "25px", fontWeight: "bold", marginBottom: "5px" }}>{subheading3}</div>

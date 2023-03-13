@@ -1,19 +1,19 @@
 import { rectSortingStrategy } from "@dnd-kit/sortable";
-import { Box, Button, Flex, Group, Tooltip } from "@mantine/core";
+import { Box, Flex } from "@mantine/core";
 import { FC, useState } from "react";
-import { HiViewGridAdd } from "react-icons/hi";
 import { useSnapshot } from "valtio";
-import { constants } from "../../content/Constants";
-import { addYear } from "../../Valtio/helperFunctions";
 import { state } from '../../Valtio/State';
-import { MultipleContainers } from "../DND/MultipleContainers"
+import { MultipleContainers } from "../DND/MultipleContainers";
+import "../../styles/styles.css"
 
 const SelectContainer: FC = () => {
     const snap = useSnapshot(state);
     const [localState, setLocalState] = useState(snap.columns);
 
     return (
-        <Flex style={{ flexDirection: "column", width: "100%", height: "100%", borderRadius: "1em", border: `5px solid ${snap.specialization.colours?.primary}`, }}>
+        <Flex style={{
+            flexDirection: "column", width: "100%", height: "100%", borderRadius: "1em", border: `5px solid ${snap.specialization.colours?.primary}`, boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
+        }}>
 
             <Box sx={
                 (theme) => ({
@@ -21,13 +21,15 @@ const SelectContainer: FC = () => {
                     margin: "1em",
                     border: `5px solid ${snap.specialization.colours?.primary}`,
                     borderRadius: theme.radius.md,
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization.colours?.tertiary,
+                    // backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization.colours?.tertiary,
                     color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.primary,
                     alignSelf: "center",
-                    padding: "0.5em"
+                    padding: "0.5em", boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)",
+                    "--fillColor": `${snap.specialization.colours?.secondary}`,
+                    "--bgColor": `${snap.specialization.colours?.tertiary}`
                 })
-            }>
-                <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>Select Your Courses</div>
+            } className="title">
+                <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600, }}>Select Your Courses</div>
             </Box>
 
 

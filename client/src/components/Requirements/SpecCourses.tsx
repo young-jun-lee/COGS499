@@ -5,6 +5,7 @@ import { TbCircleCheck, TbCircleDashed } from "react-icons/tb";
 import { useSnapshot } from 'valtio';
 import { state } from '../../Valtio/State';
 
+
 interface RequiredCourses {
   title: string;
   specChosen: boolean;
@@ -26,10 +27,14 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
           marginBottom: theme.spacing.md,
           border: `5px solid ${snap.specialization.colours?.primary}`,
           borderRadius: theme.radius.md,
-          boxShadow: "0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1), 0 16px 16px rgba(0,0,0,0.1)"
+          boxShadow: "0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1), 0 16px 16px rgba(0,0,0,0.1)",
+
         })}
+
       >
-        <Box sx={{ fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 18 }}>{title}</Box>
+        <Box sx={{
+          fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 18,
+        }} >{title}</Box>
         <Box
           sx={(theme) => ({
             backgroundColor: `${snap.specialization.colours?.tertiary}`,
@@ -76,7 +81,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
             </List.Item>
           </List>
         </Box>
-      </Box>
+      </Box >
     )
   return <></>
 }

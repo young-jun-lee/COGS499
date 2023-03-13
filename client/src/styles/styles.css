@@ -1,0 +1,14 @@
+.title {
+    display: flex;
+    background: linear-gradient(var(--fillColor), var(--fillColor)) left/0% 100% no-repeat;
+    background-color: var(--bgColor);
+    transition: all ease 0.4s, background-position 0s 0.4s;
+    align-items: center;
+    justify-content: center;
+}
+
+.title:hover {
+    background-size: 100% 100%;
+    background-position: right;
+    color: #fff;
+}
