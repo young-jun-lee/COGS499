@@ -38,7 +38,7 @@ const SelectContainer: FC = () => {
                 // itemCount={10}
                 strategy={rectSortingStrategy}
                 wrapperStyle={() => ({
-                    width: 130,
+                    width: 125,
                     height: 40,
                 })}
                 vertical

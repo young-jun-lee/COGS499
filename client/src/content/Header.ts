@@ -3,7 +3,7 @@ export default {
     // title: 'HITCHHIKER\'S GUIDE TO COMPUTING DEGREE PLANS',
     subheading1: 'Welcome!',
     subheading2: 'As you fill in the courses you have already taken, you will be informed what courses you still need to graduate.',
-    subheading3: 'HAPPY PLANNING!',
+    subheading3: 'Happy Planning!',
     specializations: {
         "Artificial Intelligence": { primary: "#6f4979", secondary: "#895A95", tertiary: "#F5F1F7" },
         "Biomedical Computation": { primary: "#066360", secondary: "#099C97", tertiary: "#E4FDFD" },

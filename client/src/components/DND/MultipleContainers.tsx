@@ -313,7 +313,7 @@ export const MultipleContainers = ({
         if (items[overContainer].length >= constants.MAX_COURSES) {
           showNotification({
             title: 'Max Courses Reached',
-            message: `You have reached the max number of courses for Year ${[overContainer]}`,
+            message: overContainer > 0 ? `You have reached the max number of courses for Year ${[overContainer]}` : `You have reached the max number of courses for the shopping cart. Please remove a course before adding another.`,
             color: 'red',
           });
           return;
