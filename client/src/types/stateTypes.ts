@@ -36,9 +36,9 @@ export type Basket = string[]
 export type NumYears = 1 | 2 | 3 | 4 | 5 | 6
 
 export type Course = {
-    id: string
-    value: string
-    group: string
+    id?: string
+    value?: string
+    group?: string
     prerequisites?: string[]
     corequisites?: string[]
     exclusions?: string[]
@@ -48,4 +48,8 @@ export type Course = {
 
 export type Columns = { name: string, items: Course[], limitCourses: number }
 
-export type Items = Record<UniqueIdentifier, UniqueIdentifier[]>;
+// export type Items = Record<UniqueIdentifier, UniqueIdentifier[]>;
+
+export type Years = {
+    [key: string]: Course[]
+}

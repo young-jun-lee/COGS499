@@ -10,7 +10,7 @@ import {
   arrayMove, horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy
 } from '@dnd-kit/sortable';
 import { Box, Button, Flex, Group, ScrollArea, Tooltip } from '@mantine/core';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, } from 'react';
 import { createPortal, unstable_batchedUpdates } from 'react-dom';
 import { HiViewGridAdd } from 'react-icons/hi';
 import { VscClearAll } from 'react-icons/vsc';
@@ -25,7 +25,7 @@ import { DroppableContainer } from './DroppableContainer';
 import { Props } from './Props';
 import { SortableItem } from './SortableItem';
 import { MdDeleteSweep } from 'react-icons/md';
-import { Items, Course } from '../../types/stateTypes';
+import { Items, Course, Years } from '../../types/stateTypes';
 import { showNotification } from '@mantine/notifications';
 
 
@@ -62,15 +62,35 @@ export const MultipleContainers = ({
   const snap = useSnapshot(state)
   const empty: UniqueIdentifier[] = [];
   const specChosen = snap.specialization.name !== undefined
+
   const getItems = () => {
     const items: Items = {}
     snap.columns.map((column, index) => {
       // if (index !== 0) {
       items[index] = column.items.map(item => item.id)
       // }
-        })
-    items[3] = empty
-    items[4] = empty
+    })
+    const years: Years = {}
+    snap.columns.map((column, index) => {
+      // const courses = {} as Course[]
+      const courses = [] as Course[]
+      column.items.map((item, idx) => {
+        const course = {
+          id: item.id,
+          value: item.value,
+          group: item.group,
+          prerequisites: item.prerequisites?.map(prerequisite => prerequisite),
+        }
+        // courses[idx] = course
+        courses.push(course)
+      })
+      years[index] = courses
+    })
+    console.log("years:", years)
+
+    // items[3] = empty
+    // items[4] = empty
+    return years
     return items
   }
 
@@ -191,8 +211,12 @@ export const MultipleContainers = ({
       const newId = String(Number(Object.keys(items)[i]) - 1)
       items[newId] = items[Object.keys(items)[i]]
     }
-    console.log(items)
+
+
+    // const newItems = items.filter((item, index) => index !== Number(containerId))
+    // console.log(newItems)
     setItems((items) => ({ ...items }))
+    // console.log(items)
 
   }
 
@@ -443,7 +467,7 @@ export const MultipleContainers = ({
                       items={items[containerId]}
                       scrollable={scrollable}
                       // style={containerStyle}
-                      style={{ maxHeight: "190px", containerStyle }}
+                      style={{ maxHeight: "190px" }}
                       unstyled={minimal}
                     >
                       <SortableContext
@@ -451,12 +475,12 @@ export const MultipleContainers = ({
                         strategy={strategy}
                       >
 
-                        {items[containerId].map((value, index) => {
+                        {items[containerId].map((value: Course, index: number) => {
                           return (
                             <SortableItem
                               disabled={isSortingContainer}
-                              key={value}
-                              id={value}
+                              key={value.id}
+                              id={value.id}
                               index={index}
                               handle={handle}
                               style={getItemStyles}
