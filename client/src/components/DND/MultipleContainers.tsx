@@ -18,7 +18,6 @@ import { useSnapshot } from 'valtio';
 
 import { Container, Item } from '..';
 import { constants } from '../../content/Constants';
-import { addYear } from '../../Valtio/helperFunctions';
 
 import { state } from '../../Valtio/State';
 import SearchBar from '../SelectCourses/SearchBar';
@@ -26,7 +25,7 @@ import { DroppableContainer } from './DroppableContainer';
 import { Props } from './Props';
 import { SortableItem } from './SortableItem';
 import { MdDeleteSweep } from 'react-icons/md';
-import { Items } from '../../types/stateTypes';
+import { Items, Course } from '../../types/stateTypes';
 import { showNotification } from '@mantine/notifications';
 
 
@@ -69,7 +68,7 @@ export const MultipleContainers = ({
       // if (index !== 0) {
       items[index] = column.items.map(item => item.id)
       // }
-    })
+        })
     items[3] = empty
     items[4] = empty
     return items
@@ -86,6 +85,9 @@ export const MultipleContainers = ({
   const [containers, setContainers] = useState(
     Object.keys(items) as UniqueIdentifier[]
   );
+  console.log(items)
+  console.log('containers', containers)
+
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
   const lastOverId = useRef<UniqueIdentifier | null>(null);
   const recentlyMovedToNewContainer = useRef(false);
@@ -183,7 +185,6 @@ export const MultipleContainers = ({
     }
     containers.splice(containers.indexOf(containerId), 1)
     setContainers((containers) => [...containers])
-
 
 
     for (let i = Number(containerId) + 1; i < Object.keys(items).length; i++) {
@@ -310,6 +311,7 @@ export const MultipleContainers = ({
         if (!overContainer || !activeContainer) {
           return;
         }
+
         if (items[overContainer].length >= constants.MAX_COURSES) {
           showNotification({
             title: 'Max Courses Reached',
@@ -541,11 +543,47 @@ export const MultipleContainers = ({
                         </Tooltip>
                       }
                     </Group>
+
                   </>}
+
               </Box>
 
             ))}
+            <Group position="right" style={{ marginTop: 15 }}>
+              {containers.length < constants.MAX_YEARS ?
+                <Button leftIcon={<HiViewGridAdd size={20} />}
+                  onClick={() => {
+                    handleAddColumn();
+                  }}
+                  styles={(theme) => (
+                    specChosen ?
+                      {
+                        root: {
+                          backgroundColor: `${snap.specialization.colours?.primary}`,
+                          color: `${snap.specialization.colours?.tertiary}`,
+                          ':hover': {
+                            backgroundColor: `${snap.specialization.colours?.secondary}`,
+                            color: `${snap.specialization.colours?.tertiary}`,
+                          },
+                          boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
 
+                        }
+                      } : {})}
+                >
+                  Add Year
+                </Button>
+                :
+                <Tooltip label="Max Academic Years">
+                  <Button
+                    data-disabled
+                    sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+                    onClick={(event) => event.preventDefault()}
+                  >
+                    Add Year
+                  </Button>
+                </Tooltip>
+              }
+            </Group>
           </Flex>
           <Flex style={{ flexDirection: "column", width: "35%" }}>
             <SearchBar
@@ -565,12 +603,14 @@ export const MultipleContainers = ({
               minimal={minimal}
               specChosen={specChosen}
             ></SearchBar>
+
           </Flex>
 
 
 
 
         </SortableContext>
+
       </Flex>
       {
         createPortal(
@@ -584,41 +624,7 @@ export const MultipleContainers = ({
           document.body
         )
       }
-      <Group position="right" style={{ marginTop: "10px" }}>
-        {containers.length < constants.MAX_YEARS ?
-          <Button leftIcon={<HiViewGridAdd size={20} />}
-            onClick={() => {
-              handleAddColumn();
-            }}
-            styles={(theme) => (
-              specChosen ?
-                {
-                  root: {
-                    backgroundColor: `${snap.specialization.colours?.primary}`,
-                    color: `${snap.specialization.colours?.tertiary}`,
-                    ':hover': {
-                      backgroundColor: `${snap.specialization.colours?.secondary}`,
-                      color: `${snap.specialization.colours?.tertiary}`,
-                    },
-                    boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
 
-                  }
-                } : {})}
-          >
-            Add Year
-          </Button>
-          :
-          <Tooltip label="Max Academic Years">
-            <Button
-              data-disabled
-              sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
-              onClick={(event) => event.preventDefault()}
-            >
-              Add Year
-            </Button>
-          </Tooltip>
-        }
-      </Group>
     </DndContext >
   );
 }

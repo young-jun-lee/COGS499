@@ -87,9 +87,6 @@ const SearchBar: FC<RequiredCourses> = ({
         <Box
             sx={(theme) => ({
                 width: '100%',
-                height: '100%',
-                // alignSelf: "center",
-                // padding: theme.spacing.sm,
             })}
         >
             <Box
@@ -103,8 +100,10 @@ const SearchBar: FC<RequiredCourses> = ({
                     marginTop: "28px",
                     boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
                 })}
-
             >
+                <Flex>
+
+                </Flex>
                 <div style={{ alignSelf: "start", fontSize: 25, fontWeight: 600 }}>Search</div>
                 <Autocomplete
                     placeholder="Search for a course"
@@ -123,7 +122,7 @@ const SearchBar: FC<RequiredCourses> = ({
                         { value: "MATH 129", group: "MATH", id: uuidv4() },
                     ]}
                     onItemSubmit={handleItemSubmit}
-                    sx={{ alignSelf: "start", marginBottom: 20, marginTop: 10, width: "80%" }}
+                    sx={{ alignSelf: "start", marginBottom: 20, marginTop: 10 }}
                     maxDropdownHeight={500}
                     size='md'
                 />

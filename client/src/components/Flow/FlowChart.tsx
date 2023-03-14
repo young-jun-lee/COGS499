@@ -37,7 +37,6 @@ export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
         }
         columns.push({ name: column.name, items })
     }
-    // console.log(columns)
 
     let { courseNodes, courseEdges } = generateCourseNodes(columns)
 
