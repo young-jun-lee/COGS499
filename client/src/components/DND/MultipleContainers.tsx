@@ -86,8 +86,6 @@ export const MultipleContainers = ({
       })
       years[index] = courses
     })
-    console.log("years:", years)
-
     // items[3] = empty
     // items[4] = empty
     return years
@@ -105,8 +103,6 @@ export const MultipleContainers = ({
   const [containers, setContainers] = useState(
     Object.keys(items) as UniqueIdentifier[]
   );
-  console.log(items)
-  console.log('containers', containers)
 
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
   const lastOverId = useRef<UniqueIdentifier | null>(null);
@@ -134,7 +130,6 @@ export const MultipleContainers = ({
       let overId = getFirstCollision(intersections, 'id');
 
       if (overId != null) {
-
         if (overId in items) {
           const containerItems = items[overId];
 
@@ -171,8 +166,10 @@ export const MultipleContainers = ({
     useSensor(MouseSensor),
     useSensor(TouchSensor),
   );
+  
   const findContainer = (id: UniqueIdentifier) => {
     if (id in items) {
+      console.log("here find container")
       return id;
     }
 
@@ -207,17 +204,11 @@ export const MultipleContainers = ({
     setContainers((containers) => [...containers])
 
 
-    for (let i = Number(containerId) + 1; i < Object.keys(items).length; i++) {
-      const newId = String(Number(Object.keys(items)[i]) - 1)
-      items[newId] = items[Object.keys(items)[i]]
+    for (let i = Number(containerId); i < Object.keys(items).length; i++) {
+      console.log("items[i]", items[i])
+      items[i] = items[Number(i) + 1]
     }
-
-
-    // const newItems = items.filter((item, index) => index !== Number(containerId))
-    // console.log(newItems)
-    setItems((items) => ({ ...items }))
-    // console.log(items)
-
+    delete items[Object.keys(items).length - 1]
   }
 
   const handleAddColumn = () => {
@@ -282,14 +273,14 @@ export const MultipleContainers = ({
       >
         {items[containerId].map((item, index) => (
           <Item
-            key={item}
-            value={item}
+            key={item.value}
+            value={item.value}
             handle={handle}
             style={getItemStyles({
               containerId,
               overIndex: -1,
-              index: getIndex(item),
-              value: item,
+              index: getIndex(item.value),
+              value: item.value,
               isDragging: false,
               isSorting: false,
               isDragOverlay: false,
@@ -376,7 +367,7 @@ export const MultipleContainers = ({
             return {
               ...items,
               [activeContainer]: items[activeContainer].filter(
-                (item) => item !== active.id
+                (item) => item.value !== active.id
               ),
               [overContainer]: [
                 ...items[overContainer].slice(0, newIndex),
