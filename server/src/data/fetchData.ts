@@ -1,5 +1,6 @@
 import { CheerioCrawler, Dataset } from 'crawlee';
 import { COIs } from '../../constants/courseConstants.js';
+import { CompCOIs } from '../../constants/courseConstants.js';
 import { formatResults } from './formatResults.js';
 
 const crawler = new CheerioCrawler({
@@ -45,5 +46,6 @@ const crawler = new CheerioCrawler({
 
 
 // await crawler.run(COIs);
-await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/biol/'])
+// await crawler.run(CompCOIs);
+await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/phys/'])
 export { crawler, formatResults }

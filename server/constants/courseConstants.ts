@@ -171,6 +171,21 @@ const COIs = [
 
 ]
 
+const CompCOIs = [
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/bchm/',
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/biol/',
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/chem/',
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/cisc/',
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/coca/',
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/cogs/',
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/ling/',
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/math/',
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/phil/',
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/psyc/',
+  'https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/stat/'
+
+]
+
 export const COMP_PROGRAMS = [
   'https://www.cs.queensu.ca/undergraduate/programs/options/artificial-intelligence.php',
   // 'https://www.cs.queensu.ca/undergraduate/programs/options/biomedical-computation.php',
@@ -185,4 +200,4 @@ export const COMP_PROGRAMS = [
   // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/computing-and-the-creative-arts.php'
 ]
 
-export { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs }
+export { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs, CompCOIs }
