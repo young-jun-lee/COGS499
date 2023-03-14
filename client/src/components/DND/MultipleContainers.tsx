@@ -79,6 +79,10 @@ export const MultipleContainers = ({
     getItems()
   );
 
+  useEffect(() => {
+    console.log('items: ', items)
+  }, [items])
+
   const [containers, setContainers] = useState(
     Object.keys(items) as UniqueIdentifier[]
   );
@@ -408,12 +412,10 @@ export const MultipleContainers = ({
       onDragCancel={onDragCancel}
       modifiers={modifiers}
     >
-      <div
+      <Flex
         style={{
-          display: 'inline-grid',
-          boxSizing: 'border-box',
           padding: 20,
-          gridAutoFlow: vertical ? 'row' : 'column',
+          gridGap: 20,
         }}
       >
 
@@ -425,153 +427,151 @@ export const MultipleContainers = ({
               : horizontalListSortingStrategy
           }
         >
-          <Flex>
-            <Flex style={{ flexDirection: "column", width: "65%" }}>
 
-              {containers.map((containerId, index) => (
-                <Box key={index}>
-                  {index !== 0 &&
-                    <>
-                      <div key={index} style={{ fontSize: 25, fontWeight: 600 }}>Year {containerId}</div>
-                      <DroppableContainer
-                        id={containerId}
-                        label={minimal ? undefined : `Column ${containerId}`}
-                        columns={columns}
+          <Flex style={{ flexDirection: "column", width: "65%" }}>
+            {containers.map((containerId, index) => (
+              <Box key={index}>
+                {index !== 0 &&
+                  <>
+                    <div key={index} style={{ fontSize: 25, fontWeight: 600 }}>Year {containerId}</div>
+                    <DroppableContainer
+                      id={containerId}
+                      label={minimal ? undefined : `Column ${containerId}`}
+                      columns={columns}
+                      items={items[containerId]}
+                      scrollable={scrollable}
+                      // style={containerStyle}
+                      style={{ maxHeight: "190px", containerStyle }}
+                      unstyled={minimal}
+                    >
+                      <SortableContext
                         items={items[containerId]}
-                        scrollable={scrollable}
-                        // style={containerStyle}
-                        style={{ maxHeight: "190px", containerStyle }}
-                        unstyled={minimal}
+                        strategy={strategy}
                       >
-                        <SortableContext
-                          items={items[containerId]}
-                          strategy={strategy}
-                        >
 
-                          {items[containerId].map((value, index) => {
-                            return (
-                              <SortableItem
-                                disabled={isSortingContainer}
-                                key={value}
-                                id={value}
-                                index={index}
-                                handle={handle}
-                                style={getItemStyles}
-                                wrapperStyle={wrapperStyle}
-                                renderItem={renderItem}
-                                containerId={containerId}
-                                getIndex={getIndex}
-                                items={items}
-                                setItems={setItems}
-                              />
-                            );
-                          })}
+                        {items[containerId].map((value, index) => {
+                          return (
+                            <SortableItem
+                              disabled={isSortingContainer}
+                              key={value}
+                              id={value}
+                              index={index}
+                              handle={handle}
+                              style={getItemStyles}
+                              wrapperStyle={wrapperStyle}
+                              renderItem={renderItem}
+                              containerId={containerId}
+                              getIndex={getIndex}
+                              items={items}
+                              setItems={setItems}
+                            />
+                          );
+                        })}
 
-                        </SortableContext>
-                      </DroppableContainer>
-                      <Group position="right" key={index + "group"}>
-                        {items[containerId].length > 0 ?
-                          <Button leftIcon={<VscClearAll size={18} />}
-                            onClick={() => {
-                              clearCourses(containerId);
-                            }}
-                            styles={(theme) => (
-                              specChosen ?
-                                {
-                                  root: {
-                                    backgroundColor: `${snap.specialization.colours?.primary}`,
+                      </SortableContext>
+                    </DroppableContainer>
+                    <Group position="right" key={index + "group"}>
+                      {items[containerId].length > 0 ?
+                        <Button leftIcon={<VscClearAll size={18} />}
+                          onClick={() => {
+                            clearCourses(containerId);
+                          }}
+                          styles={(theme) => (
+                            specChosen ?
+                              {
+                                root: {
+                                  backgroundColor: `${snap.specialization.colours?.primary}`,
+                                  color: `${snap.specialization.colours?.tertiary}`,
+                                  ':hover': {
+                                    backgroundColor: `${snap.specialization.colours?.secondary}`,
                                     color: `${snap.specialization.colours?.tertiary}`,
-                                    ':hover': {
-                                      backgroundColor: `${snap.specialization.colours?.secondary}`,
-                                      color: `${snap.specialization.colours?.tertiary}`,
-                                    },
-                                    boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
+                                  },
+                                  boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
 
-                                  }
-                                } : {})}
+                                }
+                              } : {})}
 
+                        >
+                          Clear Courses
+                        </Button>
+                        :
+                        <Tooltip label="No Courses in Container">
+                          <Button leftIcon={<VscClearAll />}
+                            data-disabled
+                            sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+                            onClick={(event) => event.preventDefault()}
                           >
                             Clear Courses
                           </Button>
-                          :
-                          <Tooltip label="No Courses in Container">
-                            <Button leftIcon={<VscClearAll />}
-                              data-disabled
-                              sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
-                              onClick={(event) => event.preventDefault()}
-                            >
-                              Clear Courses
-                            </Button>
-                          </Tooltip>
-                        }
+                        </Tooltip>
+                      }
 
-                        {containers.length > constants.MIN_YEARS ?
-                          <Button leftIcon={<MdDeleteSweep size={18} />}
-                            onClick={() => {
-                              handleRemoveColumn(containerId)
-                            }}
-                            styles={(theme) => (
-                              specChosen ?
-                                {
-                                  root: {
-                                    backgroundColor: `${snap.specialization.colours?.primary}`,
+                      {containers.length > constants.MIN_YEARS ?
+                        <Button leftIcon={<MdDeleteSweep size={18} />}
+                          onClick={() => {
+                            handleRemoveColumn(containerId)
+                          }}
+                          styles={(theme) => (
+                            specChosen ?
+                              {
+                                root: {
+                                  backgroundColor: `${snap.specialization.colours?.primary}`,
+                                  color: `${snap.specialization.colours?.tertiary}`,
+                                  ':hover': {
+                                    backgroundColor: `${snap.specialization.colours?.secondary}`,
                                     color: `${snap.specialization.colours?.tertiary}`,
-                                    ':hover': {
-                                      backgroundColor: `${snap.specialization.colours?.secondary}`,
-                                      color: `${snap.specialization.colours?.tertiary}`,
-                                    },
-                                    boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
-                                  }
-                                } : {})}
+                                  },
+                                  boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
+                                }
+                              } : {})}
+
+                        >
+                          Delete Year
+                        </Button>
+                        :
+                        <Tooltip label="Minimum 3 Academic Years">
+                          <Button leftIcon={<MdDeleteSweep />}
+                            data-disabled
+                            sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+                            onClick={(event) => event.preventDefault()}
 
                           >
                             Delete Year
                           </Button>
-                          :
-                          <Tooltip label="Minimum 3 Academic Years">
-                            <Button leftIcon={<MdDeleteSweep />}
-                              data-disabled
-                              sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
-                              onClick={(event) => event.preventDefault()}
+                        </Tooltip>
+                      }
+                    </Group>
+                  </>}
+              </Box>
 
-                            >
-                              Delete Year
-                            </Button>
-                          </Tooltip>
-                        }
-                      </Group>
-                    </>}
-                </Box>
+            ))}
 
-              ))}
-
-            </Flex>
-            <Flex style={{ flexDirection: "column", width: "35%" }}>
-
-              <SearchBar
-                containerId={"0"}
-                columns={columns}
-                items={items}
-                scrollable={scrollable}
-                getItemStyles={getItemStyles}
-                strategy={strategy}
-                isSortingContainer={isSortingContainer}
-                handle={handle}
-                containerStyle={containerStyle}
-                wrapperStyle={wrapperStyle}
-                renderItem={renderItem}
-                getIndex={getIndex}
-                setItems={setItems}
-                minimal={minimal}
-                specChosen={specChosen}
-              ></SearchBar>
-            </Flex>
+          </Flex>
+          <Flex style={{ flexDirection: "column", width: "35%" }}>
+            <SearchBar
+              containerId={"0"}
+              columns={columns}
+              items={items}
+              scrollable={scrollable}
+              getItemStyles={getItemStyles}
+              strategy={strategy}
+              isSortingContainer={isSortingContainer}
+              handle={handle}
+              containerStyle={containerStyle}
+              wrapperStyle={wrapperStyle}
+              renderItem={renderItem}
+              getIndex={getIndex}
+              setItems={setItems}
+              minimal={minimal}
+              specChosen={specChosen}
+            ></SearchBar>
           </Flex>
 
 
 
+
         </SortableContext>
-      </div>
+      </Flex>
       {
         createPortal(
           <DragOverlay adjustScale={adjustScale} dropAnimation={dropAnimation}>

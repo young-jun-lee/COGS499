@@ -10,8 +10,6 @@ const TreeContainer: FC = () => {
     return (
         <Flex style={{ flexDirection: "column", alignItems: "center", width: "100%", height: "100%", borderRadius: "1em", border: `5px solid ${snap.specialization.colours?.primary}`, boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)" }}>
 
-            {/* <div> */}
-            {/* <h1 style={{ textAlign: "center" }}>What's Next</h1> */}
             <Box sx={
                 (theme) => ({
                     width: '35%',
@@ -27,9 +25,10 @@ const TreeContainer: FC = () => {
                 <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600, }}>What's Next</div>
             </Box>
             <h3 style={{ textAlign: "center" }}>Here's a roadmap based on your degree plan and the courses you've chosen so far</h3>
-            <div style={{ width: "90%", height: 500 }}>
-                <Flow />
-            </div>
+            <Box sx={(theme) =>
+                ({ width: "90%", height: 500, border: `5px solid ${snap.specialization.colours?.primary}`, borderRadius: theme.radius.md, })}>
+                <Flow backgroundColor={snap.specialization.colours?.tertiary} />
+            </Box>
         </Flex>
     );
 };

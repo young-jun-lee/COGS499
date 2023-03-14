@@ -1,5 +1,5 @@
 import { SortableContext } from '@dnd-kit/sortable';
-import { Autocomplete, Box, Button, Tooltip } from '@mantine/core';
+import { Autocomplete, Box, Button, Flex, Tooltip } from '@mantine/core';
 import { FC, useState } from 'react';
 import { VscClearAll } from 'react-icons/vsc';
 import { v4 as uuidv4 } from 'uuid';
@@ -7,6 +7,8 @@ import { useSnapshot } from 'valtio';
 import { state } from '../../Valtio/State';
 import { DroppableContainer } from '../DND/DroppableContainer';
 import { SortableItem } from '../DND/SortableItem';
+import { constants } from '../../content/Constants';
+import { showNotification } from '@mantine/notifications';
 
 interface RequiredCourses {
     containerId: string | number,
@@ -56,6 +58,15 @@ const SearchBar: FC<RequiredCourses> = ({
     // const [courses, setCourses] = useState<Course[]>(items[containerId]);
     const snap = useSnapshot(state)
     const handleItemSubmit = (item: Course) => {
+        console.log(items[containerId])
+        if (items[containerId].length >= constants.MAX_COURSES) {
+            showNotification({
+                title: 'Max Courses Reached',
+                message: `You have reached the max number of courses for the shopping cart. Please remove a course before adding another.`,
+                color: 'red',
+            });
+            return;
+        }
 
         if (items[containerId].some((course) => course === item.value)) {
             return;
@@ -77,10 +88,10 @@ const SearchBar: FC<RequiredCourses> = ({
             sx={(theme) => ({
                 width: '100%',
                 height: '100%',
-                padding: theme.spacing.sm,
+                // alignSelf: "center",
+                // padding: theme.spacing.sm,
             })}
         >
-
             <Box
                 sx={(theme) => ({
                     backgroundColor: `${snap.specialization.colours?.tertiary}`,
@@ -113,17 +124,19 @@ const SearchBar: FC<RequiredCourses> = ({
                         { value: "MATH 129", group: "MATH", id: uuidv4() },
                     ]}
                     onItemSubmit={handleItemSubmit}
-                    sx={{ alignSelf: "start", marginBottom: 20 }}
+                    sx={{ alignSelf: "start", marginBottom: 20, marginTop: 10, width: "80%" }}
                     maxDropdownHeight={500}
+                    size='md'
                 />
                 <DroppableContainer
                     id={containerId}
                     label={minimal ? undefined : `Column ${containerId}`}
-                    columns={1}
+                    columns={2}
                     items={items[containerId]}
                     scrollable={scrollable}
-                    style={{ width: "100%", height: "100%", maxHeight: '680px !important' }}
+                    style={{ width: "100%", height: "100%", maxHeight: '680px', }}
                 >
+
                     <SortableContext
                         items={items[containerId]}
                         strategy={strategy}
@@ -147,6 +160,7 @@ const SearchBar: FC<RequiredCourses> = ({
                             );
                         })}
                     </SortableContext>
+
                 </DroppableContainer>
                 {items[containerId].length > 0 ?
                     <Button leftIcon={<VscClearAll size={18} />}

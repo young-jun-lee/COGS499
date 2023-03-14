@@ -1,18 +1,23 @@
-import { useCallback } from "react";
+import { FC, useCallback } from "react";
 import ReactFlow, { useNodesState, applyNodeChanges, Background, MiniMap } from "reactflow";
 import { useSnapshot } from "valtio";
 import { generateCourseNodes } from "../../utils/generateCourseNodes";
 import { state } from "../../Valtio/State";
 
 
-const rfStyle = {
-    backgroundColor: '#D0C0F7',
-};
 
 
-export const Flow = () => {
+interface FlowProps {
+    // columns: Column[]
+    backgroundColor: string | undefined
+}
+
+
+export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
     const snap = useSnapshot(state);
-
+    const rfStyle = {
+        backgroundColor: backgroundColor,
+    };
     // const columns = Object.keys(snap.columns).map(key => snap.columns[key])
     // console.log(columns)
     // console.log("rendering")
@@ -32,7 +37,7 @@ export const Flow = () => {
         }
         columns.push({ name: column.name, items })
     }
-    console.log(columns)
+    // console.log(columns)
 
     let { courseNodes, courseEdges } = generateCourseNodes(columns)
 

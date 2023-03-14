@@ -69,10 +69,12 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization.colours?.tertiary,
                         color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.primary,
                         alignSelf: "center",
-                        width: "100%",
+                        // width: "100%",
                         boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)",
                         "--fillColor": `${snap.specialization.colours?.secondary}`,
-                        "--bgColor": `${snap.specialization.colours?.tertiary}`
+                        "--bgColor": `${snap.specialization.colours?.tertiary}`,
+                        paddingRight: "4em",
+                        paddingLeft: "4em",
                     })
                 } className="title">
                     <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>
