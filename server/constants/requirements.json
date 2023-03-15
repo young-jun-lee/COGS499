@@ -9383,11 +9383,11 @@
             "None"
         ],
         "exclusions": [
-            "ARTF 227",
-            "ARTF 265"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "ARTF 227",
+            "ARTF 265"
         ]
     },
     "ARTF 127": {
@@ -9408,7 +9408,9 @@
             "ARTF 106"
         ],
         "one_way_exclusions": [
-            "None"
+            "ARTF 125",
+            "ARTF 260",
+            "ARTF 265"
         ]
     },
     "ARTF 128": {
@@ -9491,8 +9493,10 @@
         "description": "An intermediate studio practice course exploring the practical and pedagogical aspects of print-based artwork, processes and strategies, as well as the resulting theoretical implications that have accompanied recent technological changes in production and distribution.\nNOTE Only available to students in the Faculty of Education.\nNOTE Materials estimated cost: $200.\nRECOMMENDATION ARTH 120/6.0.",
         "units": 3,
         "prerequisites": [
-            "ARTF 101",
-            "ARTF 102"
+            [
+                "ARTF 101",
+                "ARTF 102"
+            ]
         ],
         "corequisites": [
             "None"
@@ -22120,29 +22124,16 @@
                 "STAT 263",
                 "STAT 367"
             ],
-            "HLTH 252",
-            "BIOL 243",
-            "CHEE 209",
-            "COMM 162",
-            "ECON 250",
-            "GPHY 247",
-            "KNPE 251",
-            "NURS 323",
-            "POLS 385",
-            "PSYC 202",
-            "SOCY 211",
-            "STAM 200",
-            "STAT 263",
-            "STAT 367"
+            "HLTH 252"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "EPID 301"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "EPID 301"
         ]
     },
     "HLTH 331": {
@@ -22151,8 +22142,10 @@
         "description": "Current issues relating to nutrition and health promotion/disease prevention. Such topics as cardiovascular disease, weight control, eating disorders, nutrient needs during the life cycle, fads and quackery, sociocultural, economic and media influences. Topics may vary.\nNOTE Nutrition Software: estimated cost $75.",
         "units": 3,
         "prerequisites": [
-            "HLTH 230",
-            "NURS 100"
+            [
+                "HLTH 230",
+                "NURS 100"
+            ]
         ],
         "corequisites": [
             "None"
@@ -22373,10 +22366,8 @@
         "description": "An examination and application of the principles of program planning in a variety of settings. Topics will include needs assessment, intervention design and implementation, and evaluation. Students will develop a program plan.",
         "units": 3,
         "prerequisites": [
-            [
-                "HLTH 252",
-                "HLTH 315"
-            ]
+            "HLTH 252",
+            "HLTH 315"
         ],
         "corequisites": [
             "None"
@@ -22433,9 +22424,11 @@
         "description": "This course explores the proliferation of health social movements since the 1970s. Bringing together the interdisciplinary study of health and illness with social movement theory, the course analyses the strategies, goals, and outcomes of political organizing around conditions ranging from HIV/AIDS to sick building syndrome. Students will lead seminar discussions and undertake original research on a movement of their choice.",
         "units": 3,
         "prerequisites": [
-            "HLTH 333",
-            "HLTH 334",
-            "DEVS 355"
+            [
+                "HLTH 333",
+                "HLTH 334",
+                "DEVS 355"
+            ]
         ],
         "corequisites": [
             "None"
@@ -28623,11 +28616,11 @@
             "None"
         ],
         "exclusions": [
-            "ITLN 204",
-            "ITLN 205"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "ITLN 204",
+            "ITLN 205"
         ]
     },
     "ITLN 112": {
@@ -28660,10 +28653,10 @@
             "None"
         ],
         "exclusions": [
-            "ITLN 205"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "ITLN 205"
         ]
     },
     "ITLN 205": {
@@ -32229,10 +32222,10 @@
             "None"
         ],
         "exclusions": [
-            "PATH 310"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "PATH 310"
         ]
     },
     "PATH 310": {
@@ -36800,10 +36793,10 @@
             "None"
         ],
         "exclusions": [
-            "KNPE 225"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "KNPE 225"
         ]
     },
     "PHGY 215": {
@@ -37028,11 +37021,13 @@
             "None"
         ],
         "corequisites": [
-            "MATH 120",
-            "MATH 121",
             [
-                "MATH 123",
-                "MATH 124"
+                "MATH 120",
+                "MATH 121",
+                [
+                    "MATH 123",
+                    "MATH 124"
+                ]
             ]
         ],
         "exclusions": [
@@ -37054,11 +37049,13 @@
             "None"
         ],
         "corequisites": [
-            "MATH 120",
-            "MATH 121",
             [
-                "MATH 123",
-                "MATH 124"
+                "MATH 120",
+                "MATH 121",
+                [
+                    "MATH 123",
+                    "MATH 124"
+                ]
             ]
         ],
         "exclusions": [
@@ -37200,8 +37197,14 @@
         "description": "Computing environments, algorithms, techniques and programming for solving physics problems. Numerical methods. Code development. Possible topics to be covered include numerical differentiation and integration, root finding and optimization problems, solution of linear systems of equations, Monte Carlo simulation, and symbolic computation.",
         "units": 3,
         "prerequisites": [
-            "MATH 120",
-            "MATH 121"
+            [
+                "PHYS 104",
+                "PHYS 106"
+            ],
+            [
+                "MATH 120",
+                "MATH 121"
+            ]
         ],
         "corequisites": [
             "None"
@@ -37245,9 +37248,15 @@
         "description": "The experimental basis and mathematical description of electrostatics, magnetostatics and electromagnetic induction, together with a discussion of the properties of dielectrics and ferromagnetics, are presented.  Both the integral and vector forms of Maxwell's equations are deduced.",
         "units": 3,
         "prerequisites": [
-            "MATH 221",
-            "MATH 227",
-            "MATH 280"
+            [
+                "PHYS 104",
+                "PHYS 106"
+            ],
+            [
+                "MATH 221",
+                "MATH 227",
+                "MATH 280"
+            ]
         ],
         "corequisites": [
             "None"
@@ -37265,8 +37274,10 @@
         "description": "Evidence for relativistic effects. Kinematics and dynamics in special relativity, space-time diagrams, applications. Evidence for quanta, spectra, Bohr atom. Introduction to the Schroedinger equation.",
         "units": 3,
         "prerequisites": [
-            "PHYS 104",
-            "PHYS 106"
+            [
+                "PHYS 104",
+                "PHYS 106"
+            ]
         ],
         "corequisites": [
             "None"
@@ -37284,8 +37295,10 @@
         "description": "Laboratory and lecture course that presents techniques and skills that are the foundations of experimental physics. Topics include statistical analysis of data, uncertainties in measurement, propagation of errors, software for data analysis, graphing and reporting. Students will be exposed to techniques in the measurement of electric, magnetic, thermal and mechanical properties. Laboratories also illustrate some principles of quantum physics, mechanics, electromagnetism and thermodynamics learned in other physics courses. Some exposure to computerized data acquisition is included.",
         "units": 3,
         "prerequisites": [
-            "PHYS 104",
-            "PHYS 106"
+            [
+                "PHYS 104",
+                "PHYS 106"
+            ]
         ],
         "corequisites": [
             "None"
@@ -37303,18 +37316,20 @@
         "description": "Students will develop an appreciation for the physical and chemical processes that control light and colours. Students will learn the basic principles of light emission and propagation, image formation, the workings of optical devices and detectors, colour theory and colour perception, colour in art, colour in nature, and colours in astronomy.",
         "units": 3,
         "prerequisites": [
-            "PHYS 104",
-            "PHYS 106",
-            "PHYS 117",
-            "PHYS 118",
-            "BIOL 102",
-            "BIOL 103",
-            "CHEM 112",
-            "GEOL 102",
-            "GEOL 104",
-            "GEOL 106",
-            "GEOL 107",
-            "PSYC 100"
+            [
+                "PHYS 104",
+                "PHYS 106",
+                "PHYS 117",
+                "PHYS 118",
+                "BIOL 102",
+                "BIOL 103",
+                "CHEM 112",
+                "GEOL 102",
+                "GEOL 104",
+                "GEOL 106",
+                "GEOL 107",
+                "PSYC 100"
+            ]
         ],
         "corequisites": [
             "None"
@@ -37351,9 +37366,16 @@
         "description": "Methods of mathematics important for physicists. Complex arithmetic, series expansions and approximations of functions, Fourier series and transforms, vector spaces and eigenvalue problems, ordinary differential equations and Green's functions.",
         "units": 3,
         "prerequisites": [
-            "MATH 225",
-            "MATH 231",
-            "MATH 232"
+            [
+                "MATH 221",
+                "MATH 227",
+                "MATH 280"
+            ],
+            [
+                "MATH 225",
+                "MATH 231",
+                "MATH 232"
+            ]
         ],
         "corequisites": [
             "None"
@@ -37713,8 +37735,10 @@
         "description": "A fundamental treatment of the properties of solids. Topics include: crystal structure, X-ray and neutron scattering, the reciprocal lattice, phonons, electronic energy bands, and the thermal, magnetic, optical and transport properties of solids.",
         "units": 3,
         "prerequisites": [
-            "PHYS 345",
-            "CHEM 313"
+            [
+                "PHYS 345",
+                "CHEM 313"
+            ]
         ],
         "corequisites": [
             "None"
@@ -42277,8 +42301,10 @@
         "description": "An interdisciplinary course that employs a community service-learning model in order to develop specialized writing skills. Students will be actively involved in the completion of a writing project in the local community. Written and oral work will facilitate individual reflection on the writing process. Class time consisting of lectures, discussions, workshops, and presentations will encourage critical thinking, editing, and research skills.",
         "units": 6,
         "prerequisites": [
-            "WRIT 125",
-            "WRIT 175"
+            [
+                "WRIT 125",
+                "WRIT 175"
+            ]
         ],
         "corequisites": [
             "None"
@@ -42296,8 +42322,10 @@
         "description": "Students are introduced to professional writing in the context of online media. As students write and critically assess writing in the genres of blog entries, Twitter essays, and other forms of social media, they strengthen writing and editing skills, write according to purpose and audience, and recognize various styles in social media writing.\nNOTE Only offered online, consult Arts and Science Online.",
         "units": 3,
         "prerequisites": [
-            "WRIT 120",
-            "WRIT 125"
+            [
+                "WRIT 120",
+                "WRIT 125"
+            ]
         ],
         "corequisites": [
             "None"
@@ -44256,10 +44284,12 @@
         "description": "Critical examination of science in modern society; particular reference to historical development, transmission of scientific knowledge, conduct of enquiry, and interdependence with other institutions.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44278,10 +44308,12 @@
         "description": "Critical study of historical development of scientific and medical establishments with specific focus upon women; legal, ethical, and economic issues related to new reproductive technologies examined.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44300,8 +44332,10 @@
         "description": "Critical study of conceptual, empirical, and theoretical bases to sociological approaches to crime and delinquency; Canadian research emphasized.",
         "units": 3,
         "prerequisites": [
-            "SOCY 274",
-            "SOCY 275"
+            [
+                "SOCY 274",
+                "SOCY 275"
+            ]
         ],
         "corequisites": [
             "None"
@@ -44319,8 +44353,10 @@
         "description": "Comparative examination of criminal justice system and its major institutions; Canadian research emphasized.",
         "units": 3,
         "prerequisites": [
-            "SOCY 274",
-            "SOCY 275"
+            [
+                "SOCY 274",
+                "SOCY 275"
+            ]
         ],
         "corequisites": [
             "None"
@@ -44338,8 +44374,10 @@
         "description": "Investigation of gender differences in offending, victimization and criminal justice processing; Canadian research emphasized.",
         "units": 3,
         "prerequisites": [
-            "SOCY 274",
-            "SOCY 275"
+            [
+                "SOCY 274",
+                "SOCY 275"
+            ]
         ],
         "corequisites": [
             "None"
@@ -44450,12 +44488,10 @@
         "description": "This is an experimental learning course based on the Walls to Bridges program model, which brings together students from Queen's University ('outside students') with students from a local federal prison ('inside students') to learn and share knowledge based on their lived experience and critical analysis of academic scholarship. Topics may vary.\nNOTE This course will take place off campus at a local federal prison, as part of the Walls to Bridges prison education program - http://wallstobridges.ca.",
         "units": 3,
         "prerequisites": [
-            [
-                "SOCY 210,",
-                "SOCY 211,",
-                "SOCY 226,",
-                "SOCY 227"
-            ]
+            "SOCY 210,",
+            "SOCY 211,",
+            "SOCY 226,",
+            "SOCY 227"
         ],
         "corequisites": [
             "None"
@@ -44473,12 +44509,10 @@
         "description": "This is an experimental learning course based on the Walls to Bridges program model, which brings together students from Queen's University ('outside students') with students from a local federal prison ('inside students') to learn and share knowledge based on their lived experience and critical analysis of academic scholarship. Topics may vary.\nNOTE This course will take place off campus at a local federal prison, as part of the Walls to Bridges prison education program - http://wallstobridges.ca.",
         "units": 3,
         "prerequisites": [
-            [
-                "SOCY 210,",
-                "SOCY 211,",
-                "SOCY 226,",
-                "SOCY 227"
-            ]
+            "SOCY 210,",
+            "SOCY 211,",
+            "SOCY 226,",
+            "SOCY 227"
         ],
         "corequisites": [
             "None"
@@ -45045,6 +45079,9 @@
             "None"
         ],
         "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
             "SPAN 112",
             "SPAN 201",
             "SPAN 204",
@@ -45055,9 +45092,6 @@
             "SPAN 304",
             "SPAN 401",
             "SPAN 402"
-        ],
-        "one_way_exclusions": [
-            "None"
         ]
     },
     "SPAN 112": {
@@ -45075,7 +45109,15 @@
             "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "SPAN 201",
+            "SPAN 204",
+            "SPAN 205",
+            "SPAN 301",
+            "SPAN 302",
+            "SPAN 303",
+            "SPAN 304",
+            "SPAN 401",
+            "SPAN 402"
         ]
     },
     "SPAN 204": {
@@ -45090,6 +45132,9 @@
             "None"
         ],
         "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
             "SPAN 201",
             "SPAN 205",
             "SPAN 301",
@@ -45098,9 +45143,6 @@
             "SPAN 304",
             "SPAN 401",
             "SPAN 402"
-        ],
-        "one_way_exclusions": [
-            "None"
         ]
     },
     "SPAN 205": {
@@ -45115,6 +45157,9 @@
             "None"
         ],
         "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
             "SPAN 201",
             "SPAN 301",
             "SPAN 302",
@@ -45122,9 +45167,6 @@
             "SPAN 304",
             "SPAN 401",
             "SPAN 402"
-        ],
-        "one_way_exclusions": [
-            "None"
         ]
     },
     "SPAN 206": {
@@ -45139,11 +45181,11 @@
             "SPAN 205"
         ],
         "exclusions": [
-            "SPAN 401",
-            "SPAN 402"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "SPAN 401",
+            "SPAN 402"
         ]
     },
     "SPAN 301": {
@@ -45152,19 +45194,21 @@
         "description": "This course provides a comprehensive review of the most difficult aspects of Spanish grammar through advanced exercises in reading, composition, and conversation.  The goal of the course is to consolidate and perfect the student's written and oral skills.",
         "units": 3,
         "prerequisites": [
-            "SPAN 201",
-            "SPAN 205"
+            [
+                "SPAN 201",
+                "SPAN 205"
+            ]
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
             "SPAN 302",
             "SPAN 401",
             "SPAN 402"
-        ],
-        "one_way_exclusions": [
-            "None"
         ]
     },
     "SPAN 302": {
@@ -45179,11 +45223,11 @@
             "None"
         ],
         "exclusions": [
-            "SPAN 401",
-            "SPAN 402"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "SPAN 401",
+            "SPAN 402"
         ]
     },
     "SPAN 303": {
@@ -45192,8 +45236,10 @@
         "description": "Intensive practice in advanced grammar with a focus on Spanish for business, technical, administrative and related cultural purposes.",
         "units": 3,
         "prerequisites": [
-            "SPAN 201",
-            "SPAN 205"
+            [
+                "SPAN 201",
+                "SPAN 205"
+            ]
         ],
         "corequisites": [
             "None"
@@ -45232,8 +45278,16 @@
             "SPAN 352"
         ],
         "corequisites": [
-            "SPAN 303",
-            "SPAN 304"
+            [
+                [
+                    "SPAN 301",
+                    "SPAN 302"
+                ],
+                [
+                    "SPAN 303",
+                    "SPAN 304"
+                ]
+            ]
         ],
         "exclusions": [
             "None"
@@ -45269,8 +45323,16 @@
             "SPAN 380"
         ],
         "corequisites": [
-            "SPAN 303",
-            "SPAN 304"
+            [
+                [
+                    "SPAN 301",
+                    "SPAN 302"
+                ],
+                [
+                    "SPAN 303",
+                    "SPAN 304"
+                ]
+            ]
         ],
         "exclusions": [
             "LLCU 330"
@@ -45303,8 +45365,10 @@
         "description": "Short theatre played an important role in the theatre of Spanish Golden Age. In this course students will study the literary particularities of the genre and the social ramifications of the themes present in short theatre (gender, battle of the sexes, diversity, authority amongst others) and their historical and contemporary relevance.\nNOTE Taught in English with LLCU 332. Written work and examinations are in Spanish. Readings are in translation.",
         "units": 3,
         "prerequisites": [
-            "SPAN 380",
-            "SPAN 381"
+            [
+                "SPAN 380",
+                "SPAN 381"
+            ]
         ],
         "corequisites": [
             "None"
@@ -45343,8 +45407,16 @@
             "SPAN 381"
         ],
         "corequisites": [
-            "SPAN 303",
-            "SPAN 304"
+            [
+                [
+                    "SPAN 301",
+                    "SPAN 302"
+                ],
+                [
+                    "SPAN 303",
+                    "SPAN 304"
+                ]
+            ]
         ],
         "exclusions": [
             "None"
@@ -45395,11 +45467,22 @@
         "description": "A study of recent contributions to Latin American cultural production by women, including an overview of gender issues and the role women have played in their nations' history. The course will also explore the variety of voices that make up the cultural production of women in Latin America in terms of class, ethnicity, race and sexual orientation.\nNOTE Taught in English with LLCU 354. Student concentrating in Spanish submit written assignments, tests and examinations in Spanish.",
         "units": 3,
         "prerequisites": [
-            "SPAN 351",
-            "SPAN 352"
+            [
+                "SPAN 351",
+                "SPAN 352"
+            ]
         ],
         "corequisites": [
-            "None"
+            [
+                [
+                    "SPAN 301",
+                    "SPAN 302"
+                ],
+                [
+                    "SPAN 303",
+                    "SPAN 304"
+                ]
+            ]
         ],
         "exclusions": [
             "LLCU 354"
@@ -45414,8 +45497,10 @@
         "description": "An introduction to the major authors and works of the literature of Spain from its beginnings to the end of the 17th Century. Through study and analysis students will obtain a general understanding of the main cultural, historical, and societal trends and movements during these periods.",
         "units": 3,
         "prerequisites": [
-            "SPAN 201",
-            "SPAN 205"
+            [
+                "SPAN 201",
+                "SPAN 205"
+            ]
         ],
         "corequisites": [
             "None"
@@ -45433,8 +45518,10 @@
         "description": "An introduction to the major authors and works of the literature of Spain from the Enlightenment to the present. Through study and analysis students will obtain a general understanding of the main cultural and historical and societal trends and movements during these eras.",
         "units": 3,
         "prerequisites": [
-            "SPAN 201",
-            "SPAN 205"
+            [
+                "SPAN 201",
+                "SPAN 205"
+            ]
         ],
         "corequisites": [
             "None"
@@ -45461,10 +45548,10 @@
             "None"
         ],
         "exclusions": [
-            "SPAN 402"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "SPAN 402"
         ]
     },
     "SPAN 402": {
@@ -47361,15 +47448,17 @@
         "description": "This course is part of the Engineering Design and Practice Sequence. Heat and mass transfer knowledge is applied in the analysis and design of unit operations, including separation processes and heat exchanging equipment. The equilibrium stage concept is used to perform calculations and size separation processes including distillation, gas absorption/stripping and liquid-liquid extraction. Heat transfer processes are taught with an emphasis on the design various types of heat exchanging equipment, including shell and tube heat exchangers, condensers and reboilers. The chemical process design component of the course involves a series of activities, dealing with the design of separation processes, heat exchanger sizing and design, process hazards analysis, implementation of instrumentation and construction of piping and instrument diagrams. In addition to choosing and sizing unit operations and implementing appropriate process instrumentation, the students will learn to use simulation tools and will incorporate economics, safety and environmental responsibility in all stages of the design. The course is integrated with CHEE 361 Engineering Communications, Ethics and Professionalism.\nK4.5(Lec: Yes, Lab: No, Tut: Yes)",
         "units": 4.5,
         "prerequisites": [
-            "APSC 200",
-            "APSC 202",
+            [
+                "APSC 200",
+                "APSC 202"
+            ],
             "APSC 293",
             "CHEE 311",
             "CHEE 321",
             "CHEE 330"
         ],
         "corequisites": [
-            "None"
+            "CHEE 361"
         ],
         "exclusions": [
             "None"
@@ -57776,9 +57865,11 @@
         "description": "This courses introduces fundamental concepts for designing automation machines: designing and specifying machine elements such as cams, gears and drives; designing mechanisms that generate different types of motion for part feeding, orienting, transferring and indexing; controlling motion through pneumatic and electric actuators and PLCs; machine vision systems for inspection; and condition monitoring machines for fault detection and safety. Students will get hands-on experience programming and controlling an automation machine through a series of labs with a tabletop mechatronic workcell.\n(Lec: 3, Lab: 0.5, Tut: 0)",
         "units": 3.5,
         "prerequisites": [
-            "MREN 223",
-            "ELEC 443",
-            "MECH 350"
+            [
+                "MREN 223",
+                "ELEC 443",
+                "MECH 350"
+            ]
         ],
         "corequisites": [
             "None"

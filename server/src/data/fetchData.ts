@@ -14,7 +14,7 @@ const crawler = new CheerioCrawler({
       console.log("Course CODE:",$(el).find('span.text.col-2.detail-code').text());
 
       let prerequisites = formatResults(requirements, /Prerequisite(.*?\.)(?!\d)|PREREQUISITES:(.*)/);
-      let corequisites = formatResults(requirements, /Corequisite(.*?)\./g);
+      let corequisites = formatResults(requirements, /Corequisite(.*?\.)(?!\d)|Corequisites(.*?)\./g);
       let exclusions = formatResults(requirements, /Exclusion(.*?)\./g);
       let one_way_exclusions = formatResults(requirements, /One-Way Exclusion(.*?)\.|One-way Exclusion(.*?)\.|One-way exclusion(.*?)\.|One Way Exclusion(.*?)\.|One Way exclusion(.*?)\.|One way exclusion(.*?)\./g);
 
@@ -47,5 +47,5 @@ const crawler = new CheerioCrawler({
 
 // await crawler.run(COIs);
 // await crawler.run(CompCOIs);
-await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/phys/'])
+await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/psyc/'])
 export { crawler, formatResults }
