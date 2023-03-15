@@ -10,29 +10,29 @@ import { SortableItem } from '../DND/SortableItem';
 import { constants } from '../../content/Constants';
 import { showNotification } from '@mantine/notifications';
 
-interface RequiredCourses {
-    containerId: string | number,
-    id: string,
-    label: string,
-    columns: number,
-    items: string[],
-    scrollable: boolean,
-    style: object,
-    unstyled: boolean,
-    strategy: string,
-    disabled: boolean,
-    handle: boolean,
-    itemStyle: object,
-    wrapperStyle: object,
-    renderItem: (item: Course) => JSX.Element,
-    getIndex: (item: Course) => number,
-    setItems: (items: Course[]) => void,
-    minimal: boolean,
-    getItemStyles: any
-    isSortingContainer: any
-    containerStyle: any,
-    specChosen: boolean
-}
+// interface RequiredCourses {
+//     containerId: string | number,
+//     id: string,
+//     label: string,
+//     columns: number,
+//     items: string[],
+//     scrollable: boolean,
+//     style: object,
+//     unstyled: boolean,
+//     strategy: string,
+//     disabled: boolean,
+//     handle: boolean,
+//     itemStyle: object,
+//     wrapperStyle: object,
+//     renderItem: (item: Course) => JSX.Element,
+//     getIndex: (item: Course) => number,
+//     setItems: (items: Course[]) => void,
+//     minimal: boolean,
+//     getItemStyles: any
+//     isSortingContainer: any
+//     containerStyle: any,
+//     specChosen: boolean
+// }
 
 interface Course {
     value: string
@@ -40,7 +40,7 @@ interface Course {
     group: string
 }
 
-const SearchBar: FC<RequiredCourses> = ({
+const SearchBar: FC = ({
     containerId,
     items,
     scrollable,
@@ -68,16 +68,20 @@ const SearchBar: FC<RequiredCourses> = ({
             return;
         }
 
-        if (items[containerId].some((course) => course === item.value)) {
+        if (items[containerId].some((course) => course.value === item.value)) {
             return;
         }
+
         // check if item is already in items, which is an object of arrays
-        if (Object.values(items).some((container) => container.includes(item.value))) {
-            return
+        if (Object.values(items).some((container) => container.some((course) => course.value === item.value))) {
+            return;
+        } else {
+            setItems({
+                ...items,
+                [containerId]: [...items[containerId], { id: item.value, value: item.value, group: item.group, prerequisites: item.prerequisites }]
+            });
         }
-        else {
-            setItems({ ...items, [containerId]: [...items[containerId], item.value] })
-        }
+
     };
 
     const clearCourses = () => {
@@ -108,18 +112,18 @@ const SearchBar: FC<RequiredCourses> = ({
                 <Autocomplete
                     placeholder="Search for a course"
                     data={[
-                        { value: 'CISC 111', group: 'CISC', id: uuidv4() },
-                        { value: 'CISC 112', group: 'CISC', id: uuidv4() },
-                        { value: 'CISC 113', group: 'CISC', id: uuidv4() },
-                        { value: 'MATH 122', group: 'MATH', id: uuidv4() },
-                        { value: 'MATH 101', group: 'MATH', id: uuidv4() },
-                        { value: "MATH 123", group: "MATH", id: uuidv4() },
-                        { value: "MATH 124", group: "MATH", id: uuidv4() },
-                        { value: "MATH 125", group: "MATH", id: uuidv4() },
-                        { value: "MATH 126", group: "MATH", id: uuidv4() },
-                        { value: "MATH 127", group: "MATH", id: uuidv4() },
-                        { value: "MATH 128", group: "MATH", id: uuidv4() },
-                        { value: "MATH 129", group: "MATH", id: uuidv4() },
+                        { value: 'CISC 111', group: 'CISC', id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: 'CISC 112', group: 'CISC', id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: 'CISC 113', group: 'CISC', id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: 'MATH 122', group: 'MATH', id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: 'MATH 101', group: 'MATH', id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: "MATH 123", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: "MATH 124", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: "MATH 125", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: "MATH 126", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: "MATH 127", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: "MATH 128", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
+                        { value: "MATH 129", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
                     ]}
                     onItemSubmit={handleItemSubmit}
                     sx={{ alignSelf: "start", marginBottom: 20, marginTop: 10 }}
@@ -139,12 +143,12 @@ const SearchBar: FC<RequiredCourses> = ({
                         items={items[containerId]}
                         strategy={strategy}
                     >
-                        {items[containerId].map((course, index) => {
+                        {items[containerId].map((course: Course, index: number) => {
                             return (
                                 <SortableItem
                                     disabled={isSortingContainer}
-                                    key={course}
-                                    id={course}
+                                    key={course.id}
+                                    id={course.id}
                                     index={index}
                                     style={getItemStyles}
                                     // style={{ width: "100%", height: "100%" }}

@@ -96,9 +96,9 @@ export const MultipleContainers = ({
     getItems()
   );
 
-  useEffect(() => {
-    console.log('items: ', items)
-  }, [items])
+  // useEffect(() => {
+  //   console.log('items: ', items)
+  // }, [items])
 
   const [containers, setContainers] = useState(
     Object.keys(items) as UniqueIdentifier[]
@@ -131,7 +131,7 @@ export const MultipleContainers = ({
 
       if (overId != null) {
         if (overId in items) {
-          const containerItems = items[overId];
+          const containerItems = items[overId].map((item) => item.id);
 
           // If a container is matched and it contains items (columns 'A', 'B', 'C')
           if (containerItems.length > 0) {
@@ -161,29 +161,46 @@ export const MultipleContainers = ({
     },
     [activeId, items]
   );
+
   const [clonedItems, setClonedItems] = useState<Items | null>(null);
   const sensors = useSensors(
     useSensor(MouseSensor),
     useSensor(TouchSensor),
   );
-  
+
   const findContainer = (id: UniqueIdentifier) => {
-    if (id in items) {
-      console.log("here find container")
-      return id;
+    // if (id in items) {
+    //   console.log('id: ', id)
+    //   return id;
+    // }
+
+    const container = Object.keys(items).find((key) =>
+      Object.values(items[key]).some((item) => item.id === id)
+    );
+    if (container) {
+      return container;
     }
 
-    return Object.keys(items).find((key) => items[key].includes(id));
+
+    // return Object.keys(items).find((key) => items[key].includes(id));
+    return Object.keys(items).find((key) => {
+      for (let item of items[key]) {
+        if (item.value === id) {
+          return key;
+        }
+      }
+    });
   };
 
   const getIndex = (id: UniqueIdentifier) => {
     const container = findContainer(id);
-
+    // console.log('container: ', container)
     if (!container) {
       return -1;
     }
 
-    const index = items[container].indexOf(id);
+    // const index = items[container].indexOf(id);
+    const index = items[container].findIndex(item => item.value === id);
 
     return index;
   };
@@ -279,7 +296,7 @@ export const MultipleContainers = ({
             style={getItemStyles({
               containerId,
               overIndex: -1,
-              index: getIndex(item.value),
+              index: getIndex(item),
               value: item.value,
               isDragging: false,
               isSorting: false,
@@ -311,10 +328,13 @@ export const MultipleContainers = ({
       }}
       onDragStart={({ active }) => {
         setActiveId(active.id);
-        setClonedItems(items);
+        console.log("active", active)
+        setClonedItems({ ...items });
       }}
+
       onDragOver={({ active, over }) => {
         const overId = over?.id;
+        console.log("overId", overId)
 
         if (overId == null || active.id in items) {
           return;
@@ -337,13 +357,11 @@ export const MultipleContainers = ({
         }
 
         if (activeContainer !== overContainer) {
-          // return if max items in container
-
           setItems((items) => {
             const activeItems = items[activeContainer];
             const overItems = items[overContainer];
-            const overIndex = overItems.indexOf(overId);
-            const activeIndex = activeItems.indexOf(active.id);
+            const overIndex = overItems.findIndex((item) => item.id === overId);
+            const activeIndex = activeItems.findIndex((item) => item.id === active.id);
 
             let newIndex: number;
 
@@ -366,26 +384,25 @@ export const MultipleContainers = ({
 
             return {
               ...items,
-              [activeContainer]: items[activeContainer].filter(
-                (item) => item.value !== active.id
-              ),
+              [activeContainer]: activeItems.filter((item) => item.id !== active.id),
               [overContainer]: [
-                ...items[overContainer].slice(0, newIndex),
-                items[activeContainer][activeIndex],
-                ...items[overContainer].slice(
-                  newIndex,
-                  items[overContainer].length
-                ),
+                ...overItems.slice(0, newIndex),
+                { id: active.id },
+                ...overItems.slice(newIndex),
               ],
             };
           });
         }
       }}
+
+
       onDragEnd={({ active, over }) => {
         if (active.id in items && over?.id) {
           setContainers((containers) => {
             const activeIndex = containers.indexOf(active.id);
+
             const overIndex = containers.indexOf(over.id);
+
 
             return arrayMove(containers, activeIndex, overIndex);
           });
@@ -408,23 +425,30 @@ export const MultipleContainers = ({
         const overContainer = findContainer(overId);
 
         if (overContainer) {
-          const activeIndex = items[activeContainer].indexOf(active.id);
-          const overIndex = items[overContainer].indexOf(overId);
+          const activeIndex = items[activeContainer].findIndex((item) => item.id === active.id);
+          const overIndex = items[overContainer].findIndex((item) => item.id === overId);
 
           if (activeIndex !== overIndex) {
-            setItems((items) => ({
-              ...items,
-              [overContainer]: arrayMove(
-                items[overContainer],
-                activeIndex,
-                overIndex
-              ),
-            }));
+            setItems((items) => {
+              const activeItem = items[activeContainer][activeIndex];
+
+              return {
+                ...items,
+                [activeContainer]: items[activeContainer].filter((item) => item.id !== active.id),
+                [overContainer]: [
+                  ...items[overContainer].slice(0, overIndex),
+                  activeItem,
+                  ...items[overContainer].slice(overIndex),
+                ],
+              };
+            });
           }
         }
 
         setActiveId(null);
       }}
+
+
       cancelDrop={cancelDrop}
       onDragCancel={onDragCancel}
       modifiers={modifiers}
@@ -453,7 +477,7 @@ export const MultipleContainers = ({
                     <div key={index} style={{ fontSize: 25, fontWeight: 600 }}>Year {containerId}</div>
                     <DroppableContainer
                       id={containerId}
-                      label={minimal ? undefined : `Column ${containerId}`}
+                      label={minimal ? undefined : `Column ${containerId} `}
                       columns={columns}
                       items={items[containerId]}
                       scrollable={scrollable}
@@ -497,11 +521,11 @@ export const MultipleContainers = ({
                             specChosen ?
                               {
                                 root: {
-                                  backgroundColor: `${snap.specialization.colours?.primary}`,
-                                  color: `${snap.specialization.colours?.tertiary}`,
+                                  backgroundColor: `${snap.specialization.colours?.primary} `,
+                                  color: `${snap.specialization.colours?.tertiary} `,
                                   ':hover': {
-                                    backgroundColor: `${snap.specialization.colours?.secondary}`,
-                                    color: `${snap.specialization.colours?.tertiary}`,
+                                    backgroundColor: `${snap.specialization.colours?.secondary} `,
+                                    color: `${snap.specialization.colours?.tertiary} `,
                                   },
                                   boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
 
@@ -532,11 +556,11 @@ export const MultipleContainers = ({
                             specChosen ?
                               {
                                 root: {
-                                  backgroundColor: `${snap.specialization.colours?.primary}`,
-                                  color: `${snap.specialization.colours?.tertiary}`,
+                                  backgroundColor: `${snap.specialization.colours?.primary} `,
+                                  color: `${snap.specialization.colours?.tertiary} `,
                                   ':hover': {
-                                    backgroundColor: `${snap.specialization.colours?.secondary}`,
-                                    color: `${snap.specialization.colours?.tertiary}`,
+                                    backgroundColor: `${snap.specialization.colours?.secondary} `,
+                                    color: `${snap.specialization.colours?.tertiary} `,
                                   },
                                   boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
                                 }
@@ -574,11 +598,11 @@ export const MultipleContainers = ({
                     specChosen ?
                       {
                         root: {
-                          backgroundColor: `${snap.specialization.colours?.primary}`,
-                          color: `${snap.specialization.colours?.tertiary}`,
+                          backgroundColor: `${snap.specialization.colours?.primary} `,
+                          color: `${snap.specialization.colours?.tertiary} `,
                           ':hover': {
-                            backgroundColor: `${snap.specialization.colours?.secondary}`,
-                            color: `${snap.specialization.colours?.tertiary}`,
+                            backgroundColor: `${snap.specialization.colours?.secondary} `,
+                            color: `${snap.specialization.colours?.tertiary} `,
                           },
                           boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
 

@@ -53,9 +53,9 @@ export default function App() {
             <Flex style={{ height: "60%", marginTop: "50px" }}>
               <SelectContainer />
             </Flex>
-            <Flex style={{ height: "60%", marginTop: "50px", marginBottom: "50px" }}>
-              <FlowContainer />
-            </Flex>
+            {/* <Flex style={{ height: "60%", marginTop: "50px", marginBottom: "50px" }}> */}
+            {/* <FlowContainer /> */}
+            {/* </Flex> */}
           </Container>
         </NotificationsProvider>
       </MantineProvider>
