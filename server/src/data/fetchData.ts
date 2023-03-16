@@ -12,8 +12,8 @@ const crawler = new CheerioCrawler({
       const requirements = ($(el).find('span.text.detail-requirements.margin--default').text())
 
       let prerequisites = formatResults(requirements, /Prerequisite(.*?\.)(?!\d)|PREREQUISITES:(.*)/);
-      let corequisites = formatResults(requirements, /Corequisite(.*?)\./g);
-      let exclusions = formatResults(requirements, /Exclusion(.*?)\./g);
+      let corequisites = formatResults(requirements, /Corequisite(.*?)\.|co-req(.*?)\./g);
+      let exclusions = formatResults(requirements, /Exclusion(.*?)\.)|EXCLUSION(.*?)\./g);
       let one_way_exclusions = formatResults(requirements, /One-Way Exclusion(.*?)\.|One-way Exclusion(.*?)\.|One-way exclusion(.*?)\.|One Way Exclusion(.*?)\.|One Way exclusion(.*?)\.|One way exclusion(.*?)\./g);
       if (one_way_exclusions.length > 0 && exclusions.length > 0 && !(one_way_exclusions[0] === "None" && exclusions[0] === "None")) { exclusions = exclusions.filter(exclusion => !one_way_exclusions.includes(exclusion)) }
       if (exclusions.length === 0) { exclusions.push("None") } if (one_way_exclusions.length === 0) { one_way_exclusions.push("None") }
@@ -40,6 +40,6 @@ const crawler = new CheerioCrawler({
 
 
 
-// await crawler.run(COIs);
-await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/cisc/'])
+await crawler.run(COIs);
+//await crawler.run(['https://www.queensu.ca/academic-calendar/arts-science/course-descriptions/psyc/'])
 export { crawler, formatResults }
