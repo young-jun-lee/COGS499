@@ -1,4 +1,76 @@
 {
+    "ANIM 200": {
+        "code": "ANIM 200",
+        "title": "Introduction to Animation",
+        "description": "The course covers key developments in independent and commercial animation over the last century and offers critical engagement with emerging voices in the field. The course includes a historical overview of animation practices, a hands-on introduction to basic animation techniques, and a required field trip to a major animation festival.\nNOTE Field Trip: estimated cost $400.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ANIM 400": {
+        "code": "ANIM 400",
+        "title": "Special Topics in Animation",
+        "description": "An advanced course in developing expertise through research and/or praxis in specialized areas of animation production and studies.",
+        "units": 3,
+        "prerequisites": [
+            "ANIM 200"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ANSH 101": {
+        "code": "ANSH 101",
+        "title": "Beginning Anishinaabe Language and Culture I",
+        "description": "An introduction to the language and culture of the Anishinaabe people. This course is designed for those who have neither been exposed to Anishinaabemowin nor its traditional societal practices. Gain a rich understanding of the Anishinaabe people and their language at the beginning level.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "LLCU 101"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ANSH 102": {
+        "code": "ANSH 102",
+        "title": "Beginning Anishinaabe Language and Culture II",
+        "description": "A continuation of ANSH 101. Students will participate and begin to develop the ability to read, write and speak some basic Anishinaabemowin and further their understanding of the rich culture, traditions and worldviews of the Anishinaabe people.",
+        "units": 3,
+        "prerequisites": [
+            "ANSH 101"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "LLCU 102"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
     "ARAB 100": {
         "code": "ARAB 100",
         "title": "Introductory Arabic (Modern Standard)",
@@ -53,6 +125,78 @@
             "None"
         ]
     },
+    "ASCX 150": {
+        "code": "ASCX 150",
+        "title": "Learning and Working in a Digital World",
+        "description": "The future is uncertain. Information is expanding at an exponential rate. Jobs that were formerly done by humans are being taken over by artificial intelligence and automation. This course will ask what it means to be a human learner and worker in a rapidly changing digital world. Students will develop a transferable and flexible toolbox of skills.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ASCX 200": {
+        "code": "ASCX 200",
+        "title": "Dean's Changemaker Challenge: Collaborative Problem Solving",
+        "description": "This course is part of the Dean's Changemaker Challenge. It is dedicated to preparing students to identify -a real- world problem and to implement their solution to a problem. Successful completion of this course will provide access to ASCX 300 where students will have the opportunity to execute on the real-world implementation of their solution.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "ENIN 200"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ASCX 300": {
+        "code": "ASCX 300",
+        "title": "Dean's Changemaker Challenge: Implementation Strategies",
+        "description": "This course is part of the Dean's Changemaker Challenge. Students from this course will have successfully completed ASCX 200 to advance into ASCX 300. The course is dedicated to the implementation of their solution to a problem (identified in ASCX 200). The majority of work done in this course will be group work in an interdisciplinary team.",
+        "units": 3,
+        "prerequisites": [
+            "ASCX 200"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CHEE 302"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ASCX 400": {
+        "code": "ASCX 400",
+        "title": "Interdisciplinary Client-based Project",
+        "description": "Multi-disciplinary teams of engineering, commerce, law, science, social science, and humanities students undertake consulting projects with industrial, government and not-for-profit clients. Projects will encompass topics based on societal and industry interests (such as social innovation, process improvement, business strategy, environment etc.).",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "APSC 401"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
     "ASTR 101": {
         "code": "ASTR 101",
         "title": "Astronomy I: Solar System",
@@ -77,8 +221,17 @@
         "description": "This course, intended for non-specialist students, will provide an overview of astronomy beyond the Solar System. Topics will include: the formation, nature, and evolution of the stars; stellar deaths, including novae, supernovae, white dwarfs, neutron stars, pulsars, and black holes; the interstellar medium; the Milky Way Galaxy; normal and active galaxies and large scale structure in the universe; and modern ideas in cosmology and the early universe.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.",
         "units": 3,
         "prerequisites": [
-            "APSC 111",
-            "APSC 112"
+            [
+                "ASTR 101",
+                "PHYS 104",
+                "PHYS 106",
+                "PHYS 117",
+                "PHYS 118",
+                [
+                    "APSC 111",
+                    "APSC 112"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -3912,6 +4065,33 @@
             "None"
         ]
     },
+    "BIOM 300": {
+        "code": "BIOM 300",
+        "title": "Modeling Techniques in Biology",
+        "description": "Modeling will be presented in the context of biological examples drawn from ecology and evolution, including life history evolution, sexual selection, evolutionary epidemiology and medicine, and ecological interactions. Techniques will be drawn from dynamical systems, probability, optimization, and game theory with emphasis put on how to formulate and analyze models.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 124"
+            ],
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
     "CANC 380": {
         "code": "CANC 380",
         "title": "Evolutionary Biology of Cancer",
@@ -3936,10 +4116,12 @@
         "description": "A consideration of current knowledge and theories about the biology and treatment of cancer. The course will be presented in a small group format, with active student participation required.\nNOTE Priority to students in the LISC Specialization Plan, CANC Sub-Plan.",
         "units": 3,
         "prerequisites": [
-            "BCHM 310",
-            "BIOL 334",
-            "BCHM 315",
-            "BCHM 316"
+            [
+                "BCHM 310",
+                "BIOL 334",
+                "BCHM 315",
+                "BCHM 316"
+            ]
         ],
         "corequisites": [
             "None"
@@ -4907,12 +5089,14 @@
         "units": 3,
         "prerequisites": [
             [
-                "PHGY 215",
-                "PHGY 216"
-            ],
-            "PHGY 214",
-            "PHGY 212",
-            "PHGY 210"
+                [
+                    "PHGY 215",
+                    "PHGY 216"
+                ],
+                "PHGY 214",
+                "PHGY 212",
+                "PHGY 210"
+            ]
         ],
         "corequisites": [
             "None"
@@ -4931,12 +5115,14 @@
         "units": 3,
         "prerequisites": [
             [
-                "PHGY 215",
-                "PHGY 216"
-            ],
-            "PHGY 214",
-            "PHGY 212",
-            "PHGY 210"
+                [
+                    "PHGY 215",
+                    "PHGY 216"
+                ],
+                "PHGY 214",
+                "PHGY 212",
+                "PHGY 210"
+            ]
         ],
         "corequisites": [
             "None"
@@ -5444,15 +5630,17 @@
         "units": 3,
         "prerequisites": [
             [
-                "CLST 102",
-                "CLST 103"
-            ],
-            "CLST 129",
-            "CLST 130",
-            "CLST 131",
-            "CLST 200",
-            "CLST 207",
-            "CLST 101"
+                [
+                    "CLST 102",
+                    "CLST 103"
+                ],
+                "CLST 129",
+                "CLST 130",
+                "CLST 131",
+                "CLST 200",
+                "CLST 207",
+                "CLST 101"
+            ]
         ],
         "corequisites": [
             "None"
@@ -5471,14 +5659,16 @@
         "units": 3,
         "prerequisites": [
             [
-                "CLST 102",
-                "CLST 103"
-            ],
-            "CLST 129",
-            "CLST 130",
-            "CLST 131",
-            "CLST 200",
-            "CLST 101"
+                [
+                    "CLST 102",
+                    "CLST 103"
+                ],
+                "CLST 129",
+                "CLST 130",
+                "CLST 131",
+                "CLST 200",
+                "CLST 101"
+            ]
         ],
         "corequisites": [
             "None"
@@ -5497,14 +5687,16 @@
         "units": 3,
         "prerequisites": [
             [
-                "CLST 102",
-                "CLST 103"
-            ],
-            "CLST 129",
-            "CLST 130",
-            "CLST 131",
-            "CLST 201",
-            "CLST 101"
+                [
+                    "CLST 102",
+                    "CLST 103"
+                ],
+                "CLST 129",
+                "CLST 130",
+                "CLST 131",
+                "CLST 201",
+                "CLST 101"
+            ]
         ],
         "corequisites": [
             "None"
@@ -5523,14 +5715,16 @@
         "units": 3,
         "prerequisites": [
             [
-                "CLST 102",
-                "CLST 103"
-            ],
-            "CLST 129",
-            "CLST 130",
-            "CLST 131",
-            "CLST 201",
-            "CLST 101"
+                [
+                    "CLST 102",
+                    "CLST 103"
+                ],
+                "CLST 129",
+                "CLST 130",
+                "CLST 131",
+                "CLST 201",
+                "CLST 101"
+            ]
         ],
         "corequisites": [
             "None"
@@ -5574,10 +5768,12 @@
         "description": "Intensive study (in translation) of the major epics of classical antiquity: Homer, Hesiod, Apollonios, Vergil and Lucan in the context of the oral and literate heroic traditions. Comparative study of English heroic poetry encouraged.",
         "units": 3,
         "prerequisites": [
-            "CLST 100",
             [
-                "CLST 102",
-                "CLST 103"
+                "CLST 100",
+                [
+                    "CLST 102",
+                    "CLST 103"
+                ]
             ]
         ],
         "corequisites": [
@@ -5596,14 +5792,16 @@
         "description": "Intensive study (in translation) of representative works from the ancient theatre, both tragic (Aeschylus, Sophocles, Euripides, Seneca) and comic (Aristophanes, Menander, Plautus, Terence). Comparative study of English drama of the classical tradition encouraged.",
         "units": 3,
         "prerequisites": [
-            "CLST 100",
             [
-                "CLST 102",
-                "CLST 103"
-            ],
-            "DRAM 200",
-            "DRAM 210",
-            "DRAM 219"
+                "CLST 100",
+                [
+                    "CLST 102",
+                    "CLST 103"
+                ],
+                "DRAM 200",
+                "DRAM 210",
+                "DRAM 219"
+            ]
         ],
         "corequisites": [
             "None"
@@ -5621,12 +5819,14 @@
         "description": "A study of how the human body is viewed in ancient medical theory and practice. Readings of ancient medical texts will explore how the human body is constituted, how it relates to the world, what the role of the physician was seen to be in prevention and treatment of disease, and how illness and healing were understood in ancient Greece and Rome.",
         "units": 3,
         "prerequisites": [
-            "CLST 200",
-            "CLST 201",
-            "CLST 203",
-            "CLST 207",
-            "CLST 208",
-            "CLST 214"
+            [
+                "CLST 200",
+                "CLST 201",
+                "CLST 203",
+                "CLST 207",
+                "CLST 208",
+                "CLST 214"
+            ]
         ],
         "corequisites": [
             "None"
@@ -5788,8 +5988,10 @@
         "description": "This course explores how the ancient Greeks conceptualised their own identity and perceived other cultures around them. Learning about how the ancient Greeks understood kinship, difference, ethnicity and indigeneity, we will also continually reflect on the relevance of this study to contemporary issues (race, colonialism, gender, slavery).",
         "units": 3,
         "prerequisites": [
-            "CLST 102",
-            "CLST 200"
+            [
+                "CLST 102",
+                "CLST 200"
+            ]
         ],
         "corequisites": [
             "None"
@@ -5825,14 +6027,16 @@
         "description": "The growth of Athens from the Neolithic period to Late Antiquity. Emphasis on social and political developments and personal aspirations which determine the cityscape.",
         "units": 3,
         "prerequisites": [
-            "CLST 303",
-            "CLST 304",
-            "CLST 330",
-            "CLST 331",
-            "CLST 332",
-            "CLST 333",
-            "CLST 334",
-            "CLST 335"
+            [
+                "CLST 303",
+                "CLST 304",
+                "CLST 330",
+                "CLST 331",
+                "CLST 332",
+                "CLST 333",
+                "CLST 334",
+                "CLST 335"
+            ]
         ],
         "corequisites": [
             "None"
@@ -5850,12 +6054,14 @@
         "description": "The growth of Rome from the foundation to Late Antiquity based on archaeological evidence. Emphasis on developments during its classical period.",
         "units": 3,
         "prerequisites": [
-            "CLST 305",
-            "CLST 306",
-            "CLST 321",
-            "CLST 340",
-            "CLST 341",
-            "CLST 343"
+            [
+                "CLST 305",
+                "CLST 306",
+                "CLST 321",
+                "CLST 340",
+                "CLST 341",
+                "CLST 343"
+            ]
         ],
         "corequisites": [
             "None"
@@ -6112,29 +6318,34 @@
         "description": "Basic methods involved in researching the distribution and determinants of health/disease in populations. Core principles of epidemiology are examined, as are the various epidemiological approaches to study design. The latter include descriptive (cross-sectional and ecological), observational (case-control and cohort), and experimental (randomized controlled trials) approaches.",
         "units": 3,
         "prerequisites": [
-            "BIOL 243",
-            "CHEE 209",
-            "COMM 162",
-            "ECON 250",
-            "GPHY 247",
-            "KNPE 251",
-            "NURS 323",
-            "POLS 285",
-            "POLS 385",
-            "PSYC 202",
-            "SOCY 211",
-            "STAM 200",
-            "STAT 263",
-            "STAT 267",
-            "STAT 269",
-            "STAT 367"
+            [
+                "BIOL 243",
+                "CHEE 209",
+                "COMM 162",
+                "ECON 250",
+                "GPHY 247",
+                "KNPE 251",
+                "NURS 323",
+                "POLS 285",
+                "POLS 385",
+                "PSYC 202",
+                "SOCY 211",
+                "STAM 200",
+                "STAT 263",
+                "STAT 267",
+                "STAT 269",
+                "STAT 367"
+            ]
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "HSCI 270",
-            "BMED 270"
+            [
+                "HSCI 270",
+                "BMED 270"
+            ],
+            "HLTH 323"
         ],
         "one_way_exclusions": [
             "None"
@@ -6424,8 +6635,10 @@
         "description": "This course introduces students to the various models of mediation used in the modern workplace to resolve conflicts as well as a variety of other emerging alternative dispute resolution (ADR) processes. Students are introduced to the theory, process, and practice of workplace mediation.",
         "units": 3,
         "prerequisites": [
-            "EMPR 200",
-            "EMPR 220"
+            [
+                "EMPR 200",
+                "EMPR 220"
+            ]
         ],
         "corequisites": [
             "None"
@@ -6461,9 +6674,11 @@
         "description": "Compensation, including direct wages, indirect payments, and employee benefits, is studied in the context of economic and motivational theory, and from the point of view of practice. Topics include strategic perspectives on pay, pay equity legislation, internal equity and alignment of pay structures, external competitiveness, pay for performance.",
         "units": 3,
         "prerequisites": [
-            "EMPR 200",
-            "EMPR 210",
-            "EMPR 230"
+            [
+                "EMPR 200",
+                "EMPR 210",
+                "EMPR 230"
+            ]
         ],
         "corequisites": [
             "None"
@@ -6481,8 +6696,10 @@
         "description": "There is increasing recognition of the critical role of managers in shaping key employee attitudes (job satisfaction, motivation, and engagement), with important effects for organizational performance. Students will explore a range of theories and practices that are demonstrated drivers of employee attitudes and organizational success.",
         "units": 3,
         "prerequisites": [
-            "EMPR 200",
-            "EMPR 230"
+            [
+                "EMPR 200",
+                "EMPR 230"
+            ]
         ],
         "corequisites": [
             "None"
@@ -8195,9 +8412,11 @@
         "description": "This course offers students an opportunity to learn the craft of writing for dramatic film. The class will be structured as both an academic seminar and a writing workshop. Students will analyze scripts, short stories, and films to prepare themselves for writing a dramatic adaptation of a story.",
         "units": 3,
         "prerequisites": [
-            "CWRI 293",
-            "CWRI 294",
-            "CWRI 295"
+            [
+                "CWRI 293",
+                "CWRI 294",
+                "CWRI 295"
+            ]
         ],
         "corequisites": [
             "None"
@@ -9279,9 +9498,11 @@
         "description": "Advanced study of the early stage components involved in the complex process of drug development including target identification, design and synthesis, structure activity relationships, in vitro and in vivo efficacy determination, biochemical and biological optimization.\nNOTE Priority given to students in the LISC Specialization Plan, DDHT Sub-Plan.",
         "units": 3,
         "prerequisites": [
-            "PHAR 270",
-            "PHAR 340",
-            "PHAR 370"
+            [
+                "PHAR 270",
+                "PHAR 340",
+                "PHAR 370"
+            ]
         ],
         "corequisites": [
             "None"
@@ -9299,9 +9520,11 @@
         "description": "Advanced study of the component parts of the complex process of drug discovery and development and the assessment of human toxicology including drug delivery and formulation, directed toxicology studies, drug disposition, clinical trials, legal issues and regulatory approval.\nNOTE Priority given to students in the LISC Specialization Plan, DDHT Sub-Plan.",
         "units": 3,
         "prerequisites": [
-            "PHAR 270",
-            "PHAR 340",
-            "PHAR 370"
+            [
+                "PHAR 270",
+                "PHAR 340",
+                "PHAR 370"
+            ]
         ],
         "corequisites": [
             "None"
@@ -9703,26 +9926,30 @@
         "description": "Theory of markets and prices: decision-making by individuals and firms, equilibrium conditions under various market structures, and issues of individual and social welfare. This course presumes a knowledge of calculus at the first-year university level.\nNOTE A grade of C in this course is required as a prerequisite for ECON 310.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
             [
-                "ECON 111",
-                "ECON 112"
-            ],
-            [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                [
+                    "ECON 111",
+                    "ECON 112"
+                ],
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
-            "MATH 120",
-            "MATH 121",
             [
-                "MATH 123",
-                "MATH 124"
-            ],
-            "MATH 126",
-            "APSC 172",
-            "COMM 161"
+                "MATH 120",
+                "MATH 121",
+                [
+                    "MATH 123",
+                    "MATH 124"
+                ],
+                "MATH 126",
+                "APSC 172",
+                "COMM 161"
+            ]
         ],
         "exclusions": [
             "None"
@@ -9737,26 +9964,30 @@
         "description": "A study of the basic models of national income determination and financial markets. The course includes application to policy problems such as inflation, unemployment and balance of payments disequilibria.\nNOTE A grade of C in this course is required as a prerequisite for ECON 320.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
             [
-                "ECON 111",
-                "ECON 112"
-            ],
-            [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                [
+                    "ECON 111",
+                    "ECON 112"
+                ],
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
-            "MATH 120",
-            "MATH 121",
             [
-                "MATH 123",
-                "MATH 124"
-            ],
-            "MATH 126",
-            "APSC 172",
-            "COMM 161"
+                "MATH 120",
+                "MATH 121",
+                [
+                    "MATH 123",
+                    "MATH 124"
+                ],
+                "MATH 126",
+                "APSC 172",
+                "COMM 161"
+            ]
         ],
         "exclusions": [
             "None"
@@ -9771,11 +10002,13 @@
         "description": "Current topics in macroeconomic policy which may include: unemployment and policies to reduce it, government budget deficits, supply-side controversies, financial deregulation, policy coordination, and management of exchange rates. Comparison of policies in Canada, the United States, and other OECD countries.\nNOTE Also offered online. Consult Arts and Science Online, Learning Hours may vary.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 112",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 112",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -9794,11 +10027,13 @@
         "description": "This course will focus on two major topics: a) the process of economic integration towards a common market in Europe; and b) the coordination of macroeconomic policy within Europe, the operation of the European Monetary System and the movement towards European Union.\nNOTE Offered only at the Bader International Study Centre, Herstmonceux.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 112",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 112",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -9817,11 +10052,13 @@
         "description": "An examination of the origins of modern economic growth concentrating on the industrial revolution in Britain and the prior developments leading up to it. Some attention is directed to the early followers of the changes initiated in Britain.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -9840,11 +10077,13 @@
         "description": "The spread of industrialization and economic development in Europe and areas beyond in the late 19th and early 20th centuries. The geographic focus may differ from year to year but Germany, Russia and Japan are usually included.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -9863,11 +10102,13 @@
         "description": "A survey of the various economic theories and models elaborating the process of development. The course considers the meaning of economic development; the fundamental analytics of economic growth; the barriers to growth; balanced and unbalanced strategies of growth; population, employment and technology problems; foreign-trade and foreign aid issues.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -9886,11 +10127,13 @@
         "description": "The incentive effects of taxes on the allocation of resources in the economy and their impact on the distribution of wealth in Canada. Reviews Canadian tax policy and evaluates the effects of various federal and provincial taxes on the behaviour of households and firms.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -9909,11 +10152,13 @@
         "description": "An application of economic analysis to a selection of public policy issues. The topics covered will vary from year to year, but examples include regulation of agricultural and industrial markets, health economics, trade policy, natural resource policy, property rights and the 'external' effects of private activities. This course should be of special interest to students of law, political studies and sociology as well as economics.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -9932,11 +10177,13 @@
         "description": "An economic analysis of modern health care institutions, organizations, and markets, both generically and in the Canadian context. A discussion of current Canadian health policy debates and various policy options and reform proposals.\nNOTE Also offered online. Consult Arts and Science Online, Learning Hours may vary.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -9955,11 +10202,13 @@
         "description": "An economic critique of policies past and present with regard to First Nations, Inuit, and Métis peoples living in Canada, with reference to relevant cultural, historic, geographic, and governance contexts. In some years, material may be more comparative and international in scope.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -9978,38 +10227,44 @@
         "description": "Statistical methods as used in economics. This course introduces statistical hypothesis testing and covers basic methods as far as linear regression analysis.\nNOTE A grade of C in this course is required as a prerequisite for ECON 351.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
             [
-                "ECON 111",
-                "ECON 112"
-            ],
-            [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                [
+                    "ECON 111",
+                    "ECON 112"
+                ],
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
-            "MATH 120",
-            "MATH 121",
             [
-                "MATH 123",
-                "MATH 124"
-            ],
-            "MATH 126"
+                "MATH 120",
+                "MATH 121",
+                [
+                    "MATH 123",
+                    "MATH 124"
+                ],
+                "MATH 126"
+            ]
         ],
         "exclusions": [
-            "BIOL 243",
-            "CHEE 209",
-            "COMM 162",
-            "GPHY 247",
-            "KNPE 251",
-            "NURS 323",
-            "POLS 285",
-            "PSYC 202",
-            "SOCY 211",
-            "STAM 200",
-            "STAT 263",
-            "STAT 367"
+            [
+                "BIOL 243",
+                "CHEE 209",
+                "COMM 162",
+                "GPHY 247",
+                "KNPE 251",
+                "NURS 323",
+                "POLS 285",
+                "PSYC 202",
+                "SOCY 211",
+                "STAM 200",
+                "STAT 263",
+                "STAT 367"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -10021,18 +10276,20 @@
         "description": "An introduction to the use of mathematics in economic analysis. The first part of the course will concentrate on techniques for constrained and unconstrained optimization, as applied to problems of firm and consumer behaviour. This will lead to the interpretation of Lagrange multipliers as shadow prices. The second part of the course will show how matrix algebra may be used to study problems of production and allocation in interdependent economies.",
         "units": 3,
         "prerequisites": [
-            "MATH 120",
-            "MATH 121",
             [
-                "MATH 123",
-                "MATH 124"
-            ],
-            "MATH 126",
-            [
-                "APSC 171",
-                "APSC 172"
-            ],
-            "COMM 161"
+                "MATH 120",
+                "MATH 121",
+                [
+                    "MATH 123",
+                    "MATH 124"
+                ],
+                "MATH 126",
+                [
+                    "APSC 171",
+                    "APSC 172"
+                ],
+                "COMM 161"
+            ]
         ],
         "corequisites": [
             "None"
@@ -10050,11 +10307,13 @@
         "description": "An analysis of the Canadian labour relations system in an economic setting. The socio-economic institutional framework of the industrial and collective bargaining system in Canada provides the background for an analysis of some major emerging issues, such as white collar unionism, unions in the public sector, the public interest in emergency disputes, and the impact of technological change.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -10073,11 +10332,13 @@
         "description": "A Canadian perspective on labour market theories, trends, policies and the analysis of differences by gender in labour demand, labour supply, and wages.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -10096,11 +10357,13 @@
         "description": "An examination of the interrelationships between changes in the size, composition and distribution of population and changes in the economy. Application is made of some elementary concepts of economic theory and some basic techniques of demographic analysis are introduced. Illustrations are drawn from both the Canadian and the international settings.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -10119,11 +10382,13 @@
         "description": "An examination of the economic principles and practices for using environmental resources such as air, water, and natural environments. The economically optimal use of these resources is contrasted with actual uses in modern economies. Government policies are examined in theory and in practice. Cost benefit analysis is presented as a technique for evaluating public sector projects using environmental resources.",
         "units": 3,
         "prerequisites": [
-            "ECON 110",
-            "ECON 111",
             [
-                "COMM 171",
-                "COMM 172"
+                "ECON 110",
+                "ECON 111",
+                [
+                    "COMM 171",
+                    "COMM 172"
+                ]
             ]
         ],
         "corequisites": [
@@ -10557,10 +10822,12 @@
         "description": "An advanced course in economic history that explores a selection of topics debated in the literature. An emphasis is placed on the use of economic analysis to deal with historical issues. The topics vary from year to year and usually concern mainly, but not exclusively, North America. Offered concurrently with ECON 831.",
         "units": 3,
         "prerequisites": [
-            "ECON 231",
-            "ECON 232",
-            "ECON 331",
-            "ECON 332"
+            [
+                "ECON 231",
+                "ECON 232",
+                "ECON 331",
+                "ECON 332"
+            ]
         ],
         "corequisites": [
             "ECON 310",
@@ -10748,17 +11015,28 @@
         "description": "Series of seminar courses on microeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10770,17 +11048,28 @@
         "description": "Series of seminar courses on microeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10792,17 +11081,28 @@
         "description": "Series of seminar courses on microeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10814,17 +11114,28 @@
         "description": "Series of seminar courses on microeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10836,17 +11147,28 @@
         "description": "Series of seminar courses on microeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10858,17 +11180,28 @@
         "description": "Series of seminar courses on microeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10880,17 +11213,28 @@
         "description": "Series of seminar courses on microeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10902,17 +11246,28 @@
         "description": "Series of seminar courses on microeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10924,17 +11279,28 @@
         "description": "Series of seminar courses on microeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10946,17 +11312,28 @@
         "description": "Series of seminar courses on microeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10968,17 +11345,28 @@
         "description": "Series of seminar courses on macroeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -10990,17 +11378,28 @@
         "description": "Series of seminar courses on macroeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 492",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -11012,17 +11411,28 @@
         "description": "Series of seminar courses on macroeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 493",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -11034,17 +11444,28 @@
         "description": "Series of seminar courses on macroeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 494"
         ],
         "one_way_exclusions": [
             "None"
@@ -11056,17 +11477,28 @@
         "description": "Series of seminar courses on macroeconomic topics. Evaluation based on presentations, formal/informal participation and written papers. Offerings vary from year to year with staff availability. Topics announced in advance of course selection and available on the Undergraduate webpage.\nNOTE Fourth year ECON Medial students with fewer than 30.0 ECON units and fourth year APEC students without ECON 320 should contact the department before May 1 to obtain permission to register in this course.",
         "units": 3,
         "prerequisites": [
-            [
-                "ECON 310;",
-                "ECON 320;",
-                "ECON 351"
-            ]
+            "ECON 310;",
+            "ECON 320;",
+            "ECON 351"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "ECON 480"
+            "ECON 480",
+            "ECON 481",
+            "ECON 482",
+            "ECON 483",
+            "ECON 484",
+            "ECON 485",
+            "ECON 486",
+            "ECON 487",
+            "ECON 488",
+            "ECON 489",
+            "ECON 490",
+            "ECON 491",
+            "ECON 492",
+            "ECON 493"
         ],
         "one_way_exclusions": [
             "None"
@@ -12707,10 +13139,8 @@
         "description": "A survey of major literary works written in Old English and Old Norse from the ninth to the thirteenth centuries. Readings will include sagas, epics, elegies, riddles, mythology, as well as historical and religious writing.",
         "units": 6,
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
@@ -12728,10 +13158,8 @@
         "description": "A survey of vernacular literature composed in the British Isles before 1500. Readings may be taken from Welsh, Irish, Old English, Norman and Middle English literature and may include such works as The Mabinogion, the Lais of Marie de France, Beowulf, Sir Gawain and the Green Knight, and selections from Chaucer.",
         "units": 6,
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
@@ -12749,10 +13177,8 @@
         "description": "A study of the poetry, drama, and prose of late medieval Britain. Texts are read in Middle English; language training is provided. Readings may include the dramatic cycles, Arthurian romance, Chaucer and his successors, women's writing, spiritual writing, historiography, and the culture of political and religious dissent.",
         "units": 6,
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
@@ -12789,10 +13215,8 @@
         "description": "This course surveys early romance, and particularly chivalric romance, from its first flowering during the twelfth century to the allegorical romance of the early modern period. Writers and works to be read may include Chrétien de Troyes, Marie de France, Sir Gawain and the Green Knight, Sir Thomas Malory, Sir Philip Sidney, and Edmund Spenser.",
         "units": 6,
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
@@ -13189,10 +13613,8 @@
         "description": "A study of modern and/or contemporary North American literatures (which may include some works in translation). Content will vary, but the aim will be to discern how cultural similarities and differences are reflected in individual works by writers from (e.g.) Canada, the United States, and the Caribbean.",
         "units": 6,
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
@@ -13782,10 +14204,8 @@
         "description": "For detailed information, consult the Department.",
         "units": 6,
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
@@ -13803,10 +14223,8 @@
         "description": "For detailed information, consult the Department.",
         "units": 3,
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
@@ -13824,10 +14242,8 @@
         "description": "For detailed information, consult the Department.",
         "units": 3,
         "prerequisites": [
-            [
-                "ENGL 200",
-                "ENGL 290"
-            ]
+            "ENGL 200",
+            "ENGL 290"
         ],
         "corequisites": [
             "None"
@@ -14790,8 +15206,10 @@
         "description": "This course offers students an opportunity to explore diverse writing strategies for engaging a public, scholarly, or artistic audience with respect to moving images and media cultures. Topics of consideration include but are not limited to: the essay or article format; popular culture criticism; abstract or proposal submissions; grant applications.",
         "units": 3,
         "prerequisites": [
-            "FILM 206",
-            "FILM 207"
+            [
+                "FILM 206",
+                "FILM 207"
+            ]
         ],
         "corequisites": [
             "None"
@@ -15102,9 +15520,18 @@
         "description": "This course examines advertising strategies across a range of different media to understand the construction and functions of consumerism and promotional culture in politics, art, material culture, and everyday life. Throughout the course, we consider a range of theoretical approaches and case studies to study the ways consumer culture intersects with identity, citizenship, and aesthetics. Assignments include online and/or on-campus exams, online discussion forum participation requirement, short reflective essays, and some creative design work.\nNOTE Also offered online. Consult Arts and Science Online. Learning hours may vary.\nNOTE Also offered at the Bader International Studies Centre, Herstmonceux. Learning Hours may vary.",
         "units": 3,
         "prerequisites": [
-            "COMM 131",
-            "COMM 231",
-            "PSYC 342"
+            [
+                [
+                    "FILM 236",
+                    "FILM 240",
+                    "FILM 260"
+                ],
+                [
+                    "COMM 131",
+                    "COMM 231",
+                    "PSYC 342"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16157,6 +16584,9 @@
             "None"
         ],
         "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
             "FREN 100",
             "FREN 101",
             "FREN 102",
@@ -16168,9 +16598,6 @@
             "FREN 150",
             "FREN 219",
             "FREN 320"
-        ],
-        "one_way_exclusions": [
-            "None"
         ]
     },
     "FREN 107": {
@@ -16185,6 +16612,9 @@
             "None"
         ],
         "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
             "FREN 100",
             "FREN 101",
             "FREN 102",
@@ -16195,9 +16625,6 @@
             "FREN 150",
             "FREN 219",
             "FREN 320"
-        ],
-        "one_way_exclusions": [
-            "None"
         ]
     },
     "FREN 111": {
@@ -16248,11 +16675,11 @@
             "None"
         ],
         "exclusions": [
-            "FREN 100",
-            "FREN 150"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "FREN 100",
+            "FREN 150"
         ]
     },
     "FREN 150": {
@@ -16285,10 +16712,10 @@
             "None"
         ],
         "exclusions": [
-            "FREN 320"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "FREN 320"
         ]
     },
     "FREN 225": {
@@ -16297,8 +16724,10 @@
         "description": "This course is designed to help students navigate through a range of professional workplace environments by providing them with French oral and written skills. It will expose students to professional situations and enable them to actively engage in real life scenarios.\nNOTE Only offered online. Consult Arts and Science Online.",
         "units": 3,
         "prerequisites": [
-            "FREN 118",
-            "FREN 150"
+            [
+                "FREN 118",
+                "FREN 150"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16322,13 +16751,15 @@
         "description": "The methodology of literary analysis. Assignments may include textual analysis and dissertation.",
         "units": 3,
         "prerequisites": [
-            "FREN 100",
             [
-                "FREN 101",
-                "FREN 102"
-            ],
-            "FREN 110",
-            "FREN 150"
+                "FREN 100",
+                [
+                    "FREN 101",
+                    "FREN 102"
+                ],
+                "FREN 110",
+                "FREN 150"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16347,13 +16778,15 @@
         "description": "A presentation of the principles of textual production in French as applied in the production of various types of texts.",
         "units": 3,
         "prerequisites": [
-            "FREN 100",
             [
-                "FREN 101",
-                "FREN 102"
-            ],
-            "FREN 110",
-            "FREN 150"
+                "FREN 100",
+                [
+                    "FREN 101",
+                    "FREN 102"
+                ],
+                "FREN 110",
+                "FREN 150"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16372,8 +16805,10 @@
         "description": "This course will provide learners with work-related vocabulary as well as the written and oral communication skills to effectively engage in a range of bilingual professional environments and situations pertaining to healthcare. Throughout the course, learners work in small groups on collaborative projects to simulate real world situations.\nNOTE Language is the principal focus of this course. Prior experience or professional knowledge in the field is not necessary.\nNOTE Only offered online. Consult Arts and Science Online.",
         "units": 3,
         "prerequisites": [
-            "FREN 118",
-            "FREN 150"
+            [
+                "FREN 118",
+                "FREN 150"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16396,8 +16831,10 @@
         "description": "The course will provide learners with technical vocabulary as well as the written and oral French communication skills to effectively engage in a range of situations, activities, and tasks within government workplaces. Collaborative group work and assignments will simulate real world situations.\nNOTE Language is the principal focus of this course. Prior experience or professional knowledge in the field is not necessary.\nNOTE Only offered online. Consult Arts and Science Online.",
         "units": 3,
         "prerequisites": [
-            "FREN 118",
-            "FREN 150"
+            [
+                "FREN 118",
+                "FREN 150"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16420,8 +16857,10 @@
         "description": "The course will provide learners with technical vocabulary as well as the French written and oral language skills to effectively communicate with French speaking clients and conduct routine legal communication in French. Collaborative group work and assignments will simulate real world situations.\nNOTE Language is the principal focus of this course. Prior experience or professional knowledge in the field is not necessary.\nNOTE Only offered online. Consult Arts and Science Online.",
         "units": 3,
         "prerequisites": [
-            "FREN 118",
-            "FREN 150"
+            [
+                "FREN 118",
+                "FREN 150"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16444,8 +16883,10 @@
         "description": "This online course is intended for professionals working in contexts related to Indigenous arts and cultures (artistic and cultural organizations, education, government). It is designed to provide learners with the oral and written skills necessary to accurately understand and effectively engage with Indigenous arts and cultures in the workplace.\nNOTE Only offered online. Consult Arts and Science Online.",
         "units": 3,
         "prerequisites": [
-            "FREN 118",
-            "FREN 150"
+            [
+                "FREN 118",
+                "FREN 150"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16469,13 +16910,15 @@
         "description": "An introduction to French literature from the Middle Ages to the end of the Eighteenth Century stressing how tensions generated between different ideas within a period determine the aesthetic, philosophical, and literary choices made by major authors.",
         "units": 3,
         "prerequisites": [
-            "FREN 100",
             [
-                "FREN 101",
-                "FREN 102"
-            ],
-            "FREN 110",
-            "FREN 150"
+                "FREN 100",
+                [
+                    "FREN 101",
+                    "FREN 102"
+                ],
+                "FREN 110",
+                "FREN 150"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16493,13 +16936,15 @@
         "description": "A course focusing on the socio-cultural and political aspects of African and Caribbean cinemas.",
         "units": 3,
         "prerequisites": [
-            "FREN 100",
             [
-                "FREN 101",
-                "FREN 102"
-            ],
-            "FREN 110",
-            "FREN 150"
+                "FREN 100",
+                [
+                    "FREN 101",
+                    "FREN 102"
+                ],
+                "FREN 110",
+                "FREN 150"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16517,8 +16962,17 @@
         "description": "A study of representative literary works in the Middle Ages, including La Chanson de Roland, Tristan et Iseult, Le Roman de Renart, Le Roman de la Rose, Chrétien de Troyes, Rutebeuf and Villon. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16536,8 +16990,17 @@
         "description": "A detailed study of selected plays from French theatre since 1945. Visual presentations. Semiotic approach. Cocteau, Duras, Beckett, Ionesco, Sarraute, Sartre, Koltès. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16555,8 +17018,17 @@
         "description": "A study of representative literary works of the 15th and 16th centuries, including Villon, Montaigne, Rabelais. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16592,8 +17064,17 @@
         "description": "A detailed study of major 19th century writers. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16611,8 +17092,17 @@
         "description": "A detailed study of selected novels from 20th-century French authors until 1945. Beauvoir, Camus, Céline, Cocteau, Colette, Gide, Proust, Sartre. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16630,8 +17120,17 @@
         "description": "A seminar on avant-garde and post-modern works in which students will be asked to examine traditional literary conventions of representation, particularly those established over the course of the 19th century. Class discussion will then shift to avant-garde and post-modern works that question such conventions and also address issues pertaining to the limits of representation. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16649,8 +17148,17 @@
         "description": "A study of cultural representations in contemporary film. Special topics may include women in cinema, culture and identity in French and/or Francophone cinema, history through cinema, avant-garde cinema and the 'nouvelle vague'. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16668,10 +17176,12 @@
         "description": "Acquisition of a deeper knowledge of the principles of textual production, with particular emphasis on the use of computer-based grammatical and lexicographic tools, and an examination of the stylistic constraints on textual production.",
         "units": 3,
         "prerequisites": [
-            "FREN 201",
-            "FREN 202",
-            "FREN 231",
-            "FREN 330"
+            [
+                "FREN 201",
+                "FREN 202",
+                "FREN 231",
+                "FREN 330"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16689,8 +17199,17 @@
         "description": "An intro. to French 19th and contemporary literature. More specifically focused on literature the course will also explore predominant trends in different media such as painting and cinema. Drawing on critical, historical, and literary theory, students will acquire the skills to assess how specific works reflect or relate to the aesthetic, literary, and philosophical trends of their time.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16708,8 +17227,17 @@
         "description": "An introduction to the history of ideas and cultural evolution in French Canada, African and Caribbean culture and literature, from the colonial period to the present day.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16746,8 +17274,17 @@
         "description": "A study of representative works by African and the Caribbean writers. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16784,8 +17321,10 @@
         "description": "A detailed analysis of French grammar based on the description of language structures.",
         "units": 3,
         "prerequisites": [
-            "FREN 231",
-            "FREN 330"
+            [
+                "FREN 231",
+                "FREN 330"
+            ]
         ],
         "corequisites": [
             "None"
@@ -16804,15 +17343,17 @@
         "description": "This course has as its goal to allow students to grasp the major steps in the evolution of French from Latin to the modern day. Subjects treated include: the language upon which French is based; the major steps in the development of French; French as a social institution, as an official language, and as a living language; the Francophone world.",
         "units": 3,
         "prerequisites": [
-            "FREN 215",
             [
-                "FREN 212",
-                "FREN 220"
-            ],
-            "FREN 221",
-            [
-                "FREN 230",
-                "FREN 241"
+                "FREN 215",
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
             ]
         ],
         "corequisites": [
@@ -16831,8 +17372,17 @@
         "description": "Seventeenth-century texts are studied in detail from the works of Cyrano de Bergerac, d'Urfé, Scarron, Furetière, Guilleragues and Mme de la Fayette. Travaux pratiques include oral exposés and dissertations.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16850,8 +17400,17 @@
         "description": "A study of significant trends in the novel of 18th century France with special emphasis on historical and aesthetic changes in the relationship between fiction and its social context. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16888,8 +17447,17 @@
         "description": "A study of discourse on and by women in representative works (primarily the novel). Travaux pratiques may include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16907,8 +17475,17 @@
         "description": "Focuses on a specific author or on a specific theme of Quebec literature. Topics will depend on the professor's interest and field of research. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16927,8 +17504,17 @@
         "description": "Students will explore Paris through the diverse, creative, and anecdotal perspectives offered by writers, filmmakers, painters, photographers, and other artists. Such figures have played important roles in significant literary and artistic trends and movements, and have portrayed Paris in a variety of perspectives.\nNOTE Only offered online. Consult Arts and Science Online.\nNOTE Taught in English together with FRST 290. Students concentrating in French submit written assignments, tests, and examinations in French.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16948,8 +17534,17 @@
         "description": "Montreal is a converging point for immigrants. We will explore significant texts that represent this diversity, from a migrant perspective or one of majority, and the political implications that arise in a pluralistic context, seeking to identify the model of interculturalism, and its links with notions such as hybridity adopted by migrant writers.\nNOTE This course is offered in French. Students registered in FREN 394 will read texts in their French original version and write their quizzes, essay and exam in French. Those registered in FRST 294 may read texts in translation, and write their quizzes, essay and exam in English. English version of PowerPoint presentations will be available on onQ. Students registered should understand oral French at an intermediate level.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -16967,8 +17562,17 @@
         "description": "A study of Québec society through the analysis of cinema focusing on the impacts of recent cultural institutions on the formation of cultural identity during and since the Quiet Revolution. Travaux pratiques include essays and tests.",
         "units": 3,
         "prerequisites": [
-            "FREN 230",
-            "FREN 241"
+            [
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -17007,14 +17611,16 @@
         "units": 3,
         "prerequisites": [
             [
-                "FREN 250",
-                "FREN 360"
-            ],
-            [
-                "FREN 231",
-                "FREN 330"
-            ],
-            "FREN 344"
+                [
+                    "FREN 212",
+                    "FREN 220"
+                ],
+                "FREN 221",
+                [
+                    "FREN 230",
+                    "FREN 241"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -17170,8 +17776,10 @@
         "description": "This online course is an introduction to the language of business in French. Students will learn how to understand texts in the areas of administrative correspondence, personnel issues (CV, covering letter, hiring process), basic financial reporting, and advertising. Explanations are given in English; all materials to be analyzed are in French.\nNOTE Only offered online. Consult Arts and Science Online.\nNOTE With permission of the Department, course may be taken jointly with FREN 118.\nNOTE Students with a higher level of French than beginner speakers cannot enrol in this course, and will need to sign a solemn declaration to this effect at the start of the course.",
         "units": 3,
         "prerequisites": [
-            "FRST 105",
-            "FREN 107"
+            [
+                "FRST 105",
+                "FREN 107"
+            ]
         ],
         "corequisites": [
             "None"
@@ -18085,19 +18693,21 @@
         "description": "Introduction to marine science. Topics include: ocean basins and their sediments; seawater chemistry/biochemistry; ocean waves, tides and currents; ocean-atmosphere interaction; polar to tropical organism communities; marine resources; environmental concerns; global change.",
         "units": 3,
         "prerequisites": [
-            "BIOL 102",
-            "BIOL 103",
-            "CHEM 112",
-            "GEOL 104",
-            "GEOL 106",
-            "GEOL 107",
-            "PHYS 104",
-            "PHYS 106",
             [
-                "PHYS 115",
-                "PHYS 116"
-            ],
-            "PHYS 117"
+                "BIOL 102",
+                "BIOL 103",
+                "CHEM 112",
+                "GEOL 104",
+                "GEOL 106",
+                "GEOL 107",
+                "PHYS 104",
+                "PHYS 106",
+                [
+                    "PHYS 115",
+                    "PHYS 116"
+                ],
+                "PHYS 117"
+            ]
         ],
         "corequisites": [
             "None"
@@ -18208,11 +18818,21 @@
             "GEOL 104"
         ],
         "corequisites": [
-            "PHYS 104",
-            "PHYS 106",
-            "PHYS 107",
-            "PHYS 117",
-            "PHYS 118"
+            [
+                "MATH 120",
+                "MATH 121",
+                [
+                    "MATH 123",
+                    "MATH 124"
+                ]
+            ],
+            [
+                "PHYS 104",
+                "PHYS 106",
+                "PHYS 107",
+                "PHYS 117",
+                "PHYS 118"
+            ]
         ],
         "exclusions": [
             "GEOL 269"
@@ -18233,11 +18853,11 @@
             "None"
         ],
         "exclusions": [
-            "GEOL 232",
-            "GEOL 362"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "GEOL 232",
+            "GEOL 362"
         ]
     },
     "GEOL 269": {
@@ -18249,11 +18869,13 @@
             "GEOL 104"
         ],
         "corequisites": [
-            "MATH 120",
-            "MATH 121",
             [
-                "MATH 123",
-                "MATH 124"
+                "MATH 120",
+                "MATH 121",
+                [
+                    "MATH 123",
+                    "MATH 124"
+                ]
             ]
         ],
         "exclusions": [
@@ -18269,8 +18891,10 @@
         "description": "An earth-system engineering perspective on the nature, acquisition and utilization of energy, mineral and water resources, with particular emphasis on the environmental considerations in their extraction, processing, and use. Criteria for designing resource exploration programs are examined. Practical exercises, projects and seminars (team and individual) deal with these issues, and include the design of risk-management plans, environmental life-cycle assessments, sustainable systems and ore-reserve estimations.",
         "units": 3,
         "prerequisites": [
-            "GEOL 221",
-            "GEOL 232"
+            [
+                "GEOL 221",
+                "GEOL 232"
+            ]
         ],
         "corequisites": [
             "None"
@@ -18335,10 +18959,12 @@
             ]
         ],
         "exclusions": [
-            "GEOL 302",
-            "GEOL 368",
-            "GEOL 478",
-            "GEOL 488"
+            [
+                "GEOL 302",
+                "GEOL 368",
+                "GEOL 478",
+                "GEOL 488"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -18360,10 +18986,12 @@
             ]
         ],
         "exclusions": [
-            "GEOL 301",
-            "GEOL 368",
-            "GEOL 478",
-            "GEOL 488"
+            [
+                "GEOL 301",
+                "GEOL 368",
+                "GEOL 478",
+                "GEOL 488"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -18429,9 +19057,11 @@
         "description": "Review of the major groups of invertebrate fossils, emphasizing functional morphology, paleoecology, evolution, and geological significance.\nNOTE Field Trip (Prince Edward County, Ontario): estimated cost $35.",
         "units": 3,
         "prerequisites": [
-            "GEOL 238",
-            "BIOL 202",
-            "BIOL 200"
+            [
+                "GEOL 238",
+                "BIOL 202",
+                "BIOL 200"
+            ]
         ],
         "corequisites": [
             "None"
@@ -18486,8 +19116,10 @@
         "description": "Through lectures, seminars and assigned readings selected topics in mineralogy are explored. Emphasis on the current literature and the details of mineralogical phenomena will lead to better understanding of petrologic systems.\nNOTE This course may not be offered every year. Please see Departmental website.",
         "units": 3,
         "prerequisites": [
-            "GEOL 212",
-            "GEOL 232"
+            [
+                "GEOL 212",
+                "GEOL 232"
+            ]
         ],
         "corequisites": [
             "None"
@@ -18649,9 +19281,11 @@
             "GEOL 488"
         ],
         "exclusions": [
-            "GEOL 401",
-            "GEOL 368",
-            "GEOL 488"
+            [
+                "GEOL 401",
+                "GEOL 368",
+                "GEOL 488"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -18773,8 +19407,10 @@
         "description": "An introduction to spatial information management focusing on methods to support and extend geological mapping, mineral and petroleum exploration, and engineering site investigation. Computers and computation, GIS software and theory, spatial simulation and analysis, databases and data management, and design of effective decision support solutions.\nNOTE This course may not be offered every year. Please see Departmental website.",
         "units": 3,
         "prerequisites": [
-            "GPHY 243",
-            "GEOL 333"
+            [
+                "GPHY 243",
+                "GEOL 333"
+            ]
         ],
         "corequisites": [
             "None"
@@ -19068,7 +19704,7 @@
         "description": "An examination of ecological and earth system processes that affect the dynamics of organisms, their spatial patterns and their variability in time.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "GPHY 102"
         ],
         "corequisites": [
             "None"
@@ -19674,8 +20310,10 @@
         "description": "Critical approaches to the role of the geographic, cultural and historical imagination in shaping landscapes, environments and society.",
         "units": 3,
         "prerequisites": [
-            "GPHY 229",
-            []
+            [
+                "GPHY 229",
+                []
+            ]
         ],
         "corequisites": [
             "None"
@@ -19971,10 +20609,8 @@
         "description": "Study of the techniques of Geographic Information Systems and their applications in solving physical and environmental problems. Topics include data representation and models, spatial interpolation, raster-based analysis and modeling, surface models and terrain analysis, data visualization, temporal analysis, error and accuracy, and other algorithms and analytical procedures.",
         "units": 3,
         "prerequisites": [
-            [
-                "GPHY 243",
-                []
-            ]
+            "GPHY 243",
+            []
         ],
         "corequisites": [
             "None"
@@ -20019,17 +20655,19 @@
         "description": "An introduction to customization of GIS and database software with an emphasis on spatial analysis tool development for desktop and Web-based GIS. Students will learn concepts of user requirements analysis, software requirements preparation, interface and software design, and computer programming while they develop customized GIS applications.",
         "units": 3,
         "prerequisites": [
-            "GPHY 243",
-            "GPHY 247",
-            "ECON 250",
-            "KNPE 251",
-            "PHED 251",
-            "POLS 385",
-            "PSYC 202",
-            "SOCY 211",
-            "STAT 263",
-            "STAT 267",
-            "STAT 367"
+            [
+                "GPHY 243",
+                "GPHY 247",
+                "ECON 250",
+                "KNPE 251",
+                "PHED 251",
+                "POLS 385",
+                "PSYC 202",
+                "SOCY 211",
+                "STAT 263",
+                "STAT 267",
+                "STAT 367"
+            ]
         ],
         "corequisites": [
             "None"
@@ -20579,8 +21217,10 @@
         "description": "Applying global political economy perspectives to key aspects of development finance. Topics include the introduction of basic economic terms, the role of the International Monetary Fund, World Bank, World Trade Organization, and the growing roles of Transnational Corporations and financial markets in development\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.",
         "units": 3,
         "prerequisites": [
-            "DEVS 100",
-            "DEVS 105"
+            [
+                "DEVS 100",
+                "DEVS 105"
+            ]
         ],
         "corequisites": [
             "None"
@@ -20798,10 +21438,12 @@
         "description": "Explores the relationships between the production of goods, the lives and livelihoods of workers, and socio-economic development at local, national and global levels. Issues include: the international division of labour; global commodity chains; technological change; labour markets; informal sector; genders in production; unions and labour rights.",
         "units": 3,
         "prerequisites": [
-            "DEVS 230",
-            "SOCY 225",
-            "POLS 262",
-            "GPHY 228"
+            [
+                "DEVS 230",
+                "SOCY 225",
+                "POLS 262",
+                "GPHY 228"
+            ]
         ],
         "corequisites": [
             "None"
@@ -20837,15 +21479,17 @@
         "description": "Over the past several decades, business - particularly large multinational corporations - have come to play an increasingly dominant role in global development. This course will interrogate the structures, processes and practices employed by corporations as the forge new partnerships with states, global development organizations and corporations.",
         "units": 3,
         "prerequisites": [
-            "COMM 200",
-            "COMM 372",
-            "COMM 375",
-            "COMM 407",
-            "DEVS 230",
-            "DEVS 250",
-            "GPHY 228",
-            "POLS 262",
-            "SOCY 225"
+            [
+                "COMM 200",
+                "COMM 372",
+                "COMM 375",
+                "COMM 407",
+                "DEVS 230",
+                "DEVS 250",
+                "GPHY 228",
+                "POLS 262",
+                "SOCY 225"
+            ]
         ],
         "corequisites": [
             "None"
@@ -20863,9 +21507,11 @@
         "description": "This course examines cities and urbanization in countries in the South, looking at similarities and differences between and across regions, and the extent to which these cities connect (or not) with urban areas in the North.",
         "units": 3,
         "prerequisites": [
-            "DEVS 230",
-            "DEVS 250",
-            "GPHY 228"
+            [
+                "DEVS 230",
+                "DEVS 250",
+                "GPHY 228"
+            ]
         ],
         "corequisites": [
             "None"
@@ -21059,10 +21705,12 @@
         "description": "The future of globalization is highly uncertain. The COVID-19 pandemic has exposed the fragility of global supply chains. The rise of mercantilist policies has also brought the rules-based order for trade into crisis. In this course, students will examine this shifting landscape and what it means for global development. Students will learn about the World Trade Organization and key regional trade and investment agreements. Students will also assess alternatives to the current system, with a focus on fair trade. Finally, we will explore wildlife trade and how trade affects climate change.",
         "units": 3,
         "prerequisites": [
-            "DEVS 230",
-            "GPHY 228",
-            "POLS 262",
-            "SOCY 225"
+            [
+                "DEVS 230",
+                "GPHY 228",
+                "POLS 262",
+                "SOCY 225"
+            ]
         ],
         "corequisites": [
             "None"
@@ -21141,10 +21789,10 @@
             "None"
         ],
         "exclusions": [
-            "DEVS 420"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "DEVS 420"
         ]
     },
     "DEVS 420": {
@@ -21171,8 +21819,10 @@
         "description": "600 years of colonialism have greatly harmed this planet's people and environments. Complementary lifeways can balance cognitive, emotional, and physical realities and inform intellectual, scientific, and artistic enquiry. This course attempts to strike that balance, through academic inquiry and visceral experience, in the classroom and on the land.\nNOTE Students are required to make application. Contact Department for application information.\nNOTE Students are expected to pay an ancillary fee for travel and food costs while in the field. The estimated cost is $400.",
         "units": 6,
         "prerequisites": [
-            "DEVS 220",
-            "GPHY 351"
+            [
+                "DEVS 220",
+                "GPHY 351"
+            ]
         ],
         "corequisites": [
             "None"
@@ -21271,12 +21921,12 @@
             "None"
         ],
         "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
             "GRMN 102",
             "GRMN 201",
             "GRMN 202"
-        ],
-        "one_way_exclusions": [
-            "None"
         ]
     },
     "GRMN 102": {
@@ -21291,11 +21941,11 @@
             "None"
         ],
         "exclusions": [
-            "GRMN 201",
-            "GRMN 202"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "GRMN 201",
+            "GRMN 202"
         ]
     },
     "GRMN 201": {
@@ -21924,11 +22574,11 @@
             "None"
         ],
         "exclusions": [
-            "KNPE 227",
-            "KNPE 255"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "KNPE 227",
+            "KNPE 255"
         ]
     },
     "HLTH 205": {
@@ -21973,10 +22623,12 @@
         "description": "This course introduces contemporary issues in the dominant food system and the ways in which food production, distribution and consumption produce and reproduce relations of power.",
         "units": 3,
         "prerequisites": [
-            "GNDS 120",
-            "GPHY 101",
-            "HLTH 101",
-            "SOCY 122"
+            [
+                "GNDS 120",
+                "GPHY 101",
+                "HLTH 101",
+                "SOCY 122"
+            ]
         ],
         "corequisites": [
             "None"
@@ -22015,13 +22667,28 @@
             "None"
         ],
         "corequisites": [
-            "None"
+            [
+                "BIOL 243",
+                "CHEE 209",
+                "COMM 162",
+                "ECON 250",
+                "GPHY 247",
+                "KNPE 251",
+                "NURS 323",
+                "POLS 285",
+                "PSYC 202",
+                "SOCY 211",
+                "STAM 200",
+                "STAT 263",
+                "STAT 267",
+                "STAT 367"
+            ]
         ],
         "exclusions": [
             "HSCI 270"
         ],
         "one_way_exclusions": [
-            "None"
+            "PSYC 203"
         ]
     },
     "HLTH 270": {
@@ -22840,6 +23507,7 @@
         ],
         "exclusions": [
             "HIST 111",
+            "HIST 121",
             "HIST 125"
         ],
         "one_way_exclusions": [
@@ -23033,7 +23701,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23051,7 +23719,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23069,7 +23737,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23087,7 +23755,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23105,7 +23773,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23161,7 +23829,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23179,7 +23847,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23251,7 +23919,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23288,7 +23956,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23306,7 +23974,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23324,7 +23992,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23450,7 +24118,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23468,7 +24136,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23486,12 +24154,12 @@
             "None"
         ],
         "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
             "HIST 430",
             "HIST 443",
             "HIST 444"
-        ],
-        "one_way_exclusions": [
-            "None"
         ]
     },
     "HIST 244": {
@@ -23506,7 +24174,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23560,7 +24228,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23596,7 +24264,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23614,7 +24282,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23650,7 +24318,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23726,7 +24394,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23744,7 +24412,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23780,7 +24448,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23798,7 +24466,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23836,7 +24504,9 @@
             "None"
         ],
         "exclusions": [
-            "HIST 281"
+            "HIST 281",
+            "HIST 282",
+            "HIST 283"
         ],
         "one_way_exclusions": [
             "None"
@@ -23908,7 +24578,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23926,7 +24596,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -23962,7 +24632,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -24016,7 +24686,7 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            "HIST 260"
         ],
         "one_way_exclusions": [
             "None"
@@ -25024,8 +25694,10 @@
             "None"
         ],
         "exclusions": [
-            "HIST 390",
-            "HIST 400"
+            [
+                "HIST 390",
+                "HIST 400"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -25856,7 +26528,8 @@
         ],
         "exclusions": [
             "HIST 212",
-            "HIST 502"
+            "HIST 502",
+            "HIST 512"
         ],
         "one_way_exclusions": [
             "None"
@@ -25875,7 +26548,8 @@
         ],
         "exclusions": [
             "HIST 212",
-            "HIST 501"
+            "HIST 501",
+            "HIST 512"
         ],
         "one_way_exclusions": [
             "None"
@@ -26447,10 +27121,8 @@
         "description": "Under the tutelage of the Coordinator of Athletic Therapy Services, students will complete a field placement that involves assignment to a varsity team as a student trainer. Student trainers are responsible for onsite coverage of the team during competition and possibly during practices. The student trainers are also responsible for the taping needs of athletes on the team, and assisting with assessment and rehabilitation.\nNOTE Students must hold valid First Aid/CPR certification and proof of completion of Athletic Therapy experience (36 hours) in second year.",
         "units": 4.5,
         "prerequisites": [
-            [
-                "ANAT 315",
-                "KNPE 331"
-            ]
+            "ANAT 315",
+            "KNPE 331"
         ],
         "corequisites": [
             "None"
@@ -26604,10 +27276,8 @@
         "description": "Under the tutelage of the Strength and Conditioning Coordinator, students will complete a field placement that involves a range of practical experiences in the area of strength and conditioning programs for elite athletes. Practical sessions will be rotated weekly in order to provide students with a variety of experiences in program delivery, training sessions, and testing.\nNOTE Students must hold valid First Aid/CPR certification.",
         "units": 4.5,
         "prerequisites": [
-            [
-                "ANAT 315",
-                "KNPE 345"
-            ]
+            "ANAT 315",
+            "KNPE 345"
         ],
         "corequisites": [
             "None"
@@ -26764,11 +27434,13 @@
         "description": "This course looks at the ways that notions of fitness are tied to historically specific ideas about the body. The course focuses on ideas about race, class, gender, ability and sexuality while addressing the politics of fitness and exercise and their relationship to social, economic, and cultural institutions.",
         "units": 3,
         "prerequisites": [
-            "KNPE 167",
-            "SOCY 221",
             [
-                "SOCY 226",
-                "SOCY 227"
+                "KNPE 167",
+                "SOCY 221",
+                [
+                    "SOCY 226",
+                    "SOCY 227"
+                ]
             ]
         ],
         "corequisites": [
@@ -28050,8 +28722,10 @@
         "description": "An intersectional/interdisciplinary approach to the analysis of, and possible alternatives to, Canadian settler colonialism. Primacy given to Indigenous voices/theories/methods related to the history of Indigenous lands and associated traditions/identities, the course focuses on the theory/practice of 'unsettling' the settler colonial societies.",
         "units": 3,
         "prerequisites": [
-            "DEVS 220",
-            "DEVS 221"
+            [
+                "DEVS 220",
+                "DEVS 221"
+            ]
         ],
         "corequisites": [
             "None"
@@ -29115,10 +29789,8 @@
         "description": "For students studying abroad or at a Canadian University who wish to learn a modern language other than English and who have acquired a basic knowledge of that language. An increased emphasis on the study of the grammatical structures of the language and on the acquisition of vocabulary. Practice in speaking, reading, and writing.",
         "units": 3,
         "prerequisites": [
-            [
-                "LANG 101",
-                "LANG 102"
-            ]
+            "LANG 101",
+            "LANG 102"
         ],
         "corequisites": [
             "None"
@@ -29136,10 +29808,8 @@
         "description": "For students studying abroad or at a Canadian University who wish to learn a modern language other than English and who have acquired a basic knowledge of that language. An increased emphasis on the study of the grammatical structures of the language and on the acquisition of vocabulary. Practice in speaking, reading, and writing.",
         "units": 3,
         "prerequisites": [
-            [
-                "LANG 101",
-                "LANG 102"
-            ]
+            "LANG 101",
+            "LANG 102"
         ],
         "corequisites": [
             "None"
@@ -29512,7 +30182,8 @@
         ],
         "exclusions": [
             "IDIS 173",
-            "BMED 173"
+            "BMED 173",
+            "PHIL 201"
         ],
         "one_way_exclusions": [
             "None"
@@ -29584,8 +30255,10 @@
             "None"
         ],
         "exclusions": [
-            "IDIS 373",
-            "BMED 373"
+            [
+                "IDIS 373",
+                "BMED 373"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -29597,8 +30270,10 @@
         "description": "Students will develop an understanding of the three primary types of research employed in health sciences: Experimental quantitative, observational quantitative, and qualitative",
         "units": 3,
         "prerequisites": [
-            "HSCI 270",
             [
+                "HSCI 270",
+                "BMED 270",
+                "LISC 270",
                 "EPID 301",
                 "HLTH 252",
                 "PSYC 203",
@@ -29609,8 +30284,10 @@
             "None"
         ],
         "exclusions": [
-            "HSCI 383",
-            "BMED 383"
+            [
+                "HSCI 383",
+                "BMED 383"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -29640,11 +30317,21 @@
         "description": "Students will learn a number of different laboratory techniques, developing skills in scientific methodology, data acquisition, and interpretation. Students will also attain skills in critical thinking and hypothesis development, as well as gain experience in writing a laboratory report, and participating in research presentations.\nNOTE Priority will be given to students registered in a LISC Specialization Plan.",
         "units": 3,
         "prerequisites": [
-            "LISC 391",
-            "PHAR 230",
-            "PHAR 340",
-            "PHAR 370",
-            []
+            [
+                "PHGY 210",
+                "PHGY 214",
+                [
+                    "PHGY 215",
+                    "PHGY 216"
+                ]
+            ],
+            [
+                "LISC 391",
+                "PHAR 230",
+                "PHAR 340",
+                "PHAR 370",
+                "PHAR 270/3.0"
+            ]
         ],
         "corequisites": [
             "None"
@@ -29662,11 +30349,13 @@
         "description": "An intermediate laboratory course on the Physiology and Pharmacology of Cardiorespiratory Sciences and Neuroscience. Students develop skills to acquire and evaluate data and methods. Critical thinking skills are used for the development of arguments, assumptions, and information required to evaluate concepts and hypotheses.\nNOTE Priority will be given to students registered in a LISC Specialization Plan.",
         "units": 3,
         "prerequisites": [
-            "PHGY 210",
-            "PHGY 214",
             [
-                "PHGY 215",
-                "PHGY 216"
+                "PHGY 210",
+                "PHGY 214",
+                [
+                    "PHGY 215",
+                    "PHGY 216"
+                ]
             ]
         ],
         "corequisites": [
@@ -29706,7 +30395,10 @@
         "description": "Students will take knowledge gained from GLPH 271/3.0 or LISC 271/3.0, and apply it in this course, which will focus on more advanced topics of population and global health, as well as provide experiential learning.",
         "units": 3,
         "prerequisites": [
-            "None"
+            [
+                "LISC 271",
+                "GLPH 271"
+            ]
         ],
         "corequisites": [
             "None"
@@ -30431,8 +31123,10 @@
         "description": "Diatonic voice-leading and harmony, principles of form and small structures (binary, ternary) through part-writing and analysis.\nNOTE Students having received 80% or higher on a conservatory advanced rudiments exam may enrol in the course with permission of the School.",
         "units": 6,
         "prerequisites": [
-            "MUSC 105",
-            "MUSC 104"
+            [
+                "MUSC 105",
+                "MUSC 104"
+            ]
         ],
         "corequisites": [
             "None"
@@ -31304,8 +31998,10 @@
         "description": "A study of advanced guitar technique and pedagogy including scales and arpeggios, jazz chord voicings, alternate tunings, practice strategies and arrangement/composition. Technical goals will be tailored to individual levels. A range of styles will be explored including Classical, Flamenco, Fingerstyle, Folk, Blues, Jazz, Salsa, and Afro-Cuban.",
         "units": 3,
         "prerequisites": [
-            "MUSC 188",
-            "MUSC 288"
+            [
+                "MUSC 188",
+                "MUSC 288"
+            ]
         ],
         "corequisites": [
             "None"
@@ -31859,8 +32555,10 @@
         "description": "A continuation of MUSC 351, MUSC 354.\nNOTE In addition to the prerequisites, students must submit a portfolio of compositions to the Dan School Office by the last day of classes in the Winter Term. Admission is determined through evaluation of portfolios by a Faculty jury. Submission of a portfolio does not guarantee admission.",
         "units": 3,
         "prerequisites": [
-            "MUSC 351",
-            "MUSC 354"
+            [
+                "MUSC 351",
+                "MUSC 354"
+            ]
         ],
         "corequisites": [
             "None"
@@ -31900,8 +32598,10 @@
         "description": "A continuation of MUSC 351, MUSC 354.\nNOTE In addition to the prerequisites, students must submit a portfolio of compositions to the Dan School Office by the last day of classes in the Winter Term. Admission is determined through evaluation of portfolios by a Faculty jury. Submission of a portfolio does not guarantee admission.",
         "units": 6,
         "prerequisites": [
-            "MUSC 351",
-            "MUSC 354"
+            [
+                "MUSC 351",
+                "MUSC 354"
+            ]
         ],
         "corequisites": [
             "None"
@@ -33739,13 +34439,15 @@
         "description": "A fundamental study of the structure, genetics, and growth of microorganisms, focusing on bacteria and viruses. The roles of microbes in the environments in which they exist will be considered.",
         "units": 3,
         "prerequisites": [
-            "None"
+            "BIOL 102",
+            "BIOL 103",
+            "CHEM 112"
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "None"
+            "MICR 271"
         ],
         "one_way_exclusions": [
             "None"
@@ -33757,16 +34459,22 @@
         "description": "This course focuses on 1) the overall organization of the immune system, 2) the role of the immune system in combating diseases caused by common pathogens as well as adverse reactions of the immune system and 3) application of the basic knowledge of immunology to the field of infectious disease prevention and control by vaccines and treatment of cancer. The unique features of this course lie in its overall structure and delivery that will prepare the student for further in-depth learning in the field of immunology.\nNOTE This online course in infection and immunity is designed for students from various biological sciences and allied health backgrounds at all levels of post-secondary education and is recommended as a foundation course for students pursuing a life sciences career.\nNOTE Also offered online. Consult the Bachelor of Health Sciences program office.\nNOTE May not be taken for credit towards the Plan requirements of the LISC Specialization or Major Plans.",
         "units": 3,
         "prerequisites": [
-            "None"
+            [
+                "BIOL 102",
+                "MICR 121",
+                "PHGY 170"
+            ]
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "MICR 360"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "MICR 360",
+            "MICR 386",
+            "BMED 386"
         ]
     },
     "MICR 271": {
@@ -33829,8 +34537,10 @@
         "description": "The general principles and mechanism of immune reaction. Immunochemical and immunobiological aspects of antibody formation and cell-mediated immunity in health and disease will be considered.",
         "units": 3,
         "prerequisites": [
-            "MICR 221",
-            "MICR 271"
+            [
+                "MICR 221",
+                "MICR 271"
+            ]
         ],
         "corequisites": [
             "None"
@@ -33964,7 +34674,7 @@
         "units": 3,
         "prerequisites": [
             [
-                "MICR 360;",
+                "MICR 360",
                 "MICR 386"
             ]
         ],
@@ -34083,8 +34793,10 @@
         "description": "A study of vocal techniques including Legitimate in the Golden Age of Musical Theatre to Belt/Mixed Belt in contemporary musicals and popular music culture, and Classical/Operatic styles. The course incorporates current research in the functional utility of breath and sound production and an emphasis on the application of practical singing/listening.\nNOTE BMUS voice majors are encouraged to take this course and may enrol without the prerequisite through the School.",
         "units": 3,
         "prerequisites": [
-            "MUSC 180",
-            "MUSC 280"
+            [
+                "MUSC 180",
+                "MUSC 280"
+            ]
         ],
         "corequisites": [
             "None"
@@ -34680,11 +35392,17 @@
         "description": "Fundamental properties of the nervous system. Emphasis placed on the properties of neurons and neural circuits that underlie behaviour and cognitive functions within selected neural systems, such as sensory, motor, reward, and autonomic systems. Tutorials introduce techniques and neurological problems that illustrate principles of neural function.",
         "units": 3,
         "prerequisites": [
-            "PSYC 271",
-            "NSCI 323",
-            "PHGY 210",
-            "PHGY 212",
-            "PHGY 214"
+            [
+                [
+                    "PHGY 215",
+                    "PHGY 216"
+                ],
+                "PSYC 271",
+                "NSCI 323",
+                "PHGY 210",
+                "PHGY 212",
+                "PHGY 214"
+            ]
         ],
         "corequisites": [
             "None"
@@ -34778,8 +35496,11 @@
         "description": "A contemporary and comprehensive assessment of the neurochemical anatomy and neuropharmacology of the mammalian and human nervous systems as they relate to development, function and disease. Topics will include dynamics of neurotransmitter interactions, neuronal drug receptor interactions and second messengers, neurotoxicity associated transmitters and neural growth factors.\nNOTE BMCO students should contact the Department regarding prerequisites.",
         "units": 3,
         "prerequisites": [
-            "NSCI 323",
-            "PHAR 340"
+            [
+                "ANAT 312",
+                "NSCI 323",
+                "PHAR 340"
+            ]
         ],
         "corequisites": [
             "NSCI 324"
@@ -34955,10 +35676,13 @@
             "None"
         ],
         "exclusions": [
-            "PHAR 230"
+            "None"
         ],
         "one_way_exclusions": [
-            "None"
+            "PHAR 230",
+            "PHAR 270",
+            "PHAR 340",
+            "PHAR 370"
         ]
     },
     "PHAR 230": {
@@ -34971,14 +35695,19 @@
         ],
         "corequisites": [
             [
-                "PHGY 215",
-                "PHGY 216"
-            ],
-            "KNPE 225",
-            "PHGY 210"
+                [
+                    "PHGY 215",
+                    "PHGY 216"
+                ],
+                "KNPE 225",
+                "PHGY 210",
+                "PHGY 214"
+            ]
         ],
         "exclusions": [
-            "PHAR 270"
+            "PHAR 270",
+            "PHAR 340",
+            "PHAR 370"
         ],
         "one_way_exclusions": [
             "None"
@@ -35011,13 +35740,21 @@
             "None"
         ],
         "corequisites": [
-            "PHGY 215"
+            [
+                [
+                    "PHGY 215/3.0",
+                    "PHGY 216/3.0"
+                ],
+                "KNPE 225"
+            ]
         ],
         "exclusions": [
-            "PHAR 230"
+            "PHAR 230",
+            "PHAR 270",
+            "PHAR 340"
         ],
         "one_way_exclusions": [
-            "None"
+            "PHAR 450"
         ]
     },
     "PHAR 380": {
@@ -35071,9 +35808,9 @@
             [
                 "PHAR 230",
                 "PHAR 270",
-                "PHAR 370"
-            ],
-            "PHAR 340"
+                "PHAR 370",
+                "PHAR 340"
+            ]
         ],
         "corequisites": [
             "None"
@@ -39447,9 +40184,12 @@
         "units": 3,
         "prerequisites": [
             [
-                "POLS 250",
-                "POLS 350"
-            ]
+                [
+                    "POLS 250",
+                    "POLS 350"
+                ],
+                "POLS 250"
+            ] 
         ],
         "corequisites": [
             "None"
@@ -39504,9 +40244,12 @@
         "units": 3,
         "prerequisites": [
             [
-                "POLS 250",
-                "POLS 350"
-            ]
+                [
+                    "POLS 250",
+                    "POLS 350"
+                ],
+                "POLS 250"
+            ] 
         ],
         "corequisites": [
             "None"
@@ -40716,12 +41459,8 @@
                         "PSYC 221",
                         "PSYC 220"
                     ]
-                ] 
-            ],
-            [
-                [
-                    "COGS 200"
-                ]
+                ],
+                "COGS 200"
             ]
         ],
         "corequisites": [
@@ -40834,11 +41573,13 @@
         "description": "An overview of typical sexual behaviour and its variations. Topics include the history of sex research, the sexual response cycle, sexual dysfunction, gender identity, and sexual orientation. Particular attention will be paid to current issues in sex research and theory.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.\nNOTE Also offered at the Bader International Studies Centre, Herstmonceux. Learning Hours may vary.",
         "units": 3,
         "prerequisites": [
-            "PSYC 235",
-            "PSYC 236",
-            "PSYC 251",
-            "PSYC 271",
-            "PSYC 370"
+            [
+                "PSYC 235",
+                "PSYC 236",
+                "PSYC 251",
+                "PSYC 271",
+                "PSYC 370"
+            ]
         ],
         "corequisites": [
             "None"
@@ -41614,7 +42355,6 @@
             "PSYC 435"
         ],
         "one_way_exclusions": [
-            "None"
         ]
     },
     "PSYC 440": {
@@ -43528,13 +44268,15 @@
         ],
         "corequisites": [
             [
-                "RELS 354",
                 [
-                    "RELS 255",
-                    "RELS 355"
-                ]
-            ],
-            "RELS 353"
+                    "RELS 354",
+                    [
+                        "RELS 255",
+                        "RELS 355"
+                    ]
+                ],
+                "RELS 353"
+            ]
         ],
         "exclusions": [
             "None"
@@ -43553,13 +44295,15 @@
         ],
         "corequisites": [
             [
-                "RELS 354",
                 [
-                    "RELS 255",
-                    "RELS 355"
-                ]
-            ],
-            "RELS 353"
+                    "RELS 354",
+                    [
+                        "RELS 255",
+                        "RELS 355"
+                    ]
+                ],
+                "RELS 353"
+            ]
         ],
         "exclusions": [
             "RELS 451"
@@ -43725,11 +44469,13 @@
         "description": "This course explores the sociological dimensions affecting the meaning and experience of health and illness in contemporary society. Topics include policy, professionalization, medicalization, mental health, inequalities, bioethics, and globalization.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
-            "HLTH 101",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                "HLTH 101",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -43768,10 +44514,12 @@
         "description": "Introduces descriptive and inferential statistics and data analysis strategies. Topics include probability, correlation/regression, experimental design and analysis of variance. Online learning and weekly laboratories provide practice in computation, interpretation and communication of statistical findings, and large class review sessions and individual drop in assistance ensure mastery. Applications appropriate to different fields of study will be explored.\nNOTE Students can also fulfill the statistics requirements of a SOCY plan by taking any one of the courses listed as exclusions below in place of SOCY 211.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -43803,10 +44551,12 @@
         "description": "An introduction to recent sociological debates on the emergence of a global economy and society, and its impact on different parts of the world.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -43825,10 +44575,12 @@
         "description": "A discussion of the central concepts in sociological theory, for example, agency and structure; rationality, reason, and abstraction; social continuity and social change; subjectivity and selfhood; language and interpretation are normally considered.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -43883,10 +44635,12 @@
         "description": "The social matrix of personality, socialization as a social process, the influence of social structure and culture upon socialization practices, and the patterning of personality through the life cycle.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -43905,10 +44659,12 @@
         "description": "This course focuses on the theoretical foundation examining the process by which activities are defined as deviant: such activities as 'sexual deviance', 'mental illness', and 'political deviance'. The major etiological approaches to the study of deviants are also considered.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -43945,10 +44701,12 @@
         "description": "Social context and consequences of information and communication technologies as they relate to work, culture, privacy and education.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -43985,10 +44743,12 @@
         "description": "Explores a range of issues in contemporary sociology. Topics may vary from year to year. See the departmental website for further details.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44007,10 +44767,12 @@
         "description": "Explores a range of contemporary issues in socio-legal studies. Topics may vary from year to year. See the departmental website for further details.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44029,10 +44791,12 @@
         "description": "Explores a range of contemporary issues in feminist sociology. Topics may vary from year to year. See the departmental website for further details.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44051,10 +44815,12 @@
         "description": "Explores a range of contemporary issues in communications and information technology. Topics may vary from year to year. See the departmental website for further details.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44091,10 +44857,12 @@
         "description": "A comprehensive introduction to the major theories and empirical studies of consumer culture with emphasis upon the historical, socioeconomic, and cultural aspects of consumption in sociological context; substantive focus upon diverse topics such as food, tourism, the home, children, and marketing.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44113,10 +44881,12 @@
         "description": "Provides a critical introduction to surveillance and the emerging interdisciplinary field of Surveillance Studies. Offers an historically-grounded, theoretically-informed, and empirically-illustrated survey of the practices, technologies and social relations of surveillance from different perspectives, with an emphasis on the socio-political dimensions.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44174,10 +44944,12 @@
         "description": "The course examines the meaning of work and the changes taking place in the work world, with special attention devoted to new technology, gender, unionism and globalization.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44196,10 +44968,12 @@
         "description": "Critical study of Canada's socio-economic structures and processes: topics include dynamics of capitalist development, global restructuring, labour force transformations.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44218,10 +44992,12 @@
         "description": "This course introduces students to the sociology of family diversity. Topics normally considered include diversity of family forms; social constructions of motherhood and fatherhood; contested understandings of families; and how contemporary debates about gender differences, sexualities, and racialization may inform the understanding of intimate and familial relations.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44240,10 +45016,12 @@
         "description": "Comparative study of Canadian education system and processes in light of current sociological theory and research.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -44262,10 +45040,12 @@
         "description": "This course focuses on contemporary sociological perspectives of culture. It includes a survey of various theoretical positions vis à vis culture and society such as the high and low culture distinction, the rise of mass culture; cultural hegemony; populism and social resistance. Canadian culture is the predominant object of analysis.",
         "units": 3,
         "prerequisites": [
-            "SOCY 122",
             [
-                "BISC 100",
-                "BISC 101"
+                "SOCY 122",
+                [
+                    "BISC 100",
+                    "BISC 101"
+                ]
             ]
         ],
         "corequisites": [
@@ -60911,7 +61691,105 @@
             "ANAT 101"
         ],
         "one_way_exclusions": [
+            "ANAT 215",
+            "ANAT 216",
+            "ANAT 312",
+            "ANAT 315",
+            "ANAT 316"
+        ]
+    },
+    "ANAT 101": {
+        "code": "ANAT 101",
+        "title": "Introductory Human Anatomy",
+        "description": "A basic anatomy course with an emphasis on clinical relevance of structure and function of human body systems. \nRECOMMENDATION 4U Biology.",
+        "units": 3,
+        "prerequisites": [
             "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "ANAT 101",
+            "IDIS 150"
+        ],
+        "one_way_exclusions": [
+            "ANAT 215",
+            "ANAT 216",
+            "ANAT 312",
+            "ANAT 315",
+            "ANAT 316"
+        ]
+    },
+    "ANAT 215": {
+        "code": "ANAT 215",
+        "title": "Principles of Human Morphology I",
+        "description": "The general principles of human structure and function as appreciated through a survey of the morphological sciences, including: history of anatomy; embryology; neuroanatomy; developmental, microscopic and gross anatomy of the locomotor system.\nNOTE Priority will be given to students registered in a LISC Specialization Plan.",
+        "units": 3,
+        "prerequisites": [
+            [
+                [
+                    "BIOL 102",
+                    "BIOL 103"
+                ],
+                [
+                    "BIOL 201",
+                    "BIOL 202"
+                ]
+
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "ANAT 315"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ANAT 216": {
+        "code": "ANAT 216",
+        "title": "Principles of Human Morphology II",
+        "description": "The general principles of human structure and function as appreciated through a survey of the development, microscopic and gross anatomy of the body systems: cardiovascular, respiratory, immune/lymphatic, endocrine, digestive and genitourinary.\nNOTE Priority will be given to students registered in a LISC Specialization Plan.",
+        "units": 3,
+        "prerequisites": [
+            "ANAT 215"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "ANAT 316"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ANAT 270": {
+        "code": "ANAT 270",
+        "title": "Human Anatomy and Morphology",
+        "description": "This course is designed to introduce the foundations of human structure and function to students at all levels of post-secondary education. Through a series of learning modules, students will develop an understanding of the architecture of the human body through interactive study using a virtual cadaver. This course will survey the gross and microscopic anatomy of the body organ systems including the skeletal, muscular, nervous, endocrine, cardiovascular, lymphatic/immune, respiratory, digestive, urinary and reproductive systems.\nNOTE Only offered online. Consult the Bachelor of Health Sciences program office.\nNOTE May not be taken for credit towards the Plan requirements of the LISC Specialization or Major Plans.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "ANAT 100",
+                "BIOL 102",
+                "PHGY 170"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "ANAT 215",
+            "ANAT 216",
+            "ANAT 315",
+            "ANAT 316"
         ]
     },
     "ANAT 309": {
@@ -60937,6 +61815,94 @@
             "None"
         ]
     },
+    "ANAT 312": {
+        "code": "ANAT 312",
+        "title": "Functional Neuroanatomy",
+        "description": "Study of the structure and function of the nervous system by lectures, hands-on laboratories, brain dissection, and readings. Topics include, but are not limited to, sensory and motor systems, brain imaging, and clinical examples.",
+        "units": 3,
+        "prerequisites": [
+            [
+                [
+                    "ANAT 215",
+                    "ANAT 216"
+                ],
+                [
+                    "ANAT 315",
+                    "ANAT 316"
+                ],
+                [
+                    "PHGY 215",
+                    "PHGY 216"
+                ]
+
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ANAT 315": {
+        "code": "ANAT 315",
+        "title": "The Human Musculoskeletal System",
+        "description": "Gross and functional anatomy of the back, body wall, upper and lower limbs, including blood supply and neural controls.",
+        "units": 3,
+        "prerequisites": [
+            [
+                [
+                    "BIOL 102",
+                    "BIOL 103"
+                ],
+                [
+                    "BIOL 201/3.0",
+                    "BIOL 202/3.0"
+                ],
+                "KNPE 153"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "ANAT 215"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ANAT 316": {
+        "code": "ANAT 316",
+        "title": "The Human Visceral Systems",
+        "description": "Gross and functional anatomy of the thorax, abdomen and pelvis, head and neck.",
+        "units": 3,
+        "prerequisites": [
+            [
+                [
+                    "BIOL 102",
+                    "BIOL 103"
+                ],
+                [
+                    "BIOL 201/3.0",
+                    "BIOL 202/3.0"
+                ],
+                "KNPE 153"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "ANAT 216"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
     "ANAT 380": {
         "code": "ANAT 380",
         "title": "Clinically Relevant Human Anatomy",
@@ -60955,13 +61921,49 @@
             "None"
         ]
     },
-    "ANAT 391": {
-        "code": "ANAT 391",
-        "title": "Introduction to Cadaveric Dissection",
-        "description": "ANAT 391 is a course on human macro and microdissection that uses a series of carefully curated online modules, group learning activities, assignments, and inquiry-based learning to enable students to explore the process of human dissection and discover the value of teaching anatomy using dissected human specimens. Through active and collaborative learning, students will need to apply knowledge from previous anatomy courses in addition to practical skills taught via online modules and in-person sessions, to dissect an assigned human cadaveric specimen. The function of dissection is to reveal all possible structures and associated anatomical landmarks of a named dissection goal. Students will need to think critically to complete their dissections and present their findings to their peers. A focus will be on contextualizing the dissected work in the broader field of anatomical education. The course has various types of assessments including low stakes quizzes, a dissection plan, a study proposal, a presentation, and a dissection defense.",
+    "ANAT 409": {
+        "code": "ANAT 409",
+        "title": "Selected Topics in Histology",
+        "description": "A focused histological and cell biological study of three selected mammalian tissues, organs and/or systems.",
         "units": 3,
         "prerequisites": [
+            [
+                "ANAT 215/3.0",
+                "ANAT 216/3.0"
+            ],
+            [
+                "ANAT 315/3.0",
+                "ANAT 316/3.0"
+            ],
+            "ANAT 309"
+        ],
+        "corequisites": [
             "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ANAT 417": {
+        "code": "ANAT 417",
+        "title": "Mammalian Embryonic Development",
+        "description": "Comprehensive overview of cellular and molecular mechanisms that direct embryogenesis including gastrulation, neurulation, establishment of body axes, differentiation, sex determination, limb development, organogenesis, and teratology. Participation in seminar presentations and group discussions is required.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "ANAT 309",
+                [
+                    "ANAT 215",
+                    "ANAT 216"
+                ],
+                [
+                    "ANAT 315",
+                    "ANAT 316"
+                ]
+            ]
         ],
         "corequisites": [
             "None"
@@ -60980,20 +61982,22 @@
         "units": 3,
         "prerequisites": [
             [
-                "ANAT 100",
-                "ANAT 380"
-            ],
-            [
-                "ANAT 101",
-                "ANAT 380"
-            ],
-            [
-                "ANAT 215",
-                "ANAT 216"
-            ],
-            [
-                "ANAT 315",
-                "ANAT 316"
+                [
+                    "ANAT 100",
+                    "ANAT 380"
+                ],
+                [
+                    "ANAT 101",
+                    "ANAT 380"
+                ],
+                [
+                    "ANAT 215",
+                    "ANAT 216"
+                ],
+                [
+                    "ANAT 315",
+                    "ANAT 316"
+                ]
             ]
         ],
         "corequisites": [
@@ -61001,6 +62005,43 @@
         ],
         "exclusions": [
             "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "ANAT 499": {
+        "code": "ANAT 499",
+        "title": "Research Project in Anatomy and Cell Biology",
+        "description": "An examination of the development and present state of knowledge in selected research areas of Anatomy and Cell Biology. Research project involves experimental design, data collection and analysis, written report, poster presentation and oral presentation. Students will be required to attend seminars and tutorials on topics related to research. Limited enrolment; restricted to fourth year honours, permission of the department required.\nNOTE Acceptance by a supervisor required prior to registration.\nNOTE Students whose research requires the care and/or handling of animals must also complete the Introductory Animal Care Course and if required the appropriate Animal Use workshops through the Office of the University Veterinarian.",
+        "units": 12,
+        "prerequisites": [
+            [
+                [
+                    "ANAT 215",
+                    "ANAT 216"
+                ],
+                "ANAT 309",
+                [
+                    "ANAT 315",
+                    "ANAT 316"
+                ]
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CANC 499",
+            "EPID 499",
+            "LISC 499",
+            "MICR 455",
+            "MICR 499",
+            "NSCI 499",
+            "PATH 499",
+            "PHAR 499",
+            "PHGY 499",
+            "REPD 499"
         ],
         "one_way_exclusions": [
             "None"

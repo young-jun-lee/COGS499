@@ -78,6 +78,7 @@ const parseCourses = (array) => {
   let brackets = [];
   let i = 0;
   let BrCheck = 0;
+  let DontTakeBrackets = 0;
 
   while (i < array.length) {
     if (array[i] === "(" || array[i] === "[" || array[i] === ")" || array[i] === "]") {
@@ -89,6 +90,7 @@ const parseCourses = (array) => {
   
   if (brackets.length === 2 && (array[0] === "(" || array[0] === "[") && (array[array.length - 1] === ")" || array[array.length - 1] === "]")) {
     BrCheck = 1;
+    DontTakeBrackets = 1;
   }
   else if (array[0] === "(" && array[array.length - 1] === ")" || array[0] === "{" && array[array.length - 1] === "}" || array[0] === "[" && array[array.length - 1] === "]") {
     brackets.shift();
@@ -151,10 +153,10 @@ const parseCourses = (array) => {
     courses = [courses]
   }
 
-  if ( (array[1] == "and" || array[array.length - 2] == "and") && courses.length === 1) {
+  if ( (array[1] == "and" || array[array.length - 2] == "and") && courses.length === 1 && DontTakeBrackets === 0) {
     courses = courses[0]
   }
-  else if ( (array[1] == "or" || array[array.length - 2] == "or") && courses.length !== 1) {
+  else if ( (array[1] == "or" || array[array.length - 2] == "or") && courses.length !== 1 && DontTakeBrackets === 0) {
     courses = [courses]
   }
 
