@@ -12,7 +12,7 @@ function Toggle() {
         color={colorScheme === 'dark' ? 'gray' : 'dark'}
         onChange={() => toggleColorScheme()}
         onLabel={<TbSun size={20} color={'yellow'} />}
-        offLabel={<TbMoonStars size={20} color={'blue'} />}
+        offLabel={<TbMoonStars size={20} color={''} />}
       />
     </Group>
   );

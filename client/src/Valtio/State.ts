@@ -7,7 +7,7 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
         colours: {
             primary: "black",
             secondary: "#e6e7e8",
-            tertiary: "#e6e7e8"
+            tertiary: "white"
         }
     },
     currentBasket: [],

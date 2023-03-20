@@ -138,3 +138,23 @@ $focused-outline-color: #4c9ffe;
   margin-bottom: -15px;
   margin-right: -10px;
 }
+
+.CloseButton{
+  position: "absolute";
+  display: "flex";
+  width: "20px";
+  height: "20px";
+  align-items: "center";
+  justify-content: "center";
+  top: -7;
+  right: -7;
+  // color: "#9C090E";
+  color: "black";
+  background-color: "white";
+  border-radius: "50%";
+  font-size: "25px";
+  // border: `2px solid ${snap.specialization.colours?.primary}`
+  :hover{
+    color: red;
+  }
+}

@@ -1,6 +1,5 @@
-import { Box, Card, Image, Text, Group, Badge, Button } from '@mantine/core';
+import { Box, List, ThemeIcon } from '@mantine/core';
 import { FC } from 'react';
-import { List, ThemeIcon } from '@mantine/core';
 import { TbCircleCheck, TbCircleDashed } from "react-icons/tb";
 import { useSnapshot } from 'valtio';
 import { state } from '../../Valtio/State';
@@ -28,12 +27,11 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
           border: `5px solid ${snap.specialization.colours?.primary}`,
           borderRadius: theme.radius.md,
           boxShadow: "0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1), 0 16px 16px rgba(0,0,0,0.1)",
-
         })}
 
       >
         <Box sx={{
-          fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 18,
+          fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 22,
         }} >{title}</Box>
         <Box
           sx={(theme) => ({
@@ -46,7 +44,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
         >
           <List
             spacing="xs"
-            size="sm"
+            size="md"
             center
             icon={
               <ThemeIcon color="teal" size={24} radius="xl">

@@ -2,6 +2,7 @@ import { Box, Button, Flex, Radio, Text, Title } from '@mantine/core';
 import { FC, useState } from "react";
 import { IoMdOptions } from "react-icons/io";
 import { useSnapshot } from "valtio";
+import { AiOutlineSetting } from "react-icons/ai"
 import HeaderContent from "../../content/Header";
 import { state } from '../../Valtio/State';
 import { Drawer } from '@mantine/core';
@@ -36,6 +37,7 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                                     label={specialization}
                                     value={specialization}
                                     checked={state.specialization.name === specialization}
+
                                     onClick={() => {
                                         state.specialization.name = specialization;
                                         state.specialization.colours = colours
@@ -58,8 +60,8 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                     </Flex>
                 </Radio.Group>
             </Drawer >
-
-            <Flex direction={"column"} >
+            <Flex justify="space-between" style={{ height: "100%", width: "100%" }} >
+                <Box style={{ width: "15%" }}></Box>
                 <Box sx={
                     (theme) => ({
                         margin: "1em",
@@ -79,32 +81,32 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                     <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>
                         {specChosen ? `${snap.specialization.name}` : "Choose Your Specialization"}
                     </div>
-
                 </Box>
-                <Button
-                    leftIcon={<IoMdOptions />}
-                    onClick={() => setOpened((o) => !o)}
-                    styles={(theme) => (
-                        specChosen ?
-                            {
-                                root: {
-                                    backgroundColor: `${snap.specialization.colours?.primary}`,
+
+                <Flex style={{ width: "15%", alignItems: "start", justifyContent: "end" }}>
+                    <Button rightIcon={<AiOutlineSetting size={20} />} onClick={() => setOpened((o) => !o)} size="md" className="button" styles={(theme) => (
+                        {
+                            root: {
+                                backgroundColor: `${snap.specialization.colours?.primary}`,
+                                color: `${snap.specialization.colours?.tertiary}`,
+                                maxWidth: "50px",
+                                transition: "max-width 0.5s 0.5s",
+                                borderRadius: "0 0 0 10px",
+                                ':hover': {
+                                    backgroundColor: `${snap.specialization.colours?.secondary} `,
                                     color: `${snap.specialization.colours?.tertiary}`,
-                                    ':hover': {
-                                        backgroundColor: `${snap.specialization.colours?.secondary}`,
-                                        color: `${snap.specialization.colours?.tertiary}`,
-                                    },
-                                    width: "fit-content",
-                                    alignSelf: "end",
-
+                                    maxWidth: "260px",
+                                    transitionDelay: "0s",
                                 },
-                            } : {}
-                    )}
-                >
-                    Choose Specialization
-                </Button>
-
+                                boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
+                            }
+                        }
+                    )}>
+                        Choose Specialization
+                    </Button>
+                </Flex>
             </Flex>
+
 
 
 

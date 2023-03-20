@@ -5,6 +5,7 @@ import { state } from '../../Valtio/State';
 import SpecCourses from "./SpecCourses";
 import Specialization from "./Specialization";
 import "../../styles/styles.css"
+import Toggle from '../DarkMode';
 
 interface Requirements {
     subheading1: string;
@@ -17,8 +18,9 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
     const specChosen = snap.specialization.name !== undefined;
     return (
         <Box>
+            <Toggle />
             <Flex sx={{
-                marginTop: "10px",
+                marginTop: "-50px",
                 marginBottom: "5px",
                 fontSize: "20px",
                 height: "275px",
@@ -29,10 +31,7 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                 <Flex sx={{
                     height: "80%",
                     width: "80%",
-                    // backgroundColor: "#e6e7e8",
                     backgroundColor: `${snap.specialization.colours?.tertiary}`,
-                    // alignItems: "center",
-                    // justifyContent: "space-around",
                     flexDirection: "column",
                     borderTopLeftRadius: "10px",
                     borderTopRightRadius: "10px",
@@ -46,7 +45,6 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                         color: "white",
                         borderTop: "5px solid #58595b", borderRight: "5px solid #58595b", borderLeft: "5px solid #58595b"
                     },
-                    // position: "relative",
                     "--fillColor": `${snap.specialization.colours?.secondary}`,
                     "--bgColor": `${snap.specialization.colours?.tertiary}`
                 }} className="title">
@@ -55,7 +53,6 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                     <div style={{ fontSize: "25px", fontWeight: "bold", marginBottom: "5px" }}>{subheading3}</div>
                 </Flex>
                 <div style={{
-
                     width: "80%",
                     height: "10px",
                     borderRadius: "0 0 10px 10px",

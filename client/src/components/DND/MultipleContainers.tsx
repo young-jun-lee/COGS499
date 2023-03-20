@@ -96,19 +96,69 @@ export const MultipleContainers = ({
     getItems()
   );
 
-  // useEffect(() => {
-  //   console.log('items: ', items)
-  // }, [items])
 
   const [containers, setContainers] = useState(
     Object.keys(items) as UniqueIdentifier[]
   );
+
 
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
   const lastOverId = useRef<UniqueIdentifier | null>(null);
   const recentlyMovedToNewContainer = useRef(false);
   const isSortingContainer = activeId ? containers.includes(activeId) : false;
 
+  // const collisionDetectionStrategy: CollisionDetection = useCallback(
+  //   (args) => {
+  //     if (activeId && activeId in items) {
+  //       return closestCenter({
+  //         ...args,
+  //         droppableContainers: args.droppableContainers.filter(
+  //           (container) => container.id in items
+  //         ),
+  //       });
+  //     }
+
+  //     // Start by finding any intersecting droppable
+  //     const pointerIntersections = pointerWithin(args);
+  //     const intersections =
+  //       pointerIntersections.length > 0
+  //         ? // If there are droppables intersecting with the pointer, return those
+  //         pointerIntersections
+  //         : rectIntersection(args);
+  //     let overId = getFirstCollision(intersections, 'id');
+
+  //     if (overId != null) {
+  //       if (overId in items) {
+  //         const containerItems = items[overId].map((item) => item.id);
+
+  //         // If a container is matched and it contains items (columns 'A', 'B', 'C')
+  //         if (containerItems.length > 0) {
+  //           // Return the closest droppable within that container
+  //           overId = closestCenter({
+  //             ...args,
+  //             droppableContainers: args.droppableContainers.filter(
+  //               (container) =>
+  //                 container.id !== overId &&
+  //                 containerItems.includes(container.id)
+  //             ),
+  //           })[0]?.id;
+  //         }
+  //       }
+
+  //       lastOverId.current = overId;
+
+  //       return [{ id: overId }];
+  //     }
+
+
+  //     if (recentlyMovedToNewContainer.current) {
+  //       lastOverId.current = activeId;
+  //     }
+
+  //     return lastOverId.current ? [{ id: lastOverId.current }] : [];
+  //   },
+  //   [activeId, items]
+  // );
   const collisionDetectionStrategy: CollisionDetection = useCallback(
     (args) => {
       if (activeId && activeId in items) {
@@ -131,10 +181,10 @@ export const MultipleContainers = ({
 
       if (overId != null) {
         if (overId in items) {
-          const containerItems = items[overId].map((item) => item.id);
+          // If a container is matched and it contains items
+          if (items[overId].length > 0) {
+            const containerItems = items[overId].map((item) => item.id);
 
-          // If a container is matched and it contains items (columns 'A', 'B', 'C')
-          if (containerItems.length > 0) {
             // Return the closest droppable within that container
             overId = closestCenter({
               ...args,
@@ -230,20 +280,19 @@ export const MultipleContainers = ({
 
   const handleAddColumn = () => {
     const newContainerId = getNextContainerId();
-    console.log("newContainerId", newContainerId)
     unstable_batchedUpdates(() => {
       setContainers((containers) => [...containers, newContainerId.toString()]);
       setItems((items) => ({
         ...items,
         [newContainerId]: []
       }));
+      console.log('items: ', items)
+      console.log('containers: ', containers)
     });
   }
 
   const onDragCancel = () => {
     if (clonedItems) {
-      // Reset items to their original state in case items have been
-      // Dragged across containers
       setItems(clonedItems);
     }
 
@@ -277,44 +326,11 @@ export const MultipleContainers = ({
     return Number(lastContainerId) + 1;
   }
 
-  const renderContainerDragOverlay = (containerId: UniqueIdentifier) => {
-    return (
-      <Container
-        label={`Column ${containerId}`}
-        columns={columns}
-        style={{
-          height: '100%',
-        }}
-        shadow
-        unstyled={false}
-      >
-        {items[containerId].map((item, index) => (
-          <Item
-            key={item.value}
-            value={item.value}
-            handle={handle}
-            style={getItemStyles({
-              containerId,
-              overIndex: -1,
-              index: getIndex(item),
-              value: item.value,
-              isDragging: false,
-              isSorting: false,
-              isDragOverlay: false,
-            })}
-            wrapperStyle={wrapperStyle({ index })}
-            renderItem={renderItem}
-          />
-        ))}
-      </Container>
-    );
-  }
-
-
   useEffect(() => {
     requestAnimationFrame(() => {
       recentlyMovedToNewContainer.current = false;
     });
+    state.currentBasket = items
   }, [items]);
 
   return (
@@ -328,17 +344,11 @@ export const MultipleContainers = ({
       }}
       onDragStart={({ active }) => {
         setActiveId(active.id);
-        console.log("active", active)
         setClonedItems({ ...items });
       }}
 
       onDragOver={({ active, over }) => {
         const overId = over?.id;
-        console.log("overId", overId)
-
-        if (overId == null || active.id in items) {
-          return;
-        }
 
         const overContainer = findContainer(overId);
         const activeContainer = findContainer(active.id);
@@ -382,31 +392,28 @@ export const MultipleContainers = ({
 
             recentlyMovedToNewContainer.current = true;
 
+
             return {
               ...items,
-              [activeContainer]: activeItems.filter((item) => item.id !== active.id),
+              [activeContainer]: items[activeContainer].filter(
+                (item) => item.id !== active.id
+              ),
               [overContainer]: [
-                ...overItems.slice(0, newIndex),
-                { id: active.id },
-                ...overItems.slice(newIndex),
+                ...items[overContainer].slice(0, newIndex),
+                items[activeContainer][activeIndex],
+                ...items[overContainer].slice(
+                  newIndex,
+                  items[overContainer].length),
               ],
             };
+
           });
         }
       }}
 
 
       onDragEnd={({ active, over }) => {
-        if (active.id in items && over?.id) {
-          setContainers((containers) => {
-            const activeIndex = containers.indexOf(active.id);
 
-            const overIndex = containers.indexOf(over.id);
-
-
-            return arrayMove(containers, activeIndex, overIndex);
-          });
-        }
 
         const activeContainer = findContainer(active.id);
 
@@ -427,19 +434,19 @@ export const MultipleContainers = ({
         if (overContainer) {
           const activeIndex = items[activeContainer].findIndex((item) => item.id === active.id);
           const overIndex = items[overContainer].findIndex((item) => item.id === overId);
-
+          console.log("active", items[activeContainer])
+          console.log("over", items[overContainer])
           if (activeIndex !== overIndex) {
             setItems((items) => {
               const activeItem = items[activeContainer][activeIndex];
 
               return {
                 ...items,
-                [activeContainer]: items[activeContainer].filter((item) => item.id !== active.id),
-                [overContainer]: [
-                  ...items[overContainer].slice(0, overIndex),
-                  activeItem,
-                  ...items[overContainer].slice(overIndex),
-                ],
+                [activeContainer]: arrayMove(
+                  items[activeContainer],
+                  activeIndex,
+                  overIndex
+                ),
               };
             });
           }
@@ -447,8 +454,6 @@ export const MultipleContainers = ({
 
         setActiveId(null);
       }}
-
-
       cancelDrop={cancelDrop}
       onDragCancel={onDragCancel}
       modifiers={modifiers}
@@ -525,7 +530,7 @@ export const MultipleContainers = ({
                                   color: `${snap.specialization.colours?.tertiary} `,
                                   ':hover': {
                                     backgroundColor: `${snap.specialization.colours?.secondary} `,
-                                    color: `${snap.specialization.colours?.tertiary} `,
+                                    color: `${snap.specialization.colours?.tertiary} `
                                   },
                                   boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
 
@@ -655,9 +660,7 @@ export const MultipleContainers = ({
         createPortal(
           <DragOverlay adjustScale={adjustScale} dropAnimation={dropAnimation}>
             {activeId
-              ? containers.includes(activeId)
-                ? renderContainerDragOverlay(activeId)
-                : renderSortableItemDragOverlay(activeId)
+              ? renderSortableItemDragOverlay(activeId)
               : null}
           </DragOverlay>,
           document.body

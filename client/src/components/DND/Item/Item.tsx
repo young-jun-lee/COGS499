@@ -1,7 +1,7 @@
 import type { DraggableSyntheticListeners } from "@dnd-kit/core";
 import type { Transform } from "@dnd-kit/utilities";
 import classNames from "classnames";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { UnstyledButton } from "@mantine/core";
 import { useSnapshot } from "valtio";
 import { Items } from "../../../types/stateTypes";
@@ -85,7 +85,15 @@ export const Item = React.memo(
           document.body.style.cursor = "";
         };
       }, [dragOverlay]);
+      const [hover, setHover] = useState(false);
 
+      const handleMouseEnter = () => {
+        setHover(true);
+      };
+
+      const handleMouseLeave = () => {
+        setHover(false);
+      };
       return renderItem ? (
         renderItem({
           dragOverlay: Boolean(dragOverlay),
@@ -153,30 +161,38 @@ export const Item = React.memo(
             {value}
 
           </div>
-          <UnstyledButton style={{
-            position: "absolute",
-            display: "flex",
-            width: "20px",
-            height: "20px",
-            alignItems: "center",
-            justifyContent: "center",
-            top: -7,
-            right: -7,
-            color: "#9C090E",
-            backgroundColor: "white",
-            borderRadius: "50%",
-            fontSize: "25px",
-            border: `2px solid ${snap.specialization.colours?.primary}`
-          }} onClick={() => {
-            const newItems = [
-              ...items[containerId].slice(0, index),
-              ...items[containerId].slice(index + 1)
-            ]
-            setItems({
-              ...items,
-              [containerId]: newItems
-            })
-          }}>
+
+          <UnstyledButton
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="CloseButton" style={{
+              position: "absolute",
+              display: "flex",
+              // width: "20px",
+              width: hover ? "22px" : "20px",
+              height: hover ? "22px" : "20px",
+              alignItems: "center",
+              justifyContent: "center",
+              top: -7,
+              right: -7,
+              // color: "#9C090E",
+              color: "black",
+              backgroundColor: "white",
+              borderRadius: "50%",
+              transition: "all 0.2s ease-in-out",
+              fontSize: "25px",
+
+              border: `2px solid ${snap.specialization.colours?.primary}`
+            }} onClick={() => {
+              const newItems = [
+                ...items[containerId].slice(0, index),
+                ...items[containerId].slice(index + 1)
+              ]
+              setItems({
+                ...items,
+                [containerId]: newItems
+              })
+            }}>
 
             <span>&times;</span>
           </UnstyledButton>

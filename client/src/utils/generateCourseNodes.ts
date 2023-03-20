@@ -1,13 +1,13 @@
 import { CourseColumns, CourseNode } from "../types/stateTypes"
 
-export const generateCourseNodes = (columns: CourseColumns) => {
+export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) => {
 
     let nodes: CourseNode[] = []
     let edges: any[] = []
     let yPos = 100
 
     if (!Array.isArray(columns)) {
-        console.log("here")
+        // console.log("here")
         // console.log(snap.columns)
         return { courseNodes: [], courseEdges: [] };
     }
@@ -23,7 +23,8 @@ export const generateCourseNodes = (columns: CourseColumns) => {
 
         // if any of the items in the column have prerequisites on courses in the current column, rows will be 2, otherwise 1
         const rows = column.items.some(item => item.prerequisites?.some(prerequisite => column.items.some(item => item.id === prerequisite))) ? 4 : 1
-
+        // console.log("column", column)
+        // console.log("rows", rows)
         yPos += 100 * rows + 100
 
         nodes.push({
@@ -37,6 +38,8 @@ export const generateCourseNodes = (columns: CourseColumns) => {
                 width: nodeWidth * column.items.length + nodeMargin * (column.items.length - 1) + nodeMargin * 2,
                 justifyContent: 'center',
                 alignItems: 'center',
+
+                color: colorScheme.primary
             },
         })
 
@@ -45,7 +48,7 @@ export const generateCourseNodes = (columns: CourseColumns) => {
 
         for (let i = 0; i < column.items.length; i++) {
             // if the current item has prerequisites on courses in the current column, its position will be on the second row
-
+            // console.log("column.items[i]", column.items[i].value)
             nodes.push({
                 id: column.items[i].id,
                 type: 'default',
@@ -54,6 +57,8 @@ export const generateCourseNodes = (columns: CourseColumns) => {
                     width: nodeWidth,
                     height: nodeHeight,
                     marginRight: nodeMargin,
+                    background: colorScheme.primary,
+                    color: colorScheme.tertiary,
                 },
                 // position: { x: nodeX, y: nodeMargin },
                 // if the current item has prerequisites on courses in the current column, its position will be on the second row
