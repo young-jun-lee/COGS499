@@ -14,6 +14,8 @@ export type CourseNode = {
         color?: string;
         background?: string;
     };
+    selectable?: boolean;
+    draggable?: boolean;
     parentNode?: string;
     extent?: string;
     prerequisites?: readonly string[] | undefined

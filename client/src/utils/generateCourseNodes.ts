@@ -35,6 +35,23 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
             },
         })
 
+        nodes.push({
+            id: `${column.name}_label`,
+            type: 'default',
+            data: { label: column.name },
+            position: { x: 0, y: yPos - 35 },
+            
+            draggable: false,
+            selectable: false,
+            style: {
+                height: nodeHeight,
+                width: nodeWidth * column.items.length + nodeMargin * (column.items.length - 1) + nodeMargin * 2,
+                justifyContent: 'center',
+                alignItems: 'center',
+            },
+
+        })
+
         let nodeX = nodeMargin
 
 
@@ -49,6 +66,8 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
                     width: nodeWidth,
                     height: nodeHeight,
                     marginRight: nodeMargin,
+                    justifyContent: 'center',
+                    alignItems: 'center',
                     background: colorScheme.primary,
                     color: colorScheme.tertiary,
                 },
@@ -84,30 +103,10 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
             }
         }
 
-        if (index > 1) {
-            // console.log(index)
-
-            // get all items contained in the previous column
-            // const prevColumnItems = nodes.filter(node => node.parentNode === snap.columns[index - 1].name)
-            // console.log("prevColumnItems", prevColumnItems)
-            const prevColumnItems = nodes.filter(node => node.parentNode === columns[index - 1].name)
+        if (index > 0) {
             // get all items contained in the current column
             const currentColumnItems = nodes.filter(node => node.parentNode === column.name)
-            // console.log("currentColumnItems", currentColumnItems)
-            // for each item in the previous column, create an edge to each item in the current column
-            // prevColumnItems.forEach(prevItem => {
-            //     currentColumnItems.forEach((currentItem, index) => {
-            //         console.log(index)
-            //         edges.push({
-            //             id: `e_${prevItem.id}-${currentItem.id}`,
-            //             source: prevItem.id,
-            //             target: currentItem.id,
-            //         })
-            //         // console.log("creating edge", prevItem.id, currentItem.id)
 
-            //     })
-            // }
-            // )
             currentColumnItems.forEach((currentItem, index) => {
                 currentItem.prerequisites?.forEach(prerequisite => {
                     edges.push({

@@ -20,14 +20,9 @@ export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
     const rfStyle = {
         backgroundColor: backgroundColor,
     };
-    // const columns = Object.keys(snap.columns).map(key => snap.columns[key])
-    // console.log(columns)
-    // console.log("rendering")
+
     const columns = []
-    // go through snap.columns and create get the name, items, and prerequisites for each column
-    // skip the first column
-    // console.log("snap.columns: ", snap.columns)
-    // console.log("snap.currrentBasket: ", snap.currentBasket)
+
 
     const colorScheme = {
         primary: snap.specialization.colours?.primary,
