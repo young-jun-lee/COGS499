@@ -7,15 +7,10 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
     let yPos = 100
 
     if (!Array.isArray(columns)) {
-        // console.log("here")
-        // console.log(snap.columns)
         return { courseNodes: [], courseEdges: [] };
     }
 
     columns.map((column, index) => {
-
-        // skip the first column
-        if (index === 0) return
 
         const nodeWidth = 100
         const nodeHeight = 35
