@@ -11,6 +11,8 @@ export type CourseNode = {
         justifyContent?: string;
         alignItems?: string;
         marginRight?: number;
+        color?: string;
+        background?: string;
     };
     parentNode?: string;
     extent?: string;

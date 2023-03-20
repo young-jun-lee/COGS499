@@ -1,5 +1,5 @@
 import { FC, useCallback, useEffect, useState } from "react";
-import ReactFlow, { useNodesState, applyNodeChanges, Background, MiniMap } from "reactflow";
+import ReactFlow, { useNodesState, applyNodeChanges, Background, MiniMap, NodeChange, Node } from "reactflow";
 import { useSnapshot } from "valtio";
 import { generateCourseNodes } from "../../utils/generateCourseNodes";
 import { state } from "../../Valtio/State";
@@ -34,59 +34,41 @@ export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
         secondary: snap.specialization.colours?.secondary,
         tertiary: snap.specialization.colours?.tertiary
     }
-
-    for (let column in snap.currentBasket) {
-
+    console.log(snap.currentBasket)
+    for (let column of Object.keys(snap.currentBasket) as any) {
         // skip the first column and any empty columns
         if (column === "0" || snap.currentBasket[column].length === 0) {
             continue
         }
 
         const items = []
-        for (let item in snap.currentBasket[column]) {
-            const id = snap.currentBasket[column][item].id
-            const value = snap.currentBasket[column][item].value
-            const prerequisites = snap.currentBasket[column][item].prerequisites
-            // const prerequisites = []
-            // for (let prereq in snap.currentBasket[column][item].prerequisites) {
-            //     prerequisites.push(snap.currentBasket[column][item].prerequisites[prereq])
-            // }
+        for (let item of Object.keys(snap.currentBasket[column]) as any) {
+            const course = snap.currentBasket[column][item]
+            const id = course.id
+            const value = course.value
+            const prerequisites = course.prerequisites
             items.push({ id, value, prerequisites })
         }
+
+
         columns.push({ name: `Year ${column}`, items })
     }
 
-    console.log(columns)
-    let { courseNodes, courseEdges } = generateCourseNodes(columns, colorScheme)
-
-    const [coursesNodesEdges, setCoursesNodesEdges] = useState(
-        generateCourseNodes(columns, colorScheme)
-    )
-
-    // useEffect(() => {
-
-    // }, [snap.currentBasket])
-
-    // console.log(courseNodes)
+    const [courseNodes, setCoursesNodes, onNodesChange] = useNodesState([]);
+    const [courseEdges, setCoursesEdges] = useNodesState([]);
 
 
 
-    // console.log(courseNodes)
-    // const [nodes, setNodes] = useState(courseNodes);
-    const [nodes, setNodes] = useNodesState(coursesNodesEdges.courseNodes);
-    // const [edges, setEdges] = useState(courseEdges);
-
-    const onNodesChange = useCallback(
-        (changes) => {
-            setCoursesNodesEdges(generateCourseNodes(columns, colorScheme))
-            setNodes((nds) => applyNodeChanges(changes, nds))
-        },
-        [setNodes]);
+    useEffect(() => {
+        const generatedNodesEdges = generateCourseNodes(columns, colorScheme)
+        setCoursesNodes(generatedNodesEdges.courseNodes)
+        setCoursesEdges(generatedNodesEdges.courseEdges)
+    }, [snap.currentBasket])
 
 
     return (
         <ReactFlow
-            nodes={nodes}
+            nodes={courseNodes}
             edges={courseEdges}
             onNodesChange={onNodesChange}
             // onEdgesChange={onEdgesChange}

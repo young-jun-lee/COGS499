@@ -18,8 +18,6 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
 
         // if any of the items in the column have prerequisites on courses in the current column, rows will be 2, otherwise 1
         const rows = column.items.some(item => item.prerequisites?.some(prerequisite => column.items.some(item => item.id === prerequisite))) ? 4 : 1
-        // console.log("column", column)
-        // console.log("rows", rows)
         yPos += 100 * rows + 100
 
         nodes.push({
@@ -33,7 +31,6 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
                 width: nodeWidth * column.items.length + nodeMargin * (column.items.length - 1) + nodeMargin * 2,
                 justifyContent: 'center',
                 alignItems: 'center',
-
                 color: colorScheme.primary
             },
         })
