@@ -340,13 +340,19 @@ export const MultipleContainers = ({
     );
   }
 
-
+  useEffect(() => {
+    const basket = localStorage.getItem('basket')
+    if (basket) {
+      setItems(JSON.parse(basket))
+    }
+  }, [])
 
   useEffect(() => {
     requestAnimationFrame(() => {
       recentlyMovedToNewContainer.current = false;
     });
     state.currentBasket = items
+    localStorage.setItem('basket', JSON.stringify(items))
   }, [items]);
 
   return (

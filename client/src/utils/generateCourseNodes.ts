@@ -33,6 +33,8 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
                 alignItems: 'center',
                 color: colorScheme.primary
             },
+            draggable: false,
+            selectable: false,
         })
 
         nodes.push({
@@ -40,7 +42,7 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
             type: 'default',
             data: { label: column.name },
             position: { x: 0, y: yPos - 35 },
-            
+
             draggable: false,
             selectable: false,
             style: {

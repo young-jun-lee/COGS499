@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Radio, Text, Title } from '@mantine/core';
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { IoMdOptions } from "react-icons/io";
 import { useSnapshot } from "valtio";
 import { AiOutlineSetting } from "react-icons/ai"
@@ -15,6 +15,18 @@ interface SpecProps {
 const Specialization: FC<SpecProps> = ({ specChosen }) => {
     const snap = useSnapshot(state);
     const [opened, setOpened] = useState(false);
+
+    useEffect(() => {
+        const spec = localStorage.getItem("specialization")
+        if (spec) {
+            state.specialization = JSON.parse(spec)
+        }
+    }, [])
+
+
+    useEffect(() => {
+        localStorage.setItem("specialization", JSON.stringify(snap.specialization))
+    }, [snap.specialization])
 
     return (
         <Flex style={{ flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
