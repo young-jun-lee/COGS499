@@ -9,6 +9,10 @@ import Requirements from './components/Requirements/Requirements';
 import SelectContainer from './components/SelectCourses/SelectCoursesContainer';
 import HeaderContent from './content/Header';
 import "./styles.css";
+import { useEffect } from 'react';
+import { getCourses } from "./services/getCourses"
+import { useSnapshot } from 'valtio';
+import { state } from './Valtio/State';
 // import { useAutoAnimate } from '@formkit/auto-animate/react'
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -40,6 +44,21 @@ export default function App() {
   hiddenElements.forEach((element) => {
     observer.observe(element);
   });
+
+  const snap = useSnapshot(state);
+
+  useEffect(() => {
+    const specialization = (localStorage.getItem('specialization') != null) ? localStorage.getItem('specialization') : "";
+    if (specialization) {
+      // get courses
+      const parsedSpec = JSON.parse(specialization).name
+      console.log(specialization)
+      console.log(parsedSpec)
+      const courses = getCourses(parsedSpec);
+      console.log(courses)
+    }
+
+  }, [snap.specialization])
 
 
 
