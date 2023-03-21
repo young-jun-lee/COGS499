@@ -56,7 +56,6 @@ export default function App() {
             </Flex>
             <Flex style={{ height: "60%", marginTop: "50px", marginBottom: "50px" }}>
               <FlowContainer />
-              hi
             </Flex>
           </Container>
         </NotificationsProvider>

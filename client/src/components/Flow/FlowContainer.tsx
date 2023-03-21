@@ -26,7 +26,7 @@ const TreeContainer: FC = () => {
             </Box>
             <h3 style={{ textAlign: "center" }}>Here's a roadmap based on your degree plan and the courses you've chosen so far</h3>
             <Box sx={(theme) =>
-                ({ width: "90%", height: 500, border: `5px solid ${snap.specialization.colours?.primary}`, borderRadius: theme.radius.md, })}>
+                ({ width: "90%", height: 750, border: `5px solid ${snap.specialization.colours?.primary}`, borderRadius: theme.radius.md, marginBottom: 25 })}>
                 <Flow backgroundColor={snap.specialization.colours?.tertiary} />
             </Box>
         </Flex>

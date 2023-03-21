@@ -64,6 +64,11 @@ export const MultipleContainers = ({
   const specChosen = snap.specialization.name !== undefined
 
   const getItems = () => {
+    const basket = localStorage.getItem('basket')
+    if (basket) {
+      return JSON.parse(basket)
+    }
+
     const items: Items = {}
     snap.columns.map((column, index) => {
       // if (index !== 0) {
@@ -72,7 +77,6 @@ export const MultipleContainers = ({
     })
     const years: Years = {}
     snap.columns.map((column, index) => {
-      // const courses = {} as Course[]
       const courses = [] as Course[]
       column.items.map((item, idx) => {
         const course = {
@@ -81,22 +85,27 @@ export const MultipleContainers = ({
           group: item.group,
           prerequisites: item.prerequisites?.map(prerequisite => prerequisite),
         }
-        // courses[idx] = course
         courses.push(course)
       })
       years[index] = courses
     })
-    items[3] = empty
-    // items[4] = empty
     return years
-    return items
+
   }
 
-  const [items, setItems] = useState<Items>(
-    getItems()
-  );
+  const [items, setItems] = useState<Items>(getItems());
 
+  // useEffect(() => {
 
+  // }, [])
+
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      recentlyMovedToNewContainer.current = false;
+    });
+    state.currentBasket = items
+    localStorage.setItem('basket', JSON.stringify(items))
+  }, [items]);
   const [containers, setContainers] = useState(
     Object.keys(items) as UniqueIdentifier[]
   );
@@ -340,20 +349,7 @@ export const MultipleContainers = ({
     );
   }
 
-  useEffect(() => {
-    const basket = localStorage.getItem('basket')
-    if (basket) {
-      setItems(JSON.parse(basket))
-    }
-  }, [])
 
-  useEffect(() => {
-    requestAnimationFrame(() => {
-      recentlyMovedToNewContainer.current = false;
-    });
-    state.currentBasket = items
-    localStorage.setItem('basket', JSON.stringify(items))
-  }, [items]);
 
   return (
     <DndContext
