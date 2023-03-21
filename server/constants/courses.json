@@ -1,1 +1,1552 @@
-{"CISC 101":{"code":"CISC 101","title":"Elements of Computing Science","description":"Introduction to algorithms: their definition, design, coding, and execution on computers. Intended for students who have no programming experience. All or most assignment work will be completed during lab time.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.\nNOTE Sufficient preparation for CISC 121; alternative to CISC 110 and CISC 151.","units":3,"prerequisites":["None"],"corequisites":["None"],"exclusions":["APSC 142","APSC 143","CISC 110","CISC 151"],"one_way_exclusions":["CISC 121",["CISC 2++","CMPE 2++","COCA 2++","COGS 2++","SOFT 2++"]]},"CISC 102":{"code":"CISC 102","title":"Discrete Mathematics for Computing l","description":"Introduction to mathematical discourse and proof methods. Sets, functions, sequences, and relations. Properties of the integers. Induction. Equivalence relations. Linear and partial orderings.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.","units":3,"prerequisites":["None"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["CISC 203"]},"CISC 110":{"code":"CISC 110","title":"Creative Computing","description":"Introduction to fundamental programming concepts in the context of visual, interactive media. Students may develop applications in any domain (e.g., fine art, education, commerce, physical or social sciences) while learning about algorithms, program design, logic, program control flow, functions, testing, etc.\nNOTE Sufficient preparation for CISC 121; alternative to CISC 101 and CISC 151.\nNOTE With permission of the School, students with programming experience may take this concurrently with CISC 121.","units":3,"prerequisites":["None"],"corequisites":["None"],"exclusions":["APSC 142","APSC 143","CISC 101","CISC 151"],"one_way_exclusions":["CISC 121",["CISC 2++","CMPE 2++","COCA 2++","COGS 2++","SOFT 2++"]]},"CISC 121":{"code":"CISC 121","title":"Introduction to Computing Science I","description":"Introduction to design, analysis, and implementation of algorithms. Recursion, backtracking, and exits. Sequences. Elementary searching and sorting. Order-of-magnitude complexity. Documentation, iterative program development, translating natural language to code, testing and debugging.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.","units":3,"prerequisites":["None"],"corequisites":[["CISC 102","MATH 110","MATH 111","MATH 112","MATH 120","MATH 121","MATH 123","MATH 124","MATH 126","APSC 171","APSC 172","APSC 174","COMM 161","COMM 162"]],"exclusions":["APSC 143"],"one_way_exclusions":["None"]},"CISC 124":{"code":"CISC 124","title":"Introduction to Computing Science II","description":"Introduction to object-oriented design, architecture, and programming. Use of packages, class libraries, and interfaces. Encapsulation and representational abstraction. Inheritance. Polymorphic programming. Exception handling. Iterators. Introduction to a class design notation. Numerical computation. Applications in various areas.","units":3,"prerequisites":["CISC 121"],"corequisites":[["CISC 102","MATH 110","MATH 111","MATH 112","MATH 120","MATH 121","MATH 123","MATH 124","MATH 126","APSC 171","APSC 172","APSC 174","COMM 161","COMM 162"]],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 151":{"code":"CISC 151","title":"Elements of Computing with Data Analytics","description":"Introduction to algorithms: their definition, design, coding, and execution on computers, with applications drawn from data analytics, including simple prediction and clustering. Intended for students who have no programming experience. All or most assignment work will be completed during lab time.\nNOTE Sufficient preparation for CISC 121; alternative to CISC 101 and CISC 110.","units":3,"prerequisites":["None"],"corequisites":["None"],"exclusions":["APSC 142","APSC 143","CISC 101","CISC 110"],"one_way_exclusions":["CISC 121",["CISC 2++","CMPE 2++","COCA 2++","COGS 2++","SOFT 2++"]]},"CISC 181":{"code":"CISC 181","title":"Digital Societies","description":"This introductory course provides a broad overview and ethical implications of technological topics and trends in the digital world such as the Internet of Things (IoT), Social Networks, Security and Privacy, Data Analytics, and Artificial Intelligence (AI). No programming experience is required.","units":3,"prerequisites":["None"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 203":{"code":"CISC 203","title":"Discrete Mathematics for Computing II","description":"Proof methods. Combinatorics: permutations and combinations, discrete probability, recurrence relations. Graphs and trees. Boolean and abstract algebra.","units":3,"prerequisites":[["CISC 121",["CISC 102","MATH 110"]]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 204":{"code":"CISC 204","title":"Logic for Computing Science","description":"Elements of mathematical logic with computing applications. Formal proof systems for propositional and predicate logic. Interpretations, validity, and satisfiability. Introduction to soundness, completeness and decidability.","units":3,"prerequisites":[["CISC 121",["CISC 102","MATH 110"]]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 220":{"code":"CISC 220","title":"System Level Programming","description":"Basic concepts of Unix-like systems. Shells and scripting. System-level programming in the C language. Software development tools and techniques.","units":3,"prerequisites":["CISC 121"],"corequisites":["CISC 124"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 221":{"code":"CISC 221","title":"Computer Architecture","description":"The descriptive levels of computer architecture. Instruction-set architectures. Assembly Language. Data representation. Support for operating-system management and high-level languages. Input/output and interrupts. Designing for performance. Digital Logic.","units":3,"prerequisites":["CISC 124"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 223":{"code":"CISC 223","title":"Software Specifications","description":"Introduction to techniques for specifying the behaviour of software, with applications of these techniques to design, verification and construction of software. Logic-based techniques such as loop invariants and class invariants. Automata and grammar-based techniques, with applications to scanners, parsers, user-interface dialogs and embedded systems. Computability issues in software specifications.","units":3,"prerequisites":[["CISC 124","CISC 204"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 226":{"code":"CISC 226","title":"Game Design","description":"An introduction to techniques for designing elementary computer games. Topics will include game development tools and processes, principles of game design, game prototyping and game evaluation.","units":3,"prerequisites":["CISC 124"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 235":{"code":"CISC 235","title":"Data Structures","description":"Design and implementation of advanced data structures and related algorithms, including correctness and complexity analysis.","units":3,"prerequisites":[["CISC 124","CISC 203"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 251":{"code":"CISC 251","title":"Data Analytics","description":"Introduction to data analytics; data preparation; assessing performance; prediction methods such as decision trees, random forests, support vector machines, neural networks and rules; ensemble methods such as bagging and boosting; clustering techniques such as expectation-maximization, matrix decompositions, and bi-clustering; attribute selection.","units":3,"prerequisites":["None"],"corequisites":["None"],"exclusions":["CISC 333","CMPE 333"],"one_way_exclusions":["None"]},"CISC 271":{"code":"CISC 271","title":"Linear Data Analysis","description":"Elements of linear algebra for data analysis, including: solution of linear equations; vector spaces; matrix decompositions; principal components analysis; linear regression; hyperplane classification of vectorial data.","units":3,"prerequisites":[["CISC 101","CISC 110","CISC 151","CISC 121"],["MATH 110","MATH 111","MATH 112"],["MATH 120","MATH 121",["MATH 123","MATH 124"],"MATH 126"]],"corequisites":["None"],"exclusions":["MATH 272"],"one_way_exclusions":["None"]},"CISC 282":{"code":"CISC 282","title":"Fundamentals of Web Development","description":"This course surveys current best practices for implementing attractive, usable, secure and maintainable web applications. Other issues considered include: accessibility, platform and browser independence, licensing of intellectual property, scalability, user privacy, and using web technologies in mobile development.","units":3,"prerequisites":["CISC 124"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 320":{"code":"CISC 320","title":"Fundamentals of Software Development","description":"Introduction to management of small and medium-scale software projects. Advanced programming methodology using the programming language C++. Includes a significant programming project.","units":3,"prerequisites":["CISC 235"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 322":{"code":"CISC 322","title":"Software Architecture","description":"Abstractions and patterns of interactions and relationships among modules. Design recovery; relationship of architecture to requirements and testing.","units":3,"prerequisites":[["CISC 223","CISC 235"]],"corequisites":["None"],"exclusions":["CISC 326"],"one_way_exclusions":["None"]},"CISC 324":{"code":"CISC 324","title":"Operating Systems","description":"Layered operating systems for conventional shared memory computers: concurrent processes. Synchronization and communication. Concurrent algorithms. Scheduling. Deadlock. Memory management. Protection. File systems. Device management. Typical layers.","units":3,"prerequisites":[["CISC 221","CISC 235"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 325":{"code":"CISC 325","title":"Human-Computer Interaction","description":"Developing usable software requires that human factors be considered throughout the design and development process. This course introduces a series of techniques for development and evaluating usable software, and shows how these techniques can be integrated into a process for software development.","units":3,"prerequisites":[],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 326":{"code":"CISC 326","title":"Game Architecture","description":"An introduction to software architectural design through the application domain of game development. Abstractions and patterns of interactions and relationships among modules. Design recovery. Relationship to requirements and testing","units":3,"prerequisites":[["CISC 223","CISC 235"]],"corequisites":["None"],"exclusions":["CISC 322"],"one_way_exclusions":["None"]},"CISC 327":{"code":"CISC 327","title":"Software Quality Assurance","description":"Validation of software throughout the life cycle. Comparative effectiveness in defect removal of formal methods (proofs of correctness), inspection (walkthroughs and reviews), and testing (unit, integration, and system testing; white box versus black box).","units":3,"prerequisites":[["CISC 220","CISC 124"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 330":{"code":"CISC 330","title":"Computer-Integrated Surgery","description":"Concepts of computer-integrated surgery systems and underlying techniques such as medical-image computing, robotics, and virtual reality, learned through real-life applications and problems. Techniques learned in class will be applied in a hands-on surgery session where students perform minimally invasive surgery with virtual-reality navigation tools.","units":3,"prerequisites":[["CISC 121","CISC 271"]],"corequisites":["None"],"exclusions":["COMP 329","COMP 230"],"one_way_exclusions":["None"]},"CISC 332":{"code":"CISC 332","title":"Database Management Systems","description":"Data models: relational, entity-relationship. Relational query languages: relational algebra and SQL. Relational database design. Application interfaces and embedded SQL. Storage and indexing.","units":3,"prerequisites":[["CISC 102","CISC 124"]],"corequisites":["None"],"exclusions":["COMM 392"],"one_way_exclusions":["None"]},"CISC 335":{"code":"CISC 335","title":"Computer Networks","description":"Fundamental concepts in the design and implementation of computer communication networks, protocols, and applications. Overview of network architectures; applications; network programming interfaces (e.g., sockets); transport; congestion; routing and data link protocols; addressing; local area networks; wireless networks, mobility management; security.","units":3,"prerequisites":["CISC 324"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 340":{"code":"CISC 340","title":"Digital Systems","description":"Combinational circuits; sequential circuits; digital systems design; micro-programming; bus structures; data communications; interface design; microprocessor systems.","units":3,"prerequisites":["CISC 221"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 351":{"code":"CISC 351","title":"Advanced Data Analytics","description":"Design and implementation of complex analytics techniques; predictive algorithms at scale; deep learning; clustering at scale; advanced matrix decompositions, analytics in the Web, collaborative filtering; social network analysis; applications in specialized domains.","units":3,"prerequisites":["CISC 251","BIOL 243","CHEE 209","COMM 162","ECON 250","GPHY 247","KNPE 251","NURS 323","POLS 385","PSYC 202","SOCY 211","STAM 200","STAT 263","STAT 367"],"corequisites":["None"],"exclusions":["CISC 371","CISC 372"],"one_way_exclusions":["None"]},"CISC 352":{"code":"CISC 352","title":"Artificial Intelligence","description":"An introduction to the basic principles and tools of artificial intelligence. Problem solving methods and knowledge representation techniques.","units":3,"prerequisites":["CISC 235"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 360":{"code":"CISC 360","title":"Programming Paradigms","description":"Review of imperatives programming features. Introduction to other widely used programming paradigms. Functional programming languages, such as LISP and Haskell. Higher order functions, lazy evaluation, abstract and recursive types, structural induction, symbolic expressions. Logic programming languages, such as PROLOG. Operational interpretation of predicates and terms, proof search, unification, backtracking. Typical applications.","units":3,"prerequisites":[["CISC 124","CISC 204"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 365":{"code":"CISC 365","title":"Algorithms I","description":"Principles of design, analysis and implementation of efficient algorithms. Case studies from a variety of areas illustrate divide and conquer methods, the greedy approach, branch and bound algorithms and dynamic programming.","units":3,"prerequisites":[["CISC 203","CISC 204","CISC 235"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 371":{"code":"CISC 371","title":"Nonlinear Data Analysis","description":"Methods for nonlinear data analysis, particularly using numerical optimization. Applications may include: unconstrained data optimization; linear equality constraints; constrained data regression; constrained data classification; evaluating the effectiveness of analysis methods.","units":3,"prerequisites":[["CISC 271",["STAT 263","BIOL 243","CHEE 209","COMM 162","ECON 250","GPHY 247","KNPE 251","NURS 323","POLS 385","PSYC 202","SOCY 211","STAM 200","STAT 263","STAT 367"]]],"corequisites":["None"],"exclusions":["CISC 351"],"one_way_exclusions":["None"]},"CISC 372":{"code":"CISC 372","title":"Advanced Data Analytics","description":"Inductive modelling of data, especially counting models; ensemble approaches to modelling; maximum likelihood and density-based approaches to clustering, visualization. Applications to non-numeric datasets such as natural language, social networks, Internet search, recommender systems. Introduction to deep learning. Ethics of data analytics.","units":3,"prerequisites":[["CISC 271",["BIOL 243","CHEE 209","COMM 162","ECON 250","GPHY 247","KNPE 251","NURS 323","POLS 385","PSYC 202","SOCY 211","STAM 200","STAT 263","STAT 367"]]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 422":{"code":"CISC 422","title":"Formal Methods in Software Engineering","description":"Mathematical methods for describing software behaviour and structure. Topics include (but are not limited to) the following: Requirements specification. Module specification: axiomatic, algebraic, and trace specifications. Abstract models. Verification. Specification-based validation.","units":3,"prerequisites":["CISC 223"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 423":{"code":"CISC 423","title":"Software Requirements","description":"An integrated approach to discovering and documenting software requirements. Identification of stakeholders; customer, operator, analyst, and developer perspectives. Requirements elicitation. Transition from initial (informal) requirements to semi-formal and formal representations. Requirements analysis process; analysis patterns. Requirements specification techniques. Relation to architecture and user interface design; traceability of requirements.","units":3,"prerequisites":[["CISC 223","CISC 235"]],"corequisites":["CISC 325",["CISC 322","CISC 326"]],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 425":{"code":"CISC 425","title":"Advanced User Interface Design","description":"Advanced user-interface styles such as eye-tracking input, digital desks, wearable computing, ubiquitous and context-aware computing, and tangible interfaces.","units":3,"prerequisites":["CISC 325"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 426":{"code":"CISC 426","title":"Real-Time Systems","description":"Design and implementation of real-time embedded applications. Specifying timing properties: formal and semi-formal methods; soft real-time versus hard real-time. Design notations; language constructs. Real-time operating systems. Abstract device interfaces.","units":3,"prerequisites":[["CISC 324","CISC 327"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 432":{"code":"CISC 432","title":"Advanced Data Management Systems","description":"Storage and representation of \"big data\", which are large, complex, structured or unstructured data sets. Provenance, curation, integration, indexing and querying of data.","units":3,"prerequisites":[["CISC 235","CISC 332"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 434":{"code":"CISC 434","title":"Distributed Systems","description":"Distributed systems goals, characteristics, and architectures. Processes: models, inter-process communication and coordination. Name services. Consistency and replication. Fault tolerance: design for reliable communication and recovery. Security. Development paradigms based on data types: object, file, and web-based systems.","units":3,"prerequisites":["CISC 324"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 437":{"code":"CISC 437","title":"Performance Analysis","description":"Analytic and empirical evaluation of the performance of software systems. Performance modeling. Experimental design and statistical techniques for empirical performance analysis.","units":3,"prerequisites":[["CISC 324","CISC 327"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 447":{"code":"CISC 447","title":"Introduction to Cybersecurity","description":"An introduction to cybersecurity covering a wide range of vulnerabilities, attacks, and defense mechanisms in individual computers, networks, the Internet and the Web and applications that use them, and storage and computational clouds. The human side of cybersecurity, and the legal and ethical constraints on both attack and defense.","units":3,"prerequisites":["CISC 324","CISC 335"],"corequisites":["None"],"exclusions":["CISC 490"],"one_way_exclusions":["None"]},"CISC 448":{"code":"CISC 448","title":"Software Reliability and Security","description":"Software dependability and other related concepts, software process models and methods for reliable software. Software reliability engineering process, software fault tolerance and run-time monitoring. Software security engineering process, secure software design, program security vulnerabilities and software security testing","units":3,"prerequisites":["CISC 327","CMPE 327"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 451":{"code":"CISC 451","title":"Topics in Data Analytics","description":"Content will vary from year to year; typical areas covered may include: tools for large scale data analytics (Hadoop, Spark), data analytics in the cloud, properties of large scale social networks, applications of data analytics in security.","units":3,"prerequisites":[["CISC 333","CISC 351","CISC 372"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 452":{"code":"CISC 452","title":"Neural and Genetic Computing","description":"Introduction to neural and genetic computing. Topics include associative memory systems, neural optimization strategies, supervised and unsupervised classification networks, genetic algorithms, genetic and evolutionary programming. Applications are examined, and the relation to biologic systems is discussed.","units":3,"prerequisites":["CISC 235"],"corequisites":["None"],"exclusions":["COGS 400"],"one_way_exclusions":["None"]},"CISC 453":{"code":"CISC 453","title":"Topics in Artificial Intelligence","description":"Investigation of selected areas of artificial intelligence research. Possible topics include natural language understanding, computational perception, planning, learning, and neurocomputing.","units":3,"prerequisites":["CISC 352"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 454":{"code":"CISC 454","title":"Graphics (A)","description":"Introduction to computer graphics, including a review of current hardware; modelling and transformations in two and three dimensions; visual realism: perspective, hidden surface elimination, and shading; colour models; applications in several fields. James Stewart.","units":3,"prerequisites":[["CISC 235",["MATH 110","MATH 111","MATH 112"]]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 455":{"code":"CISC 455","title":"Evolutionary Optimization and Learning","description":"Building, applying and studying algorithms based on the Darwinian principles of natural evolution. A creative approach to AI able to create novel solutions. Genetic algorithms, evolution strategies, and genetic programming. Application to optimization and learning problems.","units":3,"prerequisites":[["CISC 365","STAT 263"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 457":{"code":"CISC 457","title":"Image Processing and Computer","description":"Introduction to fundamental concepts and applications in image processing and computer vision. Topics include image acquisition, convolution, Discrete Fourier Transform, image enhancement, edge detection, segmentation, image registration, human contrast perception, colour perception and reproduction, stereo vision.","units":3,"prerequisites":[["MATH 110","MATH 111","MATH 112"],["MATH 120","MATH 121","MATH 123","MATH 124","MATH 126"],"CISC 124"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 458":{"code":"CISC 458","title":"Programming Language Processors (S)","description":"Introduction to the systematic construction of a compiler: grammars and languages, scanners, top-down and bottom-up parsing, runtime organization, symbol tables, internal representations; Polish notation, syntax trees, semantic routines, storage allocation, code generation, interpreters.","units":3,"prerequisites":[["CISC 121","CISC 221","CISC 223"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 462":{"code":"CISC 462","title":"Computability and Complexity","description":"Turing machines and other models of computability such as µ-recursive functions and random-access machines. Undecidability. Recursive and recursively enumerable sets. Church-Turing thesis. Resource-bounded complexity. Complexity comparisons among computational models. Reductions. Complete problems for complexity classes.","units":3,"prerequisites":["CISC 223"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 465":{"code":"CISC 465","title":"Semantics of Programming Languages","description":"Specifying syntax and semantics; operational and denotational semantics. Lambda calculi, type systems and logical foundations. Meta-theoretic properties. Semantics of imperative languages.","units":3,"prerequisites":[["CISC 204","CISC 223",["CISC 360","CISC 260"]]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 466":{"code":"CISC 466","title":"Algorithms II","description":"A continuation of CISC 365/3.0. Lower bound theory. Average-case analysis of algorithms. Approximation algorithms. Probabilistic algorithms. Parallel algorithms.","units":3,"prerequisites":["CISC 365"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 467":{"code":"CISC 467","title":"Fuzzy Logic","description":"History of fuzzy theory; fundamental concepts of fuzzy theory: sets, relations, and logic operators. Approximate reasoning, fuzzy inference, possibility theory. Separation from probability. Fuzzy control systems. Fuzzy pattern recognition. Advanced topics may include fuzzy expert systems, financial systems, graph theory, optimization.","units":3,"prerequisites":["CISC 204"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 468":{"code":"CISC 468","title":"Cryptography","description":"Fundamentals of cryptographic algorithms: secure pseudorandom number generators, hash functions, symmetric-key cryptography (stream ciphers, block ciphers); public-key cryptography (encryption and decryption, digital signatures, key agreement). Applications of cryptography to secure communication protocols and systems.","units":3,"prerequisites":[["CISC 235","CISC 335"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 471":{"code":"CISC 471","title":"Computational Biology","description":"Advanced computational approaches to the problems in molecular biology. Techniques and algorithms for sequence analysis and alignment; molecular databases; protein structure prediction and molecular data mining.","units":3,"prerequisites":[["CISC 352","CISC 365"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 472":{"code":"CISC 472","title":"Medical Informatics","description":"Current topics in the application of information technology to medical image computing and its use in image-guided medical interventions.","units":3,"prerequisites":["CISC 330"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 473":{"code":"CISC 473","title":"Deep Learning","description":"Design of deep neural networks based on leading-edge algorithms such as Restricted Boltzmann Machines, Recurrent Neural Networks, Convolutional Neural Networks, Long-Short Term Machines. Autoencoding as a clustering technique. Applications to prediction problems in natural language and images.","units":3,"prerequisites":[["CISC 371",["CISC 271","CISC 352"]]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 474":{"code":"CISC 474","title":"Reinforcement Learning","description":"Formal and heuristic approaches to problem-solving, planning, knowledge representation and reasoning, Markov decision processes, dynamic programming, temporal-difference learning, Monte Carlo learning, function approximation, integration of learning and planning. Implementing simple examples of logical reasoning, clustering or classification.","units":3,"prerequisites":["CISC 352"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 486":{"code":"CISC 486","title":"Game Development","description":"An introduction to 'engines' used in networked 3-dimensional games. Topics include game-engine architecture and components providing 3-dimensional rendering, physics simulation, sound, artificial intelligence and networking services.","units":3,"prerequisites":[["CISC 226",["CISC 322","CISC 326"],"CISC 324",["MATH 110","MATH 111","MATH 112"]]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 490":{"code":"CISC 490","title":"Topics in Computing Science I","description":"Content varies. Not offered every year.\nNOTE Learning Hours will vary.","units":3,"prerequisites":[],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 491":{"code":"CISC 491","title":"Topics in Computing Science II","description":"Content varies. Not offered every year.\nNOTE Learning Hours will vary.","units":3,"prerequisites":[],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 492":{"code":"CISC 492","title":"Topics in Computing III","description":"Content varies. Not offered every year.\nNOTE Learning Hours will vary.","units":3,"prerequisites":[],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 496":{"code":"CISC 496","title":"Game Development Project","description":"Team-based project involving the development of a game using modern tools and software engineering techniques.","units":3,"prerequisites":["None"],"corequisites":["None"],"exclusions":["CISC 496","CISC 498","CISC 499","COGS 499","CISC 500"],"one_way_exclusions":["None"]},"CISC 497":{"code":"CISC 497","title":"Social, Ethical and Legal Issues in Computing","description":"A wide range of topics of current importance in computing, including technical issues, professional questions, and moral and ethical decisions. Students make presentations, deliver papers, and engage in discussion.","units":3,"prerequisites":[["CISC 352","CISC 365"]],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 498":{"code":"CISC 498","title":"Information Technology Project","description":"Topic selected under the supervision of a faculty member. Emphasis is on the application of software engineering techniques to the development of a substantial software system. Group work, oral presentation, participation in design and code review meetings, and delivery of complete software specification and design are required.","units":6,"prerequisites":[["CISC 322","CISC 326"],["CISC 325","CISC 327"]],"corequisites":["None"],"exclusions":["CISC 496","CISC 499"],"one_way_exclusions":["None"]},"CISC 499":{"code":"CISC 499","title":"Advanced Undergraduate Project","description":"Topic selected under the supervision of a faculty member. Emphasis may be on the development of a large program, or on more theoretical issues. Independent research, an oral presentation, and a written report are required.","units":3,"prerequisites":["CISC 365"],"corequisites":["None"],"exclusions":["CISC 496","CISC 498","COGS 499","CISC 500"],"one_way_exclusions":["None"]},"CISC 500":{"code":"CISC 500","title":"Undergraduate Thesis","description":"Individual research project under the supervision of a School of Computing faculty member. Evaluation is based on an oral presentation and a written thesis. It is the responsibility of the student to make a research proposal and secure a supervisor prior to enrolling in the course.","units":6,"prerequisites":[],"corequisites":["None"],"exclusions":["CISC 496","CISC 499","COGS 499"],"one_way_exclusions":["None"]},"CISC 594":{"code":"CISC 594","title":"Independent Study","description":"\n","units":3,"prerequisites":["None"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 595":{"code":"CISC 595","title":"Independent Study","description":"\n","units":6,"prerequisites":["None"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]},"CISC 596":{"code":"CISC 596","title":"Independent Study","description":"\n","units":12,"prerequisites":["None"],"corequisites":["None"],"exclusions":["None"],"one_way_exclusions":["None"]}}
+{
+    "ARAB 101": {
+        "code": "ARAB 101",
+        "title": "Elements of Computing Science",
+        "description": "Introduction to algorithms: their definition, design, coding, and execution on computers. Intended for students who have no programming experience. All or most assignment work will be completed during lab time.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.\nNOTE Sufficient preparation for CISC 121; alternative to CISC 110 and CISC 151.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "APSC 142",
+            "APSC 143",
+            "CISC 110",
+            "CISC 151"
+        ],
+        "one_way_exclusions": [
+            "CISC 121",
+            [
+                "CISC 2++",
+                "CMPE 2++",
+                "COCA 2++",
+                "COGS 2++",
+                "SOFT 2++"
+            ]
+        ]
+    },
+    "CISC 101": {
+        "code": "CISC 101",
+        "title": "Elements of Computing Science",
+        "description": "Introduction to algorithms: their definition, design, coding, and execution on computers. Intended for students who have no programming experience. All or most assignment work will be completed during lab time.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.\nNOTE Sufficient preparation for CISC 121; alternative to CISC 110 and CISC 151.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "APSC 142",
+            "APSC 143",
+            "CISC 110",
+            "CISC 151"
+        ],
+        "one_way_exclusions": [
+            "CISC 121",
+            [
+                "CISC 2++",
+                "CMPE 2++",
+                "COCA 2++",
+                "COGS 2++",
+                "SOFT 2++"
+            ]
+        ]
+    },
+    "CISC 102": {
+        "code": "CISC 102",
+        "title": "Discrete Mathematics for Computing l",
+        "description": "Introduction to mathematical discourse and proof methods. Sets, functions, sequences, and relations. Properties of the integers. Induction. Equivalence relations. Linear and partial orderings.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "CISC 203"
+        ]
+    },
+    "CISC 110": {
+        "code": "CISC 110",
+        "title": "Creative Computing",
+        "description": "Introduction to fundamental programming concepts in the context of visual, interactive media. Students may develop applications in any domain (e.g., fine art, education, commerce, physical or social sciences) while learning about algorithms, program design, logic, program control flow, functions, testing, etc.\nNOTE Sufficient preparation for CISC 121; alternative to CISC 101 and CISC 151.\nNOTE With permission of the School, students with programming experience may take this concurrently with CISC 121.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "APSC 142",
+            "APSC 143",
+            "CISC 101",
+            "CISC 151"
+        ],
+        "one_way_exclusions": [
+            "CISC 121",
+            [
+                "CISC 2++",
+                "CMPE 2++",
+                "COCA 2++",
+                "COGS 2++",
+                "SOFT 2++"
+            ]
+        ]
+    },
+    "CISC 121": {
+        "code": "CISC 121",
+        "title": "Introduction to Computing Science I",
+        "description": "Introduction to design, analysis, and implementation of algorithms. Recursion, backtracking, and exits. Sequences. Elementary searching and sorting. Order-of-magnitude complexity. Documentation, iterative program development, translating natural language to code, testing and debugging.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            [
+                "CISC 102",
+                "MATH 110",
+                "MATH 111",
+                "MATH 112",
+                "MATH 120",
+                "MATH 121",
+                "MATH 123",
+                "MATH 124",
+                "MATH 126",
+                "APSC 171",
+                "APSC 172",
+                "APSC 174",
+                "COMM 161",
+                "COMM 162"
+            ]
+        ],
+        "exclusions": [
+            "APSC 143"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 124": {
+        "code": "CISC 124",
+        "title": "Introduction to Computing Science II",
+        "description": "Introduction to object-oriented design, architecture, and programming. Use of packages, class libraries, and interfaces. Encapsulation and representational abstraction. Inheritance. Polymorphic programming. Exception handling. Iterators. Introduction to a class design notation. Numerical computation. Applications in various areas.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 121"
+        ],
+        "corequisites": [
+            [
+                "CISC 102",
+                "MATH 110",
+                "MATH 111",
+                "MATH 112",
+                "MATH 120",
+                "MATH 121",
+                "MATH 123",
+                "MATH 124",
+                "MATH 126",
+                "APSC 171",
+                "APSC 172",
+                "APSC 174",
+                "COMM 161",
+                "COMM 162"
+            ]
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 151": {
+        "code": "CISC 151",
+        "title": "Elements of Computing with Data Analytics",
+        "description": "Introduction to algorithms: their definition, design, coding, and execution on computers, with applications drawn from data analytics, including simple prediction and clustering. Intended for students who have no programming experience. All or most assignment work will be completed during lab time.\nNOTE Sufficient preparation for CISC 121; alternative to CISC 101 and CISC 110.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "APSC 142",
+            "APSC 143",
+            "CISC 101",
+            "CISC 110"
+        ],
+        "one_way_exclusions": [
+            "CISC 121",
+            [
+                "CISC 2++",
+                "CMPE 2++",
+                "COCA 2++",
+                "COGS 2++",
+                "SOFT 2++"
+            ]
+        ]
+    },
+    "CISC 181": {
+        "code": "CISC 181",
+        "title": "Digital Societies",
+        "description": "This introductory course provides a broad overview and ethical implications of technological topics and trends in the digital world such as the Internet of Things (IoT), Social Networks, Security and Privacy, Data Analytics, and Artificial Intelligence (AI). No programming experience is required.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 203": {
+        "code": "CISC 203",
+        "title": "Discrete Mathematics for Computing II",
+        "description": "Proof methods. Combinatorics: permutations and combinations, discrete probability, recurrence relations. Graphs and trees. Boolean and abstract algebra.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 121",
+                [
+                    "CISC 102",
+                    "MATH 110"
+                ]
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 204": {
+        "code": "CISC 204",
+        "title": "Logic for Computing Science",
+        "description": "Elements of mathematical logic with computing applications. Formal proof systems for propositional and predicate logic. Interpretations, validity, and satisfiability. Introduction to soundness, completeness and decidability.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 121",
+                [
+                    "CISC 102",
+                    "MATH 110"
+                ]
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 220": {
+        "code": "CISC 220",
+        "title": "System Level Programming",
+        "description": "Basic concepts of Unix-like systems. Shells and scripting. System-level programming in the C language. Software development tools and techniques.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 121"
+        ],
+        "corequisites": [
+            "CISC 124"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 221": {
+        "code": "CISC 221",
+        "title": "Computer Architecture",
+        "description": "The descriptive levels of computer architecture. Instruction-set architectures. Assembly Language. Data representation. Support for operating-system management and high-level languages. Input/output and interrupts. Designing for performance. Digital Logic.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 124"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 223": {
+        "code": "CISC 223",
+        "title": "Software Specifications",
+        "description": "Introduction to techniques for specifying the behaviour of software, with applications of these techniques to design, verification and construction of software. Logic-based techniques such as loop invariants and class invariants. Automata and grammar-based techniques, with applications to scanners, parsers, user-interface dialogs and embedded systems. Computability issues in software specifications.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 124",
+                "CISC 204"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 226": {
+        "code": "CISC 226",
+        "title": "Game Design",
+        "description": "An introduction to techniques for designing elementary computer games. Topics will include game development tools and processes, principles of game design, game prototyping and game evaluation.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 124"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 235": {
+        "code": "CISC 235",
+        "title": "Data Structures",
+        "description": "Design and implementation of advanced data structures and related algorithms, including correctness and complexity analysis.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 124",
+                "CISC 203"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 251": {
+        "code": "CISC 251",
+        "title": "Data Analytics",
+        "description": "Introduction to data analytics; data preparation; assessing performance; prediction methods such as decision trees, random forests, support vector machines, neural networks and rules; ensemble methods such as bagging and boosting; clustering techniques such as expectation-maximization, matrix decompositions, and bi-clustering; attribute selection.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CISC 333",
+            "CMPE 333"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 271": {
+        "code": "CISC 271",
+        "title": "Linear Data Analysis",
+        "description": "Elements of linear algebra for data analysis, including: solution of linear equations; vector spaces; matrix decompositions; principal components analysis; linear regression; hyperplane classification of vectorial data.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 101",
+                "CISC 110",
+                "CISC 151",
+                "CISC 121"
+            ],
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ],
+            [
+                "MATH 120",
+                "MATH 121",
+                [
+                    "MATH 123",
+                    "MATH 124"
+                ],
+                "MATH 126"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "MATH 272"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 282": {
+        "code": "CISC 282",
+        "title": "Fundamentals of Web Development",
+        "description": "This course surveys current best practices for implementing attractive, usable, secure and maintainable web applications. Other issues considered include: accessibility, platform and browser independence, licensing of intellectual property, scalability, user privacy, and using web technologies in mobile development.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 124"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 320": {
+        "code": "CISC 320",
+        "title": "Fundamentals of Software Development",
+        "description": "Introduction to management of small and medium-scale software projects. Advanced programming methodology using the programming language C++. Includes a significant programming project.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 235"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 322": {
+        "code": "CISC 322",
+        "title": "Software Architecture",
+        "description": "Abstractions and patterns of interactions and relationships among modules. Design recovery; relationship of architecture to requirements and testing.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 223",
+                "CISC 235"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CISC 326"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 324": {
+        "code": "CISC 324",
+        "title": "Operating Systems",
+        "description": "Layered operating systems for conventional shared memory computers: concurrent processes. Synchronization and communication. Concurrent algorithms. Scheduling. Deadlock. Memory management. Protection. File systems. Device management. Typical layers.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 221",
+                "CISC 235"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 325": {
+        "code": "CISC 325",
+        "title": "Human-Computer Interaction",
+        "description": "Developing usable software requires that human factors be considered throughout the design and development process. This course introduces a series of techniques for development and evaluating usable software, and shows how these techniques can be integrated into a process for software development.",
+        "units": 3,
+        "prerequisites": [],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 326": {
+        "code": "CISC 326",
+        "title": "Game Architecture",
+        "description": "An introduction to software architectural design through the application domain of game development. Abstractions and patterns of interactions and relationships among modules. Design recovery. Relationship to requirements and testing",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 223",
+                "CISC 235"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CISC 322"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 327": {
+        "code": "CISC 327",
+        "title": "Software Quality Assurance",
+        "description": "Validation of software throughout the life cycle. Comparative effectiveness in defect removal of formal methods (proofs of correctness), inspection (walkthroughs and reviews), and testing (unit, integration, and system testing; white box versus black box).",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 220",
+                "CISC 124"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 330": {
+        "code": "CISC 330",
+        "title": "Computer-Integrated Surgery",
+        "description": "Concepts of computer-integrated surgery systems and underlying techniques such as medical-image computing, robotics, and virtual reality, learned through real-life applications and problems. Techniques learned in class will be applied in a hands-on surgery session where students perform minimally invasive surgery with virtual-reality navigation tools.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 121",
+                "CISC 271"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "COMP 329",
+            "COMP 230"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 332": {
+        "code": "CISC 332",
+        "title": "Database Management Systems",
+        "description": "Data models: relational, entity-relationship. Relational query languages: relational algebra and SQL. Relational database design. Application interfaces and embedded SQL. Storage and indexing.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 102",
+                "CISC 124"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "COMM 392"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 335": {
+        "code": "CISC 335",
+        "title": "Computer Networks",
+        "description": "Fundamental concepts in the design and implementation of computer communication networks, protocols, and applications. Overview of network architectures; applications; network programming interfaces (e.g., sockets); transport; congestion; routing and data link protocols; addressing; local area networks; wireless networks, mobility management; security.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 324"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 340": {
+        "code": "CISC 340",
+        "title": "Digital Systems",
+        "description": "Combinational circuits; sequential circuits; digital systems design; micro-programming; bus structures; data communications; interface design; microprocessor systems.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 221"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 351": {
+        "code": "CISC 351",
+        "title": "Advanced Data Analytics",
+        "description": "Design and implementation of complex analytics techniques; predictive algorithms at scale; deep learning; clustering at scale; advanced matrix decompositions, analytics in the Web, collaborative filtering; social network analysis; applications in specialized domains.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 251",
+            "BIOL 243",
+            "CHEE 209",
+            "COMM 162",
+            "ECON 250",
+            "GPHY 247",
+            "KNPE 251",
+            "NURS 323",
+            "POLS 385",
+            "PSYC 202",
+            "SOCY 211",
+            "STAM 200",
+            "STAT 263",
+            "STAT 367"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CISC 371",
+            "CISC 372"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 352": {
+        "code": "CISC 352",
+        "title": "Artificial Intelligence",
+        "description": "An introduction to the basic principles and tools of artificial intelligence. Problem solving methods and knowledge representation techniques.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 235"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 360": {
+        "code": "CISC 360",
+        "title": "Programming Paradigms",
+        "description": "Review of imperatives programming features. Introduction to other widely used programming paradigms. Functional programming languages, such as LISP and Haskell. Higher order functions, lazy evaluation, abstract and recursive types, structural induction, symbolic expressions. Logic programming languages, such as PROLOG. Operational interpretation of predicates and terms, proof search, unification, backtracking. Typical applications.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 124",
+                "CISC 204"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 365": {
+        "code": "CISC 365",
+        "title": "Algorithms I",
+        "description": "Principles of design, analysis and implementation of efficient algorithms. Case studies from a variety of areas illustrate divide and conquer methods, the greedy approach, branch and bound algorithms and dynamic programming.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 203",
+                "CISC 204",
+                "CISC 235"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 371": {
+        "code": "CISC 371",
+        "title": "Nonlinear Data Analysis",
+        "description": "Methods for nonlinear data analysis, particularly using numerical optimization. Applications may include: unconstrained data optimization; linear equality constraints; constrained data regression; constrained data classification; evaluating the effectiveness of analysis methods.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 271",
+                [
+                    "STAT 263",
+                    "BIOL 243",
+                    "CHEE 209",
+                    "COMM 162",
+                    "ECON 250",
+                    "GPHY 247",
+                    "KNPE 251",
+                    "NURS 323",
+                    "POLS 385",
+                    "PSYC 202",
+                    "SOCY 211",
+                    "STAM 200",
+                    "STAT 263",
+                    "STAT 367"
+                ]
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CISC 351"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 372": {
+        "code": "CISC 372",
+        "title": "Advanced Data Analytics",
+        "description": "Inductive modelling of data, especially counting models; ensemble approaches to modelling; maximum likelihood and density-based approaches to clustering, visualization. Applications to non-numeric datasets such as natural language, social networks, Internet search, recommender systems. Introduction to deep learning. Ethics of data analytics.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 271",
+                [
+                    "BIOL 243",
+                    "CHEE 209",
+                    "COMM 162",
+                    "ECON 250",
+                    "GPHY 247",
+                    "KNPE 251",
+                    "NURS 323",
+                    "POLS 385",
+                    "PSYC 202",
+                    "SOCY 211",
+                    "STAM 200",
+                    "STAT 263",
+                    "STAT 367"
+                ]
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 422": {
+        "code": "CISC 422",
+        "title": "Formal Methods in Software Engineering",
+        "description": "Mathematical methods for describing software behaviour and structure. Topics include (but are not limited to) the following: Requirements specification. Module specification: axiomatic, algebraic, and trace specifications. Abstract models. Verification. Specification-based validation.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 223"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 423": {
+        "code": "CISC 423",
+        "title": "Software Requirements",
+        "description": "An integrated approach to discovering and documenting software requirements. Identification of stakeholders; customer, operator, analyst, and developer perspectives. Requirements elicitation. Transition from initial (informal) requirements to semi-formal and formal representations. Requirements analysis process; analysis patterns. Requirements specification techniques. Relation to architecture and user interface design; traceability of requirements.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 223",
+                "CISC 235"
+            ]
+        ],
+        "corequisites": [
+            "CISC 325",
+            [
+                "CISC 322",
+                "CISC 326"
+            ]
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 425": {
+        "code": "CISC 425",
+        "title": "Advanced User Interface Design",
+        "description": "Advanced user-interface styles such as eye-tracking input, digital desks, wearable computing, ubiquitous and context-aware computing, and tangible interfaces.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 325"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 426": {
+        "code": "CISC 426",
+        "title": "Real-Time Systems",
+        "description": "Design and implementation of real-time embedded applications. Specifying timing properties: formal and semi-formal methods; soft real-time versus hard real-time. Design notations; language constructs. Real-time operating systems. Abstract device interfaces.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 324",
+                "CISC 327"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 432": {
+        "code": "CISC 432",
+        "title": "Advanced Data Management Systems",
+        "description": "Storage and representation of \"big data\", which are large, complex, structured or unstructured data sets. Provenance, curation, integration, indexing and querying of data.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 235",
+                "CISC 332"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 434": {
+        "code": "CISC 434",
+        "title": "Distributed Systems",
+        "description": "Distributed systems goals, characteristics, and architectures. Processes: models, inter-process communication and coordination. Name services. Consistency and replication. Fault tolerance: design for reliable communication and recovery. Security. Development paradigms based on data types: object, file, and web-based systems.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 324"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 437": {
+        "code": "CISC 437",
+        "title": "Performance Analysis",
+        "description": "Analytic and empirical evaluation of the performance of software systems. Performance modeling. Experimental design and statistical techniques for empirical performance analysis.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 324",
+                "CISC 327"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 447": {
+        "code": "CISC 447",
+        "title": "Introduction to Cybersecurity",
+        "description": "An introduction to cybersecurity covering a wide range of vulnerabilities, attacks, and defense mechanisms in individual computers, networks, the Internet and the Web and applications that use them, and storage and computational clouds. The human side of cybersecurity, and the legal and ethical constraints on both attack and defense.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 324",
+            "CISC 335"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CISC 490"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 448": {
+        "code": "CISC 448",
+        "title": "Software Reliability and Security",
+        "description": "Software dependability and other related concepts, software process models and methods for reliable software. Software reliability engineering process, software fault tolerance and run-time monitoring. Software security engineering process, secure software design, program security vulnerabilities and software security testing",
+        "units": 3,
+        "prerequisites": [
+            "CISC 327",
+            "CMPE 327"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 451": {
+        "code": "CISC 451",
+        "title": "Topics in Data Analytics",
+        "description": "Content will vary from year to year; typical areas covered may include: tools for large scale data analytics (Hadoop, Spark), data analytics in the cloud, properties of large scale social networks, applications of data analytics in security.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 333",
+                "CISC 351",
+                "CISC 372"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 452": {
+        "code": "CISC 452",
+        "title": "Neural and Genetic Computing",
+        "description": "Introduction to neural and genetic computing. Topics include associative memory systems, neural optimization strategies, supervised and unsupervised classification networks, genetic algorithms, genetic and evolutionary programming. Applications are examined, and the relation to biologic systems is discussed.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 235"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "COGS 400"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 453": {
+        "code": "CISC 453",
+        "title": "Topics in Artificial Intelligence",
+        "description": "Investigation of selected areas of artificial intelligence research. Possible topics include natural language understanding, computational perception, planning, learning, and neurocomputing.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 352"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 454": {
+        "code": "CISC 454",
+        "title": "Graphics (A)",
+        "description": "Introduction to computer graphics, including a review of current hardware; modelling and transformations in two and three dimensions; visual realism: perspective, hidden surface elimination, and shading; colour models; applications in several fields. James Stewart.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 235",
+                [
+                    "MATH 110",
+                    "MATH 111",
+                    "MATH 112"
+                ]
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 455": {
+        "code": "CISC 455",
+        "title": "Evolutionary Optimization and Learning",
+        "description": "Building, applying and studying algorithms based on the Darwinian principles of natural evolution. A creative approach to AI able to create novel solutions. Genetic algorithms, evolution strategies, and genetic programming. Application to optimization and learning problems.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 365",
+                "STAT 263"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 457": {
+        "code": "CISC 457",
+        "title": "Image Processing and Computer",
+        "description": "Introduction to fundamental concepts and applications in image processing and computer vision. Topics include image acquisition, convolution, Discrete Fourier Transform, image enhancement, edge detection, segmentation, image registration, human contrast perception, colour perception and reproduction, stereo vision.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
+            ],
+            [
+                "MATH 120",
+                "MATH 121",
+                "MATH 123",
+                "MATH 124",
+                "MATH 126"
+            ],
+            "CISC 124"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 458": {
+        "code": "CISC 458",
+        "title": "Programming Language Processors (S)",
+        "description": "Introduction to the systematic construction of a compiler: grammars and languages, scanners, top-down and bottom-up parsing, runtime organization, symbol tables, internal representations; Polish notation, syntax trees, semantic routines, storage allocation, code generation, interpreters.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 121",
+                "CISC 221",
+                "CISC 223"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 462": {
+        "code": "CISC 462",
+        "title": "Computability and Complexity",
+        "description": "Turing machines and other models of computability such as µ-recursive functions and random-access machines. Undecidability. Recursive and recursively enumerable sets. Church-Turing thesis. Resource-bounded complexity. Complexity comparisons among computational models. Reductions. Complete problems for complexity classes.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 223"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 465": {
+        "code": "CISC 465",
+        "title": "Semantics of Programming Languages",
+        "description": "Specifying syntax and semantics; operational and denotational semantics. Lambda calculi, type systems and logical foundations. Meta-theoretic properties. Semantics of imperative languages.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 204",
+                "CISC 223",
+                [
+                    "CISC 360",
+                    "CISC 260"
+                ]
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 466": {
+        "code": "CISC 466",
+        "title": "Algorithms II",
+        "description": "A continuation of CISC 365/3.0. Lower bound theory. Average-case analysis of algorithms. Approximation algorithms. Probabilistic algorithms. Parallel algorithms.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 365"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 467": {
+        "code": "CISC 467",
+        "title": "Fuzzy Logic",
+        "description": "History of fuzzy theory; fundamental concepts of fuzzy theory: sets, relations, and logic operators. Approximate reasoning, fuzzy inference, possibility theory. Separation from probability. Fuzzy control systems. Fuzzy pattern recognition. Advanced topics may include fuzzy expert systems, financial systems, graph theory, optimization.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 204"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 468": {
+        "code": "CISC 468",
+        "title": "Cryptography",
+        "description": "Fundamentals of cryptographic algorithms: secure pseudorandom number generators, hash functions, symmetric-key cryptography (stream ciphers, block ciphers); public-key cryptography (encryption and decryption, digital signatures, key agreement). Applications of cryptography to secure communication protocols and systems.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 235",
+                "CISC 335"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 471": {
+        "code": "CISC 471",
+        "title": "Computational Biology",
+        "description": "Advanced computational approaches to the problems in molecular biology. Techniques and algorithms for sequence analysis and alignment; molecular databases; protein structure prediction and molecular data mining.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 352",
+                "CISC 365"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 472": {
+        "code": "CISC 472",
+        "title": "Medical Informatics",
+        "description": "Current topics in the application of information technology to medical image computing and its use in image-guided medical interventions.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 330"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 473": {
+        "code": "CISC 473",
+        "title": "Deep Learning",
+        "description": "Design of deep neural networks based on leading-edge algorithms such as Restricted Boltzmann Machines, Recurrent Neural Networks, Convolutional Neural Networks, Long-Short Term Machines. Autoencoding as a clustering technique. Applications to prediction problems in natural language and images.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 371",
+                [
+                    "CISC 271",
+                    "CISC 352"
+                ]
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 474": {
+        "code": "CISC 474",
+        "title": "Reinforcement Learning",
+        "description": "Formal and heuristic approaches to problem-solving, planning, knowledge representation and reasoning, Markov decision processes, dynamic programming, temporal-difference learning, Monte Carlo learning, function approximation, integration of learning and planning. Implementing simple examples of logical reasoning, clustering or classification.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 352"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 486": {
+        "code": "CISC 486",
+        "title": "Game Development",
+        "description": "An introduction to 'engines' used in networked 3-dimensional games. Topics include game-engine architecture and components providing 3-dimensional rendering, physics simulation, sound, artificial intelligence and networking services.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 226",
+                [
+                    "CISC 322",
+                    "CISC 326"
+                ],
+                "CISC 324",
+                [
+                    "MATH 110",
+                    "MATH 111",
+                    "MATH 112"
+                ]
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 490": {
+        "code": "CISC 490",
+        "title": "Topics in Computing Science I",
+        "description": "Content varies. Not offered every year.\nNOTE Learning Hours will vary.",
+        "units": 3,
+        "prerequisites": [],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 491": {
+        "code": "CISC 491",
+        "title": "Topics in Computing Science II",
+        "description": "Content varies. Not offered every year.\nNOTE Learning Hours will vary.",
+        "units": 3,
+        "prerequisites": [],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 492": {
+        "code": "CISC 492",
+        "title": "Topics in Computing III",
+        "description": "Content varies. Not offered every year.\nNOTE Learning Hours will vary.",
+        "units": 3,
+        "prerequisites": [],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 496": {
+        "code": "CISC 496",
+        "title": "Game Development Project",
+        "description": "Team-based project involving the development of a game using modern tools and software engineering techniques.",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CISC 496",
+            "CISC 498",
+            "CISC 499",
+            "COGS 499",
+            "CISC 500"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 497": {
+        "code": "CISC 497",
+        "title": "Social, Ethical and Legal Issues in Computing",
+        "description": "A wide range of topics of current importance in computing, including technical issues, professional questions, and moral and ethical decisions. Students make presentations, deliver papers, and engage in discussion.",
+        "units": 3,
+        "prerequisites": [
+            [
+                "CISC 352",
+                "CISC 365"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 498": {
+        "code": "CISC 498",
+        "title": "Information Technology Project",
+        "description": "Topic selected under the supervision of a faculty member. Emphasis is on the application of software engineering techniques to the development of a substantial software system. Group work, oral presentation, participation in design and code review meetings, and delivery of complete software specification and design are required.",
+        "units": 6,
+        "prerequisites": [
+            [
+                "CISC 322",
+                "CISC 326"
+            ],
+            [
+                "CISC 325",
+                "CISC 327"
+            ]
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CISC 496",
+            "CISC 499"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 499": {
+        "code": "CISC 499",
+        "title": "Advanced Undergraduate Project",
+        "description": "Topic selected under the supervision of a faculty member. Emphasis may be on the development of a large program, or on more theoretical issues. Independent research, an oral presentation, and a written report are required.",
+        "units": 3,
+        "prerequisites": [
+            "CISC 365"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CISC 496",
+            "CISC 498",
+            "COGS 499",
+            "CISC 500"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 500": {
+        "code": "CISC 500",
+        "title": "Undergraduate Thesis",
+        "description": "Individual research project under the supervision of a School of Computing faculty member. Evaluation is based on an oral presentation and a written thesis. It is the responsibility of the student to make a research proposal and secure a supervisor prior to enrolling in the course.",
+        "units": 6,
+        "prerequisites": [],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "CISC 496",
+            "CISC 499",
+            "COGS 499"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 594": {
+        "code": "CISC 594",
+        "title": "Independent Study",
+        "description": "\n",
+        "units": 3,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 595": {
+        "code": "CISC 595",
+        "title": "Independent Study",
+        "description": "\n",
+        "units": 6,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    },
+    "CISC 596": {
+        "code": "CISC 596",
+        "title": "Independent Study",
+        "description": "\n",
+        "units": 12,
+        "prerequisites": [
+            "None"
+        ],
+        "corequisites": [
+            "None"
+        ],
+        "exclusions": [
+            "None"
+        ],
+        "one_way_exclusions": [
+            "None"
+        ]
+    }
+}
