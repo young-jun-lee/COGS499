@@ -1,3 +1,4 @@
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { ColorScheme, ColorSchemeProvider, Container, Flex, MantineProvider } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import { NotificationsProvider } from '@mantine/notifications';
@@ -8,7 +9,7 @@ import Requirements from './components/Requirements/Requirements';
 import SelectContainer from './components/SelectCourses/SelectCoursesContainer';
 import HeaderContent from './content/Header';
 import "./styles.css";
-
+// import { useAutoAnimate } from '@formkit/auto-animate/react'
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'mantine-color-scheme',
@@ -36,15 +37,19 @@ export default function App() {
   useHotkeys([['mod+J', () => toggleColorScheme()]]);
 
 
-  // hiddenElements.forEach((element) => {
-  //   observer.observe(element);
-  // });
+  hiddenElements.forEach((element) => {
+    observer.observe(element);
+  });
+
+
+
+  const [parent] = useAutoAnimate()
 
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
       <MantineProvider theme={{ colorScheme, fontFamily: 'Inter, sans-serif', }} withGlobalStyles withNormalizeCSS >
         <NotificationsProvider>
-          <Container size="lg" px="lg">
+          <Container size="lg" px="lg" ref={parent}>
             <Flex style={{ height: "60%", flexDirection: "column" }}>
               <Header title={HeaderContent.title} />
 

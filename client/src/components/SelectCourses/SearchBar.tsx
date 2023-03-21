@@ -10,6 +10,7 @@ import { SortableItem } from '../DND/SortableItem';
 import { constants } from '../../content/Constants';
 import { showNotification } from '@mantine/notifications';
 
+
 // interface RequiredCourses {
 //     containerId: string | number,
 //     id: string,
@@ -84,6 +85,8 @@ const SearchBar: FC = ({
 
     };
 
+    // const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
+
     const clearCourses = () => {
         setItems({ ...items, [containerId]: [] })
     }
@@ -104,11 +107,15 @@ const SearchBar: FC = ({
                     marginTop: "28px",
                     boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
                 })}
+            // ref={parent}
             >
                 <Flex>
 
                 </Flex>
                 <div style={{ alignSelf: "start", fontSize: 25, fontWeight: 600 }}>Search</div>
+                <>
+
+                </>
                 <Autocomplete
                     placeholder="Search for a course"
                     data={[
@@ -129,6 +136,7 @@ const SearchBar: FC = ({
                     sx={{ alignSelf: "start", marginBottom: 20, marginTop: 10 }}
                     maxDropdownHeight={500}
                     size='md'
+
                 />
                 <DroppableContainer
                     id={containerId}
@@ -137,11 +145,13 @@ const SearchBar: FC = ({
                     items={items[containerId]}
                     scrollable={scrollable}
                     style={{ width: "100%", height: "100%", maxHeight: '680px', }}
+
                 >
 
                     <SortableContext
                         items={items[containerId]}
                         strategy={strategy}
+
                     >
                         {items[containerId].map((course: Course, index: number) => {
                             return (

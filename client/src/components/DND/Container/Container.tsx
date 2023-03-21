@@ -1,11 +1,10 @@
-import React, { forwardRef } from "react";
 import classNames from "classnames";
-import { ScrollArea } from '@mantine/core';
+import React, { forwardRef } from "react";
 // import { Handle, Remove } from "../Item";
 
-import styles from "./Container.module.scss";
 import { useSnapshot } from "valtio";
 import { state } from "../../../Valtio/State";
+import styles from "./Container.module.scss";
 
 export interface Props {
   children: React.ReactNode;
@@ -47,6 +46,8 @@ export const Container = forwardRef<HTMLDivElement, Props>(
   ) => {
     const Component = onClick ? "button" : "div";
     const snap = useSnapshot(state)
+
+
     return (
 
       <Component
@@ -84,9 +85,6 @@ export const Container = forwardRef<HTMLDivElement, Props>(
             {title}
           </div>
         ) : null}
-
-
-        {/* ... content */}
         {placeholder ? children : <ul>{children}</ul>}
 
       </Component>

@@ -10,25 +10,24 @@ import {
   arrayMove, horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy
 } from '@dnd-kit/sortable';
 import { Box, Button, Flex, Group, Tooltip } from '@mantine/core';
-import { useCallback, useEffect, useRef, useState, } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal, unstable_batchedUpdates } from 'react-dom';
 import { HiViewGridAdd } from 'react-icons/hi';
 import { VscClearAll } from 'react-icons/vsc';
 import { useSnapshot } from 'valtio';
 
-import { Container, Item } from '..';
+import { Item } from '..';
 import { constants } from '../../content/Constants';
 
+import { showNotification } from '@mantine/notifications';
+import { MdDeleteSweep } from 'react-icons/md';
+import { Course, Items, Years } from '../../types/stateTypes';
 import { state } from '../../Valtio/State';
 import SearchBar from '../SelectCourses/SearchBar';
 import { DroppableContainer } from './DroppableContainer';
 import { Props } from './Props';
 import { SortableItem } from './SortableItem';
-import { MdDeleteSweep } from 'react-icons/md';
-import { Items, Course, Years } from '../../types/stateTypes';
-import { showNotification } from '@mantine/notifications';
-
-
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const dropAnimation: DropAnimation = {
   sideEffects: defaultDropAnimationSideEffects({
@@ -95,9 +94,7 @@ export const MultipleContainers = ({
 
   const [items, setItems] = useState<Items>(getItems());
 
-  // useEffect(() => {
-
-  // }, [])
+  const [parent] = useAutoAnimate(/* optional config */)
 
   useEffect(() => {
     requestAnimationFrame(() => {
@@ -236,28 +233,9 @@ export const MultipleContainers = ({
   }
 
   const findContainer = (id: UniqueIdentifier) => {
-    // const container = Object.keys(items).find((key) =>
-    //   Object.values(items[key]).some((item) => item.id === id)
-    // );
-    // if (container) {
-    //   return container;
-    // }
-
     if (id in items) {
-      console.log('id: ', id)
-
       return id;
     }
-
-
-    // return Object.keys(items).find((key) => items[key].includes(id));
-    // return Object.keys(items).find((key) => {
-    //   for (let item of items[key]) {
-    //     if (item.value === id) {
-    //       return key;
-    //     }
-    //   }
-    // });
 
     for (const key of Object.keys(items)) {
       const array = items[key];
@@ -348,7 +326,6 @@ export const MultipleContainers = ({
         containerId={findContainer(id) as UniqueIdentifier} />
     );
   }
-
 
 
   return (
@@ -491,6 +468,7 @@ export const MultipleContainers = ({
           padding: 20,
           gridGap: 20,
         }}
+
       >
 
         <SortableContext
@@ -502,9 +480,9 @@ export const MultipleContainers = ({
           }
         >
 
-          <Flex style={{ flexDirection: "column", width: "65%" }}>
+          <Flex style={{ flexDirection: "column", width: "65%" }} ref={parent}>
             {containers.map((containerId, index) => (
-              <Box key={index}>
+              <Box key={index} >
                 {index !== 0 &&
                   <>
                     <div key={index} style={{ fontSize: 25, fontWeight: 600 }}>Year {containerId}</div>
