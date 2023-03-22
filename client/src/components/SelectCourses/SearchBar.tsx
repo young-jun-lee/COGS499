@@ -9,7 +9,8 @@ import { DroppableContainer } from '../DND/DroppableContainer';
 import { SortableItem } from '../DND/SortableItem';
 import { constants } from '../../content/Constants';
 import { showNotification } from '@mantine/notifications';
-
+import { Course } from '../../types/stateTypes';
+import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai';
 
 // interface RequiredCourses {
 //     containerId: string | number,
@@ -35,12 +36,6 @@ import { showNotification } from '@mantine/notifications';
 //     specChosen: boolean
 // }
 
-interface Course {
-    value: string
-    id: string,
-    group: string
-}
-
 const SearchBar: FC = ({
     containerId,
     items,
@@ -54,12 +49,9 @@ const SearchBar: FC = ({
     setItems,
     minimal,
     specChosen,
-
 }) => {
-    // const [courses, setCourses] = useState<Course[]>(items[containerId]);
     const snap = useSnapshot(state)
     const handleItemSubmit = (item: Course) => {
-        console.log(items[containerId])
         if (items[containerId].length >= constants.MAX_COURSES) {
             showNotification({
                 title: 'Max Courses Reached',
@@ -68,28 +60,57 @@ const SearchBar: FC = ({
             });
             return;
         }
+        console.log(item)
 
-        if (items[containerId].some((course) => course.value === item.value)) {
+        if (items[containerId].some((course: Course) => course.value === item.value)) {
+            showNotification({
+                title: 'Course Already Added',
+                message: `This course has already been added to the shopping cart.`,
+                color: 'green',
+            });
             return;
         }
 
         // check if item is already in items, which is an object of arrays
-        if (Object.values(items).some((container) => container.some((course) => course.value === item.value))) {
+        if (Object.values(items).some((container) => container.some((course: Course) => course.value === item.value))) {
+            showNotification({
+                title: 'Course Already Added',
+                message: `This course has already been added to a year container.`,
+                color: 'green',
+            });
             return;
+
         } else {
+            const parsedPrereqs = JSON.parse(JSON.stringify(item.prerequisites))
             setItems({
                 ...items,
-                [containerId]: [...items[containerId], { id: item.value, value: item.value, group: item.group, prerequisites: item.prerequisites }]
+                [containerId]: [...items[containerId], { id: item.id, value: item.value, group: item.group, prerequisites: parsedPrereqs }]
             });
         }
 
     };
 
-    // const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
+
 
     const clearCourses = () => {
         setItems({ ...items, [containerId]: [] })
     }
+
+    const getAutoCompleteData = () => {
+        const courses = snap.courses;
+        // loop through each course
+        const autoCompleteData = []
+        for (const [key, course] of Object.entries(courses)) {
+            autoCompleteData.push({
+                value: course.code,
+                group: course.code?.slice(0, 4),
+                id: course.code,
+                prerequisites: course.prerequisites
+            })
+        }
+        return autoCompleteData;
+    }
+    getAutoCompleteData()
     return (
         <Box
             sx={(theme) => ({
@@ -118,26 +139,34 @@ const SearchBar: FC = ({
                 </>
                 <Autocomplete
                     placeholder="Search for a course"
-                    data={[
-                        { value: 'CISC 111', group: 'CISC', id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: 'CISC 112', group: 'CISC', id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: 'CISC 113', group: 'CISC', id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: 'MATH 122', group: 'MATH', id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: 'MATH 101', group: 'MATH', id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: "MATH 123", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: "MATH 124", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: "MATH 125", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: "MATH 126", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: "MATH 127", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: "MATH 128", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
-                        { value: "MATH 129", group: "MATH", id: uuidv4(), prerequisites: ['CISC 102'] },
-                    ]}
+                    data={getAutoCompleteData()}
                     onItemSubmit={handleItemSubmit}
                     sx={{ alignSelf: "start", marginBottom: 20, marginTop: 10 }}
                     maxDropdownHeight={500}
                     size='md'
-
+                    id='autocomplete-input'
                 />
+
+                <Button
+                    onClick={() => {
+                        // clear contents of the autocomplete input
+                        const input = document.getElementById('autocomplete-input') as HTMLInputElement
+                        input.value = ''
+                    }}
+                    style={{
+                        // position: "absolute",
+                        // top: "50%",
+                        // right: "12px",
+                        // transform: "translateY(-50%)",
+                        // border: "none",
+                        // background: "black",
+                        // cursor: "pointer",
+                    }}
+                >
+                    <AiOutlineClose />
+                </Button>
+
+
                 <DroppableContainer
                     id={containerId}
                     label={minimal ? undefined : `Column ${containerId}`}

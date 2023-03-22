@@ -5,6 +5,7 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
     let nodes: CourseNode[] = []
     let edges: any[] = []
     let yPos = 100
+    let xPos = 0
 
     if (!Array.isArray(columns)) {
         return { courseNodes: [], courseEdges: [] };
@@ -20,12 +21,13 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
         const rows = column.items.some(item => item.prerequisites?.some(prerequisite => column.items.some(item => item.id === prerequisite))) ? 4 : 1
         yPos += 100 * rows + 100
 
+
         nodes.push({
             id: column.name,
             type: 'group',
             data: { label: null },
             // position: { x: 0, y: index * 100 * rows },
-            position: { x: 0, y: yPos },
+            position: { x: xPos, y: yPos },
             style: {
                 height: nodeHeight + nodeMargin * 2 * rows,
                 width: nodeWidth * column.items.length + nodeMargin * (column.items.length - 1) + nodeMargin * 2,
@@ -37,19 +39,30 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
             selectable: false,
         })
 
+        // title 
         nodes.push({
             id: `${column.name}_label`,
             type: 'default',
             data: { label: column.name },
-            position: { x: 0, y: yPos - 35 },
+            position: { x: xPos - 100, y: yPos },
+            // position: { x: 0, y: 0 },
 
             draggable: false,
             selectable: false,
             style: {
-                height: nodeHeight,
-                width: nodeWidth * column.items.length + nodeMargin * (column.items.length - 1) + nodeMargin * 2,
+                height: nodeHeight + nodeMargin * 2 * rows,
+                width: nodeWidth,
+                // transform: 
+                background: "red",
+                // color: "red",
+                // transform: `rotate(-90deg)`,
+                transform: `translate(${xPos-115}px, ${yPos+100}px) rotate(-90deg)`,
                 justifyContent: 'center',
                 alignItems: 'center',
+                // writingMode: 'vertical-rl',
+                // transform: 'rotate(180deg)',
+                fontSize: 20,
+
             },
 
         })
@@ -96,7 +109,7 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
                     const prerequisiteItem = column.items.find(item => item.id === prerequisite)
                     if (prerequisiteItem) {
                         edges.push({
-                            id: `e_${prerequisiteItem.id}-${item.id}`,
+                            id: `e_${prerequisiteItem.id}-${item.id}-${index}`,
                             source: prerequisiteItem.id,
                             target: item.id,
                         })

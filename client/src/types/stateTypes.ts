@@ -1,8 +1,7 @@
-import { UniqueIdentifier } from "@dnd-kit/core";
 
 export type CourseNode = {
     id: string;
-    type: string;
+    type?: string;
     data: { label: string | null };
     position: { x: number; y: number };
     style: {
@@ -13,6 +12,9 @@ export type CourseNode = {
         marginRight?: number;
         color?: string;
         background?: string;
+        transform?: string;
+        fontSize?: number;
+        writingMode?: string;
     };
     selectable?: boolean;
     draggable?: boolean;
@@ -23,7 +25,7 @@ export type CourseNode = {
 
 export type CourseColumns = {
     name: string;
-    items: CourseNode[];
+    items: CourseNode[]
 }[]
 
 
@@ -40,6 +42,7 @@ export type Basket = string[]
 export type NumYears = 1 | 2 | 3 | 4 | 5 | 6
 
 export type Course = {
+    code?: string
     id?: string
     value?: string
     group?: string

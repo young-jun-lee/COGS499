@@ -1,6 +1,7 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import ReactFlow, { useNodesState, applyNodeChanges, Background, MiniMap, NodeChange, Node } from "reactflow";
 import { useSnapshot } from "valtio";
+import { Course, CourseColumns } from "../../types/stateTypes";
 import { generateCourseNodes } from "../../utils/generateCourseNodes";
 import { state } from "../../Valtio/State";
 
@@ -21,7 +22,7 @@ export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
         backgroundColor: backgroundColor,
     };
 
-    const columns = []
+    const columns: CourseColumns = []
 
 
     const colorScheme = {
@@ -38,16 +39,19 @@ export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
 
         const items = []
         for (let item of Object.keys(snap.currentBasket[column]) as any) {
-            const course = snap.currentBasket[column][item]
-            const id = course.id
-            const value = course.value
-            const prerequisites = course.prerequisites
+            let course = snap.currentBasket[column][item]
+            let parsedCourse: Course = JSON.parse(JSON.stringify(course))
+
+            const id = parsedCourse.id
+            const value = parsedCourse.value
+            const prerequisites = parsedCourse.prerequisites
             items.push({ id, value, prerequisites })
         }
 
 
         columns.push({ name: `Year ${column}`, items })
     }
+    console.log(columns)
 
     const [courseNodes, setCoursesNodes, onNodesChange] = useNodesState([]);
     const [courseEdges, setCoursesEdges] = useNodesState([]);

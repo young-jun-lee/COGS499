@@ -51,20 +51,6 @@ export default function App() {
 
   const snap = useSnapshot(state);
 
-  // useEffect(() => {
-  //   const specialization = (localStorage.getItem('specialization') != null) ? localStorage.getItem('specialization') : "";
-  //   if (specialization) {
-  //     // get courses
-  //     const parsedSpec = JSON.parse(specialization).name
-  //     console.log(specialization)
-  //     console.log(parsedSpec)
-  //     const courses = getCourses(parsedSpec);
-  //     console.log(courses)
-  //   }
-
-  // }, [snap.specialization])
-
-
   useEffect(() => {
     const spec = localStorage.getItem("specialization")
     if (spec) {
@@ -72,7 +58,6 @@ export default function App() {
     }
 
     // preloading courses
-    // let courses: any = {}
     const preloadedCourseGroups = HeaderContent.preloadedCourses
     const queryParams = preloadedCourseGroups.map((group, index) => `group${index}=${group}`).join("&")
 
