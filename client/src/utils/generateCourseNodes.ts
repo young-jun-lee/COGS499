@@ -39,6 +39,16 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
             selectable: false,
         })
 
+        let transform: string = `translate(${xPos - 45}px, ${yPos + 115}px) rotate(-90deg)`
+        let titleWidth = nodeHeight + nodeMargin * 2 * rows
+        let titleHeight = nodeHeight + nodeMargin
+        console.log("rows", rows)
+        if (rows === 1) {
+            transform = `translate(${xPos - 100}px, ${yPos}px)`
+            titleHeight = nodeHeight + nodeMargin * 2 * rows
+            titleWidth = nodeWidth
+        }
+
         // title 
         nodes.push({
             id: `${column.name}_label`,
@@ -50,13 +60,14 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
             draggable: false,
             selectable: false,
             style: {
-                height: nodeHeight + nodeMargin * 2 * rows,
-                width: nodeWidth,
+                height: titleHeight,
+                width: titleWidth,
                 // transform: 
                 background: "red",
                 // color: "red",
                 // transform: `rotate(-90deg)`,
-                transform: `translate(${xPos-115}px, ${yPos+100}px) rotate(-90deg)`,
+                // transform: `translate(${xPos - 115}px, ${yPos + 100}px) rotate(-90deg)`,
+                transform: transform,
                 justifyContent: 'center',
                 alignItems: 'center',
                 // writingMode: 'vertical-rl',
