@@ -9,10 +9,12 @@ import Requirements from './components/Requirements/Requirements';
 import SelectContainer from './components/SelectCourses/SelectCoursesContainer';
 import HeaderContent from './content/Header';
 import "./styles.css";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getCourses } from "./services/getCourses"
 import { useSnapshot } from 'valtio';
 import { state } from './Valtio/State';
+import { Course } from './types/stateTypes';
+
 // import { useAutoAnimate } from '@formkit/auto-animate/react'
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -20,6 +22,8 @@ export default function App() {
     defaultValue: 'light',
     getInitialValueInEffect: true,
   });
+
+  const [data, setData] = useState<any>([])
 
 
   const observer = new IntersectionObserver((entries) => {
@@ -47,20 +51,51 @@ export default function App() {
 
   const snap = useSnapshot(state);
 
+  // useEffect(() => {
+  //   const specialization = (localStorage.getItem('specialization') != null) ? localStorage.getItem('specialization') : "";
+  //   if (specialization) {
+  //     // get courses
+  //     const parsedSpec = JSON.parse(specialization).name
+  //     console.log(specialization)
+  //     console.log(parsedSpec)
+  //     const courses = getCourses(parsedSpec);
+  //     console.log(courses)
+  //   }
+
+  // }, [snap.specialization])
+
+
   useEffect(() => {
-    const specialization = (localStorage.getItem('specialization') != null) ? localStorage.getItem('specialization') : "";
-    if (specialization) {
-      // get courses
-      const parsedSpec = JSON.parse(specialization).name
-      console.log(specialization)
-      console.log(parsedSpec)
-      const courses = getCourses(parsedSpec);
-      console.log(courses)
+    const spec = localStorage.getItem("specialization")
+    if (spec) {
+      state.specialization = JSON.parse(spec)
     }
 
+    // preloading courses
+    // let courses: any = {}
+    const preloadedCourseGroups = HeaderContent.preloadedCourses
+    const queryParams = preloadedCourseGroups.map((group, index) => `group${index}=${group}`).join("&")
+
+    const fetchData = async () => {
+      try {
+        await fetch(`${import.meta.env.VITE_BACKEND_URL}/courses?${queryParams}`)
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+            state.courses = data
+          }
+          )
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("specialization", JSON.stringify(snap.specialization))
   }, [snap.specialization])
-
-
 
   const [parent] = useAutoAnimate()
 

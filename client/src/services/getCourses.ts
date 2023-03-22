@@ -1,11 +1,14 @@
-export async function getCourses(group: string) {
+export async function getCourses(groups: string[]) {
+
+    const queryParams = groups.map((group, index) => `group${index}=${group}`).join("&")
 
 
     try {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND}/courses?group=${group}`);
-        http://localhost:5000/courses?group=ARAB
-        // const courses = await response.json();
-        return response;
+        await fetch(`${import.meta.env.VITE_BACKEND_URL}/courses?${queryParams}`)
+            .then(res => res.json())
+            .then(data => {
+                return data
+            })
     }
     catch (error) {
         console.log(error)

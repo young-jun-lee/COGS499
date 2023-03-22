@@ -34,11 +34,21 @@ app.get('/', (req, res) => {
 app.get('/courses', async (req, res) => {
   try {
 
-    const { group } = req.query
-    const rawData = "./constants/courses.json"
+    const groups = req.query
+
+    const rawData = "./constants/requirements.json"
     const courses = JSON.parse(fs.readFileSync(rawData, 'utf-8'))
-    const filteredCourses = pickBy(courses, (value, key) => key.startsWith(group))
-    res.send(filteredCourses)
+
+    const resCourses = {}
+    for (const [key, group] of Object.entries(groups)) {
+
+      const filteredCourses = pickBy(courses, (value, key) => key.startsWith(group))
+      // add each course in filteredCourses to resCourses
+      for (const [key, value] of Object.entries(filteredCourses)) {
+        resCourses[key] = value
+      }
+    }
+    res.send(resCourses)
   }
   catch (error) {
     res.send(error)

@@ -16,7 +16,7 @@ interface FlowProps {
 export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
     const snap = useSnapshot(state);
 
-    console.log("rendering flow: ", snap.currentBasket)
+    // console.log("rendering flow: ", snap.currentBasket)
     const rfStyle = {
         backgroundColor: backgroundColor,
     };
@@ -29,7 +29,7 @@ export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
         secondary: snap.specialization.colours?.secondary,
         tertiary: snap.specialization.colours?.tertiary
     }
-    console.log(snap.currentBasket)
+    // console.log(snap.currentBasket)
     for (let column of Object.keys(snap.currentBasket) as any) {
         // skip the first column and any empty columns
         if (column === "0" || snap.currentBasket[column].length === 0) {

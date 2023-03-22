@@ -4,29 +4,10 @@ export default {
     subheading1: 'Welcome!',
     subheading2: 'As you fill in the courses you have already taken, you will be informed what courses you still need to graduate.',
     subheading3: 'Happy Planning!',
+    preloadedCourses: ["APSC", "ARTH", "BADR", "BCHM", "BIOL", "BIOM", "CHEE", "CHEM", "CISC", "COCA", "COGS", "COMM", "DRAM", "ECON", "ELEC", "ENIN", "FILM", "GEOL", "GPHY", "KNPE", "LING", "MATH", "MECH", "MUSC", "MUTH", "NURS", "PHGY", "PHIL", "POLS", "PSYC", "SOCY", "SOFT", "STAM", "STAT", "WRIT"
+    ],
     specializations: {
-        "Artificial Intelligence": {
-            primary: "#6f4979", secondary: "#895A95", tertiary: "#F5F1F7", courses:
-                ["CISC",
-                    "COGS",
-                    "MATH",
-                    "STAT",
-                    "BIOL",
-                    "CHEE",
-                    "COMM",
-                    "ECON",
-                    "GPHY",
-                    "KNPE",
-                    "NURS",
-                    "POLS",
-                    "PSYC",
-                    "SOCY",
-                    "STAM",
-                    "STAT",
-                    "STAT",
-                    "COCA",
-                    "SOFT"]
-        },
+        "Artificial Intelligence": { primary: "#6f4979", secondary: "#895A95", tertiary: "#F5F1F7" },
         "Biomedical Computation": { primary: "#066360", secondary: "#099C97", tertiary: "#E4FDFD" },
         "Data Analytics": { primary: "#884900", secondary: "#BF6600", tertiary: "#FFF3E4" },
         "Fundamental Computation": { primary: "#30378f", secondary: "#3B42B0", tertiary: "#EEEFF9" },
@@ -39,4 +20,5 @@ export default {
         "COMA": { primary: "#a01f62", secondary: "#C52678", tertiary: "#FBECF4" },
         "Software Design": { primary: "#005c92", secondary: "#007EC8", tertiary: "#E5F6FF" },
     }
-};
+
+}

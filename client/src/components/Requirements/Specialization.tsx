@@ -16,17 +16,9 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
     const snap = useSnapshot(state);
     const [opened, setOpened] = useState(false);
 
-    useEffect(() => {
-        const spec = localStorage.getItem("specialization")
-        if (spec) {
-            state.specialization = JSON.parse(spec)
-        }
-    }, [])
 
 
-    useEffect(() => {
-        localStorage.setItem("specialization", JSON.stringify(snap.specialization))
-    }, [snap.specialization])
+
 
     return (
         <Flex style={{ flexDirection: "column", alignItems: "center", justifyContent: "center" }}>

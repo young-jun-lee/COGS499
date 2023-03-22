@@ -1,8 +1,8 @@
 import { proxy } from "valtio";
-import { Basket, Columns, NumYears, Specialization } from "../types/stateTypes";
+import { Basket, Columns, Course, NumYears, Specialization } from "../types/stateTypes";
 
 
-export const state = proxy<{ specialization: Specialization, currentBasket: Basket, numYears: NumYears, columns: Columns[] }>({
+export const state = proxy<{ specialization: Specialization, currentBasket: Basket, numYears: NumYears, columns: Columns[], courses: Course[] }>({
     specialization: {
         colours: {
             primary: "black",
@@ -220,17 +220,11 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
             name: "Year 2",
             items: [
                 { id: "CISC 205", value: "CISC 205", group: "CISC", prerequisites: ["CISC 101", "CISC 102", "CISC 103", "CISC 104"], corequisites: ["None"], exclusions: ["None"], one_way_exclusions: ["None"] },
-                // { id: uuidv4(), value: "CISC 206", group: "CISC" },
-                // { id: uuidv4(), value: "CISC 207", group: "CISC" },
-                // { id: uuidv4(), value: "CISC 208", group: "CISC" },
-                // { id: uuidv4(), value: "CISC 209", group: "CISC" },
-                // { id: uuidv4(), value: "CISC 231", group: "CISC" },
-                // { id: uuidv4(), value: "CISC 232", group: "CISC" },
             ],
             limitCourses: 12
         },
-
     ],
+    courses: []
 });
 
 
