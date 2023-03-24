@@ -49,7 +49,7 @@ export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
 
         columns.push({ name: `Year ${column}`, items })
     }
-    console.log(columns)
+    // console.log(columns)
 
     const [courseNodes, setCoursesNodes, onNodesChange] = useNodesState([]);
     const [courseEdges, setCoursesEdges] = useNodesState([]);

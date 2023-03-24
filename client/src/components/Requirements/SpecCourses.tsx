@@ -22,7 +22,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
           padding: theme.spacing.sm,
           marginLeft: "1px",
           marginRight: "1px",
-          marginTop: theme.spacing.md,
+          marginTop: theme.spacing.xs,
           marginBottom: theme.spacing.md,
           border: `5px solid ${snap.specialization.colours?.primary}`,
           borderRadius: theme.radius.md,
@@ -39,6 +39,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
             height: '90%',
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,
+            marginTop: theme.spacing.xs,
           })}
 
         >

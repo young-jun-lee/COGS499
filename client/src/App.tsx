@@ -90,8 +90,6 @@ export default function App() {
           <Container size="lg" px="lg" ref={parent}>
             <Flex style={{ height: "60%", flexDirection: "column" }}>
               <Header title={HeaderContent.title} />
-
-
               <Requirements subheading1={HeaderContent.subheading1} subheading2={HeaderContent.subheading2} subheading3={HeaderContent.subheading3} />
             </Flex>
             <Flex style={{ height: "60%", marginTop: "50px" }}>

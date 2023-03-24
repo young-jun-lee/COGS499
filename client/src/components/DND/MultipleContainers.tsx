@@ -306,18 +306,96 @@ export const MultipleContainers = ({
     setClonedItems(null);
   };
 
-  const getCourseRequirements = (courseId: string) => {
-    const course = courses.find(course => course.id === courseId)
-    if (course) {
-      return course.requirements
-    }
+  const getCourseRequirements = (courseId: UniqueIdentifier) => {
+    const courses = JSON.parse(JSON.stringify(snap.courses))
+    const { prerequisites, corequisites, exclusions, one_way_exclusions } = courses[courseId]
+
+    return { prerequisites, corequisites, exclusions, one_way_exclusions }
   }
 
-  const checkRequirements = (containerId: UniqueIdentifier, index: number) => {
-    console.log('containerId: ', containerId)
-    console.log('index: ', index)
-    // const courseRequirements = getCourseRequirements(index)
-    // console.log('courseRequirements: ', courseRequirements)
+  // const checkPrerequisites = (prerequisites: any, containerId: UniqueIdentifier) => {
+  //   if (prerequisites.length > 0) {
+  //     console.log('prerequisites: ', prerequisites)
+  //     for (const prerequisite of prerequisites) {
+  //       // return false if prerequisite is not in any container before this one including this one
+  //       if (prerequisite === "None") {
+  //         break
+  //       }
+
+  //       let found = false
+  //       for (let i = 0; i <= Number(containerId); i++) {
+  //         const container = items[i]
+  //         for (const item of container) {
+  //           if (item.value === prerequisite) {
+  //             found = true
+  //             console.log("found in container: ", i)
+  //             break
+  //           }
+  //         }
+  //       }
+  //       if (!found) {
+  //         return false
+  //       }
+  //     }
+  //   }
+  // }
+
+  const checkPrerequisites = (prerequisites: any, containerId: UniqueIdentifier, optional: boolean = false) => {
+    if (prerequisites.length > 0) {
+      console.log('prerequisites: ', prerequisites)
+      for (const prerequisite of prerequisites) {
+        if (Array.isArray(prerequisite)) {
+          console.log("prerequisite is an array: ", prerequisite)
+          // if prerequisite is an array, recursively check each item in the array
+          const found = prerequisite.some(p => checkPrerequisites([p], containerId, true))
+          if (!found) {
+            return false
+          }
+        } else if (prerequisite === "None") {
+          break
+        } 
+        else {
+          let found = false
+          console.log("here")
+          if (containerId === "0") {
+            containerId = containers.length - 1
+          }
+          console.log("containerId: ", containerId)
+          for (let i = 1; i <= Number(containerId); i++) {
+            const container = items[i]
+            for (const item of container) {
+              if (item.value === prerequisite) {
+                found = true
+                console.log("found in container: ", i)
+                break
+              }
+            }
+          }
+          if (!found) {
+            return false
+          }
+        }
+      }
+    }
+    return true
+  }
+
+
+  const checkRequirements = (containerId: UniqueIdentifier, course: UniqueIdentifier) => {
+
+
+    const validPlacement = true
+
+    const { prerequisites, corequisites, exclusions, one_way_exclusions } = getCourseRequirements(course)
+
+    // check prerequisites
+    const validPrerequisites = checkPrerequisites(prerequisites, containerId)
+    console.log('validPrerequisites: ', validPrerequisites)
+
+    return validPrerequisites
+
+    return true
+
   }
 
   const renderSortableItemDragOverlay = (id: UniqueIdentifier) => {
@@ -358,7 +436,6 @@ export const MultipleContainers = ({
 
       onDragOver={({ active, over }) => {
         const overId = over?.id;
-        // console.log('overId: ', overId)
 
         if (overId == null) {
           return;
@@ -367,14 +444,10 @@ export const MultipleContainers = ({
         const overContainer = findContainer(overId);
         const activeContainer = findContainer(active.id);
 
-        console.log('active.id', active.id)
-
 
         if (!overContainer || !activeContainer) {
           return;
         }
-        console.log('overContainer: ', overContainer)
-        console.log('activeContainer: ', activeContainer)
 
         if (items[overContainer].length >= constants.MAX_COURSES) {
           showNotification({
@@ -385,7 +458,15 @@ export const MultipleContainers = ({
           return;
         }
 
-        const validCourse = checkRequirements(overContainer, items[overContainer].length)
+        const validCourse = checkRequirements(overContainer, active.id)
+        if (!validCourse) {
+          showNotification({
+            title: 'Invalid Course',
+            message: 'This course does not meet the requirements for this year.',
+            color: 'red',
+          });
+          return;
+        }
 
         if (activeContainer !== overContainer) {
           setItems((items) => {
