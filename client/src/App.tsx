@@ -23,8 +23,6 @@ export default function App() {
     getInitialValueInEffect: true,
   });
 
-  const [data, setData] = useState<any>([])
-
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -39,8 +37,9 @@ export default function App() {
 
   const hiddenElements = document.querySelectorAll(".hidden");
 
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+  const toggleColorScheme = (value?: ColorScheme) => {
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
+  };
 
   useHotkeys([['mod+J', () => toggleColorScheme()]]);
 

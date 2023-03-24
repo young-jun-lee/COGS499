@@ -35,7 +35,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
         }} >{title}</Box>
         <Box
           sx={(theme) => ({
-            backgroundColor: `${snap.specialization.colours?.tertiary}`,
+            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : `${snap.specialization.colours?.tertiary}`,
             height: '90%',
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,

@@ -3,6 +3,7 @@ import { Basket, Columns, Course, NumYears, Specialization } from "../types/stat
 
 
 export const state = proxy<{ specialization: Specialization, currentBasket: Basket, numYears: NumYears, columns: Columns[], courses: Course[] }>({
+
     specialization: {
         colours: {
             primary: "black",

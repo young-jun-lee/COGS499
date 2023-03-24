@@ -306,6 +306,20 @@ export const MultipleContainers = ({
     setClonedItems(null);
   };
 
+  const getCourseRequirements = (courseId: string) => {
+    const course = courses.find(course => course.id === courseId)
+    if (course) {
+      return course.requirements
+    }
+  }
+
+  const checkRequirements = (containerId: UniqueIdentifier, index: number) => {
+    console.log('containerId: ', containerId)
+    console.log('index: ', index)
+    // const courseRequirements = getCourseRequirements(index)
+    // console.log('courseRequirements: ', courseRequirements)
+  }
+
   const renderSortableItemDragOverlay = (id: UniqueIdentifier) => {
     return (
       <Item
@@ -370,6 +384,8 @@ export const MultipleContainers = ({
           });
           return;
         }
+
+        const validCourse = checkRequirements(overContainer, items[overContainer].length)
 
         if (activeContainer !== overContainer) {
           setItems((items) => {

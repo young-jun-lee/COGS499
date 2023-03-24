@@ -1,3 +1,4 @@
+import { useMantineTheme } from "@mantine/core";
 import classNames from "classnames";
 import React, { forwardRef } from "react";
 // import { Handle, Remove } from "../Item";
@@ -47,7 +48,7 @@ export const Container = forwardRef<HTMLDivElement, Props>(
     const Component = onClick ? "button" : "div";
     const snap = useSnapshot(state)
 
-
+    const theme = useMantineTheme()
     return (
 
       <Component
@@ -57,7 +58,8 @@ export const Container = forwardRef<HTMLDivElement, Props>(
           {
             ...style,
             "--columns": columns,
-            "--containerColour": snap.specialization.colours?.tertiary,
+            "--containerColour": theme.colorScheme === 'dark' ? theme.colors.dark[6] : `${snap.specialization.colours?.tertiary}`,
+            // "--containerColour": snap.darkMode ? snap.specialization.colours?.tertiary : "#25262b",
             "--scrollBarColour": snap.specialization.colours?.primary,
             "--scrollBarBackground": snap.specialization.colours?.tertiary,
           } as React.CSSProperties
@@ -86,7 +88,6 @@ export const Container = forwardRef<HTMLDivElement, Props>(
           </div>
         ) : null}
         {placeholder ? children : <ul>{children}</ul>}
-
       </Component>
 
     );

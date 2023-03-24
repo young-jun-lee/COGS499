@@ -17,9 +17,6 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
     const [opened, setOpened] = useState(false);
 
 
-
-
-
     return (
         <Flex style={{ flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
             <Drawer
@@ -73,11 +70,12 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                         border: `5px solid ${snap.specialization.colours?.primary}`,
                         borderRadius: theme.radius.md,
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : snap.specialization.colours?.tertiary,
-                        color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.primary,
+                        color: theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : `${snap.specialization.colours?.primary}`,
                         alignSelf: "center",
                         boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)",
-                        "--fillColor": `${snap.specialization.colours?.secondary}`,
-                        "--bgColor": `${snap.specialization.colours?.tertiary}`,
+                        "--fillColor": theme.colorScheme === 'dark' ? `${snap.specialization.colours?.primary}` : `${snap.specialization.colours?.secondary}`,
+                        "--bgColor": theme.colorScheme === 'dark' ? theme.colors.dark[6] : `${snap.specialization.colours?.tertiary}`,
+                        "--hoverText": theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : "#FFF",
                         paddingRight: "4em",
                         paddingLeft: "4em",
                     })

@@ -19,7 +19,7 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
 
         // if any of the items in the column have prerequisites on courses in the current column, rows will be 2, otherwise 1
         const rows = column.items.some(item => item.prerequisites?.some(prerequisite => column.items.some(item => item.id === prerequisite))) ? 4 : 1
-        yPos += 100 * rows + 100
+        yPos += 200
 
 
         nodes.push({
@@ -33,21 +33,15 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
                 width: nodeWidth * column.items.length + nodeMargin * (column.items.length - 1) + nodeMargin * 2,
                 justifyContent: 'center',
                 alignItems: 'center',
-                color: colorScheme.primary
+                color: colorScheme.primary,
+                borderTop: `3px solid ${colorScheme.primary}`,
+                borderRight: `3px solid ${colorScheme.primary}`,
+                borderBottom: `3px solid ${colorScheme.primary}`,
+                borderRadius: "0px 15px 15px 0px",
             },
             draggable: false,
             selectable: false,
         })
-
-        let transform: string = `translate(${xPos - 45}px, ${yPos + 115}px) rotate(-90deg)`
-        let titleWidth = nodeHeight + nodeMargin * 2 * rows
-        let titleHeight = nodeHeight + nodeMargin
-        console.log("rows", rows)
-        if (rows === 1) {
-            transform = `translate(${xPos - 100}px, ${yPos}px)`
-            titleHeight = nodeHeight + nodeMargin * 2 * rows
-            titleWidth = nodeWidth
-        }
 
         // title 
         nodes.push({
@@ -55,25 +49,25 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
             type: 'default',
             data: { label: column.name },
             position: { x: xPos - 100, y: yPos },
-            // position: { x: 0, y: 0 },
-
             draggable: false,
             selectable: false,
             style: {
-                height: titleHeight,
-                width: titleWidth,
-                // transform: 
-                background: "red",
-                // color: "red",
-                // transform: `rotate(-90deg)`,
-                // transform: `translate(${xPos - 115}px, ${yPos + 100}px) rotate(-90deg)`,
-                transform: transform,
+                display: 'flex',
+                textTransform: 'uppercase',
+                height: nodeHeight + nodeMargin * 2 * rows,
+                width: nodeWidth,
+                color: "white",
+                background: colorScheme.primary,
+                borderTop: `3px solid ${colorScheme.primary}`,
+                borderLeft: `3px solid ${colorScheme.primary}`,
+                borderBottom: `3px solid ${colorScheme.primary}`,
+                borderRadius: "15px 0px 0px 15px",
                 justifyContent: 'center',
+                textAlign: 'center',
+                alignSelf: 'center',
+                justifySelf: 'center',
                 alignItems: 'center',
-                // writingMode: 'vertical-rl',
-                // transform: 'rotate(180deg)',
                 fontSize: 20,
-
             },
 
         })
@@ -123,6 +117,10 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
                             id: `e_${prerequisiteItem.id}-${item.id}-${index}`,
                             source: prerequisiteItem.id,
                             target: item.id,
+                            style: {
+                                stroke: colorScheme.primary,
+                                strokeWidth: 2,
+                            }
                         })
                     }
                 }
@@ -139,6 +137,10 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
                         id: `e_${prerequisite}-${currentItem.id}`,
                         source: prerequisite,
                         target: currentItem.id,
+                        style: {
+                            stroke: colorScheme.primary,
+                            strokeWidth: 2,
+                        }
                     })
                 }
                 )

@@ -119,7 +119,7 @@ const SearchBar: FC = ({
         >
             <Box
                 sx={(theme) => ({
-                    backgroundColor: `${snap.specialization.colours?.tertiary}`,
+                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : `${snap.specialization.colours?.tertiary}`,
                     padding: theme.spacing.xl,
                     borderRadius: theme.radius.md,
                     border: `4px solid ${snap.specialization.colours?.primary}`,
@@ -233,7 +233,7 @@ const SearchBar: FC = ({
                     <Tooltip label="No Courses in Container">
                         <Button leftIcon={<VscClearAll />}
                             data-disabled
-                            sx={{ '&[data-disabled]': { pointerEvents: 'all' }, alignSelf: "end" }}
+                            sx={{ '&[data-disabled]': { pointerEvents: 'all' }, alignSelf: "end", }}
                             onClick={(event) => event.preventDefault()}
                         >
                             Clear Courses

@@ -28,7 +28,7 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                 alignItems: "center",
                 flexDirection: "column",
             }}>
-                <Flex sx={{
+                <Flex sx={(theme) => ({
                     height: "80%",
                     width: "80%",
                     backgroundColor: `${snap.specialization.colours?.tertiary}`,
@@ -39,15 +39,11 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                     borderTop: `5px solid ${snap.specialization.colours?.primary}`,
                     borderRight: `5px solid ${snap.specialization.colours?.primary}`,
                     borderLeft: `5px solid ${snap.specialization.colours?.primary}`,
-                    color: `${snap.specialization.colours?.primary}`,
-                    '&:hover': {
-                        backgroundColor: "#808285",
-                        color: "white",
-                        borderTop: "5px solid #58595b", borderRight: "5px solid #58595b", borderLeft: "5px solid #58595b"
-                    },
-                    "--fillColor": `${snap.specialization.colours?.secondary}`,
-                    "--bgColor": `${snap.specialization.colours?.tertiary}`
-                }} className="title">
+                    color: theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : `${snap.specialization.colours?.primary}`,
+                    "--fillColor": theme.colorScheme === 'dark' ? `${snap.specialization.colours?.primary}` : `${snap.specialization.colours?.secondary}`,
+                    "--bgColor": theme.colorScheme === 'dark' ? theme.colors.dark[6] : `${snap.specialization.colours?.tertiary}`,
+                    "--hoverText": theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : "#FFF",
+                })} className="title">
                     <div style={{ fontSize: "25px" }}>{subheading1}</div>
                     <div style={{ fontSize: "22px", maxWidth: "55ch" }}>{subheading2}</div>
                     <div style={{ fontSize: "25px", fontWeight: "bold", marginBottom: "5px" }}>{subheading3}</div>

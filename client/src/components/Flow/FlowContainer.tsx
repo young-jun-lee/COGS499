@@ -16,10 +16,11 @@ const TreeContainer: FC = () => {
                     margin: "1em",
                     border: `5px solid ${snap.specialization.colours?.primary}`,
                     borderRadius: theme.radius.md,
-                    color: theme.colorScheme === 'dark' ? "white" : snap.specialization.colours?.primary,
                     padding: "0.5em", boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)",
-                    "--fillColor": `${snap.specialization.colours?.secondary}`,
-                    "--bgColor": `${snap.specialization.colours?.tertiary}`
+                    color: theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : `${snap.specialization.colours?.primary}`,
+                    "--fillColor": theme.colorScheme === 'dark' ? `${snap.specialization.colours?.primary}` : `${snap.specialization.colours?.secondary}`,
+                    "--bgColor": theme.colorScheme === 'dark' ? theme.colors.dark[6] : `${snap.specialization.colours?.tertiary}`,
+                    "--hoverText": theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : "#FFF",
                 })
             } className="title">
                 <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600, }}>What's Next</div>

@@ -4,6 +4,7 @@ import { useSnapshot } from "valtio";
 import { Course, CourseColumns } from "../../types/stateTypes";
 import { generateCourseNodes } from "../../utils/generateCourseNodes";
 import { state } from "../../Valtio/State";
+import { useMantineTheme } from '@mantine/core';
 
 
 
@@ -15,22 +16,19 @@ interface FlowProps {
 
 
 export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
+    const theme = useMantineTheme();
     const snap = useSnapshot(state);
+    const [colorScheme, setColorScheme] = useState({
+        primary: state.specialization.colours?.primary,
+        secondary: state.specialization.colours?.secondary,
+        tertiary: state.specialization.colours?.tertiary
+    })
 
-    // console.log("rendering flow: ", snap.currentBasket)
     const rfStyle = {
-        backgroundColor: backgroundColor,
+        backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : snap.specialization.colours?.tertiary
     };
 
     const columns: CourseColumns = []
-
-
-    const colorScheme = {
-        primary: snap.specialization.colours?.primary,
-        secondary: snap.specialization.colours?.secondary,
-        tertiary: snap.specialization.colours?.tertiary
-    }
-    // console.log(snap.currentBasket)
     for (let column of Object.keys(snap.currentBasket) as any) {
         // skip the first column and any empty columns
         if (column === "0" || snap.currentBasket[column].length === 0) {
@@ -59,10 +57,19 @@ export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
 
 
     useEffect(() => {
+        setColorScheme({
+            primary: state.specialization.colours?.primary,
+            secondary: theme.colorScheme === 'dark' ? theme.colors.dark[6] : `${snap.specialization.colours?.secondary}`,
+            tertiary: state.specialization.colours?.tertiary
+        })
+    }, [snap.currentBasket, snap.specialization])
+
+    useEffect(() => {
         const generatedNodesEdges = generateCourseNodes(columns, colorScheme)
         setCoursesNodes(generatedNodesEdges.courseNodes)
         setCoursesEdges(generatedNodesEdges.courseEdges)
-    }, [snap.currentBasket])
+    }, [colorScheme])
+
 
 
     return (
