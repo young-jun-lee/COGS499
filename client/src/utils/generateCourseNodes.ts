@@ -26,7 +26,6 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
             id: column.name,
             type: 'group',
             data: { label: null },
-            // position: { x: 0, y: index * 100 * rows },
             position: { x: xPos, y: yPos },
             style: {
                 height: nodeHeight + nodeMargin * 2 * rows,

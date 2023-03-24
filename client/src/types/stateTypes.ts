@@ -14,7 +14,16 @@ export type CourseNode = {
         background?: string;
         transform?: string;
         fontSize?: number;
-        writingMode?: string;
+        textTransform?: string;
+        borderTop?: string;
+        borderRight?: string;
+        borderBottom?: string;
+        borderLeft?: string;
+        borderRadius?: string;
+        textAlign?: string;
+        alignSelf?: string;
+        justifySelf?: string;
+        display?: string;
     };
     selectable?: boolean;
     draggable?: boolean;
