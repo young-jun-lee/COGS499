@@ -41,7 +41,6 @@ app.get('/courses', async (req, res) => {
 
     const resCourses = {}
     for (const [key, group] of Object.entries(groups)) {
-
       const filteredCourses = pickBy(courses, (value, key) => key.startsWith(group))
       // add each course in filteredCourses to resCourses
       for (const [key, value] of Object.entries(filteredCourses)) {

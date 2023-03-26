@@ -26,8 +26,8 @@ export interface Props {
   wrapperStyle?: React.CSSProperties;
   value: React.ReactNode;
   containerId: string | number;
-  items: Items;
-  setItems: React.Dispatch<React.SetStateAction<{}>>;
+  items?: Items;
+  setItems?: React.Dispatch<React.SetStateAction<{}>>;
   onRemove?(): void;
   renderItem?(args: {
     dragOverlay: boolean;

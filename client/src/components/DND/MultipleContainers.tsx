@@ -21,7 +21,7 @@ import { constants } from '../../content/Constants';
 
 import { showNotification } from '@mantine/notifications';
 import { MdDeleteSweep } from 'react-icons/md';
-import { Course, Items, Years } from '../../types/stateTypes';
+import { Course, Years } from '../../types/stateTypes';
 import { state } from '../../Valtio/State';
 import SearchBar from '../SelectCourses/SearchBar';
 import { DroppableContainer } from './DroppableContainer';
@@ -68,7 +68,7 @@ export const MultipleContainers = ({
       return JSON.parse(basket)
     }
 
-    const items: Items = {}
+    const items = {}
     snap.columns.map((column, index) => {
       // if (index !== 0) {
       items[index] = column.items.map(item => item.id)
@@ -92,7 +92,7 @@ export const MultipleContainers = ({
 
   }
 
-  const [items, setItems] = useState<Items>(getItems());
+  const [items, setItems] = useState(getItems());
 
   const [parent] = useAutoAnimate(/* optional config */)
 
@@ -111,60 +111,7 @@ export const MultipleContainers = ({
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
   const lastOverId = useRef<UniqueIdentifier | null>(null);
   const recentlyMovedToNewContainer = useRef(false);
-  // const isSortingContainer = activeId ? containers.includes(activeId) : false;
 
-  // const collisionDetectionStrategy: CollisionDetection = useCallback(
-  //   (args) => {
-  //     if (activeId && activeId in items) {
-  //       return closestCenter({
-  //         ...args,
-  //         droppableContainers: args.droppableContainers.filter(
-  //           (container) => container.id in items
-  //         ),
-  //       });
-  //     }
-
-  //     // Start by finding any intersecting droppable
-  //     const pointerIntersections = pointerWithin(args);
-  //     const intersections =
-  //       pointerIntersections.length > 0
-  //         ? // If there are droppables intersecting with the pointer, return those
-  //         pointerIntersections
-  //         : rectIntersection(args);
-  //     let overId = getFirstCollision(intersections, 'id');
-
-  //     if (overId != null) {
-  //       if (overId in items) {
-  //         const containerItems = items[overId].map((item) => item.id);
-
-  //         // If a container is matched and it contains items (columns 'A', 'B', 'C')
-  //         if (containerItems.length > 0) {
-  //           // Return the closest droppable within that container
-  //           overId = closestCenter({
-  //             ...args,
-  //             droppableContainers: args.droppableContainers.filter(
-  //               (container) =>
-  //                 container.id !== overId &&
-  //                 containerItems.includes(container.id)
-  //             ),
-  //           })[0]?.id;
-  //         }
-  //       }
-
-  //       lastOverId.current = overId;
-
-  //       return [{ id: overId }];
-  //     }
-
-
-  //     if (recentlyMovedToNewContainer.current) {
-  //       lastOverId.current = activeId;
-  //     }
-
-  //     return lastOverId.current ? [{ id: lastOverId.current }] : [];
-  //   },
-  //   [activeId, items]
-  // );
 
   const collisionDetectionStrategy: CollisionDetection = useCallback(
     (args) => {
@@ -313,32 +260,6 @@ export const MultipleContainers = ({
     return { prerequisites, corequisites, exclusions, one_way_exclusions }
   }
 
-  // const checkPrerequisites = (prerequisites: any, containerId: UniqueIdentifier) => {
-  //   if (prerequisites.length > 0) {
-  //     console.log('prerequisites: ', prerequisites)
-  //     for (const prerequisite of prerequisites) {
-  //       // return false if prerequisite is not in any container before this one including this one
-  //       if (prerequisite === "None") {
-  //         break
-  //       }
-
-  //       let found = false
-  //       for (let i = 0; i <= Number(containerId); i++) {
-  //         const container = items[i]
-  //         for (const item of container) {
-  //           if (item.value === prerequisite) {
-  //             found = true
-  //             console.log("found in container: ", i)
-  //             break
-  //           }
-  //         }
-  //       }
-  //       if (!found) {
-  //         return false
-  //       }
-  //     }
-  //   }
-  // }
 
   const checkPrerequisites = (prerequisites: any, containerId: UniqueIdentifier, optional: boolean = false) => {
     if (prerequisites.length > 0) {
@@ -353,7 +274,7 @@ export const MultipleContainers = ({
           }
         } else if (prerequisite === "None") {
           break
-        } 
+        }
         else {
           let found = false
           console.log("here")
@@ -380,6 +301,45 @@ export const MultipleContainers = ({
     return true
   }
 
+  const checkCorequisites = (corequisites: any, containerId: UniqueIdentifier) => {
+    if (corequisites.length > 0) {
+
+      console.log('corequisites: ', corequisites)
+
+      // if corequisite is a nested array, just check first item
+      const corequisite = Array.isArray(corequisites[0]) ? corequisites[0][0] : corequisites[0]
+
+      if (corequisite === "None") {
+        return true
+      }
+      // check to see if corequisite exists in any container 
+      let found = false
+      let corequisiteContainerId = null
+      for (let i = 1; i <= Number(containerId); i++) {
+        const container = items[i]
+        for (const item of container) {
+          if (item.value === corequisite) {
+            found = true
+            corequisiteContainerId = i
+          }
+        }
+      }
+      if (!found) {
+        return true
+      }
+      else {
+        // if corequisite exists, check to see if it's in the same container
+        console.log('corequisiteContainerId: ', corequisiteContainerId)
+        console.log('containerId: ', containerId)
+        if (corequisiteContainerId == containerId) {
+
+          return true
+        }
+        return false
+      }
+    }
+  }
+
 
   const checkRequirements = (containerId: UniqueIdentifier, course: UniqueIdentifier) => {
 
@@ -389,10 +349,12 @@ export const MultipleContainers = ({
     const { prerequisites, corequisites, exclusions, one_way_exclusions } = getCourseRequirements(course)
 
     // check prerequisites
-    const validPrerequisites = checkPrerequisites(prerequisites, containerId)
-    console.log('validPrerequisites: ', validPrerequisites)
+    // const validPrerequisites = checkPrerequisites(prerequisites, containerId)
+    // console.log('validPrerequisites: ', validPrerequisites)
+    const validCorequisites = checkCorequisites(corequisites, containerId)
+    return validCorequisites
 
-    return validPrerequisites
+    // return validPrerequisites
 
     return true
 
@@ -515,33 +477,23 @@ export const MultipleContainers = ({
 
 
       onDragEnd={({ active, over }) => {
-
-
         const activeContainer = findContainer(active.id);
-
         if (!activeContainer) {
           setActiveId(null);
           return;
         }
-
         const overId = over?.id;
-
         if (overId == null) {
           setActiveId(null);
           return;
         }
-
         const overContainer = findContainer(overId);
 
         if (overContainer) {
           const activeIndex = items[activeContainer].findIndex((item) => item.id === active.id);
           const overIndex = items[overContainer].findIndex((item) => item.id === overId);
-          // console.log("active", items[activeContainer])
-          // console.log("over", items[overContainer])
           if (activeIndex !== overIndex) {
             setItems((items) => {
-              const activeItem = items[activeContainer][activeIndex];
-
               return {
                 ...items,
                 [activeContainer]: arrayMove(
@@ -560,13 +512,7 @@ export const MultipleContainers = ({
       onDragCancel={onDragCancel}
       modifiers={modifiers}
     >
-      <Flex
-        style={{
-          padding: 20,
-          gridGap: 20,
-        }}
-
-      >
+      <Flex style={{ padding: 20, gridGap: 20 }}>
 
         <SortableContext
           items={[...containers, constants.PLACEHOLDER_ID]}
@@ -589,7 +535,6 @@ export const MultipleContainers = ({
                       columns={columns}
                       items={items[containerId]}
                       scrollable={scrollable}
-                      // style={containerStyle}
                       style={{ maxHeight: "190px" }}
                       unstyled={minimal}
                     >
@@ -601,7 +546,6 @@ export const MultipleContainers = ({
                         {items[containerId].map((value: Course, index: number) => {
                           return (
                             <SortableItem
-                              // disabled={isSortingContainer}
                               key={value.id}
                               id={value.id}
                               index={index}
@@ -738,8 +682,6 @@ export const MultipleContainers = ({
               scrollable={scrollable}
               getItemStyles={getItemStyles}
               strategy={strategy}
-              // isSortingContainer={isSortingContainer}
-              handle={handle}
               containerStyle={containerStyle}
               wrapperStyle={wrapperStyle}
               renderItem={renderItem}
@@ -748,7 +690,6 @@ export const MultipleContainers = ({
               minimal={minimal}
               specChosen={specChosen}
             ></SearchBar>
-
           </Flex>
 
 
@@ -763,7 +704,6 @@ export const MultipleContainers = ({
             {activeId
               ? renderSortableItemDragOverlay(activeId)
               : null}
-            {/* {renderSortableItemDragOverlay(activeId)} */}
           </DragOverlay>,
           document.body
         )

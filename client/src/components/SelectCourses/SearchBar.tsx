@@ -1,4 +1,4 @@
-import { SortableContext } from '@dnd-kit/sortable';
+import { SortableContext, SortingStrategy } from '@dnd-kit/sortable';
 import { Autocomplete, Box, Button, Flex, Tooltip } from '@mantine/core';
 import { FC, useState } from 'react';
 import { VscClearAll } from 'react-icons/vsc';
@@ -10,39 +10,31 @@ import { SortableItem } from '../DND/SortableItem';
 import { constants } from '../../content/Constants';
 import { showNotification } from '@mantine/notifications';
 import { Course } from '../../types/stateTypes';
-import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineClose } from 'react-icons/ai';
+import { UniqueIdentifier } from '@dnd-kit/core';
 
-// interface RequiredCourses {
-//     containerId: string | number,
-//     id: string,
-//     label: string,
-//     columns: number,
-//     items: string[],
-//     scrollable: boolean,
-//     style: object,
-//     unstyled: boolean,
-//     strategy: string,
-//     disabled: boolean,
-//     handle: boolean,
-//     itemStyle: object,
-//     wrapperStyle: object,
-//     renderItem: (item: Course) => JSX.Element,
-//     getIndex: (item: Course) => number,
-//     setItems: (items: Course[]) => void,
-//     minimal: boolean,
-//     getItemStyles: any
-//     isSortingContainer: any
-//     containerStyle: any,
-//     specChosen: boolean
-// }
+interface RequiredCourses {
+    containerId: UniqueIdentifier,
+    columns: number | undefined,
+    items: string[],
+    scrollable: boolean,
+    strategy: SortingStrategy,
+    wrapperStyle: object,
+    renderItem: (item: Course) => JSX.Element,
+    getIndex: (id: UniqueIdentifier) => any,
+    setItems: (items: Course[]) => void,
+    minimal: boolean,
+    getItemStyles: any
+    containerStyle: React.CSSProperties | undefined,
+    specChosen: boolean
+}
 
-const SearchBar: FC = ({
+const SearchBar: FC<RequiredCourses> = ({
     containerId,
     items,
     scrollable,
     getItemStyles,
     strategy,
-    isSortingContainer,
     wrapperStyle,
     renderItem,
     getIndex,
@@ -185,7 +177,6 @@ const SearchBar: FC = ({
                         {items[containerId].map((course: Course, index: number) => {
                             return (
                                 <SortableItem
-                                    disabled={isSortingContainer}
                                     key={course.id}
                                     id={course.id}
                                     index={index}

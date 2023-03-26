@@ -62,6 +62,7 @@ export default function App() {
 
     const fetchData = async () => {
       try {
+        console.log(`${import.meta.env.VITE_BACKEND_URL}/courses?${queryParams}`)
         await fetch(`${import.meta.env.VITE_BACKEND_URL}/courses?${queryParams}`)
           .then(res => res.json())
           .then(data => {
