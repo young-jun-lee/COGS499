@@ -301,44 +301,65 @@ export const MultipleContainers = ({
     return true
   }
 
-  const checkCorequisites = (corequisites: any, containerId: UniqueIdentifier) => {
-    if (corequisites.length > 0) {
+  const checkCorequisites = (corequisites: string[], containerId: UniqueIdentifier): boolean => {
 
-      console.log('corequisites: ', corequisites)
+    console.log('corequisites: ', corequisites)
 
-      // if corequisite is a nested array, just check first item
-      const corequisite = Array.isArray(corequisites[0]) ? corequisites[0][0] : corequisites[0]
+    // if corequisite is a nested array, just check first item
+    const corequisite = Array.isArray(corequisites[0]) ? corequisites[0][0] : corequisites[0]
 
-      if (corequisite === "None") {
-        return true
+    if (corequisite === "None") {
+      return true
+    }
+    // check to see if corequisite exists in any container 
+    let found = false
+    let corequisiteContainerId = null
+    for (let i = 1; i <= Number(containerId); i++) {
+      const container = items[i]
+      for (const item of container) {
+        if (item.value === corequisite) {
+          found = true
+          corequisiteContainerId = i
+        }
       }
-      // check to see if corequisite exists in any container 
-      let found = false
-      let corequisiteContainerId = null
-      for (let i = 1; i <= Number(containerId); i++) {
-        const container = items[i]
-        for (const item of container) {
-          if (item.value === corequisite) {
-            found = true
-            corequisiteContainerId = i
+    }
+    if (!found) {
+      return true
+    }
+
+    // if corequisite exists, check to see if it's in the same container
+    if (corequisiteContainerId == containerId) {
+      return true
+    }
+    // failed - corequisites not met
+    showNotification({
+      title: 'Corequisite Error',
+      message: 'This course has corequisite(s) that must be taken in the same year.\n Please move the following course(s) to the same year as: ' + corequisites.join(', ') + '.',
+      color: 'red',
+    });
+    return false
+
+  }
+
+  const checkExclusions = (exclusions: any, containerId: UniqueIdentifier) => {
+    for (let i = 1; i <= Number(containerId); i++) {
+      const container = items[i]
+      for (const item of container) {
+        for (const exclusion of exclusions) {
+          if (item.value === exclusion) {
+            showNotification({
+              title: 'Exlcusions Error',
+              message: 'This course has exclusion(s) that prevent you from adding it to your plan.\n Please remove the following course(s) from your plan: ' + exclusions.join(', ') + '.',
+              color: 'red',
+            });
+            return false
           }
         }
       }
-      if (!found) {
-        return true
-      }
-      else {
-        // if corequisite exists, check to see if it's in the same container
-        console.log('corequisiteContainerId: ', corequisiteContainerId)
-        console.log('containerId: ', containerId)
-        if (corequisiteContainerId == containerId) {
-
-          return true
-        }
-        return false
-      }
     }
+    return true
   }
+
 
 
   const checkRequirements = (containerId: UniqueIdentifier, course: UniqueIdentifier) => {
@@ -352,7 +373,14 @@ export const MultipleContainers = ({
     // const validPrerequisites = checkPrerequisites(prerequisites, containerId)
     // console.log('validPrerequisites: ', validPrerequisites)
     const validCorequisites = checkCorequisites(corequisites, containerId)
-    return validCorequisites
+
+
+    console.log("exclusions: ", exclusions)
+    const validExclusions = checkExclusions(exclusions, containerId)
+    console.log('validExclusions: ', validExclusions)
+    console.log('validCorequisites: ', validCorequisites)
+    return validExclusions && validCorequisites
+    // return validCorequisites
 
     // return validPrerequisites
 
@@ -420,15 +448,9 @@ export const MultipleContainers = ({
           return;
         }
 
-        const validCourse = checkRequirements(overContainer, active.id)
-        if (!validCourse) {
-          showNotification({
-            title: 'Invalid Course',
-            message: 'This course does not meet the requirements for this year.',
-            color: 'red',
-          });
-          return;
-        }
+        const validCourse = checkRequirements(overContainer, active.id);
+        if (!validCourse) return;
+
 
         if (activeContainer !== overContainer) {
           setItems((items) => {
