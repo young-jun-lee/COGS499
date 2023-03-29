@@ -172,18 +172,4 @@ const COIs = [
 
 ]
 
-export const COMP_PROGRAMS = [
-  'https://www.cs.queensu.ca/undergraduate/programs/options/artificial-intelligence.php',
-  // 'https://www.cs.queensu.ca/undergraduate/programs/options/biomedical-computation.php',
-  // 'https://www.cs.queensu.ca/undergraduate/programs/options/data-analytics.php',
-  // 'https://www.cs.queensu.ca/undergraduate/programs/options/security.php',
-  // 'https://www.cs.queensu.ca/undergraduate/programs/options/game-development.php',
-  // 'https://www.cs.queensu.ca/undergraduate/programs/options/fundamental-computation.php',
-  // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/biomedical-computing.php',
-  // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/cognitive-science.php',
-  // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/software-design.php',
-  // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/computing-mathematics-and-analytics.php',
-  // 'https://www.cs.queensu.ca/undergraduate/programs/specializations/computing-and-the-creative-arts.php'
-]
-
 export { STAT_OPTIONS, NSCI_OPTIONS, COMA_OPTIONS, COIs }
