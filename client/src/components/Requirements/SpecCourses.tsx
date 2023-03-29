@@ -19,7 +19,6 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
           color: `${snap.specialization.colours?.secondary}`,
           textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
           textStroke: `5px ${snap.specialization.colours?.tertiary}`,
-          // textShadow: `5px ${snap.specialization.colours?.tertiary}`,
           width: '30%',
           height: '100%',
           padding: theme.spacing.sm,
@@ -30,8 +29,14 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
           border: `5px solid ${snap.specialization.colours?.primary}`,
           borderRadius: theme.radius.md,
           boxShadow: "0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1), 0 16px 16px rgba(0,0,0,0.1)",
+          // color: theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : `${snap.specialization.colours?.primary}`,
+          "--fillColor": theme.colorScheme === 'dark' ? `${snap.specialization.colours?.primary}` : `${snap.specialization.colours?.secondary}`,
+          "--bgColor": theme.colorScheme === 'dark' ? theme.colors.dark[6] : `white`,
+          "--hoverText": theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : "#FFF",
+          display: "flex",
+          flexDirection: "column",
         })}
-
+        className="title"
       >
         <Box sx={{
           fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 22, textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
@@ -39,11 +44,12 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
         }} >{title}</Box>
         <Box
           sx={(theme) => ({
-            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : `${snap.specialization.colours?.tertiary}`,
+            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : `${snap.specialization.colours?.tertiary}`,
             height: '90%',
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,
             marginTop: theme.spacing.xs,
+            width: "90%",
           })}
 
         >

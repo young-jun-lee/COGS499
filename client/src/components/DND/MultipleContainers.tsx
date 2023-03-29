@@ -347,7 +347,7 @@ export const MultipleContainers = ({
         for (const exclusion of exclusions) {
           if (item.value === exclusion) {
             showNotification({
-              title: 'Exlcusions Error',
+              title: 'Exclusions Error',
               message: 'This course has exclusion(s) that prevent you from adding it to your plan.\n Please remove the following course(s) from your plan: ' + exclusions.join(', ') + '.',
               color: 'red',
             });
@@ -598,8 +598,8 @@ export const MultipleContainers = ({
                                     <Anchor
                                       href={`https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/${(value.group)?.toLowerCase()}/`}
                                       color="dimmed"
-                                      size="xs"
-                                      sx={{ lineHeight: 1 }}
+                                      size="sm"
+                                      sx={{ lineHeight: 1, fontWeight: 600 }}
                                     >
                                       Course Website
                                     </Anchor>

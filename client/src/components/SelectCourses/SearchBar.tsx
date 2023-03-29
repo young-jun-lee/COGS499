@@ -31,6 +31,7 @@ interface RequiredCourses {
 
 const SearchBar: FC<RequiredCourses> = ({
     containerId,
+    isSortingContainer,
     items,
     scrollable,
     getItemStyles,
@@ -183,7 +184,6 @@ const SearchBar: FC<RequiredCourses> = ({
                                     <HoverCard.Target>
                                         <div>
                                             <SortableItem
-                                                disabled={isSortingContainer}
                                                 key={course.id}
                                                 id={course.id}
                                                 index={index}
