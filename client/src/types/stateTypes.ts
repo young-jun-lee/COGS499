@@ -1,3 +1,4 @@
+import { UniqueIdentifier } from "@dnd-kit/core";
 
 export type CourseNode = {
     id: string;
@@ -66,7 +67,7 @@ export type Course = {
 
 export type Columns = { name: string, items: Course[], limitCourses: number }
 
-// export type Items = Record<UniqueIdentifier, UniqueIdentifier[]>;
+export type Items = Record<UniqueIdentifier, UniqueIdentifier[]>;
 
 export type Years = {
     [key: string]: Course[]

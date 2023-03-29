@@ -16,7 +16,10 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
     return (
       <Box
         sx={(theme) => ({
-          color: `${snap.specialization.colours?.primary}`,
+          color: `${snap.specialization.colours?.secondary}`,
+          textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
+          textStroke: `5px ${snap.specialization.colours?.tertiary}`,
+          // textShadow: `5px ${snap.specialization.colours?.tertiary}`,
           width: '30%',
           height: '100%',
           padding: theme.spacing.sm,
@@ -31,7 +34,8 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
 
       >
         <Box sx={{
-          fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 22,
+          fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 22, textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
+
         }} >{title}</Box>
         <Box
           sx={(theme) => ({

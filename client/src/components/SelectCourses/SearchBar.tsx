@@ -1,49 +1,40 @@
-import { SortableContext } from '@dnd-kit/sortable';
-import { Anchor, Autocomplete, Avatar, Box, Button, Divider, Flex, Group, HoverCard, Stack, Tooltip, Text } from '@mantine/core';
-import { FC, useState } from 'react';
+import { UniqueIdentifier } from '@dnd-kit/core';
+import { SortableContext, SortingStrategy } from '@dnd-kit/sortable';
+import { Anchor, Autocomplete, Avatar, Box, Button, Divider, Flex, Group, HoverCard, Stack, Text, Tooltip } from '@mantine/core';
+import { showNotification } from '@mantine/notifications';
+import { FC } from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
 import { VscClearAll } from 'react-icons/vsc';
-import { v4 as uuidv4 } from 'uuid';
 import { useSnapshot } from 'valtio';
+import coat from '../../assets/coat.png';
+import { constants } from '../../content/Constants';
+import { Course } from '../../types/stateTypes';
 import { state } from '../../Valtio/State';
 import { DroppableContainer } from '../DND/DroppableContainer';
 import { SortableItem } from '../DND/SortableItem';
-import { constants } from '../../content/Constants';
-import { showNotification } from '@mantine/notifications';
-import { Course } from '../../types/stateTypes';
-import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai';
-import coat from '../../assets/coat.png';
 
-// interface RequiredCourses {
-//     containerId: string | number,
-//     id: string,
-//     label: string,
-//     columns: number,
-//     items: string[],
-//     scrollable: boolean,
-//     style: object,
-//     unstyled: boolean,
-//     strategy: string,
-//     disabled: boolean,
-//     handle: boolean,
-//     itemStyle: object,
-//     wrapperStyle: object,
-//     renderItem: (item: Course) => JSX.Element,
-//     getIndex: (item: Course) => number,
-//     setItems: (items: Course[]) => void,
-//     minimal: boolean,
-//     getItemStyles: any
-//     isSortingContainer: any
-//     containerStyle: any,
-//     specChosen: boolean
-// }
+interface RequiredCourses {
+    containerId: UniqueIdentifier,
+    columns: number | undefined,
+    items: string[],
+    scrollable: boolean,
+    strategy: SortingStrategy,
+    wrapperStyle: object,
+    renderItem: (item: Course) => JSX.Element,
+    getIndex: (id: UniqueIdentifier) => any,
+    setItems: (items: Course[]) => void,
+    minimal: boolean,
+    getItemStyles: any
+    containerStyle: React.CSSProperties | undefined,
+    specChosen: boolean
+}
 
-const SearchBar: FC = ({
+const SearchBar: FC<RequiredCourses> = ({
     containerId,
     items,
     scrollable,
     getItemStyles,
     strategy,
-    isSortingContainer,
     wrapperStyle,
     renderItem,
     getIndex,

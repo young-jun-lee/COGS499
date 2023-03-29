@@ -116,6 +116,7 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
                             id: `e_${prerequisiteItem.id}-${item.id}-${index}`,
                             source: prerequisiteItem.id,
                             target: item.id,
+                            type: "default",
                             style: {
                                 stroke: colorScheme.primary,
                                 strokeWidth: 2,
@@ -136,9 +137,11 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
                         id: `e_${prerequisite}-${currentItem.id}`,
                         source: prerequisite,
                         target: currentItem.id,
+                        type: 'default',
                         style: {
                             stroke: colorScheme.primary,
                             strokeWidth: 2,
+                            WaveShaperNode: 0.5,
                         }
                     })
                 }

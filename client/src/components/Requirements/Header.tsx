@@ -20,9 +20,7 @@ const Header: FC<Header> = ({ title }) => {
 				})}
 			>
 				<Box sx={(theme) => ({ fontWeight: 700, fontSize: 35, color: "white", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-around" })}>
-					<Image maw={75} src={coat}></Image>
-					{title}
-					<Image maw={75} src={coat}></Image>
+					<Image maw={75} src={coat}></Image>{title}<Image maw={75} src={coat}></Image>
 				</Box>
 			</Box >
 			<div style={{

@@ -4,7 +4,7 @@ export default {
     subheading1: 'Welcome!',
     subheading2: 'As you fill in the courses you have already taken, you will be informed what courses you still need to graduate.',
     subheading3: 'Happy Planning!',
-    preloadedCourses: ["APSC", "ARTH", "BADR", "BCHM", "BIOL", "BIOM", "CHEE", "CHEM", "CISC", "COCA", "COGS", "COMM", "DRAM", "ECON", "ELEC", "ENIN", "FILM", "GEOL", "GPHY", "KNPE", "LING", "MATH", "MECH", "MUSC", "MUTH", "NURS", "PHGY", "PHIL", "POLS", "PSYC", "SOCY", "SOFT", "STAM", "STAT", "WRIT"
+    preloadedCourses: ["APSC", "ARTH", "BADR", "BCHM", "BIOL", "BIOM", "CHEE", "CHEM", "CISC", "COCA", "COGS", "COMM", "DRAM", "ECON", "ELEC", "ENIN", "FILM", "GEOL", "GPHY", "KNPE", "LING", "MATH", "MECH", "MUSC", "MUTH", "NSCI", "NURS", "PHGY", "PHIL", "POLS", "PSYC", "SOCY", "SOFT", "STAM", "STAT", "WRIT"
     ],
     specializations: {
         "Artificial Intelligence": { primary: "#6f4979", secondary: "#895A95", tertiary: "#F5F1F7" },
