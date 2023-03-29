@@ -338,11 +338,13 @@ export const MultipleContainers = ({
   }
 
   const checkExclusions = (exclusions: any[], containerId: UniqueIdentifier) => {
-    exclusions.forEach(exclusion => {
+    console.log('exclusions: ', exclusions)
+    for (let exclusionArray = 0; exclusionArray <= exclusions.length; exclusionArray++) {
       for (let i = 1; i <= Number(containerId); i++) {
         const container = items[i]
+        console.log('i: ', i)
         for (const item of container) {
-          if (item.value === exclusion) {
+          if (exclusions[exclusionArray].includes(item.value)) {
             showNotification({
               title: 'Exclusions Error',
               message: 'This course has exclusion(s) that prevent you from adding it to your plan.\n Please remove the following course(s) from your plan: ' + exclusions.join(', ') + '.',
@@ -352,10 +354,10 @@ export const MultipleContainers = ({
           }
         }
       }
-    })
-    return true
-  }
 
+      return true
+    }
+  }
 
 
   const checkRequirements = (containerId: UniqueIdentifier, course: UniqueIdentifier) => {
@@ -370,14 +372,15 @@ export const MultipleContainers = ({
     // check prerequisites
     // const validPrerequisites = checkPrerequisites(prerequisites, containerId)
     // console.log('validPrerequisites: ', validPrerequisites)
-    const validCorequisites = checkCorequisites(corequisites, containerId)
-    return validCorequisites
+    // const validCorequisites = checkCorequisites(corequisites, containerId)
+    // return validCorequisites
 
 
 
     // console.log("exclusions: ", exclusions)
-    // const validExclusions = checkExclusions(exclusions, containerId)
-    // console.log('validExclusions: ', validExclusions)
+    const validExclusions = checkExclusions(exclusions, containerId)
+    return validExclusions
+    console.log('validExclusions: ', validExclusions)
     // console.log('validCorequisites: ', validCorequisites)
     // return validExclusions && validCorequisites
     // return validCorequisites
