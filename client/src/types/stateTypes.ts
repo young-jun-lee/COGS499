@@ -51,10 +51,12 @@ export type Basket = string[]
 export type NumYears = 1 | 2 | 3 | 4 | 5 | 6
 
 export type Course = {
+    title?: string
     code?: string
     id?: string
     value?: string
     group?: string
+    description?: string
     prerequisites?: string[]
     corequisites?: string[]
     exclusions?: string[]

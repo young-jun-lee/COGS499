@@ -1,5 +1,5 @@
 import { SortableContext } from '@dnd-kit/sortable';
-import { Autocomplete, Box, Button, Flex, Tooltip } from '@mantine/core';
+import { Anchor, Autocomplete, Avatar, Box, Button, Divider, Flex, Group, HoverCard, Stack, Tooltip, Text } from '@mantine/core';
 import { FC, useState } from 'react';
 import { VscClearAll } from 'react-icons/vsc';
 import { v4 as uuidv4 } from 'uuid';
@@ -11,6 +11,7 @@ import { constants } from '../../content/Constants';
 import { showNotification } from '@mantine/notifications';
 import { Course } from '../../types/stateTypes';
 import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai';
+import coat from '../../assets/coat.png';
 
 // interface RequiredCourses {
 //     containerId: string | number,
@@ -84,7 +85,7 @@ const SearchBar: FC = ({
             const parsedPrereqs = JSON.parse(JSON.stringify(item.prerequisites))
             setItems({
                 ...items,
-                [containerId]: [...items[containerId], { id: item.id, value: item.value, group: item.group, prerequisites: parsedPrereqs }]
+                [containerId]: [...items[containerId], { id: item.id, value: item.value, group: item.group, prerequisites: parsedPrereqs, description: item.description, title: item.title }]
             });
         }
 
@@ -105,7 +106,9 @@ const SearchBar: FC = ({
                 value: course.code,
                 group: course.code?.slice(0, 4),
                 id: course.code,
-                prerequisites: course.prerequisites
+                prerequisites: course.prerequisites,
+                description: course.description,
+                title: course.title
             })
         }
         return autoCompleteData;
@@ -184,20 +187,52 @@ const SearchBar: FC = ({
                     >
                         {items[containerId].map((course: Course, index: number) => {
                             return (
-                                <SortableItem
-                                    disabled={isSortingContainer}
-                                    key={course.id}
-                                    id={course.id}
-                                    index={index}
-                                    style={getItemStyles}
-                                    // style={{ width: "100%", height: "100%" }}
-                                    wrapperStyle={wrapperStyle}
-                                    renderItem={renderItem}
-                                    containerId={containerId}
-                                    getIndex={getIndex}
-                                    items={items}
-                                    setItems={setItems}
-                                />
+
+                                <HoverCard width={320} shadow="md" openDelay={200} closeDelay={200}>
+                                    <HoverCard.Target>
+                                        <div>
+                                            <SortableItem
+                                                disabled={isSortingContainer}
+                                                key={course.id}
+                                                id={course.id}
+                                                index={index}
+                                                style={getItemStyles}
+                                                // style={{ width: "100%", height: "100%" }}
+                                                wrapperStyle={wrapperStyle}
+                                                renderItem={renderItem}
+                                                containerId={containerId}
+                                                getIndex={getIndex}
+                                                items={items}
+                                                setItems={setItems}
+                                            />
+                                        </div>
+                                    </HoverCard.Target>
+                                    <HoverCard.Dropdown>
+                                        <Group>
+                                            <Avatar src={coat} radius="xl" />
+                                            <Stack spacing={5}>
+                                                <Text size="sm" weight={700} sx={{ lineHeight: 1 }}>
+                                                    {course.id + ": "}{course.title}
+                                                </Text>
+                                                <Anchor
+                                                    href={`https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/${(course.group)?.toLowerCase()}/`}
+                                                    color="dimmed"
+                                                    size="xs"
+                                                    sx={{ lineHeight: 1 }}
+                                                >
+                                                    Course Website
+                                                </Anchor>
+                                            </Stack>
+                                        </Group>
+
+                                        <Divider style={{ marginTop: "1em" }} />
+
+                                        <Text size="sm" mt="md">
+                                            {course.description}
+                                        </Text>
+
+                                    </HoverCard.Dropdown>
+                                </HoverCard>
                             );
                         })}
                     </SortableContext>

@@ -9,7 +9,7 @@ import {
 import {
   arrayMove, horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy
 } from '@dnd-kit/sortable';
-import { Box, Button, Flex, Group, Tooltip } from '@mantine/core';
+import { Anchor, Avatar, Box, Button, Divider, Flex, Group, HoverCard, Stack, Tooltip, Text } from '@mantine/core';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal, unstable_batchedUpdates } from 'react-dom';
 import { HiViewGridAdd } from 'react-icons/hi';
@@ -28,6 +28,7 @@ import { DroppableContainer } from './DroppableContainer';
 import { Props } from './Props';
 import { SortableItem } from './SortableItem';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import coat from '../../assets/coat.png';
 
 const dropAnimation: DropAnimation = {
   sideEffects: defaultDropAnimationSideEffects({
@@ -59,7 +60,6 @@ export const MultipleContainers = ({
 }: Props) => {
 
   const snap = useSnapshot(state)
-  const empty: UniqueIdentifier[] = [];
   const specChosen = snap.specialization.name !== undefined
 
   const getItems = () => {
@@ -70,9 +70,7 @@ export const MultipleContainers = ({
 
     const items: Items = {}
     snap.columns.map((column, index) => {
-      // if (index !== 0) {
       items[index] = column.items.map(item => item.id)
-      // }
     })
     const years: Years = {}
     snap.columns.map((column, index) => {
@@ -80,7 +78,9 @@ export const MultipleContainers = ({
       column.items.map((item, idx) => {
         const course = {
           id: item.id,
+          title: item.title,
           value: item.value,
+          description: item.description,
           group: item.group,
           prerequisites: item.prerequisites?.map(prerequisite => prerequisite),
         }
@@ -313,39 +313,12 @@ export const MultipleContainers = ({
     return { prerequisites, corequisites, exclusions, one_way_exclusions }
   }
 
-  // const checkPrerequisites = (prerequisites: any, containerId: UniqueIdentifier) => {
-  //   if (prerequisites.length > 0) {
-  //     console.log('prerequisites: ', prerequisites)
-  //     for (const prerequisite of prerequisites) {
-  //       // return false if prerequisite is not in any container before this one including this one
-  //       if (prerequisite === "None") {
-  //         break
-  //       }
-
-  //       let found = false
-  //       for (let i = 0; i <= Number(containerId); i++) {
-  //         const container = items[i]
-  //         for (const item of container) {
-  //           if (item.value === prerequisite) {
-  //             found = true
-  //             console.log("found in container: ", i)
-  //             break
-  //           }
-  //         }
-  //       }
-  //       if (!found) {
-  //         return false
-  //       }
-  //     }
-  //   }
-  // }
-
   const checkPrerequisites = (prerequisites: any, containerId: UniqueIdentifier, optional: boolean = false) => {
     if (prerequisites.length > 0) {
-      console.log('prerequisites: ', prerequisites)
+      // console.log('prerequisites: ', prerequisites)
       for (const prerequisite of prerequisites) {
         if (Array.isArray(prerequisite)) {
-          console.log("prerequisite is an array: ", prerequisite)
+          // console.log("prerequisite is an array: ", prerequisite)
           // if prerequisite is an array, recursively check each item in the array
           const found = prerequisite.some(p => checkPrerequisites([p], containerId, true))
           if (!found) {
@@ -353,20 +326,20 @@ export const MultipleContainers = ({
           }
         } else if (prerequisite === "None") {
           break
-        } 
+        }
         else {
           let found = false
-          console.log("here")
+          // console.log("here")
           if (containerId === "0") {
             containerId = containers.length - 1
           }
-          console.log("containerId: ", containerId)
+          // console.log("containerId: ", containerId)
           for (let i = 1; i <= Number(containerId); i++) {
             const container = items[i]
             for (const item of container) {
               if (item.value === prerequisite) {
                 found = true
-                console.log("found in container: ", i)
+                // console.log("found in container: ", i)
                 break
               }
             }
@@ -388,9 +361,11 @@ export const MultipleContainers = ({
 
     const { prerequisites, corequisites, exclusions, one_way_exclusions } = getCourseRequirements(course)
 
+
+
     // check prerequisites
     const validPrerequisites = checkPrerequisites(prerequisites, containerId)
-    console.log('validPrerequisites: ', validPrerequisites)
+    // console.log('validPrerequisites: ', validPrerequisites)
 
     return validPrerequisites
 
@@ -457,7 +432,6 @@ export const MultipleContainers = ({
           });
           return;
         }
-
         const validCourse = checkRequirements(overContainer, active.id)
         if (!validCourse) {
           showNotification({
@@ -598,22 +572,54 @@ export const MultipleContainers = ({
                         strategy={strategy}
                       >
 
-                        {items[containerId].map((value: Course, index: number) => {
+                        {items[containerId].map((value: Course, index: number,) => {
+                          console.log("value", value)
                           return (
-                            <SortableItem
-                              // disabled={isSortingContainer}
-                              key={value.id}
-                              id={value.id}
-                              index={index}
-                              handle={handle}
-                              style={getItemStyles}
-                              wrapperStyle={wrapperStyle}
-                              renderItem={renderItem}
-                              containerId={containerId}
-                              getIndex={getIndex}
-                              items={items}
-                              setItems={setItems}
-                            />
+                            <HoverCard width={320} shadow="md" openDelay={200} closeDelay={200}>
+                              <HoverCard.Target>
+                                <div>
+                                  <SortableItem
+                                    key={value.id}
+                                    id={value.id}
+                                    index={index}
+                                    handle={handle}
+                                    style={getItemStyles}
+                                    wrapperStyle={wrapperStyle}
+                                    renderItem={renderItem}
+                                    containerId={containerId}
+                                    getIndex={getIndex}
+                                    items={items}
+                                    setItems={setItems}
+                                    prerequisites={value.prerequisites}
+                                  />
+                                </div>
+                              </HoverCard.Target>
+                              <HoverCard.Dropdown>
+                                <Group>
+                                  <Avatar src={coat} radius="xl" />
+                                  <Stack spacing={5}>
+                                    <Text size="sm" weight={700} sx={{ lineHeight: 1 }}>
+                                      {value.id + ": "}{value.title}
+                                    </Text>
+                                    <Anchor
+                                      href={`https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/${(value.group)?.toLowerCase()}/`}
+                                      color="dimmed"
+                                      size="xs"
+                                      sx={{ lineHeight: 1 }}
+                                    >
+                                      Course Website
+                                    </Anchor>
+                                  </Stack>
+                                </Group>
+
+                                <Divider style={{ marginTop: "1em" }} />
+
+                                <Text size="sm" mt="md">
+                                  {value.description}
+                                </Text>
+
+                              </HoverCard.Dropdown>
+                            </HoverCard>
                           );
                         })}
 
