@@ -8,6 +8,7 @@ export const codeExtractor = (course: string, requirements: string) => {
   const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\})|(and)|(?:[A-Z]+\/(?:[A-Z]+\/)*[A-Z]+\s+at\s+the\s+\d{3}-level\s+or\s+above))/g
 
   const match = requirements.match(courseCodeRegex);
+  console.log("match: ", match)
 
   if (match !== null) {
     let courseCodesString: string = match.join(" ");
