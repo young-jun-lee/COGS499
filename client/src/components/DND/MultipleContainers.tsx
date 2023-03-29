@@ -9,7 +9,7 @@ import {
 import {
   arrayMove, horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy
 } from '@dnd-kit/sortable';
-import { Anchor, Avatar, Box, Button, Divider, Flex, Group, HoverCard, Stack, Tooltip, Text } from '@mantine/core';
+import { Anchor, Avatar, Box, Button, Divider, Flex, Group, HoverCard, Stack, Tooltip, Text, Title } from '@mantine/core';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal, unstable_batchedUpdates } from 'react-dom';
 import { HiViewGridAdd } from 'react-icons/hi';
@@ -239,8 +239,6 @@ export const MultipleContainers = ({
         ...items,
         [newContainerId]: []
       }));
-      // console.log('items: ', items)
-      // console.log('containers: ', containers)
     });
   }
 
@@ -551,7 +549,7 @@ export const MultipleContainers = ({
               <Box key={index} >
                 {index !== 0 &&
                   <>
-                    <div key={index} style={{ fontSize: 25, fontWeight: 600 }}>Year {containerId}</div>
+                    <Title order={2} key={index} style={{ marginLeft: "0.2em", marginBottom: "0.5em" }}>Year {containerId}</Title>
                     <DroppableContainer
                       id={containerId}
                       label={minimal ? undefined : `Column ${containerId} `}
@@ -569,7 +567,7 @@ export const MultipleContainers = ({
                         {items[containerId].map((value: Course, index: number,) => {
                           console.log("value", value)
                           return (
-                            <HoverCard width={320} shadow="md" openDelay={200} closeDelay={200}>
+                            <HoverCard width={320} position="right" shadow="md" openDelay={200} closeDelay={200}>
                               <HoverCard.Target>
                                 <div>
                                   <SortableItem

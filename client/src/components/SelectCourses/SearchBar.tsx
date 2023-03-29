@@ -180,7 +180,7 @@ const SearchBar: FC<RequiredCourses> = ({
                         {items[containerId].map((course: Course, index: number) => {
                             return (
 
-                                <HoverCard width={320} shadow="md" openDelay={200} closeDelay={200}>
+                                <HoverCard width={320} position="right" shadow="md" openDelay={200} closeDelay={200}>
                                     <HoverCard.Target>
                                         <div>
                                             <SortableItem

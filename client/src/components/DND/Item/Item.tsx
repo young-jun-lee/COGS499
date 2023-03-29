@@ -69,7 +69,6 @@ export const Item = React.memo(
         items,
         setItems,
         containerId,
-        prerequisites,
         ...props
       },
       ref

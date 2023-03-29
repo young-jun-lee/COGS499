@@ -29,12 +29,13 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
           border: `5px solid ${snap.specialization.colours?.primary}`,
           borderRadius: theme.radius.md,
           boxShadow: "0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1), 0 16px 16px rgba(0,0,0,0.1)",
-          // color: theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : `${snap.specialization.colours?.primary}`,
           "--fillColor": theme.colorScheme === 'dark' ? `${snap.specialization.colours?.primary}` : `${snap.specialization.colours?.secondary}`,
           "--bgColor": theme.colorScheme === 'dark' ? theme.colors.dark[6] : `white`,
           "--hoverText": theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : "#FFF",
           display: "flex",
           flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
         })}
         className="title"
       >
@@ -49,9 +50,8 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,
             marginTop: theme.spacing.xs,
-            width: "90%",
+            width: "80%",
           })}
-
         >
           <List
             spacing="xs"
