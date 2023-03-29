@@ -1,7 +1,8 @@
 import { COMA_OPTIONS, NSCI_OPTIONS, STAT_OPTIONS } from "../../constants/courseConstants.js";
 
-export const codeExtractor = (requirements: string) => {
-
+export const codeExtractor = (course: string, requirements: string) => {
+  console.log("course: ", course);
+  console.log("requirements string: ", requirements)
   // const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\}))/g
   // const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\})|(and))/g
   const courseCodeRegex = /((?:(?:[A-Z]{4}\s\d{3})|(?:\([A-Z]{4}\s\d{3}[^()]*\)|\[[A-Z]{4}\s\d{3}[^[\]]*\]|\{[A-Z]{4}\s\d{3}[^{}]*\})|(?:[A-Z]{4}_Options))|(?:\{[^}]*\})|(and)|(?:[A-Z]+\/(?:[A-Z]+\/)*[A-Z]+\s+at\s+the\s+\d{3}-level\s+or\s+above))/g
@@ -25,6 +26,7 @@ export const codeExtractor = (requirements: string) => {
       courseCodesString = courseCodesString.replace(oneWayExclusionMatch[0], oneWayExclusionCourseCodesWithLevelString);
     }
 
+    // split the string into an array of strings based on spaces, parentheses, and brackets
     const splitString = courseCodesString.split(/(\s+|\(|\)|\[|\])/g).filter((e) => e.trim().length > 0);
 
     // go through the array and check if there's a four character string, if there is concatenate it with the next element
@@ -45,22 +47,29 @@ export const codeExtractor = (requirements: string) => {
           splitString.splice(i, 1, ...COMA_OPTIONS);
         }
       }
-
-      // // edge case for courses where course used to be 6 units but got split into 2 courses
-      // // ie. (POLS 250 and POLS 350) or (POLS 250/6.0)
-      // if (splitString[i].includes("/")) {
-      //   // remove it and the next element and the one before it
-      //   splitString.splice(i - 1, 3)
-      // }
+      if (splitString[i].includes(";")) {
+        splitString[i] = splitString[i].replace(";", "");
+      }
+      if (splitString[i].includes("/")) {
+        splitString[i] = splitString[i].slice(0, 8)
+      }
     }
 
 
 
-    console.log("requirements string: ", requirements)
+
 
     console.log("before parsing: ")
+
+    while (splitString[0] === "and") {
+      splitString.shift();
+    }
+
+
+
     console.log(splitString);
 
+    // let courseCodes: string[] = parseCourses(splitString);
     let courseCodes: string[] = parseCourses(splitString);
     console.log("after parsing: ");
     console.log(courseCodes)
@@ -69,48 +78,75 @@ export const codeExtractor = (requirements: string) => {
   }
 }
 
-const parseCourses = (array) => {
-  const stack = [];
-  let courses = [];
-  let i = 0;
 
-
-  if (array[0] === "(" && array[array.length - 1] === ")" || array[0] === "{" && array[array.length - 1] === "}") {
-    array.shift();
-    array.pop();
-  }
-
-  while (i < array.length) {
-    if (array[i].match(/\b[A-Z]{4}\s\d{3}\b|\b[A-Z]{4}\s\d{1}\b/)) {
-      courses.push(array[i]);
-      if (array[i + 1] === 'or') {
-        i++;
-        continue;
+function parseCourses(inputArray) {
+  const result = [];
+  let tempCourses = [];
+  for (let i = 0; i < inputArray.length; i++) {
+    const element = inputArray[i];
+    // const coursePattern = /^[A-Z]{4}\s\d{3}$/;
+    const coursePattern = /^[A-Z]{4}\s\d{3}$|^[A-Z]{4}\s\d{1}\+\+/
+    if (coursePattern.test(element)) {
+      tempCourses.push(element);
+    } else if (element === 'and') {
+      if (tempCourses.length > 0) {
+        result.push(tempCourses);
+        tempCourses = [];
       }
-    } else if (array[i] === '[' || array[i] === '(') {
-      stack.push(courses);
-      courses.push([]);
-      courses = courses[courses.length - 1];
-    } else if (array[i] === ']' || array[i] === ')') {
-      courses = stack.pop();
-      if (!courses) {
-        courses = [];
-      }
-    }
-    i++;
-  }
-  let numCourses = 0
-  let numOr = 0
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)) {
-      numCourses++;
-    }
-    if (array[i] === "or") {
-      numOr++;
+    } else if (element === 'or') {
+      continue;
     }
   }
-  if (numCourses === numOr + 1 && courses.length !== 1) {
-    courses = [courses]
+
+  if (tempCourses.length > 0) {
+    result.push(tempCourses);
   }
-  return courses;
+  return result;
 }
+
+
+// const parseCourses = (array) => {
+//   const stack = [];
+//   let courses = [];
+//   let i = 0;
+
+
+//   if (array[0] === "(" && array[array.length - 1] === ")" || array[0] === "{" && array[array.length - 1] === "}") {
+//     array.shift();
+//     array.pop();
+//   }
+
+//   while (i < array.length) {
+//     if (array[i].match(/\b[A-Z]{4}\s\d{3}\b|\b[A-Z]{4}\s\d{1}\b/)) {
+//       courses.push([array[i]]);
+//       if (array[i + 1] === 'or') {
+//         i++;
+//         continue;
+//       }
+//     } else if (array[i] === '[' || array[i] === '(') {
+//       stack.push(courses);
+//       courses.push([]);
+//       courses = courses[courses.length - 1];
+//     } else if (array[i] === ']' || array[i] === ')') {
+//       courses = stack.pop();
+//       if (!courses) {
+//         courses = [];
+//       }
+//     }
+//     i++;
+//   }
+//   let numCourses = 0
+//   let numOr = 0
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i].match(/\b[A-Z]{4}\s\d{3}\b/)) {
+//       numCourses++;
+//     }
+//     if (array[i] === "or") {
+//       numOr++;
+//     }
+//   }
+//   if (numCourses === numOr + 1 && courses.length !== 1) {
+//     courses = [courses]
+//   }
+//   return courses;
+// }

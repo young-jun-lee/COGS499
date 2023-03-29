@@ -24,7 +24,6 @@ const CoursesSchema = new Schema({
     },
     prerequisites: {
         type: [],
-        // type: [String],
         required: true,
     },
     corequisites: {

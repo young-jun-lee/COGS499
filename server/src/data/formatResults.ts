@@ -1,8 +1,9 @@
 import { codeExtractor } from './codeExtractor.js';
 
-export const formatResults = (str: string, regexPattern: RegExp) => {
+export const formatResults = (course: string, str: string, regexPattern: RegExp) => {
+    // console.log("course: ", course);
     let result = str.match(regexPattern);
     let stringResult = result != null ? result[0] : "None";
-    let parsedResult = codeExtractor(stringResult);
+    let parsedResult = codeExtractor(course, stringResult);
     return parsedResult !== undefined ? parsedResult : ["None"];
 };

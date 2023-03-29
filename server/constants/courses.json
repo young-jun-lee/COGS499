@@ -1,32 +1,4 @@
 {
-    "ARAB 101": {
-        "code": "ARAB 101",
-        "title": "Elements of Computing Science",
-        "description": "Introduction to algorithms: their definition, design, coding, and execution on computers. Intended for students who have no programming experience. All or most assignment work will be completed during lab time.\nNOTE Also offered online. Consult Arts and Science Online. Learning Hours may vary.\nNOTE Sufficient preparation for CISC 121; alternative to CISC 110 and CISC 151.",
-        "units": 3,
-        "prerequisites": [
-            "None"
-        ],
-        "corequisites": [
-            "None"
-        ],
-        "exclusions": [
-            "APSC 142",
-            "APSC 143",
-            "CISC 110",
-            "CISC 151"
-        ],
-        "one_way_exclusions": [
-            "CISC 121",
-            [
-                "CISC 2++",
-                "CMPE 2++",
-                "COCA 2++",
-                "COGS 2++",
-                "SOFT 2++"
-            ]
-        ]
-    },
     "CISC 101": {
         "code": "CISC 101",
         "title": "Elements of Computing Science",
@@ -39,13 +11,17 @@
             "None"
         ],
         "exclusions": [
-            "APSC 142",
-            "APSC 143",
-            "CISC 110",
-            "CISC 151"
+            [
+                "APSC 142",
+                "APSC 143",
+                "CISC 110",
+                "CISC 151"
+            ]
         ],
         "one_way_exclusions": [
-            "CISC 121",
+            [
+                "CISC 121"
+            ],
             [
                 "CISC 2++",
                 "CMPE 2++",
@@ -67,10 +43,14 @@
             "None"
         ],
         "exclusions": [
-            "None"
+            [
+                "CISC 203"
+            ]
         ],
         "one_way_exclusions": [
-            "CISC 203"
+            [
+                "CISC 203"
+            ]
         ]
     },
     "CISC 110": {
@@ -85,13 +65,17 @@
             "None"
         ],
         "exclusions": [
-            "APSC 142",
-            "APSC 143",
-            "CISC 101",
-            "CISC 151"
+            [
+                "APSC 142",
+                "APSC 143",
+                "CISC 101",
+                "CISC 151"
+            ]
         ],
         "one_way_exclusions": [
-            "CISC 121",
+            [
+                "CISC 121"
+            ],
             [
                 "CISC 2++",
                 "CMPE 2++",
@@ -128,7 +112,9 @@
             ]
         ],
         "exclusions": [
-            "APSC 143"
+            [
+                "APSC 143"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -140,7 +126,9 @@
         "description": "Introduction to object-oriented design, architecture, and programming. Use of packages, class libraries, and interfaces. Encapsulation and representational abstraction. Inheritance. Polymorphic programming. Exception handling. Iterators. Introduction to a class design notation. Numerical computation. Applications in various areas.",
         "units": 3,
         "prerequisites": [
-            "CISC 121"
+            [
+                "CISC 121"
+            ]
         ],
         "corequisites": [
             [
@@ -179,13 +167,17 @@
             "None"
         ],
         "exclusions": [
-            "APSC 142",
-            "APSC 143",
-            "CISC 101",
-            "CISC 110"
+            [
+                "APSC 142",
+                "APSC 143",
+                "CISC 101",
+                "CISC 110"
+            ]
         ],
         "one_way_exclusions": [
-            "CISC 121",
+            [
+                "CISC 121"
+            ],
             [
                 "CISC 2++",
                 "CMPE 2++",
@@ -220,11 +212,11 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 121",
-                [
-                    "CISC 102",
-                    "MATH 110"
-                ]
+                "CISC 121"
+            ],
+            [
+                "CISC 102",
+                "MATH 110"
             ]
         ],
         "corequisites": [
@@ -244,11 +236,11 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 121",
-                [
-                    "CISC 102",
-                    "MATH 110"
-                ]
+                "CISC 121"
+            ],
+            [
+                "CISC 102",
+                "MATH 110"
             ]
         ],
         "corequisites": [
@@ -267,10 +259,14 @@
         "description": "Basic concepts of Unix-like systems. Shells and scripting. System-level programming in the C language. Software development tools and techniques.",
         "units": 3,
         "prerequisites": [
-            "CISC 121"
+            [
+                "CISC 121"
+            ]
         ],
         "corequisites": [
-            "CISC 124"
+            [
+                "CISC 124"
+            ]
         ],
         "exclusions": [
             "None"
@@ -285,7 +281,9 @@
         "description": "The descriptive levels of computer architecture. Instruction-set architectures. Assembly Language. Data representation. Support for operating-system management and high-level languages. Input/output and interrupts. Designing for performance. Digital Logic.",
         "units": 3,
         "prerequisites": [
-            "CISC 124"
+            [
+                "CISC 124"
+            ]
         ],
         "corequisites": [
             "None"
@@ -304,7 +302,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 124",
+                "CISC 124"
+            ],
+            [
                 "CISC 204"
             ]
         ],
@@ -324,7 +324,9 @@
         "description": "An introduction to techniques for designing elementary computer games. Topics will include game development tools and processes, principles of game design, game prototyping and game evaluation.",
         "units": 3,
         "prerequisites": [
-            "CISC 124"
+            [
+                "CISC 124"
+            ]
         ],
         "corequisites": [
             "None"
@@ -343,7 +345,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 124",
+                "CISC 124"
+            ],
+            [
                 "CISC 203"
             ]
         ],
@@ -369,8 +373,10 @@
             "None"
         ],
         "exclusions": [
-            "CISC 333",
-            "CMPE 333"
+            [
+                "CISC 333",
+                "CMPE 333"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -396,10 +402,10 @@
             [
                 "MATH 120",
                 "MATH 121",
-                [
-                    "MATH 123",
-                    "MATH 124"
-                ],
+                "MATH 123"
+            ],
+            [
+                "MATH 124",
                 "MATH 126"
             ]
         ],
@@ -407,7 +413,9 @@
             "None"
         ],
         "exclusions": [
-            "MATH 272"
+            [
+                "MATH 272"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -419,7 +427,9 @@
         "description": "This course surveys current best practices for implementing attractive, usable, secure and maintainable web applications. Other issues considered include: accessibility, platform and browser independence, licensing of intellectual property, scalability, user privacy, and using web technologies in mobile development.",
         "units": 3,
         "prerequisites": [
-            "CISC 124"
+            [
+                "CISC 124"
+            ]
         ],
         "corequisites": [
             "None"
@@ -437,7 +447,9 @@
         "description": "Introduction to management of small and medium-scale software projects. Advanced programming methodology using the programming language C++. Includes a significant programming project.",
         "units": 3,
         "prerequisites": [
-            "CISC 235"
+            [
+                "CISC 235"
+            ]
         ],
         "corequisites": [
             "None"
@@ -456,7 +468,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 223",
+                "CISC 223"
+            ],
+            [
                 "CISC 235"
             ]
         ],
@@ -464,7 +478,9 @@
             "None"
         ],
         "exclusions": [
-            "CISC 326"
+            [
+                "CISC 326"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -477,7 +493,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 221",
+                "CISC 221"
+            ],
+            [
                 "CISC 235"
             ]
         ],
@@ -514,7 +532,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 223",
+                "CISC 223"
+            ],
+            [
                 "CISC 235"
             ]
         ],
@@ -522,7 +542,9 @@
             "None"
         ],
         "exclusions": [
-            "CISC 322"
+            [
+                "CISC 322"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -535,7 +557,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 220",
+                "CISC 220"
+            ],
+            [
                 "CISC 124"
             ]
         ],
@@ -556,7 +580,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 121",
+                "CISC 121"
+            ],
+            [
                 "CISC 271"
             ]
         ],
@@ -564,8 +590,10 @@
             "None"
         ],
         "exclusions": [
-            "COMP 329",
-            "COMP 230"
+            [
+                "COMP 329",
+                "COMP 230"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -578,7 +606,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 102",
+                "CISC 102"
+            ],
+            [
                 "CISC 124"
             ]
         ],
@@ -586,7 +616,9 @@
             "None"
         ],
         "exclusions": [
-            "COMM 392"
+            [
+                "COMM 392"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -598,7 +630,9 @@
         "description": "Fundamental concepts in the design and implementation of computer communication networks, protocols, and applications. Overview of network architectures; applications; network programming interfaces (e.g., sockets); transport; congestion; routing and data link protocols; addressing; local area networks; wireless networks, mobility management; security.",
         "units": 3,
         "prerequisites": [
-            "CISC 324"
+            [
+                "CISC 324"
+            ]
         ],
         "corequisites": [
             "None"
@@ -616,7 +650,9 @@
         "description": "Combinational circuits; sequential circuits; digital systems design; micro-programming; bus structures; data communications; interface design; microprocessor systems.",
         "units": 3,
         "prerequisites": [
-            "CISC 221"
+            [
+                "CISC 221"
+            ]
         ],
         "corequisites": [
             "None"
@@ -634,27 +670,34 @@
         "description": "Design and implementation of complex analytics techniques; predictive algorithms at scale; deep learning; clustering at scale; advanced matrix decompositions, analytics in the Web, collaborative filtering; social network analysis; applications in specialized domains.",
         "units": 3,
         "prerequisites": [
-            "CISC 251",
-            "BIOL 243",
-            "CHEE 209",
-            "COMM 162",
-            "ECON 250",
-            "GPHY 247",
-            "KNPE 251",
-            "NURS 323",
-            "POLS 385",
-            "PSYC 202",
-            "SOCY 211",
-            "STAM 200",
-            "STAT 263",
-            "STAT 367"
+            [
+                "CISC 251"
+            ],
+            [
+                "STAT 263",
+                "BIOL 243",
+                "CHEE 209",
+                "COMM 162",
+                "ECON 250",
+                "GPHY 247",
+                "KNPE 251",
+                "NURS 323",
+                "POLS 385",
+                "PSYC 202",
+                "SOCY 211",
+                "STAM 200",
+                "STAT 263",
+                "STAT 367"
+            ]
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "CISC 371",
-            "CISC 372"
+            [
+                "CISC 371",
+                "CISC 372"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -666,7 +709,9 @@
         "description": "An introduction to the basic principles and tools of artificial intelligence. Problem solving methods and knowledge representation techniques.",
         "units": 3,
         "prerequisites": [
-            "CISC 235"
+            [
+                "CISC 235"
+            ]
         ],
         "corequisites": [
             "None"
@@ -685,7 +730,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 124",
+                "CISC 124"
+            ],
+            [
                 "CISC 204"
             ]
         ],
@@ -706,8 +753,12 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 203",
-                "CISC 204",
+                "CISC 203"
+            ],
+            [
+                "CISC 204"
+            ],
+            [
                 "CISC 235"
             ]
         ],
@@ -728,30 +779,33 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 271",
-                [
-                    "STAT 263",
-                    "BIOL 243",
-                    "CHEE 209",
-                    "COMM 162",
-                    "ECON 250",
-                    "GPHY 247",
-                    "KNPE 251",
-                    "NURS 323",
-                    "POLS 385",
-                    "PSYC 202",
-                    "SOCY 211",
-                    "STAM 200",
-                    "STAT 263",
-                    "STAT 367"
-                ]
+                "CISC 271"
+            ],
+            [
+                "STAT 263",
+                "STAT 263",
+                "BIOL 243",
+                "CHEE 209",
+                "COMM 162",
+                "ECON 250",
+                "GPHY 247",
+                "KNPE 251",
+                "NURS 323",
+                "POLS 385",
+                "PSYC 202",
+                "SOCY 211",
+                "STAM 200",
+                "STAT 263",
+                "STAT 367"
             ]
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "CISC 351"
+            [
+                "CISC 351"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -764,22 +818,23 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 271",
-                [
-                    "BIOL 243",
-                    "CHEE 209",
-                    "COMM 162",
-                    "ECON 250",
-                    "GPHY 247",
-                    "KNPE 251",
-                    "NURS 323",
-                    "POLS 385",
-                    "PSYC 202",
-                    "SOCY 211",
-                    "STAM 200",
-                    "STAT 263",
-                    "STAT 367"
-                ]
+                "CISC 271"
+            ],
+            [
+                "STAT 263",
+                "BIOL 243",
+                "CHEE 209",
+                "COMM 162",
+                "ECON 250",
+                "GPHY 247",
+                "KNPE 251",
+                "NURS 323",
+                "POLS 385",
+                "PSYC 202",
+                "SOCY 211",
+                "STAM 200",
+                "STAT 263",
+                "STAT 367"
             ]
         ],
         "corequisites": [
@@ -798,7 +853,9 @@
         "description": "Mathematical methods for describing software behaviour and structure. Topics include (but are not limited to) the following: Requirements specification. Module specification: axiomatic, algebraic, and trace specifications. Abstract models. Verification. Specification-based validation.",
         "units": 3,
         "prerequisites": [
-            "CISC 223"
+            [
+                "CISC 223"
+            ]
         ],
         "corequisites": [
             "None"
@@ -817,12 +874,16 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 223",
+                "CISC 223"
+            ],
+            [
                 "CISC 235"
             ]
         ],
         "corequisites": [
-            "CISC 325",
+            [
+                "CISC 325"
+            ],
             [
                 "CISC 322",
                 "CISC 326"
@@ -841,7 +902,9 @@
         "description": "Advanced user-interface styles such as eye-tracking input, digital desks, wearable computing, ubiquitous and context-aware computing, and tangible interfaces.",
         "units": 3,
         "prerequisites": [
-            "CISC 325"
+            [
+                "CISC 325"
+            ]
         ],
         "corequisites": [
             "None"
@@ -860,7 +923,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 324",
+                "CISC 324"
+            ],
+            [
                 "CISC 327"
             ]
         ],
@@ -881,7 +946,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 235",
+                "CISC 235"
+            ],
+            [
                 "CISC 332"
             ]
         ],
@@ -901,7 +968,9 @@
         "description": "Distributed systems goals, characteristics, and architectures. Processes: models, inter-process communication and coordination. Name services. Consistency and replication. Fault tolerance: design for reliable communication and recovery. Security. Development paradigms based on data types: object, file, and web-based systems.",
         "units": 3,
         "prerequisites": [
-            "CISC 324"
+            [
+                "CISC 324"
+            ]
         ],
         "corequisites": [
             "None"
@@ -920,7 +989,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 324",
+                "CISC 324"
+            ],
+            [
                 "CISC 327"
             ]
         ],
@@ -940,14 +1011,20 @@
         "description": "An introduction to cybersecurity covering a wide range of vulnerabilities, attacks, and defense mechanisms in individual computers, networks, the Internet and the Web and applications that use them, and storage and computational clouds. The human side of cybersecurity, and the legal and ethical constraints on both attack and defense.",
         "units": 3,
         "prerequisites": [
-            "CISC 324",
-            "CISC 335"
+            [
+                "CISC 324"
+            ],
+            [
+                "CISC 335"
+            ]
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "CISC 490"
+            [
+                "CISC 490"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -959,8 +1036,10 @@
         "description": "Software dependability and other related concepts, software process models and methods for reliable software. Software reliability engineering process, software fault tolerance and run-time monitoring. Software security engineering process, secure software design, program security vulnerabilities and software security testing",
         "units": 3,
         "prerequisites": [
-            "CISC 327",
-            "CMPE 327"
+            [
+                "CISC 327",
+                "CMPE 327"
+            ]
         ],
         "corequisites": [
             "None"
@@ -1000,13 +1079,17 @@
         "description": "Introduction to neural and genetic computing. Topics include associative memory systems, neural optimization strategies, supervised and unsupervised classification networks, genetic algorithms, genetic and evolutionary programming. Applications are examined, and the relation to biologic systems is discussed.",
         "units": 3,
         "prerequisites": [
-            "CISC 235"
+            [
+                "CISC 235"
+            ]
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "COGS 400"
+            [
+                "COGS 400"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -1018,7 +1101,9 @@
         "description": "Investigation of selected areas of artificial intelligence research. Possible topics include natural language understanding, computational perception, planning, learning, and neurocomputing.",
         "units": 3,
         "prerequisites": [
-            "CISC 352"
+            [
+                "CISC 352"
+            ]
         ],
         "corequisites": [
             "None"
@@ -1037,12 +1122,12 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 235",
-                [
-                    "MATH 110",
-                    "MATH 111",
-                    "MATH 112"
-                ]
+                "CISC 235"
+            ],
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
             ]
         ],
         "corequisites": [
@@ -1062,7 +1147,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 365",
+                "CISC 365"
+            ],
+            [
                 "STAT 263"
             ]
         ],
@@ -1094,7 +1181,9 @@
                 "MATH 124",
                 "MATH 126"
             ],
-            "CISC 124"
+            [
+                "CISC 124"
+            ]
         ],
         "corequisites": [
             "None"
@@ -1113,8 +1202,12 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 121",
-                "CISC 221",
+                "CISC 121"
+            ],
+            [
+                "CISC 221"
+            ],
+            [
                 "CISC 223"
             ]
         ],
@@ -1134,7 +1227,9 @@
         "description": "Turing machines and other models of computability such as µ-recursive functions and random-access machines. Undecidability. Recursive and recursively enumerable sets. Church-Turing thesis. Resource-bounded complexity. Complexity comparisons among computational models. Reductions. Complete problems for complexity classes.",
         "units": 3,
         "prerequisites": [
-            "CISC 223"
+            [
+                "CISC 223"
+            ]
         ],
         "corequisites": [
             "None"
@@ -1153,12 +1248,14 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 204",
-                "CISC 223",
-                [
-                    "CISC 360",
-                    "CISC 260"
-                ]
+                "CISC 204"
+            ],
+            [
+                "CISC 223"
+            ],
+            [
+                "CISC 360",
+                "CISC 260"
             ]
         ],
         "corequisites": [
@@ -1177,7 +1274,9 @@
         "description": "A continuation of CISC 365/3.0. Lower bound theory. Average-case analysis of algorithms. Approximation algorithms. Probabilistic algorithms. Parallel algorithms.",
         "units": 3,
         "prerequisites": [
-            "CISC 365"
+            [
+                "CISC 365"
+            ]
         ],
         "corequisites": [
             "None"
@@ -1195,7 +1294,9 @@
         "description": "History of fuzzy theory; fundamental concepts of fuzzy theory: sets, relations, and logic operators. Approximate reasoning, fuzzy inference, possibility theory. Separation from probability. Fuzzy control systems. Fuzzy pattern recognition. Advanced topics may include fuzzy expert systems, financial systems, graph theory, optimization.",
         "units": 3,
         "prerequisites": [
-            "CISC 204"
+            [
+                "CISC 204"
+            ]
         ],
         "corequisites": [
             "None"
@@ -1214,7 +1315,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 235",
+                "CISC 235"
+            ],
+            [
                 "CISC 335"
             ]
         ],
@@ -1235,7 +1338,9 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 352",
+                "CISC 352"
+            ],
+            [
                 "CISC 365"
             ]
         ],
@@ -1255,7 +1360,9 @@
         "description": "Current topics in the application of information technology to medical image computing and its use in image-guided medical interventions.",
         "units": 3,
         "prerequisites": [
-            "CISC 330"
+            [
+                "CISC 330"
+            ]
         ],
         "corequisites": [
             "None"
@@ -1275,10 +1382,10 @@
         "prerequisites": [
             [
                 "CISC 371",
-                [
-                    "CISC 271",
-                    "CISC 352"
-                ]
+                "CISC 271"
+            ],
+            [
+                "CISC 352"
             ]
         ],
         "corequisites": [
@@ -1297,7 +1404,9 @@
         "description": "Formal and heuristic approaches to problem-solving, planning, knowledge representation and reasoning, Markov decision processes, dynamic programming, temporal-difference learning, Monte Carlo learning, function approximation, integration of learning and planning. Implementing simple examples of logical reasoning, clustering or classification.",
         "units": 3,
         "prerequisites": [
-            "CISC 352"
+            [
+                "CISC 352"
+            ]
         ],
         "corequisites": [
             "None"
@@ -1316,17 +1425,19 @@
         "units": 3,
         "prerequisites": [
             [
-                "CISC 226",
-                [
-                    "CISC 322",
-                    "CISC 326"
-                ],
-                "CISC 324",
-                [
-                    "MATH 110",
-                    "MATH 111",
-                    "MATH 112"
-                ]
+                "CISC 226"
+            ],
+            [
+                "CISC 322",
+                "CISC 326"
+            ],
+            [
+                "CISC 324"
+            ],
+            [
+                "MATH 110",
+                "MATH 111",
+                "MATH 112"
             ]
         ],
         "corequisites": [
@@ -1399,11 +1510,13 @@
             "None"
         ],
         "exclusions": [
-            "CISC 496",
-            "CISC 498",
-            "CISC 499",
-            "COGS 499",
-            "CISC 500"
+            [
+                "CISC 496",
+                "CISC 498",
+                "CISC 499",
+                "COGS 499",
+                "CISC 500"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -1449,8 +1562,10 @@
             "None"
         ],
         "exclusions": [
-            "CISC 496",
-            "CISC 499"
+            [
+                "CISC 496",
+                "CISC 499"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -1462,16 +1577,20 @@
         "description": "Topic selected under the supervision of a faculty member. Emphasis may be on the development of a large program, or on more theoretical issues. Independent research, an oral presentation, and a written report are required.",
         "units": 3,
         "prerequisites": [
-            "CISC 365"
+            [
+                "CISC 365"
+            ]
         ],
         "corequisites": [
             "None"
         ],
         "exclusions": [
-            "CISC 496",
-            "CISC 498",
-            "COGS 499",
-            "CISC 500"
+            [
+                "CISC 496",
+                "CISC 498",
+                "COGS 499",
+                "CISC 500"
+            ]
         ],
         "one_way_exclusions": [
             "None"
@@ -1487,9 +1606,11 @@
             "None"
         ],
         "exclusions": [
-            "CISC 496",
-            "CISC 499",
-            "COGS 499"
+            [
+                "CISC 496",
+                "CISC 499",
+                "COGS 499"
+            ]
         ],
         "one_way_exclusions": [
             "None"

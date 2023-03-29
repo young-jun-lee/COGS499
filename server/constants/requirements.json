@@ -6560,7 +6560,9 @@
         "description": "Proof methods. Combinatorics: permutations and combinations, discrete probability, recurrence relations. Graphs and trees. Boolean and abstract algebra.",
         "units": 3,
         "prerequisites": [
-            "CISC 121",
+            [
+                "CISC 121"
+            ],
             [
                 "CISC 102",
                 "MATH 110"

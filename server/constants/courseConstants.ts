@@ -1,4 +1,5 @@
 const STAT_OPTIONS = [
+  'STAT 263',
   'BIOL 243',
   'CHEE 209',
   'COMM 162',
