@@ -17,8 +17,31 @@ export const generateCourseNodes = (columns: CourseColumns, colorScheme: any) =>
         const nodeHeight = 35
         const nodeMargin = 10
 
-        // if any of the items in the column have prerequisites on courses in the current column, rows will be 2, otherwise 1
-        const rows = column.items.some(item => item.prerequisites?.some(prerequisite => column.items.some(item => item.id === prerequisite))) ? 4 : 1
+
+        // const rows = column.items.some(
+        //     item => item.prerequisites?.some(
+        //         prerequisite => {
+        //             column.items.some(
+        //                 item => item.id === prerequisite)
+        //         }
+        //     )
+        // ) ? 4 : 1
+
+        // const rows = 1
+        let compilePrereqs = new Set()
+        column.items.forEach(item => {
+            compilePrereqs = new Set([...compilePrereqs, ...item.prerequisites])
+        })
+        console.log(compilePrereqs)
+        // console.log("rows:", rows)
+
+        const rows = column.items.some(
+            item => {
+                console.log("item", item)
+                return compilePrereqs.has(item.id)
+            }
+        ) ? 4 : 1
+
         yPos += 200
 
 

@@ -31,7 +31,6 @@ interface RequiredCourses {
 
 const SearchBar: FC<RequiredCourses> = ({
     containerId,
-    isSortingContainer,
     items,
     scrollable,
     getItemStyles,
@@ -125,10 +124,10 @@ const SearchBar: FC<RequiredCourses> = ({
                 })}
             // ref={parent}
             >
-                <Flex>
+                {/* <Flex>
 
-                </Flex>
-                <div style={{ alignSelf: "start", fontSize: 25, fontWeight: 600 }}>Search</div>
+                </Flex> */}
+                <div style={{ alignSelf: "start", fontSize: 25, fontWeight: 600 }}>Course Search</div>
                 <>
 
                 </>
@@ -136,31 +135,11 @@ const SearchBar: FC<RequiredCourses> = ({
                     placeholder="Search for a course"
                     data={getAutoCompleteData()}
                     onItemSubmit={handleItemSubmit}
-                    sx={{ alignSelf: "start", marginBottom: 20, marginTop: 10 }}
+                    sx={{ alignSelf: "start", marginBottom: 20, marginTop: 10, width: "100%" }}
                     maxDropdownHeight={500}
                     size='md'
                     id='autocomplete-input'
                 />
-
-                <Button
-                    onClick={() => {
-                        // clear contents of the autocomplete input
-                        const input = document.getElementById('autocomplete-input') as HTMLInputElement
-                        input.value = ''
-                    }}
-                    style={{
-                        // position: "absolute",
-                        // top: "50%",
-                        // right: "12px",
-                        // transform: "translateY(-50%)",
-                        // border: "none",
-                        // background: "black",
-                        // cursor: "pointer",
-                    }}
-                >
-                    <AiOutlineClose />
-                </Button>
-
 
                 <DroppableContainer
                     id={containerId}

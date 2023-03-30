@@ -29,6 +29,16 @@ export const state = proxy<{ specialization: Specialization, currentBasket: Bask
             items: [],
             limitCourses: 12
         },
+        {
+            name: "Year 3",
+            items: [],
+            limitCourses: 12
+        },
+        {
+            name: "Year 4",
+            items: [],
+            limitCourses: 12
+        },
     ],
     courses: []
 });

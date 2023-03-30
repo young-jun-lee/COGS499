@@ -3,9 +3,9 @@ import { UniqueIdentifier } from "@dnd-kit/core";
 export type CourseNode = {
     id: string;
     type?: string;
-    data: { label: string | null };
-    position: { x: number; y: number };
-    style: {
+    data?: { label: string | null };
+    position?: { x: number; y: number };
+    style?: {
         width: number;
         height: number;
         justifyContent?: string;
@@ -53,7 +53,7 @@ export type NumYears = 1 | 2 | 3 | 4 | 5 | 6
 
 export type Course = {
     title?: string
-    code: string
+    code?: string
     id: string
     value?: string
     group?: string

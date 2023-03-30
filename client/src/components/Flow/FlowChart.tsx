@@ -10,12 +10,11 @@ import { useMantineTheme } from '@mantine/core';
 
 
 interface FlowProps {
-    // columns: Column[]
     backgroundColor: string | undefined
 }
 
 
-export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
+export const Flow: FC<FlowProps> = () => {
     const theme = useMantineTheme();
     const snap = useSnapshot(state);
     const [colorScheme, setColorScheme] = useState({
@@ -42,19 +41,15 @@ export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
 
             const id = parsedCourse.id
             const value = parsedCourse.value
-            const prerequisites = parsedCourse.prerequisites
+            const prerequisites = parsedCourse.prerequisites?.flat(4)
+
             items.push({ id, value, prerequisites })
         }
-
-
         columns.push({ name: `Year ${column}`, items })
     }
-    // console.log(columns)
 
     const [courseNodes, setCoursesNodes, onNodesChange] = useNodesState([]);
     const [courseEdges, setCoursesEdges] = useNodesState([]);
-
-
 
     useEffect(() => {
         setColorScheme({
@@ -71,17 +66,15 @@ export const Flow: FC<FlowProps> = ({ backgroundColor }) => {
     }, [colorScheme])
 
 
-
     return (
         <ReactFlow
             nodes={courseNodes}
             edges={courseEdges}
             onNodesChange={onNodesChange}
-            // onEdgesChange={onEdgesChange}
-            // onConnect={onConnect}
             fitView
             style={rfStyle}
-        // attributionPosition="top-right"
+            hideAttribution={true}
+            proOptions={{ hideAttribution: true }}
         >
             <Background />
             <MiniMap />
