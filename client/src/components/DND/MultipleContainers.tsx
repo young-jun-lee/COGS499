@@ -263,7 +263,7 @@ export const MultipleContainers = ({
       return true
     }
     let found = Array.from({ length: prerequisites.length }, _ => false);
-    prerequisites.forEach((prerequisiteArray, index) => {
+    prerequisites.map((prerequisiteArray, index) => {
       // within prerequisite array, they are separated by OR, only one of them needs to be found 
       for (let i = 1; i <= Number(containerId); i++) {
         const container = items[i]
@@ -275,18 +275,23 @@ export const MultipleContainers = ({
             }
           }
           else {
+            let coreqfound = Array.from({ length: prereq.length }, _ => false);
             for (const coreqprereq of prereq) {
+              console.log("coreqprereq: ", coreqprereq)
               if (container.some((item: { value: string }) => item.value === coreqprereq)) {
-                found[index] = true
+                coreqfound[index] = true
+              }
+              console.log("coreqfound: ", coreqfound)
+              found[index] = coreqfound.every(f => f === true)
+              if (found[index]) {
+                break
               }
             }
           }
         }
       }
     })
-    console.log('found: ', found)
-    // check if every element in found is true
-    console.log('every: ', found.every(f => f === true))
+    console.log(found)
     if (found.every(f => f === true)) {
       return true
     }
@@ -298,7 +303,7 @@ export const MultipleContainers = ({
           prerequisitesString += ' AND '
         }
         prerequisitesString += '['
-        prerequisiteArray.forEach((prerequisite, index) => {
+        prerequisiteArray.forEach((prerequisite: string | any[], index: number) => {
           if (typeof prerequisite === 'string') {
             prerequisitesString += prerequisite
           }
@@ -390,9 +395,6 @@ export const MultipleContainers = ({
 
 
   const checkRequirements = (containerId: UniqueIdentifier, course: UniqueIdentifier) => {
-
-
-    const validPlacement = true
 
     const { prerequisites, corequisites, exclusions, one_way_exclusions } = getCourseRequirements(course)
 
