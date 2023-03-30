@@ -6,7 +6,6 @@ import fs from 'fs'
 
 import { Courses } from './models/courses.js'
 
-import pickBy from 'lodash.pickby'
 
 
 dotenv.config({ path: './config.env' })
@@ -31,31 +30,6 @@ app.get('/', (req, res) => {
   })
 })
 
-// create a pathway for client to call and get courses
-// client will include the query string in the url
-// app.get('/courses', async (req, res) => {
-//   try {
-
-//     const groups = req.query
-
-//     const rawData = "./constants/requirements.json"
-//     const courses = JSON.parse(fs.readFileSync(rawData, 'utf-8'))
-
-//     const resCourses = {}
-//     for (const [key, group] of Object.entries(groups)) {
-//       const filteredCourses = pickBy(courses, (value, key) => key.startsWith(group))
-//       // add each course in filteredCourses to resCourses
-//       for (const [key, value] of Object.entries(filteredCourses)) {
-//         resCourses[key] = value
-//       }
-//     }
-//     console.log(Object.keys(resCourses).length)
-//     res.send(resCourses)
-//   }
-//   catch (error) {
-//     res.send(error)
-//   }
-// })
 
 app.get('/courses', async (req, res) => {
   try {
@@ -80,13 +54,7 @@ app.get('/courses', async (req, res) => {
         }
       })
     }
-    // for (const [key, group] of Object.entries(groups)) {
-    //   const filteredCourses = await Courses.find({ code: { $regex: group } })
-    //   console.log(filteredCourses)
-    //   // for (const [key, value] of Object.entries(filteredCourses)) {
-    //   //   resCourses[key] = value
-    //   // }
-    // }
+
     console.log(Object.keys(resCourses).length)
     res.send(resCourses)
 
@@ -97,10 +65,6 @@ app.get('/courses', async (req, res) => {
 
 
 
-// file path is relative to the root of the project
-
-// to get current working directory
-console.log(process.cwd())
 const data = JSON.parse(fs.readFileSync('./constants/requirements.json', 'utf-8'))
 // const data = JSON.parse(fs.readFileSync('./dist/constants/courses.json', 'utf-8'))
 
@@ -123,9 +87,7 @@ const importData = async () => {
       await course.save()
     }
 
-    // await Courses.create(data)
     console.log('data successfully imported')
-    // to exit the process
     process.exit()
   } catch (error) {
     console.log('error', error)
