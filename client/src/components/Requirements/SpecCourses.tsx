@@ -8,12 +8,19 @@ import HeaderContent from "../../content/Header";
 interface RequiredCourses {
   title: string;
   specChosen: boolean;
-  courseGroup: string;
+  courseGroup: any[];
 }
 
 const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) => {
   const snap = useSnapshot(state)
 
+  const renderCourses = useMemo(() => {
+    for (let i = 0; i < courseGroup.length; i++) {
+      return (
+        <Box>{courseGroup[i]}</Box>
+      )
+    }
+  }, [])
 
   if (specChosen)
     return (
@@ -67,10 +74,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
             }
           >
             <>
-              {HeaderContent[courseGroup].map((course, index) => {
-                return <List.Item key={index}>{course}</List.Item>
-              })
-              }
+              {renderCourses}
             </>
             <List.Item>CISC 101</List.Item>
             <List.Item icon={

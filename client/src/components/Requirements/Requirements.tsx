@@ -6,6 +6,7 @@ import SpecCourses from "./SpecCourses";
 import Specialization from "./Specialization";
 import "../../styles/styles.css"
 import Toggle from '../DarkMode';
+import HeaderContent from "../../content/Header";
 
 interface Requirements {
     subheading1: string;
@@ -16,6 +17,7 @@ interface Requirements {
 const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 }) => {
     const snap = useSnapshot(state)
     const specChosen = snap.specialization.name !== undefined;
+    const coreCourses = HeaderContent.core
     return (
         <Box>
             <Toggle />
@@ -63,7 +65,7 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
             }}>
                 <Specialization specChosen={specChosen} />
                 <Flex justify="space-around" style={{ height: "100%" }} >
-                    <SpecCourses title="Core Courses" specChosen={specChosen} courseGroup="core" />
+                    <SpecCourses title="Core Courses" specChosen={specChosen} courseGroup={coreCourses} />
                     <SpecCourses title="Program Specific Courses" specChosen={specChosen} courseGroup="options" />
                     <SpecCourses title="Electives" specChosen={specChosen} courseGroup="electives" />
                 </Flex>
