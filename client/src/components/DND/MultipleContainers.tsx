@@ -273,18 +273,21 @@ export const MultipleContainers = ({
             if (container.some((item: { value: string; }) => item.value === prereq)) {
               found[index] = true
             }
+            if (found[index]) {
+              return
+            }
           }
           else {
             let coreqfound = Array.from({ length: prereq.length }, _ => false);
-            for (const coreqprereq of prereq) {
+            for (const [coreqIndex, coreqprereq] of prereq.entries()) {
               console.log("coreqprereq: ", coreqprereq)
               if (container.some((item: { value: string }) => item.value === coreqprereq)) {
-                coreqfound[index] = true
+                coreqfound[coreqIndex] = true
               }
               console.log("coreqfound: ", coreqfound)
               found[index] = coreqfound.every(f => f === true)
               if (found[index]) {
-                break
+                return
               }
             }
           }
