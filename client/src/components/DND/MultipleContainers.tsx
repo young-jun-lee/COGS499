@@ -405,24 +405,12 @@ export const MultipleContainers = ({
 
     // check prerequisites
     const validPrerequisites = checkPrerequisites(prerequisites, containerId)
-    console.log('validPrerequisites: ', validPrerequisites)
-    return validPrerequisites
-    // const validCorequisites = checkCorequisites(corequisites, containerId)
-    // return validCorequisites
+    const validCorequisites = checkCorequisites(corequisites, containerId)
+    const validExclusions = checkExclusions(exclusions, containerId)
+    // const validOneWayExclusions = checkOneWayExclusions(one_way_exclusions, containerId)
 
+    return validPrerequisites && validExclusions && validCorequisites
 
-
-    // console.log("exclusions: ", exclusions)
-    // const validExclusions = checkExclusions(exclusions, containerId)
-    // return validExclusions
-    // console.log('validExclusions: ', validExclusions)
-    // console.log('validCorequisites: ', validCorequisites)
-    // return validExclusions && validCorequisites
-    // return validCorequisites
-
-    // return validPrerequisites
-
-    return true
 
   }
 
@@ -497,8 +485,8 @@ export const MultipleContainers = ({
           setItems((items) => {
             const activeItems = items[activeContainer];
             const overItems = items[overContainer];
-            const overIndex = overItems.findIndex((item) => item.id === overId);
-            const activeIndex = activeItems.findIndex((item) => item.id === active.id);
+            const overIndex = overItems.findIndex((item: { id: UniqueIdentifier; }) => item.id === overId);
+            const activeIndex = activeItems.findIndex((item: { id: UniqueIdentifier; }) => item.id === active.id);
 
             let newIndex: number;
             // console.log(items)
@@ -523,7 +511,7 @@ export const MultipleContainers = ({
             return {
               ...items,
               [activeContainer]: items[activeContainer].filter(
-                (item) => item.id !== active.id
+                (item: { id: UniqueIdentifier; }) => item.id !== active.id
               ),
               [overContainer]: [
                 ...items[overContainer].slice(0, newIndex),
@@ -624,7 +612,6 @@ export const MultipleContainers = ({
                                     getIndex={getIndex}
                                     items={items}
                                     setItems={setItems}
-                                    prerequisites={value.prerequisites}
                                   />
                                 </div>
                               </HoverCard.Target>
