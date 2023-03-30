@@ -4,20 +4,20 @@ const Schema = mongoose.Schema
 const CoursesSchema = new Schema({
     code: {
         type: String,
-        required: true,
+        required: [true, 'Course must have a code'],
         unique: true,
     },
     title: {
         type: String,
-        required: true,
+        required: [true, 'Course must have a title'],
     },
     units: {
         type: Number,
-        required: true,
+        required: [true, 'Course must have a unit value'],
     },
     description: {
         type: String,
-        required: true,
+        required: [true, 'Course must have a description'],
     },
     hours: {
         type: String,
@@ -34,6 +34,11 @@ const CoursesSchema = new Schema({
         type: [],
         required: true,
     },
+    oneWayExclusions: {
+        type: [],
+        required: true,
+    }
+
 })
 
 export const Courses = mongoose.model('Courses', CoursesSchema)

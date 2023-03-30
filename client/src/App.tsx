@@ -10,12 +10,10 @@ import SelectContainer from './components/SelectCourses/SelectCoursesContainer';
 import HeaderContent from './content/Header';
 import "./styles.css";
 import { useEffect, useState } from 'react';
-import { getCourses } from "./services/getCourses"
 import { useSnapshot } from 'valtio';
 import { state } from './Valtio/State';
 import { Course } from './types/stateTypes';
 
-// import { useAutoAnimate } from '@formkit/auto-animate/react'
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'mantine-color-scheme',
@@ -87,7 +85,7 @@ export default function App() {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
       <MantineProvider theme={{ colorScheme, fontFamily: 'Inter, sans-serif', }} withGlobalStyles withNormalizeCSS >
-        <NotificationsProvider>
+        <NotificationsProvider limit={5}>
           <Container size="lg" px="lg" ref={parent}>
             <Flex style={{ height: "60%", flexDirection: "column" }}>
               <Header title={HeaderContent.title} />
