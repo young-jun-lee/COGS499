@@ -1,17 +1,20 @@
-import { Box, List, ThemeIcon } from '@mantine/core';
-import { FC } from 'react';
+import { Box, List, ThemeIcon, Text } from '@mantine/core';
+import { FC, useEffect, useMemo, useState } from 'react';
 import { TbCircleCheck, TbCircleDashed } from "react-icons/tb";
 import { useSnapshot } from 'valtio';
 import { state } from '../../Valtio/State';
-
+import HeaderContent from "../../content/Header";
 
 interface RequiredCourses {
   title: string;
   specChosen: boolean;
+  courseGroup: string;
 }
 
-const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
+const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) => {
   const snap = useSnapshot(state)
+
+
   if (specChosen)
     return (
       <Box
@@ -41,7 +44,6 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
       >
         <Box sx={{
           fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 22, textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
-
         }} >{title}</Box>
         <Box
           sx={(theme) => ({
@@ -50,9 +52,10 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,
             marginTop: theme.spacing.xs,
-            width: "80%",
+            width: "90%",
           })}
         >
+
           <List
             spacing="xs"
             size="md"
@@ -63,31 +66,19 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen }) => {
               </ThemeIcon>
             }
           >
+            <>
+              {HeaderContent[courseGroup].map((course, index) => {
+                return <List.Item key={index}>{course}</List.Item>
+              })
+              }
+            </>
             <List.Item>CISC 101</List.Item>
             <List.Item icon={
               <ThemeIcon size={24} radius="xl">
                 <TbCircleDashed size={16} />
               </ThemeIcon>
             }>CISC 102</List.Item>
-            <List.Item icon={
-              <ThemeIcon size={24} radius="xl">
-                <TbCircleDashed size={16} />
-              </ThemeIcon>
-            }>CISC 103</List.Item>
-            <List.Item icon={
-              <ThemeIcon size={24} radius="xl">
-                <TbCircleDashed size={16} />
-              </ThemeIcon>
-            }>CISC 104</List.Item>
-            <List.Item
-              icon={
-                <ThemeIcon size={24} radius="xl">
-                  <TbCircleDashed size={16} />
-                </ThemeIcon>
-              }
-            >
-              CISC 105
-            </List.Item>
+
           </List>
         </Box>
       </Box >
