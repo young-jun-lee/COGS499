@@ -6,6 +6,9 @@ export default {
     subheading3: 'Happy Planning!',
     preloadedCourses: ["APSC", "ARTH", "BADR", "BCHM", "BIOL", "BIOM", "CHEE", "CHEM", "CISC", "COCA", "COGS", "COMM", "DRAM", "ECON", "ELEC", "ENIN", "FILM", "GEOL", "GPHY", "KNPE", "LING", "MATH", "MECH", "MUSC", "MUTH", "NSCI", "NURS", "PHGY", "PHIL", "POLS", "PSYC", "SOCY", "SOFT", "STAM", "STAT", "WRIT"
     ],
+    core: [
+        "CISC 121", "CISC 124", ["STAT OPTIONS", "STAT 263", "STAT 268", "STAT 351", 'BIOL 243', 'CHEE 209', 'COMM 162', 'ECON 250', 'GPHY 247', 'KNPE 251', 'NURS 323', 'POLS 385', 'PSYC 202', 'SOCY 211', 'STAM 200', 'STAT 263', 'STAT 367'], "CISC 203", "CISC 204", "CISC 221", "CISC 223", "CISC 235", ["CISC 322/326", "CISC 322", "CISC 326"], "CISC 324", "CISC 360", "CISC 365", "CISC 497", ["CISC 496/499/500", "CISC 496", "CISC 499", "CISC 500"]
+    ],
     specializations: {
         "Artificial Intelligence": { primary: "#6f4979", secondary: "#895A95", tertiary: "#F5F1F7" },
         "Biomedical Computation": { primary: "#066360", secondary: "#099C97", tertiary: "#E4FDFD" },

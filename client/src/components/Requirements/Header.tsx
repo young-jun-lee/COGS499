@@ -8,7 +8,6 @@ interface Header {
 }
 
 const Header: FC<Header> = ({ title }) => {
-
 	return (
 
 		<>

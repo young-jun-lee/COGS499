@@ -375,10 +375,8 @@ export const MultipleContainers = ({
       }
     })
     if (!coreqsPlaced) {
-      console.log("here")
       return true
     }
-    console.log('found: ', found)
     return found.every(f => f === true)
   }
 
@@ -407,9 +405,6 @@ export const MultipleContainers = ({
 
     const { prerequisites, corequisites, exclusions, one_way_exclusions } = getCourseRequirements(course)
 
-
-
-    // check prerequisites
     const validPrerequisites = checkPrerequisites(prerequisites, containerId)
     const validCorequisites = checkCorequisites(corequisites, containerId)
     const validExclusions = checkExclusions(exclusions, containerId)
