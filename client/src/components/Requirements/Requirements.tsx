@@ -62,11 +62,11 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                 border: `5px solid ${snap.specialization.colours?.primary}`, borderRadius: "1em", boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
             }}>
                 <Specialization specChosen={specChosen} />
-                <Flex justify="space-around" style={{ height: "100%" }} >
+                {/* <Flex justify="space-around" style={{ height: "100%" }} >
                     <SpecCourses title="Program Specific Courses" specChosen={specChosen} />
                     <SpecCourses title="CISC Courses" specChosen={specChosen} />
                     <SpecCourses title="Electives" specChosen={specChosen} />
-                </Flex>
+                </Flex> */}
             </Stack>
 
 

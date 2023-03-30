@@ -345,6 +345,7 @@ export const MultipleContainers = ({
     }
 
     let found = Array.from({ length: corequisites.length }, _ => false);
+    let coreqsPlaced = false
     corequisites.forEach((corequisiteArray, index) => {
       // check each corequisite in the array to see if they are in the basket at all
       // looping through each container 
@@ -359,27 +360,32 @@ export const MultipleContainers = ({
                 message: 'This course has corequisite(s) that must be taken in the same year.\n Please move the following course(s) to the same year as: ' + corequisites.join(', ') + '.',
                 color: 'red',
               });
+              coreqsPlaced = true
               return false
             }
             else if (i === Number(containerId)) {
               found[index] = true
+              coreqsPlaced = true
               // break out of nested loop
               i = Number(containerId) + 1
             }
           }
+
         }
       }
     })
-
+    if (!coreqsPlaced) {
+      console.log("here")
+      return true
+    }
+    console.log('found: ', found)
     return found.every(f => f === true)
   }
 
   const checkExclusions = (exclusions: any[], containerId: UniqueIdentifier) => {
-    console.log('exclusions: ', exclusions)
     for (let exclusionArray = 0; exclusionArray <= exclusions.length; exclusionArray++) {
       for (let i = 1; i <= Number(containerId); i++) {
         const container = items[i]
-        console.log('i: ', i)
         for (const item of container) {
           if (exclusions[exclusionArray].includes(item.value)) {
             showNotification({
