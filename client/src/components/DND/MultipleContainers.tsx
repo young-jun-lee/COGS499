@@ -258,49 +258,80 @@ export const MultipleContainers = ({
     return { prerequisites, corequisites, exclusions, one_way_exclusions }
   }
 
-  const checkPrerequisites = (prerequisites: any, containerId: UniqueIdentifier, optional: boolean = false) => {
-    if (prerequisites.length > 0) {
-      // console.log('prerequisites: ', prerequisites)
-      for (const prerequisite of prerequisites) {
-        if (Array.isArray(prerequisite)) {
-          // console.log("prerequisite is an array: ", prerequisite)
-          // if prerequisite is an array, recursively check each item in the array
-          const found = prerequisite.some(p => checkPrerequisites([p], containerId, true))
-          if (!found) {
-            return false
+  const checkPrerequisites = (prerequisites: any[], containerId: UniqueIdentifier) => {
+    if (prerequisites[0] === "None") {
+      return true
+    }
+    let found = Array.from({ length: prerequisites.length }, _ => false);
+    prerequisites.forEach((prerequisiteArray, index) => {
+      // within prerequisite array, they are separated by OR, only one of them needs to be found 
+      for (let i = 1; i <= Number(containerId); i++) {
+        const container = items[i]
+        for (const prereq of prerequisiteArray) {
+          // check if prereq is a string or an array (if it's an array, they must all be found)
+          if (typeof prereq === 'string') {
+            if (container.some((item: { value: string; }) => item.value === prereq)) {
+              found[index] = true
+            }
           }
-        } else if (prerequisite === "None") {
-          break
-        }
-        else {
-          let found = false
-          // console.log("here")
-          if (containerId === "0") {
-            containerId = containers.length - 1
-          }
-          // console.log("containerId: ", containerId)
-          for (let i = 1; i <= Number(containerId); i++) {
-            const container = items[i]
-            for (const item of container) {
-              if (item.value === prerequisite) {
-                found = true
-                // console.log("found in container: ", i)
-                break
+          else {
+            for (const coreqprereq of prereq) {
+              if (container.some((item: { value: string }) => item.value === coreqprereq)) {
+                found[index] = true
               }
             }
           }
-          if (!found) {
-            return false
-          }
         }
       }
+    })
+    console.log('found: ', found)
+    // check if every element in found is true
+    console.log('every: ', found.every(f => f === true))
+    if (found.every(f => f === true)) {
+      return true
     }
-    return true
+    else {
+      console.log(prerequisites)
+      let prerequisitesString = ''
+      prerequisites.forEach((prerequisiteArray, index) => {
+        if (index !== 0) {
+          prerequisitesString += ' AND '
+        }
+        prerequisitesString += '['
+        prerequisiteArray.forEach((prerequisite, index) => {
+          if (typeof prerequisite === 'string') {
+            prerequisitesString += prerequisite
+          }
+          else {
+            prerequisitesString += '('
+            prerequisite.forEach((coreqprereq, index) => {
+              prerequisitesString += coreqprereq
+              if (index < prerequisite.length - 1) {
+                prerequisitesString += ' AND '
+              }
+            })
+            prerequisitesString += ')'
+          }
+          if (index < prerequisiteArray.length - 1) {
+            prerequisitesString += ' OR '
+          }
+        }
+        )
+        prerequisitesString += ']'
+      })
+
+      showNotification({
+        title: 'Prerequisite Error',
+        message: 'This course has prerequisite(s) that must be taken before this course.\n Please add the following course(s) to your course plan before trying again: ' + prerequisitesString + '.',
+        color: 'red',
+      });
+      return false
+    }
+
+
   }
 
   const checkCorequisites = (corequisites: any[], containerId: UniqueIdentifier): boolean => {
-
-
     if (corequisites[0] === "None") {
       return true
     }
@@ -330,11 +361,9 @@ export const MultipleContainers = ({
           }
         }
       }
-
     })
 
     return found.every(f => f === true)
-
   }
 
   const checkExclusions = (exclusions: any[], containerId: UniqueIdentifier) => {
@@ -370,17 +399,18 @@ export const MultipleContainers = ({
 
 
     // check prerequisites
-    // const validPrerequisites = checkPrerequisites(prerequisites, containerId)
-    // console.log('validPrerequisites: ', validPrerequisites)
+    const validPrerequisites = checkPrerequisites(prerequisites, containerId)
+    console.log('validPrerequisites: ', validPrerequisites)
+    return validPrerequisites
     // const validCorequisites = checkCorequisites(corequisites, containerId)
     // return validCorequisites
 
 
 
     // console.log("exclusions: ", exclusions)
-    const validExclusions = checkExclusions(exclusions, containerId)
-    return validExclusions
-    console.log('validExclusions: ', validExclusions)
+    // const validExclusions = checkExclusions(exclusions, containerId)
+    // return validExclusions
+    // console.log('validExclusions: ', validExclusions)
     // console.log('validCorequisites: ', validCorequisites)
     // return validExclusions && validCorequisites
     // return validCorequisites
@@ -451,8 +481,11 @@ export const MultipleContainers = ({
           return;
         }
 
-        const validCourse = checkRequirements(overContainer, active.id);
-        if (!validCourse) return;
+        if (Number(overContainer) !== 0) {
+          const validCourse = checkRequirements(overContainer, active.id);
+          if (!validCourse) return
+        }
+
 
 
         if (activeContainer !== overContainer) {
@@ -514,11 +547,12 @@ export const MultipleContainers = ({
         }
         const overContainer = findContainer(overId);
 
+
         if (overContainer) {
-          const activeIndex = items[activeContainer].findIndex((item) => item.id === active.id);
-          const overIndex = items[overContainer].findIndex((item) => item.id === overId);
+          const activeIndex = items[activeContainer].findIndex((item: { id: UniqueIdentifier; }) => item.id === active.id);
+          const overIndex = items[overContainer].findIndex((item: { id: UniqueIdentifier; }) => item.id === overId);
           if (activeIndex !== overIndex) {
-            setItems((items) => {
+            setItems((items: { [x: string]: unknown[]; }) => {
               return {
                 ...items,
                 [activeContainer]: arrayMove(
