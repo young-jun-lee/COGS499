@@ -48,7 +48,7 @@ app.get('/courses', async (req, res) => {
   try {
     const groups = req.query
     const resCourses = {}
-    console.log(groups)
+    // console.log(groups)
     for (const [key, group] of Object.entries(groups)) {
       const groupCourses = await Courses.find({ code: { $regex: group } })
       console.log(groupCourses)
@@ -68,7 +68,8 @@ app.get('/courses', async (req, res) => {
       })
     }
 
-    console.log(Object.keys(resCourses).length)
+    // console.log(Object.keys(resCourses).length)
+    console.log("api invoked")
     res.send(resCourses)
 
   }
