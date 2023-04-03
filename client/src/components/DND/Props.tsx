@@ -4,7 +4,7 @@ import {
     UniqueIdentifier
 } from '@dnd-kit/core';
 import { SortingStrategy } from '@dnd-kit/sortable';
-import { Items } from './MultipleContainers';
+// import { Items } from './MultipleContainers';
 
 export interface Props {
     adjustScale?: boolean;
@@ -22,7 +22,7 @@ export interface Props {
     }): React.CSSProperties;
     wrapperStyle?(args: { index: number; }): React.CSSProperties;
     itemCount?: number;
-    items?: Items;
+    items?: any;
     handle?: boolean;
     renderItem?: any;
     strategy?: SortingStrategy;

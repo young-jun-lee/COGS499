@@ -17,7 +17,7 @@ import { SortableItem } from '../DND/SortableItem';
 interface RequiredCourses {
     containerId: UniqueIdentifier,
     columns: number | undefined,
-    items: string[],
+    items: any,
     scrollable: boolean,
     strategy: SortingStrategy,
     wrapperStyle: object,
@@ -141,6 +141,7 @@ const SearchBar: FC<RequiredCourses> = ({
                     size='md'
                     id='autocomplete-input'
                     icon={<BsSearch />}
+
                 />
 
                 <DroppableContainer

@@ -184,6 +184,9 @@ export const Item = React.memo(
 
               border: `2px solid ${snap.specialization.colours?.primary}`
             }} onClick={() => {
+              if (!items || !setItems || !index) {
+                return
+              }
               const newItems = [
                 ...items[containerId].slice(0, index),
                 ...items[containerId].slice(index + 1)
