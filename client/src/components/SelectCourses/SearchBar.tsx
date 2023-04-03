@@ -4,6 +4,7 @@ import { Anchor, Autocomplete, Avatar, Box, Button, Divider, Flex, Group, HoverC
 import { showNotification } from '@mantine/notifications';
 import { FC } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
+import { BsSearch } from 'react-icons/bs';
 import { VscClearAll } from 'react-icons/vsc';
 import { useSnapshot } from 'valtio';
 import coat from '../../assets/coat.png';
@@ -139,6 +140,7 @@ const SearchBar: FC<RequiredCourses> = ({
                     maxDropdownHeight={500}
                     size='md'
                     id='autocomplete-input'
+                    icon={<BsSearch />}
                 />
 
                 <DroppableContainer

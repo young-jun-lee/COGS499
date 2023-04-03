@@ -9,11 +9,12 @@ import {
 import {
   arrayMove, horizontalListSortingStrategy, SortableContext, verticalListSortingStrategy
 } from '@dnd-kit/sortable';
-import { Anchor, Avatar, Box, Button, Divider, Flex, Group, HoverCard, Stack, Tooltip, Text, Title } from '@mantine/core';
+import { Anchor, Avatar, Box, Button, Divider, Flex, Group, HoverCard, Stack, Tooltip, Text, Title, TextInput } from '@mantine/core';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal, unstable_batchedUpdates } from 'react-dom';
 import { HiViewGridAdd } from 'react-icons/hi';
 import { VscClearAll } from 'react-icons/vsc';
+import { AiFillEdit } from 'react-icons/ai';
 import { useSnapshot } from 'valtio';
 
 import { Item } from '..';
@@ -136,8 +137,6 @@ export const MultipleContainers = ({
       if (overId != null) {
         if (items.hasOwnProperty(overId)) {
           const containerItems = items[overId].map((item) => item.value);
-
-          // If a container is matched and it contains items (columns 'A', 'B', 'C')
           if (containerItems.length > 0) {
             // Return the closest droppable within that container
             overId = closestCenter({
@@ -411,8 +410,6 @@ export const MultipleContainers = ({
     // const validOneWayExclusions = checkOneWayExclusions(one_way_exclusions, containerId)
 
     return validPrerequisites && validExclusions && validCorequisites
-
-
   }
 
   const renderSortableItemDragOverlay = (id: UniqueIdentifier) => {
@@ -436,7 +433,10 @@ export const MultipleContainers = ({
     );
   }
 
-
+  const [containerTitles, setContainerTitles] = useState(containers.map((containerId) => ({
+    isEditing: false,
+    title: `Year ${containerId}`
+  })));
   return (
     <DndContext
       sensors={sensors}
@@ -490,7 +490,6 @@ export const MultipleContainers = ({
             const activeIndex = activeItems.findIndex((item: { id: UniqueIdentifier; }) => item.id === active.id);
 
             let newIndex: number;
-            // console.log(items)
             if (overId in items) {
               newIndex = overItems.length + 1;
             } else {
@@ -577,148 +576,208 @@ export const MultipleContainers = ({
         >
 
           <Flex style={{ flexDirection: "column", width: "65%" }} ref={parent}>
-            {containers.map((containerId, index) => (
-              <Box key={index} >
-                {index !== 0 &&
-                  <>
-                    <Title order={2} key={index} style={{ marginLeft: "0.2em", marginBottom: "0.5em" }}>Year {containerId}</Title>
-                    <DroppableContainer
-                      id={containerId}
-                      label={minimal ? undefined : `Column ${containerId} `}
-                      columns={columns}
-                      items={items[containerId]}
-                      scrollable={scrollable}
-                      style={{ maxHeight: "190px" }}
-                      unstyled={minimal}
+            {containers.slice(1).map((containerId, index) => (
+              <Box key={index}>
+                {containerTitles[index].isEditing || containerTitles[index].title.length === 0 ?
+                  <TextInput
+                    required={true}
+                    value={containerTitles[index].title}
+                    onChange={(e) => {
+                      const newContainerTitles = [...containerTitles];
+                      newContainerTitles[index].title = e.target.value;
+                      setContainerTitles(newContainerTitles);
+                    }}
+                    onBlur={() => {
+                      const newContainerTitles = [...containerTitles];
+                      newContainerTitles[index].isEditing = true;
+                      setContainerTitles(newContainerTitles);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        const newContainerTitles = [...containerTitles];
+                        newContainerTitles[index].isEditing = false;
+                        setContainerTitles(newContainerTitles);
+                      }
+                    }}
+
+                    width="50%"
+                    variant="unstyled"
+                    // size="xl"
+                    style={{
+                      display: "flex",
+                      // marginLeft: "5px",
+                      marginBottom: "0.6em",
+                      width: "fit-content",
+                      // fontSize: "40px",
+                    }}
+                    styles={(theme) => (
+                      {
+
+                        input: {
+                          fontSize: "26px",
+                          fontWeight: 700,
+                          // height: "fit-content",
+                          // marginTop: 0,
+
+                        }
+                      })}
+                  />
+                  :
+                  <Tooltip label="Click to Edit Title" withArrow arrowSize={6}>
+                    <Title
+                      onClick={() => {
+                        const newContainerTitles = [...containerTitles];
+                        newContainerTitles[index].isEditing = true;
+                        // newContainerTitles[index].isEditing = false;
+
+                        setContainerTitles(newContainerTitles);
+                      }}
+                      order={2}
+                      style={{ marginLeft: "5px", marginBottom: "0.5em", width: "fit-content" }}
                     >
-                      <SortableContext
-                        items={items[containerId]}
-                        strategy={strategy}
-                      >
+                      {containerTitles[index].title}
+                    </Title>
+                  </Tooltip>
 
-                        {items[containerId].map((value: Course, index: number,) => {
-                          return (
-                            <HoverCard key={value.id} width={320} position="right" shadow="md" openDelay={150} closeDelay={150}>
-                              <HoverCard.Target>
-                                <div>
-                                  <SortableItem
-                                    key={value.id}
-                                    id={value.id}
-                                    index={index}
-                                    handle={handle}
-                                    style={getItemStyles}
-                                    wrapperStyle={wrapperStyle}
-                                    renderItem={renderItem}
-                                    containerId={containerId}
-                                    getIndex={getIndex}
-                                    items={items}
-                                    setItems={setItems}
-                                  />
-                                </div>
-                              </HoverCard.Target>
-                              <HoverCard.Dropdown>
-                                <Group>
-                                  <Avatar src={coat} radius="xl" />
-                                  <Stack spacing={5}>
-                                    <Text size="sm" weight={700} sx={{ lineHeight: 1 }}>
-                                      {value.id + ": "}{value.title}
-                                    </Text>
-                                    <Anchor
-                                      href={`https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/${(value.group)?.toLowerCase()}/`}
-                                      color="dimmed"
-                                      size="sm"
-                                      sx={{ lineHeight: 1, fontWeight: 600 }}
-                                    >
-                                      Course Website
-                                    </Anchor>
-                                  </Stack>
-                                </Group>
+                }
 
-                                <Divider style={{ marginTop: "1em" }} />
+                <DroppableContainer
+                  id={containerId}
+                  label={minimal ? undefined : `Column ${containerId} `}
+                  columns={columns}
+                  items={items[containerId]}
+                  scrollable={scrollable}
+                  style={{ maxHeight: "190px" }}
+                  unstyled={minimal}
+                >
+                  <SortableContext
+                    items={items[containerId]}
+                    strategy={strategy}
+                  >
 
-                                <Text size="sm" mt="md">
-                                  {value.description}
+                    {items[containerId].map((value: Course, index: number,) => {
+                      return (
+                        <HoverCard key={value.id} width={320} position="right" shadow="md" openDelay={150} closeDelay={150}>
+                          <HoverCard.Target>
+                            <div>
+                              <SortableItem
+                                key={value.id}
+                                id={value.id}
+                                index={index}
+                                handle={handle}
+                                style={getItemStyles}
+                                wrapperStyle={wrapperStyle}
+                                renderItem={renderItem}
+                                containerId={containerId}
+                                getIndex={getIndex}
+                                items={items}
+                                setItems={setItems}
+                              />
+                            </div>
+                          </HoverCard.Target>
+                          <HoverCard.Dropdown>
+                            <Group>
+                              <Avatar src={coat} radius="xl" />
+                              <Stack spacing={5}>
+                                <Text size="sm" weight={700} sx={{ lineHeight: 1 }}>
+                                  {value.id + ": "}{value.title}
                                 </Text>
+                                <Anchor
+                                  href={`https://queensu-ca-public.courseleaf.com/arts-science/course-descriptions/${(value.group)?.toLowerCase()}/`}
+                                  color="dimmed"
+                                  size="sm"
+                                  sx={{ lineHeight: 1, fontWeight: 600 }}
+                                >
+                                  Course Website
+                                </Anchor>
+                              </Stack>
+                            </Group>
+                            <Divider style={{ marginTop: "1em" }} />
+                            <Text size="sm" mt="md">
+                              {value.description}
+                            </Text>
 
-                              </HoverCard.Dropdown>
-                            </HoverCard>
-                          );
-                        })}
+                          </HoverCard.Dropdown>
+                        </HoverCard>
+                      );
+                    })}
 
-                      </SortableContext>
-                    </DroppableContainer>
-                    <Group position="right" key={index + "group"}>
-                      {items[containerId].length > 0 ?
-                        <Button leftIcon={<VscClearAll size={18} />}
-                          onClick={() => {
-                            clearCourses(containerId);
-                          }}
-                          styles={(theme) => (
-                            specChosen ?
-                              {
-                                root: {
-                                  backgroundColor: `${snap.specialization.colours?.primary} `,
-                                  color: `${snap.specialization.colours?.tertiary} `,
-                                  ':hover': {
-                                    backgroundColor: `${snap.specialization.colours?.secondary} `,
-                                    color: `${snap.specialization.colours?.tertiary} `
-                                  },
-                                  boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
+                  </SortableContext>
+                </DroppableContainer>
+                <Divider my="lg" variant="dashed"></Divider>
+                <Group position="right" key={index + "group"}>
 
-                                }
-                              } : {})}
+                  {items[containerId].length > 0 ?
+                    <Button leftIcon={<VscClearAll size={18} />}
+                      onClick={() => {
+                        clearCourses(containerId);
+                      }}
+                      styles={(theme) => (
+                        specChosen ?
+                          {
+                            root: {
+                              backgroundColor: `${snap.specialization.colours?.primary} `,
+                              color: `${snap.specialization.colours?.tertiary} `,
+                              ':hover': {
+                                backgroundColor: `${snap.specialization.colours?.secondary} `,
+                                color: `${snap.specialization.colours?.tertiary} `
+                              },
+                              boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
 
-                        >
-                          Clear Courses
-                        </Button>
-                        :
-                        <Tooltip label="No Courses in Container">
-                          <Button leftIcon={<VscClearAll />}
-                            data-disabled
-                            sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
-                            onClick={(event) => event.preventDefault()}
-                          >
-                            Clear Courses
-                          </Button>
-                        </Tooltip>
-                      }
+                            }
+                          } : {})}
 
-                      {containers.length > constants.MIN_YEARS ?
-                        <Button leftIcon={<MdDeleteSweep size={18} />}
-                          onClick={() => {
-                            handleRemoveColumn(containerId)
-                          }}
-                          styles={(theme) => (
-                            specChosen ?
-                              {
-                                root: {
-                                  backgroundColor: `${snap.specialization.colours?.primary} `,
-                                  color: `${snap.specialization.colours?.tertiary} `,
-                                  ':hover': {
-                                    backgroundColor: `${snap.specialization.colours?.secondary} `,
-                                    color: `${snap.specialization.colours?.tertiary} `,
-                                  },
-                                  boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
-                                }
-                              } : {})}
+                    >
+                      Clear Courses
+                    </Button>
+                    :
+                    <Tooltip label="No Courses in Container">
+                      <Button leftIcon={<VscClearAll />}
+                        data-disabled
+                        sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+                        onClick={(event) => event.preventDefault()}
+                      >
+                        Clear Courses
+                      </Button>
+                    </Tooltip>
+                  }
 
-                        >
-                          Delete Year
-                        </Button>
-                        :
-                        <Tooltip label="Minimum 3 Academic Years">
-                          <Button leftIcon={<MdDeleteSweep />}
-                            data-disabled
-                            sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
-                            onClick={(event) => event.preventDefault()}
+                  {containers.length > constants.MIN_YEARS ?
+                    <Button leftIcon={<MdDeleteSweep size={18} />}
+                      onClick={() => {
+                        handleRemoveColumn(containerId)
+                      }}
+                      styles={(theme) => (
+                        specChosen ?
+                          {
+                            root: {
+                              backgroundColor: `${snap.specialization.colours?.primary} `,
+                              color: `${snap.specialization.colours?.tertiary} `,
+                              ':hover': {
+                                backgroundColor: `${snap.specialization.colours?.secondary} `,
+                                color: `${snap.specialization.colours?.tertiary} `,
+                              },
+                              boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
+                            }
+                          } : {})}
 
-                          >
-                            Delete Year
-                          </Button>
-                        </Tooltip>
-                      }
-                    </Group>
-                  </>}
+                    >
+                      Delete Year
+                    </Button>
+                    :
+                    <Tooltip label="Minimum 3 Academic Years">
+                      <Button leftIcon={<MdDeleteSweep />}
+                        data-disabled
+                        sx={{ '&[data-disabled]': { pointerEvents: 'all' } }}
+                        onClick={(event) => event.preventDefault()}
+
+                      >
+                        Delete Year
+                      </Button>
+                    </Tooltip>
+                  }
+                </Group>
+
 
               </Box>
 
@@ -781,13 +840,15 @@ export const MultipleContainers = ({
 
         </SortableContext>
 
-      </Flex>
+      </Flex >
       {
         createPortal(
-          <DragOverlay adjustScale={adjustScale} dropAnimation={dropAnimation}>
-            {activeId
-              ? renderSortableItemDragOverlay(activeId)
-              : null}
+          <DragOverlay adjustScale={adjustScale} dropAnimation={dropAnimation} >
+            {
+              activeId
+                ? renderSortableItemDragOverlay(activeId)
+                : null
+            }
           </DragOverlay>,
           document.body
         )

@@ -4,6 +4,7 @@ import { TbCircleCheck, TbCircleDashed } from "react-icons/tb";
 import { useSnapshot } from 'valtio';
 import { state } from '../../Valtio/State';
 import HeaderContent from "../../content/Header";
+import { Course, CourseColumns } from '../../types/stateTypes';
 
 interface RequiredCourses {
   title: string;
@@ -12,28 +13,53 @@ interface RequiredCourses {
 }
 
 const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) => {
+
   const snap = useSnapshot(state)
-
-  const renderCourses = useMemo(() => {
-    for (let i = 0; i < courseGroup.length; i++) {
-      return (
-        <Box>{courseGroup[i]}</Box>
-      )
+  const items: any = []
+  for (let column of Object.keys(snap.currentBasket) as any) {
+    // skip the first column and any empty columns
+    if (column === "0" || snap.currentBasket[column].length === 0) {
+      continue
     }
-  }, [])
 
-  if (specChosen)
+    for (let item of Object.keys(snap.currentBasket[column]) as any) {
+      let course = snap.currentBasket[column][item]
+      let parsedCourse: Course = JSON.parse(JSON.stringify(course))
+      const value = parsedCourse.value
+      items.push(value)
+    }
+  }
+  const renderCourses = () => {
+    return courseGroup.map((course, index) => {
+      const courseName = Array.isArray(course) ? course[0] : course;
+      const isCourseTaken = Array.isArray(course) ? course.some((c) => items.includes(c)) : items.includes(course);
+
+      const icon = isCourseTaken ? (
+        <ThemeIcon size={24} radius="xl" color="green">
+          <TbCircleCheck size={16} />
+        </ThemeIcon>
+      ) : null;
+
+      return (
+        <List.Item key={courseName} icon={icon}>
+          {courseName}
+        </List.Item>
+      );
+    });
+  }
+
+  if (specChosen) {
+
     return (
       <Box
         sx={(theme) => ({
           color: `${snap.specialization.colours?.secondary}`,
           textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
           textStroke: `5px ${snap.specialization.colours?.tertiary}`,
-          width: '30%',
+          width: title==="Core" ? "33%" : "90%",
           height: '100%',
           padding: theme.spacing.sm,
-          marginLeft: "1px",
-          marginRight: "1px",
+
           marginTop: theme.spacing.xs,
           marginBottom: theme.spacing.md,
           border: `5px solid ${snap.specialization.colours?.primary}`,
@@ -50,7 +76,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
         className="title"
       >
         <Box sx={{
-          fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 22, textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
+          fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 26, textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
         }} >{title}</Box>
         <Box
           sx={(theme) => ({
@@ -59,7 +85,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,
             marginTop: theme.spacing.xs,
-            width: "90%",
+            width: "95%",
           })}
         >
 
@@ -68,25 +94,19 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
             size="md"
             center
             icon={
-              <ThemeIcon color="teal" size={24} radius="xl">
-                <TbCircleCheck size={16} />
+              <ThemeIcon color="yellow" size={24} radius="xl">
+                <TbCircleDashed size={16} />
               </ThemeIcon>
             }
           >
-            <>
-              {renderCourses}
-            </>
-            <List.Item>CISC 101</List.Item>
-            <List.Item icon={
-              <ThemeIcon size={24} radius="xl">
-                <TbCircleDashed size={16} />
-              </ThemeIcon>
-            }>CISC 102</List.Item>
+
+            {renderCourses()}
 
           </List>
         </Box>
       </Box >
     )
+  }
   return <></>
 }
 
