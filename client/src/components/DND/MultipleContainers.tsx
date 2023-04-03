@@ -697,9 +697,7 @@ export const MultipleContainers = ({
 
 									</SortableContext>
 								</DroppableContainer>
-								<Divider my="lg" variant="dashed"></Divider>
 								<Group position="right" key={index + "group"}>
-
 									{items[containerId].length > 0 ?
 										<Button leftIcon={<VscClearAll size={18} />}
 											onClick={() => {
@@ -771,7 +769,7 @@ export const MultipleContainers = ({
 									}
 								</Group>
 
-
+								<Divider my="lg"></Divider>
 							</Box>
 
 						))}
