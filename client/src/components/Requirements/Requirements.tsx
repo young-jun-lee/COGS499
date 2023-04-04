@@ -67,9 +67,9 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                 border: `5px solid ${snap.specialization.colours?.primary}`, borderRadius: "1em", boxShadow: "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)"
             }}>
                 <Specialization specChosen={specChosen} />
-                <Flex justify="center" style={{ height: "100%" }} >
+                <Flex justify="center" direction="column" align={"center"} style={{ width: "75%", alignSelf: "center" }}>
                     <SpecCourses title="Core" specChosen={specChosen} courseGroup={coreCourses} />
-                    <Flex direction={"column"} style={{ "marginLeft": 45 }}>
+                    <Flex direction="row" justify={"space-around"} style={{ width: "100%" }}>
                         <SpecCourses title="Supporting" specChosen={specChosen} courseGroup={supportingCourses} />
                         <SpecCourses title="Option" specChosen={specChosen} courseGroup={optionCourses} />
                     </Flex>

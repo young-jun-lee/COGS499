@@ -1,4 +1,4 @@
-import { Box, List, ThemeIcon, Text } from '@mantine/core';
+import { Box, List, ThemeIcon, Text, Checkbox, Flex } from '@mantine/core';
 import { FC, useEffect, useMemo, useState } from 'react';
 import { TbCircleCheck, TbCircleDashed } from "react-icons/tb";
 import { useSnapshot } from 'valtio';
@@ -34,15 +34,33 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
       const courseName = Array.isArray(course) ? course[0] : course;
       const isCourseTaken = Array.isArray(course) ? course.some((c) => items.includes(c)) : items.includes(course);
 
-      const icon = isCourseTaken ? (
-        <ThemeIcon size={24} radius="xl" color="green">
-          <TbCircleCheck size={16} />
-        </ThemeIcon>
-      ) : null;
+      const textStrikeThrough = isCourseTaken ? "line-through" : "none";
+      // change the opacity of the text if the course is taken
+      const textColor = isCourseTaken ? `${snap.specialization.colours?.secondary}` : `${snap.specialization.colours?.secondary}`;
 
       return (
-        <List.Item key={courseName} icon={icon}>
-          {courseName}
+        <List.Item key={courseName} style={{
+          marginTop: 0,
+          marginBottom: 10,
+        }} >
+          <Flex align="center">
+            <Checkbox checked={isCourseTaken} />
+            <Text
+              sx={{ fontFamily: 'Greycliff CF, sans-serif' }}
+              ta="center"
+              color={textColor}
+              fz="xl"
+              fw={700}
+              td={textStrikeThrough}
+              style={{
+                opacity: isCourseTaken ? 0.6 : 1,
+                display: "inline",
+                marginLeft: "0.5em",
+              }}
+            >
+              {courseName}
+            </Text>
+          </Flex>
         </List.Item>
       );
     });
@@ -53,14 +71,10 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
     return (
       <Box
         sx={(theme) => ({
-          color: `${snap.specialization.colours?.secondary}`,
-          textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
-          textStroke: `5px ${snap.specialization.colours?.tertiary}`,
-          width: title==="Core" ? "33%" : "90%",
-          height: '100%',
+          color: `${snap.specialization.colours?.primary}`,
+          textShadow: "0.05em 0 black, 0 0.05em black, - 0.05e m 0 black,0 - 0.05em black, -0.05em - 0.05em black, -0.05em 0.05em black, 0.05em - 0.05em black, 0.05em 0.05em black",
           padding: theme.spacing.sm,
-
-          marginTop: theme.spacing.xs,
+          marginTop: title === "Core" ? 0 : theme.spacing.xs,
           marginBottom: theme.spacing.md,
           border: `5px solid ${snap.specialization.colours?.primary}`,
           borderRadius: theme.radius.md,
@@ -72,11 +86,13 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-        })}
+          width: title === "Core" ? "100%" : "45%",
+        })
+        }
         className="title"
       >
         <Box sx={{
-          fontWeight: 700, marginLeft: "1px", marginTop: -5, fontSize: 26, textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
+          display: "flex", alignSelf: "flex-start", fontWeight: 700, marginLeft: "0.5em", marginTop: -5, fontSize: 28, textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
         }} >{title}</Box>
         <Box
           sx={(theme) => ({
@@ -84,7 +100,6 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
             height: '90%',
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,
-            marginTop: theme.spacing.xs,
             width: "95%",
           })}
         >
@@ -93,15 +108,17 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
             spacing="xs"
             size="md"
             center
-            icon={
-              <ThemeIcon color="yellow" size={24} radius="xl">
-                <TbCircleDashed size={16} />
-              </ThemeIcon>
-            }
+            listStyleType="none"
+            withPadding={false}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              flexWrap: "wrap",
+              height: 200,
+              // width: title == "Core" ? 700 : 300,
+            }}
           >
-
             {renderCourses()}
-
           </List>
         </Box>
       </Box >
