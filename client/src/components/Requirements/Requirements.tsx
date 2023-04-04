@@ -17,8 +17,18 @@ interface Requirements {
 const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 }) => {
     const snap = useSnapshot(state)
     const specChosen = snap.specialization.name !== undefined;
-    console.log(specChosen)
-    const coreCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.core)) : undefined;
+    let majorOrSpec;
+    if (specChosen) {
+        // search for the specialization in the list of specializations in HeaderContent
+        HeaderContent.compSpecs.forEach((spec) => {
+            if (spec === snap.specialization.name) {
+                majorOrSpec = "specialization";
+            }
+        })
+        majorOrSpec = "major"
+    }
+
+    const coreCourses = specChosen ? majorOrSpec === "major" ? JSON.parse(JSON.stringify(snap.specialization.commonMajorCore)) : JSON.parse(JSON.stringify(snap.specialization.commonSpecCore)) : undefined;
     const optionCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.options)) : undefined;
     const supportingCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.supporting)) : undefined;
 

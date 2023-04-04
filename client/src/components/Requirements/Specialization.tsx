@@ -43,7 +43,14 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                                         state.specialization.name = specialization;
                                         state.specialization.colours = { primary: specializationFeatures.primary, secondary: specializationFeatures.secondary, tertiary: specializationFeatures.tertiary }
                                         console.log("colours: ", specializationFeatures)
-                                        state.specialization.core = specializationFeatures.core;
+                                        let majorOrSpec="major"
+                                        HeaderContent.compSpecs.forEach((spec) => {
+                                            if (spec === snap.specialization.name) {
+                                                majorOrSpec = "specialization";
+                                            }
+                                        })
+                                        state.specialization.commonMajorCore = majorOrSpec === "major" ? JSON.parse(JSON.stringify(specializationFeatures.commonMajorCore)) : JSON.parse(JSON.stringify(specializationFeatures.commonSpecCore));
+                                        // state.specialization.core = specializationFeatures.core;
                                         state.specialization.options = specializationFeatures.options;
                                         state.specialization.supporting = specializationFeatures.supporting;
                                         setOpened(false);
