@@ -45,7 +45,10 @@ export type Specialization = {
         primary: string
         secondary: string
         tertiary: string
-    }
+    },
+    core?: string | string[] | string[][]
+    options?: string | string[] | string[][]
+    supporting?: any[]
 }
 
 export type Basket = string[]

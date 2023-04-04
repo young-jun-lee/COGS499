@@ -17,10 +17,11 @@ interface Requirements {
 const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 }) => {
     const snap = useSnapshot(state)
     const specChosen = snap.specialization.name !== undefined;
+    console.log(specChosen)
+    const coreCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.core)) : undefined;
+    const optionCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.options)) : undefined;
+    const supportingCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.supporting)) : undefined;
 
-    const coreCourses = HeaderContent.core
-    const optionCourses = HeaderContent.option
-    const supportingCourses = HeaderContent.supporting
     return (
         <Box>
             <Toggle />

@@ -2,14 +2,17 @@ import { proxy } from "valtio";
 import { Basket, Columns, Course, NumYears, Specialization } from "../types/stateTypes";
 
 
-export const state = proxy<{ specialization: Specialization, currentBasket: Basket, numYears: NumYears, columns: Columns[], courses: Course[] }>({
+export const state = proxy<{ specialization: Specialization, currentBasket: Basket, numYears: NumYears, columns: Columns[], courses: Course[], }>({
 
     specialization: {
         colours: {
             primary: "black",
             secondary: "#e6e7e8",
             tertiary: "white"
-        }
+        },
+        core: [],
+        options: [],
+        supporting: []
     },
     currentBasket: [],
     numYears: 1,

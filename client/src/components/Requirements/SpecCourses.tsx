@@ -44,7 +44,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
           marginBottom: 10,
         }} >
           <Flex align="center">
-            <Checkbox checked={isCourseTaken} />
+            <Checkbox checked={isCourseTaken} readOnly/>
             <Text
               sx={{ fontFamily: 'Greycliff CF, sans-serif' }}
               ta="center"
@@ -101,6 +101,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,
             width: "95%",
+            marginBottom: "0.5em",
           })}
         >
 

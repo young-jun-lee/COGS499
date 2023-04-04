@@ -32,7 +32,7 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                 >
                     <Flex style={{ flexDirection: "column", }}>
                         {
-                            Object.entries(HeaderContent.specializations).map(([specialization, colours]) => (
+                            Object.entries(HeaderContent.specializations).map(([specialization, specializationFeatures]) => (
                                 <Radio
                                     key={specialization}
                                     label={specialization}
@@ -41,15 +41,19 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
 
                                     onClick={() => {
                                         state.specialization.name = specialization;
-                                        state.specialization.colours = colours
+                                        state.specialization.colours = { primary: specializationFeatures.primary, secondary: specializationFeatures.secondary, tertiary: specializationFeatures.tertiary }
+                                        console.log("colours: ", specializationFeatures)
+                                        state.specialization.core = specializationFeatures.core;
+                                        state.specialization.options = specializationFeatures.options;
+                                        state.specialization.supporting = specializationFeatures.supporting;
                                         setOpened(false);
                                     }}
                                     size="md"
-                                    style={{ padding: "10px", color: colours?.primary, fontSize: "20px" }}
+                                    style={{ padding: "10px", color: specializationFeatures?.primary, fontSize: "20px" }}
                                     styles={(theme) => (
                                         {
                                             radio: {
-                                                backgroundColor: `${colours?.tertiary}`,
+                                                backgroundColor: `${specializationFeatures?.tertiary}`,
                                                 // color: `${colours?.primary}`,
                                             },
 
