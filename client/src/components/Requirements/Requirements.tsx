@@ -28,7 +28,13 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
         majorOrSpec = "major"
     }
 
-    const coreCourses = specChosen ? majorOrSpec === "major" ? JSON.parse(JSON.stringify(snap.specialization.commonMajorCore)) : JSON.parse(JSON.stringify(snap.specialization.commonSpecCore)) : undefined;
+    console.log(majorOrSpec)
+
+    const coreCourses = specChosen ? majorOrSpec === "major" ?
+        JSON.parse(JSON.stringify(HeaderContent.commonMajorCore))
+        :
+        JSON.parse(JSON.stringify(HeaderContent.commonSpecCore)) : undefined;
+
     const optionCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.options)) : undefined;
     const supportingCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.supporting)) : undefined;
 

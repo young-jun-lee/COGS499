@@ -44,7 +44,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
           marginBottom: 10,
         }} >
           <Flex align="center">
-            <Checkbox checked={isCourseTaken} readOnly/>
+            <Checkbox checked={isCourseTaken} readOnly />
             <Text
               sx={{ fontFamily: 'Greycliff CF, sans-serif' }}
               ta="center"
@@ -92,7 +92,9 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
         className="title"
       >
         <Box sx={{
-          display: "flex", alignSelf: "flex-start", fontWeight: 700, marginLeft: "0.5em", marginTop: -5, fontSize: 28, textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
+          display: "flex", alignSelf: "flex-start", fontWeight: 700,
+          marginLeft: title === "Core" ? "0.7em" : "0.5em", marginTop: -5, fontSize: 28,
+          textShadow: "-12px - 12px 0 #000, 1px - 12px 0 #000, - 1px 1px 0 #000, 1px 1px 0 #000",
         }} >{title}</Box>
         <Box
           sx={(theme) => ({
