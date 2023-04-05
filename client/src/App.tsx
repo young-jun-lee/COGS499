@@ -81,6 +81,8 @@ export default function App() {
   }, [snap.specialization])
 
   const [parent] = useAutoAnimate()
+  const specChosen = snap.specialization.name !== undefined;
+  console.log(specChosen)
 
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
@@ -91,12 +93,13 @@ export default function App() {
               <Header title={HeaderContent.title} />
               <Requirements subheading1={HeaderContent.subheading1} subheading2={HeaderContent.subheading2} subheading3={HeaderContent.subheading3} />
             </Flex>
-            <Flex style={{ height: "60%", marginTop: "50px" }}>
+            {specChosen ? <>            <Flex style={{ height: "60%", marginTop: "50px" }}>
               <SelectContainer />
             </Flex>
-            <Flex style={{ height: "60%", marginTop: "50px", marginBottom: "50px" }}>
-              <FlowContainer />
-            </Flex>
+              <Flex style={{ height: "60%", marginTop: "50px", marginBottom: "50px" }}>
+                <FlowContainer />
+              </Flex></> : (<></>)}
+
           </Container>
         </NotificationsProvider>
       </MantineProvider>
