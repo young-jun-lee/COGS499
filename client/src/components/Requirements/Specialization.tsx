@@ -22,13 +22,14 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
             <Drawer
                 opened={opened}
                 onClose={() => setOpened(false)}
-                title="Choose Your Specialization"
+                title="Choose Your Degree Plan"
                 padding="xl"
                 size="lg"
                 style={{ fontSize: "20px" }}
             >
                 <Radio.Group
                     value={state.specialization.name}
+                    label="Computing Majors"
                 >
                     <Flex style={{ flexDirection: "column", }}>
                         {
@@ -92,7 +93,7 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                     })
                 } className="title">
                     <div style={{ textAlign: "center", fontSize: 35, fontWeight: 600 }}>
-                        {specChosen ? `${snap.specialization.name}` : "Choose Your Specialization"}
+                        {specChosen ? `${snap.specialization.name}` : "Choose Your Degree Plan"}
                     </div>
                 </Box>
 

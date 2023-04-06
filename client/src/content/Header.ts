@@ -26,18 +26,58 @@ export default {
         ["MATH 120/121/123/124", "MATH 120", "MATH 121", ["MATH 123", "MATH 124"]],
     ],
 
-        // supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]],
-        // option: ["COGS 100", "COGS 201", "CISC 352", ["AI Options", "CISC 452", "CISC 453", "CISC 455", "CISC 467", "CISC 473", "CISC 474"]],
+    // supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]],
+    // option: ["COGS 100", "COGS 201", "CISC 352", ["AI Options", "CISC 452", "CISC 453", "CISC 455", "CISC 467", "CISC 473", "CISC 474"]],
 
 
-        specializations: {
+    specializations: {
         // COMPUTING MAJOR
-        "Artificial Intelligence": { primary: "#6f4979", secondary: "#895A95", tertiary: "#F5F1F7", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", ["MATH 123", "MATH 124"]]] },
-        "Biomedical Computation": { primary: "#066360", secondary: "#099C97", tertiary: "#E4FDFD", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]] },
-        "Data Analytics": { primary: "#884900", secondary: "#BF6600", tertiary: "#FFF3E4", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]] },
-        "Fundamental Computation": { primary: "#30378f", secondary: "#3B42B0", tertiary: "#EEEFF9", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]] },
-        "Game Development": { primary: "#5d2e8f", secondary: "#7339B1", tertiary: "#F3EEF9", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]] },
-        "Security": { primary: "#0f6700", secondary: "#18A000", tertiary: "#E6FFE2", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]] },
+        "Artificial Intelligence": {
+            primary: "#6f4979", secondary: "#895A95", tertiary: "#F5F1F7", core: [], options: [
+                "COGS 100", "COGS 201", "CISC 352", ["AI Options",
+                    ['CISC 452', 'CISC 453'],
+                    ['CISC 452', 'CISC 455'],
+                    ['CISC 452', 'CISC 467'],
+                    ['CISC 452', 'CISC 473'],
+                    ['CISC 452', 'CISC 474'],
+                    ['CISC 453', 'CISC 455'],
+                    ['CISC 453', 'CISC 467'],
+                    ['CISC 453', 'CISC 473'],
+                    ['CISC 453', 'CISC 474'],
+                    ['CISC 455', 'CISC 467'],
+                    ['CISC 455', 'CISC 473'],
+                    ['CISC 455', 'CISC 474'],
+                    ['CISC 467', 'CISC 473'],
+                    ['CISC 467', 'CISC 474'],
+                    ['CISC 473', 'CISC 474'],
+                ],
+                ['Options at 200+', "CISC 2++", "COCA 2++", "COGS 2++", "SOFT 2++"]
+            ], supporting: []
+        },
+        "Biomedical Computation": {
+            primary: "#066360", secondary: "#099C97", tertiary: "#E4FDFD", core: [], options: [
+                "CISC 271", "CISC 330", "CISC 352", "CISC 472", ["CISC 320", "CISC 471"], ["Options at 200+", "CISC 2++", "COCA 2++", "COGS 2++", "SOFT 2++"]
+            ], supporting: []
+        },
+        "Data Analytics": { primary: "#884900", secondary: "#BF6600", tertiary: "#FFF3E4", core: [], options: ["CISC 271", "CISC 371", "CISC 372", "CISC 451", "CISC 452", ["Options at 200+", "CISC 2++", "COCA 2++", "COGS 2++", "SOFT 2++"]], supporting: [] },
+        "Fundamental Computation": {
+            primary: "#30378f", secondary: "#3B42B0", tertiary: "#EEEFF9", core: [], options: [
+                ["CISC 422/455/462/465/466/467", "CISC 422", "CISC 455", "CISC 462", "CISC 465", "CISC 466", "CISC 467"],
+                ["CISC SUB OPTIONS", "COMM 365",
+                    "ELEC 470",
+                    "ELEC 474",
+                    "MATH 272",
+                    "MATH 337",
+                    "MATH 401",
+                    "MATH 402",
+                    "MATH 434",
+                    "MATH 474"],
+                ["Options at 200+", "CISC 2++", "COCA 2++", "COGS 2++", "SOFT 2++"]
+
+            ], supporting: []
+        },
+        "Game Development": { primary: "#5d2e8f", secondary: "#7339B1", tertiary: "#F3EEF9", core: [], options: ["CISC 226", "CISC 320", "CISC 352", "CISC 454", "CISC 486", ["Options at 200+", "CISC 2++", "COCA 2++", "COGS 2++", "SOFT 2++"]], supporting: [] },
+        "Security": { primary: "#0f6700", secondary: "#18A000", tertiary: "#E6FFE2", core: [], options: ["CISC 220", "CISC 327", "CISC 335", "CISC 447", ["CISC 434/448/468", "CISC 434", "CISC 448", "CISC 468"], ["Options at 200+", "CISC 2++", "COCA 2++", "COGS 2++", "SOFT 2++"]], supporting: [] },
         // COMPUTING SPECIALIZATION
         "Biomedical Computing": {
             primary: "#066360", secondary: "#099C97", tertiary: "#E4FDFD", core:

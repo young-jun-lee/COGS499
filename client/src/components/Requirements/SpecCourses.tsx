@@ -48,7 +48,8 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
             <Text
               sx={{ fontFamily: 'Greycliff CF, sans-serif' }}
               ta="center"
-              color={textColor}
+              // color={textColor}
+              color={snap.specialization.colours?.tertiary}
               fz="xl"
               fw={700}
               td={textStrikeThrough}
@@ -86,7 +87,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          width: title === "Core" ? "100%" : "45%",
+          width: title === "Core" ? "100%" : "48%",
         })
         }
         className="title"
