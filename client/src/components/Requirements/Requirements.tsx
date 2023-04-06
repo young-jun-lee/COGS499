@@ -86,14 +86,12 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                 <Specialization specChosen={specChosen} />
                 <Flex justify="center" direction="column" align={"center"} style={{ width: "75%", alignSelf: "center" }}>
                     <SpecCourses title="Core" specChosen={specChosen} courseGroup={coreCourses} />
-                    <Flex direction="row" justify={"space-around"} style={{ width: "100%" }}>
+                    <Flex direction="row" justify={"space-evenly"} style={{ width: "100%" }}>
                         <SpecCourses title="Supporting" specChosen={specChosen} courseGroup={supportingCourses} />
                         <SpecCourses title="Option" specChosen={specChosen} courseGroup={optionCourses} />
                     </Flex>
                 </Flex>
             </Stack>
-
-
         </Box>
     );
 };

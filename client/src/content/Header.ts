@@ -19,15 +19,20 @@ export default {
         "CISC 235",
         "CISC 360",
         "CISC 497",
-        ["CISC 496/499/500", "CISC 496", "CISC 499", "COGS 499", "CISC 500"]],
+        ["CISC 496/499/500", "CISC 496", "CISC 499", "COGS 499", "CISC 500"]
+    ],
+    commonMajorSupporting: [
+        ["Discrete Math", ["CISC 102", "MATH 111"], ["CISC 102", "MATH 112"], "MATH 110"],
+        ["MATH 120/121/123/124", "MATH 120", "MATH 121", ["MATH 123", "MATH 124"]],
+    ],
 
-    // supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]],
-    // option: ["COGS 100", "COGS 201", "CISC 352", ["AI Options", "CISC 452", "CISC 453", "CISC 455", "CISC 467", "CISC 473", "CISC 474"]],
+        // supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]],
+        // option: ["COGS 100", "COGS 201", "CISC 352", ["AI Options", "CISC 452", "CISC 453", "CISC 455", "CISC 467", "CISC 473", "CISC 474"]],
 
 
-    specializations: {
+        specializations: {
         // COMPUTING MAJOR
-        "Artificial Intelligence": { primary: "#6f4979", secondary: "#895A95", tertiary: "#F5F1F7", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]] },
+        "Artificial Intelligence": { primary: "#6f4979", secondary: "#895A95", tertiary: "#F5F1F7", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", ["MATH 123", "MATH 124"]]] },
         "Biomedical Computation": { primary: "#066360", secondary: "#099C97", tertiary: "#E4FDFD", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]] },
         "Data Analytics": { primary: "#884900", secondary: "#BF6600", tertiary: "#FFF3E4", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]] },
         "Fundamental Computation": { primary: "#30378f", secondary: "#3B42B0", tertiary: "#EEEFF9", core: ["CISC 251"], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]] },
@@ -37,7 +42,7 @@ export default {
         "Biomedical Computing": {
             primary: "#066360", secondary: "#099C97", tertiary: "#E4FDFD", core:
                 ["BIOL 102", "BIOL 103", "CHEM 112",
-                    ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"],
+                    ["MATH 120/121/123/124", "MATH 120", "MATH 121", ["MATH 123", "MATH 124"]],
                     "CISC 223", "CISC 271", "BIOL 205", "BCHM 218", "CISC 330", "CISC 352", "CISC 365", ["BCHM 315/ BIOL 334", "BCHM 315", "BIOL 334"],
                     "BIOL 331", ["M-Level Reqs",
                         ["CISC 332", "CISC 320", "CISC 471"],
