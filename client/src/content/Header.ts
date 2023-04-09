@@ -78,9 +78,11 @@ export default {
         },
         "Game Development": { primary: "#5d2e8f", secondary: "#7339B1", tertiary: "#F3EEF9", core: [], options: ["CISC 226", "CISC 320", "CISC 352", "CISC 454", "CISC 486", ["Options at 200+", "CISC 2++", "COCA 2++", "COGS 2++", "SOFT 2++"]], supporting: [] },
         "Security": { primary: "#0f6700", secondary: "#18A000", tertiary: "#E6FFE2", core: [], options: ["CISC 220", "CISC 327", "CISC 335", "CISC 447", ["CISC 434/448/468", "CISC 434", "CISC 448", "CISC 468"], ["Options at 200+", "CISC 2++", "COCA 2++", "COGS 2++", "SOFT 2++"]], supporting: [] },
+
         // COMPUTING SPECIALIZATION
         "Biomedical Computing": {
-            primary: "#066360", secondary: "#099C97", tertiary: "#E4FDFD", core:
+            primary: "#066360", secondary: "#099C97", tertiary: "#E4FDFD",
+            core:
                 ["BIOL 102", "BIOL 103", "CHEM 112",
                     ["MATH 120/121/123/124", "MATH 120", "MATH 121", ["MATH 123", "MATH 124"]],
                     "CISC 223", "CISC 271", "BIOL 205", "BCHM 218", "CISC 330", "CISC 352", "CISC 365", ["BCHM 315/ BIOL 334", "BCHM 315", "BIOL 334"],
@@ -90,7 +92,16 @@ export default {
                         ["CISC 332", "CISC 471", "CISC 472"],
                         ["CISC 320", "CISC 471", "CISC 472"]
                     ]
-                ], options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]]
+                ],
+            options:
+                [["BMCO Options",
+                    ["CHEM 281", "CHEM 282", "CHEM 285", "PHGY 215"],
+                    ["CHEM 281", "CHEM 282", "CHEM 285", "PHGY 216"],
+                    ["CHEM 281", "CHEM 282", "PHGY 215", "PHGY 216"],
+                    ["CHEM 281", "CHEM 285", "PHGY 215", "PHGY 216"],
+                    ["CHEM 282", "CHEM 285", "PHGY 215", "PHGY 216"],
+                ]],
+            supporting: ["18.0 Elective Units"]
         },
         "Cognitive Science": {
             primary: "#6f4979", secondary: "#895A95", tertiary: "#F5F1F7", core:
@@ -114,7 +125,33 @@ export default {
                         ["CISC 352", "CISC 474", "CISC 467"],
                     ]],
                 ]
-            , options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]]
+            , options: [
+                ["LING STREAM", [
+                    ["LING 100", "LING 310", "LING 340", "LING 415"],
+                    ["LING 100", "LING 320", "LING 340", "LING 415"],
+                    ["LING 100", "LING 330", "LING 340", "LING 415"],
+                ]],
+                ["PSYC STREAM", [
+                    ["PSYC 100", "PSYC 221", "PSYC 203", "PSYC 3XX"],
+                    ["PSYC 100", "PSYC 221", "PSYC 271", "PSYC 3XX"],
+                ]
+                ],
+                ["PHIL STREAM", [
+                    ["PHIL 111", "PHIL 250", "PHIL 261"],
+                    ["PHIL 111", "PHIL 250", "PHIL 270"],
+                    ["PHIL 111", "PHIL 250", "PHIL 311"],
+                    ["PHIL 111", "PHIL 250", "PHIL 351"],
+                    ["PHIL 111", "PHIL 250", "PHIL 359"],
+                    ["PHIL 111", "PHIL 250", "PHIL 381"],
+                    ["PHIL 115", "PHIL 250", "PHIL 261"],
+                    ["PHIL 115", "PHIL 250", "PHIL 270"],
+                    ["PHIL 115", "PHIL 250", "PHIL 311"],
+                    ["PHIL 115", "PHIL 250", "PHIL 351"],
+                    ["PHIL 115", "PHIL 250", "PHIL 359"],
+                    ["PHIL 115", "PHIL 250", "PHIL 381"],
+                ]],
+                ["COGS COMP OPTIONS"]
+            ], supporting: ["24.0 Elective Units"]
         },
         "Computer Science": {
             primary: "#002452", secondary: "#003E8F", tertiary: "#E0EEFF", core:
@@ -124,12 +161,53 @@ export default {
             options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]]
         },
         "COCA": {
-            primary: "#327d26", secondary: "#41A332", tertiary: "#EEF9EC", core: ["CISC 251"], options: ["COCA 201",
+            primary: "#327d26", secondary: "#41A332", tertiary: "#EEF9EC", core: ["COCA 201",
                 "CISC 223",
                 "CISC 325",
                 "CISC 352",
                 "CISC 365",
-            ], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]]
+            ], options: [
+                ["COAR STREAM", [
+                    ["ARTH 116", "ARTH 117", "ARTH 4XX", "ARTH 3XX", "ARTH 2XX"],
+                    ["ARTH 116", "ARTH 120", "ARTH 4XX", "ARTH 3XX", "ARTH 2XX"],
+                    ["ARTH 117", "ARTH 120", "ARTH 4XX", "ARTH 3XX", "ARTH 2XX"],
+
+                ]
+                ],
+                ["CODR STREAM", [
+                    ["BADR 100", "BADR 101", "DRAM 200", "DRAM 220", "DRAM 240", "DRAM 241"],
+                    ["DRAM 100", "DRAM 200", "DRAM 220", "DRAM 240", "DRAM 242"],
+                    ["DRAM 100", "DRAM 200", "DRAM 220", "DRAM 240", "DRAM 241"],
+                    ["DRAM 100", "DRAM 200", "DRAM 220", "DRAM 240", "DRAM 242"],
+                    ["DRAM 100", "DRAM 200", "DRAM 220", "DRAM 240", "DRAM 241"],
+                ]],
+                ["COFI STREAM", [
+                    ["BADR 100", "FILM 104", "FILM 206", "FILM 216", "FILM 217", "FILM 218", "FILM 250"],
+                    ["BADR 100", "FILM 104", "FILM 206", "FILM 216", "FILM 217", "FILM 226", "FILM 250"],
+                    ["BADR 100", "FILM 104", "FILM 206", "FILM 216", "FILM 217", "FILM 236", "FILM 250"],
+                    ["BADR 100", "FILM 104", "FILM 206", "FILM 216", "FILM 217", "FILM 240", "FILM 250"],
+                    ["BADR 100", "FILM 104", "FILM 206", "FILM 216", "FILM 217", "FILM 260", "FILM 250"],
+
+                    ["FILM 106", "FILM 104", "FILM 206", "FILM 216", "FILM 217", "FILM 218", "FILM 250"],
+                    ["FILM 106", "FILM 104", "FILM 206", "FILM 216", "FILM 217", "FILM 226", "FILM 250"],
+                    ["FILM 106", "FILM 104", "FILM 206", "FILM 216", "FILM 217", "FILM 236", "FILM 250"],
+                    ["FILM 106", "FILM 104", "FILM 206", "FILM 216", "FILM 217", "FILM 240", "FILM 250"],
+                    ["FILM 106", "FILM 104", "FILM 206", "FILM 216", "FILM 217", "FILM 260", "FILM 250"],
+
+                    ["FILM 110", "FILM 206", "FILM 216", "FILM 217", "FILM 218", "FILM 250"],
+                    ["FILM 110", "FILM 206", "FILM 216", "FILM 217", "FILM 226", "FILM 250"],
+                    ["FILM 110", "FILM 206", "FILM 216", "FILM 217", "FILM 236", "FILM 250"],
+                    ["FILM 110", "FILM 206", "FILM 216", "FILM 217", "FILM 240", "FILM 250"],
+                    ["FILM 110", "FILM 206", "FILM 216", "FILM 217", "FILM 260", "FILM 250"],
+                ]],
+                ["COMU STREAM", [
+                    ["MUSC 104", "MUSC 156", "MUSC 255", "MUSC 191", "MUTH 110", "MUTH 111", "MUSC 210"],
+                    ["MUSC 104", "MUSC 156", "MUSC 255", "MUSC 191", "MUTH 110", "MUTH 111", "MUSC 211"],
+                    ["MUSC 105", "MUSC 156", "MUSC 255", "MUSC 191", "MUTH 110", "MUTH 111", "MUSC 210"],
+                    ["MUSC 105", "MUSC 156", "MUSC 255", "MUSC 191", "MUTH 110", "MUTH 111", "MUSC 211"],
+                ]],
+
+            ], supporting: ["36.0 Elective Units"]
         },
         "COMA": {
             primary: "#a01f62", secondary: "#C52678", tertiary: "#FBECF4", core:
@@ -158,7 +236,7 @@ export default {
                     ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"],
                     ["MATH 221/280", "MATH 221", "MATH 280"],
                 ]
-            , options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]]
+            , options: ["COMA Options"], supporting: ["36.0 Elective Units"]
         },
         "Software Design": {
             primary: "#005c92", secondary: "#007EC8", tertiary: "#E5F6FF", core:
@@ -172,7 +250,7 @@ export default {
                     "CISC 422",
                 ["CISC 322/326", "CISC 322", "CISC 326"],
                 ],
-            options: ["CISC 352"], supporting: ["CISC 102", ["MATH 110/111/112", "MATH 110", "MATH 111", "MATH 112"], ["MATH 120/121/123/124", "MATH 120", "MATH 121", "MATH 123", "MATH 124"]]
+            options: ["SOFT Dev Option", "GAME Dev Option"], supporting: ["12.0 Elective Units"]
         },
     }
 

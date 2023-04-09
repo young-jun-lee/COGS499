@@ -30,13 +30,14 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
     }
   }
   const renderCourses = () => {
+    console.log(courseGroup.length)
     return courseGroup.map((course, index) => {
       const courseName = Array.isArray(course) ? course[0] : course;
       const isCourseTaken = Array.isArray(course) ? course.some((c) => items.includes(c)) : items.includes(course);
 
       const textStrikeThrough = isCourseTaken ? "line-through" : "none";
-      // change the opacity of the text if the course is taken
-      const textColor = isCourseTaken ? `${snap.specialization.colours?.secondary}` : `${snap.specialization.colours?.secondary}`;
+
+
 
       return (
         <List.Item key={courseName} style={{
@@ -46,10 +47,12 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
           <Flex align="center">
             <Checkbox checked={isCourseTaken} readOnly />
             <Text
-              sx={{ fontFamily: 'Greycliff CF, sans-serif' }}
+              sx={(theme) => ({
+                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : `${snap.specialization.colours?.tertiary}`,
+                fontFamily: 'Greycliff CF, sans-serif',
+                color: theme.colorScheme === 'dark' ? `${snap.specialization.colours?.tertiary}` : `${snap.specialization.colours?.secondary}`
+              })}
               ta="center"
-              // color={textColor}
-              color={snap.specialization.colours?.tertiary}
               fz="xl"
               fw={700}
               td={textStrikeThrough}
@@ -73,8 +76,8 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
       <Box
         sx={(theme) => ({
           color: `${snap.specialization.colours?.primary}`,
-          textShadow: "0.05em 0 black, 0 0.05em black, - 0.05e m 0 black,0 - 0.05em black, -0.05em - 0.05em black, -0.05em 0.05em black, 0.05em - 0.05em black, 0.05em 0.05em black",
           padding: theme.spacing.sm,
+          height: "fit-content",
           marginTop: title === "Core" ? 0 : theme.spacing.xs,
           marginBottom: theme.spacing.md,
           border: `5px solid ${snap.specialization.colours?.primary}`,
@@ -100,7 +103,7 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
         <Box
           sx={(theme) => ({
             backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : `${snap.specialization.colours?.tertiary}`,
-            height: '90%',
+            height: '190%',
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,
             width: "95%",
@@ -118,8 +121,9 @@ const SpecCourses: FC<RequiredCourses> = ({ title, specChosen, courseGroup }) =>
               display: "flex",
               flexDirection: "column",
               flexWrap: "wrap",
-              height: 200,
-              // width: title == "Core" ? 700 : 300,
+              minHeight: 200,
+              height: courseGroup.length * 18,
+              justifyContent: "start",
             }}
           >
             {renderCourses()}

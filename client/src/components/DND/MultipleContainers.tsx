@@ -476,7 +476,7 @@ export const MultipleContainers = ({
 
 
 				if (activeContainer !== overContainer) {
-					setItems((items) => {
+					setItems((items: { [x: string]: string | any[]; }) => {
 						const activeItems = items[activeContainer];
 						const overItems = items[overContainer];
 						const overIndex = overItems.findIndex((item: { id: UniqueIdentifier; }) => item.id === overId);

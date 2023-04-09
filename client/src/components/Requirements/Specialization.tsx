@@ -43,15 +43,18 @@ const Specialization: FC<SpecProps> = ({ specChosen }) => {
                                     onClick={() => {
                                         state.specialization.name = specialization;
                                         state.specialization.colours = { primary: specializationFeatures.primary, secondary: specializationFeatures.secondary, tertiary: specializationFeatures.tertiary }
-                                        console.log("colours: ", specializationFeatures)
-                                        // let majorOrSpec="major"
-                                        // HeaderContent.compSpecs.forEach((spec) => {
-                                        //     if (spec === snap.specialization.name) {
-                                        //         majorOrSpec = "specialization";
-                                        //     }
-                                        // })
+                                        // console.log("colours: ", specializationFeatures)
+                                        let majorOrSpec = "major"
+                                        HeaderContent.compSpecs.forEach((spec) => {
+                                            if (spec === snap.specialization.name) {
+                                                majorOrSpec = "specialization";
+                                            }
+                                        })
                                         // state.specialization.commonMajorCore = majorOrSpec === "major" ? JSON.parse(JSON.stringify(specializationFeatures.commonMajorCore)) : JSON.parse(JSON.stringify(specializationFeatures.commonSpecCore));
-                                        // state.specialization.core = specializationFeatures.core;
+                                        console.log(specializationFeatures)
+                                        const specCoreCourses = majorOrSpec === "major" ? JSON.parse(JSON.stringify(HeaderContent.commonMajorCore)) : JSON.parse(JSON.stringify(HeaderContent.commonSpecCore));
+
+                                        state.specialization.core = [...specCoreCourses, ...specializationFeatures.core];
                                         state.specialization.options = specializationFeatures.options;
                                         state.specialization.supporting = specializationFeatures.supporting;
                                         setOpened(false);

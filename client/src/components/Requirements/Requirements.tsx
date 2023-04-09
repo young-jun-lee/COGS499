@@ -17,7 +17,10 @@ interface Requirements {
 const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 }) => {
     const snap = useSnapshot(state)
     const specChosen = snap.specialization.name !== undefined;
-    let majorOrSpec;
+    let majorOrSpec = "major";
+    let coreCourses = undefined;
+    let optionCourses = undefined;
+    let supportingCourses = undefined;
     if (specChosen) {
         // search for the specialization in the list of specializations in HeaderContent
         HeaderContent.compSpecs.forEach((spec) => {
@@ -25,22 +28,31 @@ const Requirements: FC<Requirements> = ({ subheading1, subheading2, subheading3 
                 majorOrSpec = "specialization";
             }
         })
-        majorOrSpec = "major"
+        if (majorOrSpec === "major") {
+            coreCourses = JSON.parse(JSON.stringify(HeaderContent.commonMajorCore));
+            supportingCourses = JSON.parse(JSON.stringify(HeaderContent.commonMajorSupporting));
+        } else {
+            coreCourses = JSON.parse(JSON.stringify(snap.specialization.core));
+            console.log(snap.specialization.core)
+            supportingCourses = JSON.parse(JSON.stringify(snap.specialization.supporting));
+        }
+        optionCourses = JSON.parse(JSON.stringify(snap.specialization.options));
     }
 
-    console.log(majorOrSpec)
-
-    const coreCourses = specChosen ? majorOrSpec === "major" ?
-        JSON.parse(JSON.stringify(HeaderContent.commonMajorCore))
-        :
-        JSON.parse(JSON.stringify(HeaderContent.commonSpecCore)) : undefined;
 
 
-    const optionCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.options)) : undefined;
-    let supportingCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.supporting)) : undefined;
-    if (majorOrSpec === "major") {
-        supportingCourses = JSON.parse(JSON.stringify(HeaderContent.commonMajorSupporting))
-    }
+    // const coreCourses = specChosen ? majorOrSpec === "major" ?
+    // JSON.parse(JSON.stringify(HeaderContent.commonMajorCore))
+    // :
+    // JSON.parse(JSON.stringify(HeaderContent.commonSpecCore)) : undefined;
+    // 
+    // console.log(HeaderContent)
+    // 
+    // const optionCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.options)) : undefined;
+    // let supportingCourses = specChosen ? JSON.parse(JSON.stringify(snap.specialization.supporting)) : undefined;
+    // if (majorOrSpec === "major") {
+    // supportingCourses = JSON.parse(JSON.stringify(HeaderContent.commonMajorSupporting))
+    // }
 
     return (
         <Box>

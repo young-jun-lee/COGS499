@@ -46,7 +46,7 @@ export type Specialization = {
         secondary: string
         tertiary: string
     },
-    core?: string | string[] | string[][]
+    core?: any[]
     options?: string | string[] | string[][]
     supporting?: any[]
 }
